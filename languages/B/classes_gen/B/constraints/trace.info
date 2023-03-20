@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123140:jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
+  <root>
+    <file name="ConstraintsAspectDescriptor.java">
+      <unit at="13,0,35,0" name="B.constraints.ConstraintsAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:20b2a039-18d4-4a83-8d80-f7cf6a23e54d(B.constraints)/2391426422720625138">
+    <file name="Operation_Constraints.java">
+      <node id="2391426422720625138" at="14,34,15,33" concept="8" />
+      <node id="2391426422720625138" at="19,84,20,119" concept="4" />
+      <node id="2391426422720625138" at="20,119,21,22" concept="5" />
+      <node id="2391426422720625138" at="25,0,26,0" concept="6" trace="Operation$W_" />
+      <node id="2391426422720625138" at="14,0,17,0" concept="0" trace="Operation_Constraints#()V" />
+      <node id="2391426422720625138" at="18,0,23,0" concept="3" trace="getSpecifiedProperties#()Ljava/util/Map;" />
+      <scope id="2391426422720625138" at="14,34,15,33" />
+      <scope id="2391426422720625138" at="19,84,21,22">
+        <var name="properties" id="2391426422720625138" />
+      </scope>
+      <scope id="2391426422720625138" at="14,0,17,0" />
+      <scope id="2391426422720625138" at="18,0,23,0" />
+      <unit id="2391426422720625138" at="24,0,27,0" name="B.constraints.Operation_Constraints$CONCEPTS" />
+      <unit id="2391426422720625138" at="13,0,28,0" name="B.constraints.Operation_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:20b2a039-18d4-4a83-8d80-f7cf6a23e54d(B.constraints)/7123863211782970197">
+    <file name="ConstantValuation_Constraints.java">
+      <node id="7123863211782970197" at="20,42,21,41" concept="8" />
+      <node id="7123863211782970198" at="25,59,26,40" concept="8" />
+      <node id="7123863211782970198" at="29,38,30,18" concept="5" />
+      <node id="7123863211782970198" at="32,0,33,0" concept="6" trace="validatePropertyBreakingPoint" />
+      <node id="7123863211782970198" at="34,109,35,99" concept="4" />
+      <node id="7123863211782970198" at="36,53,37,75" concept="1" />
+      <node id="7123863211782970198" at="38,7,39,20" concept="5" />
+      <node id="7123863211782970598" at="41,85,42,63" concept="5" />
+      <node id="7123863211782970197" at="46,84,47,119" concept="4" />
+      <node id="7123863211782970198" at="47,119,48,61" concept="1" />
+      <node id="7123863211782970197" at="48,61,49,22" concept="5" />
+      <node id="7123863211782970197" at="53,0,54,0" concept="6" trace="ConstantValuation$Zz" />
+      <node id="7123863211782970197" at="57,0,58,0" concept="6" trace="name$MnvL" />
+      <node id="7123863211782970197" at="20,0,23,0" concept="0" trace="ConstantValuation_Constraints#()V" />
+      <node id="7123863211782970198" at="25,0,28,0" concept="0" trace="Name_Property#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="7123863211782970198" at="35,99,38,7" concept="2" />
+      <node id="7123863211782970198" at="41,0,44,0" concept="7" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Z" />
+      <node id="7123863211782970198" at="28,0,32,0" concept="3" trace="hasOwnValidator#()Z" />
+      <node id="7123863211782970197" at="45,0,51,0" concept="3" trace="getSpecifiedProperties#()Ljava/util/Map;" />
+      <node id="7123863211782970198" at="33,0,41,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
+      <scope id="7123863211782970197" at="20,42,21,41" />
+      <scope id="7123863211782970198" at="25,59,26,40" />
+      <scope id="7123863211782970198" at="29,38,30,18" />
+      <scope id="7123863211782970198" at="36,53,37,75" />
+      <scope id="7123863211782970299" at="41,85,42,63" />
+      <scope id="7123863211782970197" at="20,0,23,0" />
+      <scope id="7123863211782970198" at="25,0,28,0">
+        <var name="container" id="7123863211782970198" />
+      </scope>
+      <scope id="7123863211782970198" at="41,0,44,0">
+        <var name="node" id="7123863211782970198" />
+        <var name="propertyValue" id="7123863211782970198" />
+      </scope>
+      <scope id="7123863211782970197" at="46,84,49,22">
+        <var name="properties" id="7123863211782970197" />
+      </scope>
+      <scope id="7123863211782970198" at="28,0,32,0" />
+      <scope id="7123863211782970198" at="34,109,39,20">
+        <var name="result" id="7123863211782970198" />
+      </scope>
+      <scope id="7123863211782970197" at="45,0,51,0" />
+      <scope id="7123863211782970198" at="33,0,41,0">
+        <var name="checkingNodeContext" id="7123863211782970198" />
+        <var name="node" id="7123863211782970198" />
+        <var name="propertyValue" id="7123863211782970198" />
+      </scope>
+      <unit id="7123863211782970197" at="52,0,55,0" name="B.constraints.ConstantValuation_Constraints$CONCEPTS" />
+      <unit id="7123863211782970197" at="56,0,59,0" name="B.constraints.ConstantValuation_Constraints$PROPS" />
+      <unit id="7123863211782970198" at="24,0,45,0" name="B.constraints.ConstantValuation_Constraints$Name_Property" />
+      <unit id="7123863211782970197" at="19,0,60,0" name="B.constraints.ConstantValuation_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:20b2a039-18d4-4a83-8d80-f7cf6a23e54d(B.constraints)/9023011303483337086">
+    <file name="BIdentifier_Constraints.java">
+      <node id="9023011303483337086" at="10,36,11,35" concept="8" />
+      <node id="9023011303483337086" at="15,0,16,0" concept="6" trace="BIdentifier$nT" />
+      <node id="9023011303483337086" at="10,0,13,0" concept="0" trace="BIdentifier_Constraints#()V" />
+      <scope id="9023011303483337086" at="10,36,11,35" />
+      <scope id="9023011303483337086" at="10,0,13,0" />
+      <unit id="9023011303483337086" at="14,0,17,0" name="B.constraints.BIdentifier_Constraints$CONCEPTS" />
+      <unit id="9023011303483337086" at="9,0,18,0" name="B.constraints.BIdentifier_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:20b2a039-18d4-4a83-8d80-f7cf6a23e54d(B.constraints)/9023011303483351073">
+    <file name="Machine_Constraints.java">
+      <node id="9023011303483351073" at="20,32,21,31" concept="8" />
+      <node id="7870468911822142177" at="25,59,26,40" concept="8" />
+      <node id="7870468911822142177" at="29,38,30,18" concept="5" />
+      <node id="7870468911822142177" at="32,0,33,0" concept="6" trace="validatePropertyBreakingPoint" />
+      <node id="7870468911822142177" at="34,109,35,99" concept="4" />
+      <node id="7870468911822142177" at="36,53,37,75" concept="1" />
+      <node id="7870468911822142177" at="38,7,39,20" concept="5" />
+      <node id="7870468911822142571" at="41,85,42,61" concept="5" />
+      <node id="9023011303483351073" at="46,84,47,119" concept="4" />
+      <node id="7870468911822142177" at="47,119,48,61" concept="1" />
+      <node id="9023011303483351073" at="48,61,49,22" concept="5" />
+      <node id="9023011303483351073" at="53,0,54,0" concept="6" trace="Machine$e8" />
+      <node id="9023011303483351073" at="57,0,58,0" concept="6" trace="name$MnvL" />
+      <node id="9023011303483351073" at="20,0,23,0" concept="0" trace="Machine_Constraints#()V" />
+      <node id="7870468911822142177" at="25,0,28,0" concept="0" trace="Name_Property#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="7870468911822142177" at="35,99,38,7" concept="2" />
+      <node id="7870468911822142177" at="41,0,44,0" concept="7" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Z" />
+      <node id="7870468911822142177" at="28,0,32,0" concept="3" trace="hasOwnValidator#()Z" />
+      <node id="9023011303483351073" at="45,0,51,0" concept="3" trace="getSpecifiedProperties#()Ljava/util/Map;" />
+      <node id="7870468911822142177" at="33,0,41,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
+      <scope id="9023011303483351073" at="20,32,21,31" />
+      <scope id="7870468911822142177" at="25,59,26,40" />
+      <scope id="7870468911822142177" at="29,38,30,18" />
+      <scope id="7870468911822142177" at="36,53,37,75" />
+      <scope id="7870468911822142227" at="41,85,42,61" />
+      <scope id="9023011303483351073" at="20,0,23,0" />
+      <scope id="7870468911822142177" at="25,0,28,0">
+        <var name="container" id="7870468911822142177" />
+      </scope>
+      <scope id="7870468911822142177" at="41,0,44,0">
+        <var name="node" id="7870468911822142177" />
+        <var name="propertyValue" id="7870468911822142177" />
+      </scope>
+      <scope id="9023011303483351073" at="46,84,49,22">
+        <var name="properties" id="9023011303483351073" />
+      </scope>
+      <scope id="7870468911822142177" at="28,0,32,0" />
+      <scope id="7870468911822142177" at="34,109,39,20">
+        <var name="result" id="7870468911822142177" />
+      </scope>
+      <scope id="9023011303483351073" at="45,0,51,0" />
+      <scope id="7870468911822142177" at="33,0,41,0">
+        <var name="checkingNodeContext" id="7870468911822142177" />
+        <var name="node" id="7870468911822142177" />
+        <var name="propertyValue" id="7870468911822142177" />
+      </scope>
+      <unit id="9023011303483351073" at="52,0,55,0" name="B.constraints.Machine_Constraints$CONCEPTS" />
+      <unit id="9023011303483351073" at="56,0,59,0" name="B.constraints.Machine_Constraints$PROPS" />
+      <unit id="7870468911822142177" at="24,0,45,0" name="B.constraints.Machine_Constraints$Name_Property" />
+      <unit id="9023011303483351073" at="19,0,60,0" name="B.constraints.Machine_Constraints" />
+    </file>
+  </root>
+</debug-info>
+

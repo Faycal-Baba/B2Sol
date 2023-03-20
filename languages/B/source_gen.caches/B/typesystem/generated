@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product version="3" modelHash="-e5k3t283q6dpzay3heeefeqiv6xndh0">
+  <files names="TypesystemDescriptor.java:typeof_BBalanceOf_InferenceRule.java:typeof_BBinaryExpression_InferenceRule.java:typeof_BFalseExpression_InferenceRule.java:typeof_BIntegerLiteral_InferenceRule.java:typeof_BLogicalExpression_InferenceRule.java:typeof_BSender_InferenceRule.java:typeof_BStringLiteral_InferenceRule.java:typeof_BTrueExpression_InferenceRule.java:typeof_BValue_InferenceRule.java" />
+</product>
+
