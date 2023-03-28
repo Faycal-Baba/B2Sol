@@ -401,7 +401,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("B.structure.BExpression", 0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L);
     b.origin("r:d2874149-b575-42a9-9e66-bd8f0639a7d2(B.structure)/9023011303483351061");
     b.version(2);
-    b.property("value", 0x7d382cf97c75a016L).type(PrimitiveTypeId.INTEGER).origin("9023011303483351062").done();
+    b.property("value", 0x7d382cf97c75a016L).type(PrimitiveTypeId.STRING).origin("9023011303483351062").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForBLessThanExpression() {

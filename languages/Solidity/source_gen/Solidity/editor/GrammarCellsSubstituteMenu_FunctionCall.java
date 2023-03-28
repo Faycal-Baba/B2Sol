@@ -18,15 +18,15 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-public class GrammarCellsSubstituteMenu_FunctioCall extends SubstituteMenuBase {
-  public GrammarCellsSubstituteMenu_FunctioCall() {
+public class GrammarCellsSubstituteMenu_FunctionCall extends SubstituteMenuBase {
+  public GrammarCellsSubstituteMenu_FunctionCall() {
     super(true);
   }
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new GrammarCellsSubstituteMenuPart_dg3k0s_a());
+    result.add(new GrammarCellsSubstituteMenuPart_qihtq1_a());
     return result;
   }
 
@@ -34,7 +34,7 @@ public class GrammarCellsSubstituteMenu_FunctioCall extends SubstituteMenuBase {
   @Override
   public List<SubstituteMenuItem> createMenuItems(@NotNull SubstituteMenuContext context) {
     context.getEditorMenuTrace().pushTraceInfo();
-    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("contribution to the " + "default substitute menu for " + "FunctioCall", null));
+    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("contribution to the " + "default substitute menu for " + "FunctionCall", null));
     try {
       return super.createMenuItems(context);
     } finally {
@@ -43,18 +43,18 @@ public class GrammarCellsSubstituteMenu_FunctioCall extends SubstituteMenuBase {
   }
 
 
-  private class GrammarCellsSubstituteMenuPart_dg3k0s_a extends GrammarCellsSubstituteMenuPart {
+  private class GrammarCellsSubstituteMenuPart_qihtq1_a extends GrammarCellsSubstituteMenuPart {
     @Override
     public SModule getModule(SRepository repository) {
       return PersistenceFacade.getInstance().createModuleReference("f72d3202-8a45-41ad-bb61-2369f7191040(Solidity)").resolve(repository);
     }
     @Override
     public SAbstractConcept getExpectedOutputConcept() {
-      return CONCEPTS.FunctioCall$gL;
+      return CONCEPTS.FunctionCall$gL;
     }
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept FunctioCall$gL = MetaAdapterFactory.getConcept(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c6995cf507L, "Solidity.structure.FunctioCall");
+    /*package*/ static final SConcept FunctionCall$gL = MetaAdapterFactory.getConcept(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c6995cf507L, "Solidity.structure.FunctionCall");
   }
 }

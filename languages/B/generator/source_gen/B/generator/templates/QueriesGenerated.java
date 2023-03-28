@@ -67,7 +67,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_2_0(final PropertyMacroContext _context) {
-    return SPropertyOperations.getInteger(_context.getNode(), PROPS.value$HeKV);
+    return SPropertyOperations.getString(_context.getNode(), PROPS.value$HeKV);
   }
   public static Object propertyMacro_GetValue_2_1(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.value$Hfvr);
@@ -249,21 +249,15 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.name$Bgnm);
   }
   public static SNode sourceNodeQuery_8_0(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.expr$PKyr);
-  }
-  public static SNode sourceNodeQuery_8_1(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.name$3HGV);
   }
-  public static SNode sourceNodeQuery_8_2(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_8_1(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.set$YcdO);
   }
   public static SNode sourceNodeQuery_9_0(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.expr$PKyr);
-  }
-  public static SNode sourceNodeQuery_9_1(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.name$3HGV);
   }
-  public static SNode sourceNodeQuery_9_2(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_9_1(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.set$YcdO);
   }
   public static SNode sourceNodeQuery_10_0(final SourceSubstituteMacroNodeContext _context) {
@@ -324,10 +318,10 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.typingPredicates$4o75);
   }
   public static Iterable<SNode> sourceNodesQuery_9_0(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), LINKS.preconditions$4p39);
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.typingPredicates$4o75);
   }
   public static Iterable<SNode> sourceNodesQuery_9_1(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), LINKS.typingPredicates$4o75);
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.preconditions$4p39);
   }
   public static Iterable<SNode> sourceNodesQuery_9_2(final SourceSubstituteMacroNodesContext _context) {
     for (SNode e : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.body$4v9z))) {
@@ -433,10 +427,8 @@ public class QueriesGenerated extends QueryProviderBase {
     snqMethods.put("7870468911822780255", new SNQ(i++));
     snqMethods.put("7870468911822780570", new SNQ(i++));
     snqMethods.put("7123863211782676926", new SNQ(i++));
-    snqMethods.put("7123863211778720197", new SNQ(i++));
     snqMethods.put("1931527332608088770", new SNQ(i++));
     snqMethods.put("1931527332608088778", new SNQ(i++));
-    snqMethods.put("7123863211778714254", new SNQ(i++));
     snqMethods.put("7222035348494302904", new SNQ(i++));
     snqMethods.put("7222035348494301974", new SNQ(i++));
     snqMethods.put("7123863211779703041", new SNQ(i++));
@@ -563,16 +555,12 @@ public class QueriesGenerated extends QueryProviderBase {
         case 52:
           return QueriesGenerated.sourceNodeQuery_8_1(ctx);
         case 53:
-          return QueriesGenerated.sourceNodeQuery_8_2(ctx);
-        case 54:
           return QueriesGenerated.sourceNodeQuery_9_0(ctx);
-        case 55:
+        case 54:
           return QueriesGenerated.sourceNodeQuery_9_1(ctx);
-        case 56:
-          return QueriesGenerated.sourceNodeQuery_9_2(ctx);
-        case 57:
+        case 55:
           return QueriesGenerated.sourceNodeQuery_10_0(ctx);
-        case 58:
+        case 56:
           return QueriesGenerated.sourceNodeQuery_10_1(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
@@ -583,22 +571,22 @@ public class QueriesGenerated extends QueryProviderBase {
   {
     int i = 0;
     snsqMethods.put("7870468911822615938", new SNsQ(i++));
-    snsqMethods.put("7222035348493988825", new SNsQ(i++));
+    snsqMethods.put("3457966855060328389", new SNsQ(i++));
     snsqMethods.put("7870468911828088173", new SNsQ(i++));
     snsqMethods.put("7123863211782968017", new SNsQ(i++));
     snsqMethods.put("7870468911828088812", new SNsQ(i++));
     snsqMethods.put("7870468911828091226", new SNsQ(i++));
-    snsqMethods.put("7123863211779354836", new SNsQ(i++));
-    snsqMethods.put("7123863211779355087", new SNsQ(i++));
-    snsqMethods.put("7123863211779338052", new SNsQ(i++));
+    snsqMethods.put("3457966855060326441", new SNsQ(i++));
+    snsqMethods.put("3457966855060327607", new SNsQ(i++));
+    snsqMethods.put("3457966855060327907", new SNsQ(i++));
     snsqMethods.put("7123863211779337730", new SNsQ(i++));
     snsqMethods.put("4400130971601402884", new SNsQ(i++));
     snsqMethods.put("7123863211783977179", new SNsQ(i++));
-    snsqMethods.put("7123863211778720190", new SNsQ(i++));
+    snsqMethods.put("4108299499034028548", new SNsQ(i++));
     snsqMethods.put("7123863211778723194", new SNsQ(i++));
     snsqMethods.put("1931527332608088785", new SNsQ(i++));
-    snsqMethods.put("7123863211778713627", new SNsQ(i++));
     snsqMethods.put("7222035348494301288", new SNsQ(i++));
+    snsqMethods.put("4108299499033995147", new SNsQ(i++));
     snsqMethods.put("7123863211778716813", new SNsQ(i++));
   }
   @NotNull

@@ -25,6 +25,78 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
+      case LanguageConceptSwitch.AssignementStatement:
+        return new AssignementStatement_TextGen();
+      case LanguageConceptSwitch.BalanceOf:
+        return new BalanceOf_TextGen();
+      case LanguageConceptSwitch.BinaryExpression:
+        return new BinaryExpression_TextGen();
+      case LanguageConceptSwitch.Constructor:
+        return new Constructor_TextGen();
+      case LanguageConceptSwitch.Contract:
+        return new Contract_TextGen();
+      case LanguageConceptSwitch.EmptyLine:
+        return new EmptyLine_TextGen();
+      case LanguageConceptSwitch.EmptySstatement:
+        return new EmptySstatement_TextGen();
+      case LanguageConceptSwitch.EnumDefinition:
+        return new EnumDefinition_TextGen();
+      case LanguageConceptSwitch.FalseExpression:
+        return new FalseExpression_TextGen();
+      case LanguageConceptSwitch.FunctionCall:
+        return new FunctionCall_TextGen();
+      case LanguageConceptSwitch.FunctionDefinition:
+        return new FunctionDefinition_TextGen();
+      case LanguageConceptSwitch.Identifier:
+        return new Identifier_TextGen();
+      case LanguageConceptSwitch.IfStatement:
+        return new IfStatement_TextGen();
+      case LanguageConceptSwitch.ImmuableStateVariableDeclaration:
+        return new ImmuableStateVariableDeclaration_TextGen();
+      case LanguageConceptSwitch.IntegerLiteral:
+        return new IntegerLiteral_TextGen();
+      case LanguageConceptSwitch.Mapping:
+        return new Mapping_TextGen();
+      case LanguageConceptSwitch.Minusminus:
+        return new Minusminus_TextGen();
+      case LanguageConceptSwitch.NotExpression:
+        return new NotExpression_TextGen();
+      case LanguageConceptSwitch.Parameter:
+        return new Parameter_TextGen();
+      case LanguageConceptSwitch.ParameterList:
+        return new ParameterList_TextGen();
+      case LanguageConceptSwitch.PayableFunctionDefinition:
+        return new PayableFunctionDefinition_TextGen();
+      case LanguageConceptSwitch.Plusplus:
+        return new Plusplus_TextGen();
+      case LanguageConceptSwitch.RequireStatement:
+        return new RequireStatement_TextGen();
+      case LanguageConceptSwitch.ReturnStatement:
+        return new ReturnStatement_TextGen();
+      case LanguageConceptSwitch.SolidityGlobalVariables:
+        return new SolidityGlobalVariables_TextGen();
+      case LanguageConceptSwitch.StateVariableDeclaration:
+        return new StateVariableDeclaration_TextGen();
+      case LanguageConceptSwitch.StatementBlock:
+        return new StatementBlock_TextGen();
+      case LanguageConceptSwitch.StringLiteral:
+        return new StringLiteral_TextGen();
+      case LanguageConceptSwitch.StructDefinition:
+        return new StructDefinition_TextGen();
+      case LanguageConceptSwitch.TransferStatement:
+        return new TransferStatement_TextGen();
+      case LanguageConceptSwitch.TrueExpression:
+        return new TrueExpression_TextGen();
+      case LanguageConceptSwitch.Type:
+        return new Type_TextGen();
+      case LanguageConceptSwitch.UserType:
+        return new UserType_TextGen();
+      case LanguageConceptSwitch.WhileStatement:
+        return new WhileStatement_TextGen();
+      case LanguageConceptSwitch.mapping_element:
+        return new mapping_element_TextGen();
+      case LanguageConceptSwitch.structMemberList:
+        return new structMemberList_TextGen();
     }
     return null;
   }
@@ -41,7 +113,7 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
     }
   }
   private static String getFileName_Contract(SNode node) {
-    return SPropertyOperations.getString(node, PROPS.name$MnvL);
+    return SPropertyOperations.getString(node, PROPS.name$MnvL) + "-contract";
   }
   private static String getFileExtension_Contract(SNode node) {
     return "sol";

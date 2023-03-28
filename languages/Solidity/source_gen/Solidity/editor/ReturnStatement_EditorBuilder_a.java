@@ -68,10 +68,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_evgwyu_a1a() {
-    return SLinkOperations.getChildren(myNode, LINKS.expr$8Y2n).size() > 1;
+    return SLinkOperations.getChildren(myNode, LINKS.returns$8Y2n).size() > 1;
   }
   private boolean nodeCondition_evgwyu_a3a() {
-    return SLinkOperations.getChildren(myNode, LINKS.expr$8Y2n).size() > 1;
+    return SLinkOperations.getChildren(myNode, LINKS.returns$8Y2n).size() > 1;
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "return");
@@ -92,17 +92,17 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new exprListHandler_evgwyu_c0(myNode, getEditorContext());
+    AbstractCellListHandler handler = new returnsListHandler_evgwyu_c0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Horizontal(), false);
-    editorCell.setCellId("refNodeList_expr");
+    editorCell.setCellId("refNodeList_returns");
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class exprListHandler_evgwyu_c0 extends RefNodeListHandler {
+  private static class returnsListHandler_evgwyu_c0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public exprListHandler_evgwyu_c0(SNode ownerNode, EditorContext context) {
+    public returnsListHandler_evgwyu_c0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -112,7 +112,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.expr$8Y2n;
+      return LINKS.returns$8Y2n;
     }
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.Expression$NH;
@@ -125,7 +125,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(exprListHandler_evgwyu_c0.this.getNode(), LINKS.expr$8Y2n));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(returnsListHandler_evgwyu_c0.this.getNode(), LINKS.returns$8Y2n));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -198,7 +198,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink expr$8Y2n = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be402fL, 0x6d3985c698be4030L, "expr");
+    /*package*/ static final SContainmentLink returns$8Y2n = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be402fL, 0x6d3985c698be4030L, "returns");
   }
 
   private static final class CONCEPTS {

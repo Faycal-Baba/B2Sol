@@ -18,6 +18,9 @@
         <child id="9023011303483850077" name="condition" index="1hh6$" />
         <child id="9023011303483853277" name="IfTrueBranch" index="1hmk$" />
       </concept>
+      <concept id="9023011303483850062" name="B.structure.Predicate" flags="ng" index="1hh6R">
+        <child id="9023011303483850063" name="expr" index="1hh6Q" />
+      </concept>
       <concept id="9023011303483849989" name="B.structure.BecomesSubstitution" flags="ng" index="1hh7W">
         <child id="9023011303483849996" name="lhs" index="1hh7P" />
         <child id="9023011303483849998" name="expr" index="1hh7R" />
@@ -48,8 +51,10 @@
         <child id="7123863211779638645" name="antecedant" index="24h4UH" />
       </concept>
       <concept id="7870468911827540729" name="B.structure.Initialisation" flags="ng" index="3O1tWZ" />
+      <concept id="7870468911819080391" name="B.structure.BEqualExpression" flags="ng" index="3PwGs1" />
       <concept id="7870468911818787859" name="B.structure.BSender" flags="ng" index="3PzOBl" />
       <concept id="7870468911817957430" name="B.structure.Operation" flags="ng" index="3P$UnK">
+        <child id="7870468911818188445" name="preconditions" index="3P_2dr" />
         <child id="7870468911818188441" name="typingPredicates" index="3P_2dv" />
         <child id="7870468911818188450" name="body" index="3P_2d$" />
       </concept>
@@ -74,6 +79,14 @@
     <property role="TrG5h" value="dummy" />
     <node concept="3P$UnK" id="6bt2XzAD2$C" role="3PypM9">
       <property role="TrG5h" value="operationName" />
+      <node concept="1hh6R" id="3$3Ba2IPk6a" role="3P_2dr">
+        <node concept="3PwGs1" id="3$3Ba2IPk6l" role="1hh6Q">
+          <node concept="3PzOBl" id="3$3Ba2IPk6O" role="1jkms" />
+          <node concept="1jkm0" id="3$3Ba2IPk7a" role="1jkmu">
+            <property role="TrG5h" value="owner" />
+          </node>
+        </node>
+      </node>
       <node concept="3PMcwv" id="6bt2XzAD2$E" role="3P_2dv">
         <node concept="1jkm0" id="6bt2XzAD2$F" role="1g3Un">
           <property role="TrG5h" value="input_parameter" />

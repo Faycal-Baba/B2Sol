@@ -39,7 +39,7 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
       case 8:
         return Collections.<ConceptEditor>singletonList(new FalseExpression_Editor());
       case 9:
-        return Collections.<ConceptEditor>singletonList(new FunctioCall_Editor());
+        return Collections.<ConceptEditor>singletonList(new FunctionCall_Editor());
       case 10:
         return Collections.<ConceptEditor>singletonList(new FunctionDefinition_Editor());
       case 11:
@@ -166,7 +166,7 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
       case 17:
         return Collections.<SubstituteMenu>singletonList(new GrammarCellsSubstituteMenu_FalseExpression());
       case 18:
-        return Collections.<SubstituteMenu>singletonList(new GrammarCellsSubstituteMenu_FunctioCall());
+        return Collections.<SubstituteMenu>singletonList(new GrammarCellsSubstituteMenu_FunctionCall());
       case 19:
         return Collections.<SubstituteMenu>singletonList(new GrammarCellsSubstituteMenu_FunctionDefinition());
       case 20:

@@ -27,7 +27,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EqualExpression;
   private ConceptPresentation props_Expression;
   private ConceptPresentation props_FalseExpression;
-  private ConceptPresentation props_FunctioCall;
+  private ConceptPresentation props_FunctionCall;
   private ConceptPresentation props_FunctionDefinition;
   private ConceptPresentation props_GreaterThanExpression;
   private ConceptPresentation props_GreaterThanOrEqualExpression;
@@ -200,13 +200,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_FalseExpression = cpb.create();
         }
         return props_FalseExpression;
-      case LanguageConceptSwitch.FunctioCall:
-        if (props_FunctioCall == null) {
+      case LanguageConceptSwitch.FunctionCall:
+        if (props_FunctionCall == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("FunctioCall");
-          props_FunctioCall = cpb.create();
+          cpb.rawPresentation("FunctionCall");
+          props_FunctionCall = cpb.create();
         }
-        return props_FunctioCall;
+        return props_FunctionCall;
       case LanguageConceptSwitch.FunctionDefinition:
         if (props_FunctionDefinition == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

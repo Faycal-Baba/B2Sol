@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="7nwvxyqpjhnyrg36dezvplyh973trf1">
-  <files names="ConstraintsAspectDescriptor.java:ContractPart_Constraints.java:Identifier_Constraints.java" />
+<product version="3" modelHash="-2dj73xkg31aj7jtzcg76ah1adwym1lf">
+  <files names="ConstraintsAspectDescriptor.java:ContractPart_Constraints.java:Identifier_Constraints.java:IntegerLiteral_Constraints.java" />
 </product>
 

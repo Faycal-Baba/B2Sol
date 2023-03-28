@@ -27,7 +27,7 @@ public final class LanguageConceptSwitch {
   public static final int EqualExpression = 15;
   public static final int Expression = 16;
   public static final int FalseExpression = 17;
-  public static final int FunctioCall = 18;
+  public static final int FunctionCall = 18;
   public static final int FunctionDefinition = 19;
   public static final int GreaterThanExpression = 20;
   public static final int GreaterThanOrEqualExpression = 21;
@@ -91,7 +91,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x6d3985c698bb42bbL, EqualExpression);
     builder.put(0x6d3985c698bb3f67L, Expression);
     builder.put(0x6d3985c698bb42c5L, FalseExpression);
-    builder.put(0x6d3985c6995cf507L, FunctioCall);
+    builder.put(0x6d3985c6995cf507L, FunctionCall);
     builder.put(0x6d3985c698bfce2aL, FunctionDefinition);
     builder.put(0x6d3985c698bb42b9L, GreaterThanExpression);
     builder.put(0x6d3985c698bb42baL, GreaterThanOrEqualExpression);

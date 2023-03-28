@@ -189,7 +189,7 @@
     <node concept="1TJgyi" id="7OSbf_Wtq0m" role="1TKVEl">
       <property role="IQ2nx" value="9023011303483351062" />
       <property role="TrG5h" value="value" />
-      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
   </node>
   <node concept="1TIwiD" id="7OSbf_Wtq0o">

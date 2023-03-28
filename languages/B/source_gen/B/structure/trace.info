@@ -1555,8 +1555,8 @@
       <node id="9023011303483351061" at="400,34,401,103" concept="0" />
       <node id="9023011303483351061" at="401,103,402,88" concept="0" />
       <node id="9023011303483351061" at="402,88,403,17" concept="0" />
-      <node id="9023011303483351062" at="403,17,404,112" concept="0" />
-      <node id="9023011303483351061" at="404,112,405,22" concept="4" />
+      <node id="9023011303483351062" at="403,17,404,111" concept="0" />
+      <node id="9023011303483351061" at="404,111,405,22" concept="4" />
       <node id="9023011303483351061" at="398,0,407,0" concept="6" trace="createDescriptorForBIntegerLiteral#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="9023011303483351061" at="136,49,137,40" />
       <scope id="9023011303483351061" at="398,73,405,22">

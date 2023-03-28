@@ -31,7 +31,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptEqualExpression = createDescriptorForEqualExpression();
   /*package*/ final ConceptDescriptor myConceptExpression = createDescriptorForExpression();
   /*package*/ final ConceptDescriptor myConceptFalseExpression = createDescriptorForFalseExpression();
-  /*package*/ final ConceptDescriptor myConceptFunctioCall = createDescriptorForFunctioCall();
+  /*package*/ final ConceptDescriptor myConceptFunctionCall = createDescriptorForFunctionCall();
   /*package*/ final ConceptDescriptor myConceptFunctionDefinition = createDescriptorForFunctionDefinition();
   /*package*/ final ConceptDescriptor myConceptGreaterThanExpression = createDescriptorForGreaterThanExpression();
   /*package*/ final ConceptDescriptor myConceptGreaterThanOrEqualExpression = createDescriptorForGreaterThanOrEqualExpression();
@@ -84,12 +84,11 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   @Override
   public void reportDependencies(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.Dependencies deps) {
     deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
-    deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
   }
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAddress, myConceptAndExpression, myConceptArrayElement, myConceptAssignementStatement, myConceptBalanceOf, myConceptBinaryExpression, myConceptBool, myConceptBytes, myConceptConstructor, myConceptContract, myConceptContractPart, myConceptDivExpression, myConceptEmptyLine, myConceptEmptySstatement, myConceptEnumDefinition, myConceptEqualExpression, myConceptExpression, myConceptFalseExpression, myConceptFunctioCall, myConceptFunctionDefinition, myConceptGreaterThanExpression, myConceptGreaterThanOrEqualExpression, myConceptIdentifier, myConceptIfStatement, myConceptImmuableStateVariableDeclaration, myConceptInequalExpression, myConceptInteger, myConceptIntegerLiteral, myConceptLessThanExpression, myConceptLessThanOrEqualExpression, myConceptMapping, myConceptMinusExpression, myConceptMinusminus, myConceptMultExpression, myConceptNotExpression, myConceptOrExpression, myConceptParameter, myConceptParameterList, myConceptPayableFunctionDefinition, myConceptPlusExpression, myConceptPlusplus, myConceptRequireStatement, myConceptReturnStatement, myConceptSender, myConceptSolidityGlobalVariables, myConceptStateVariableDeclaration, myConceptStatement, myConceptStatementBlock, myConceptString, myConceptStringLiteral, myConceptStructDefinition, myConceptStructMemberDeclaration, myConceptTransferStatement, myConceptTrueExpression, myConceptType, myConceptUInteger, myConceptUserType, myConceptValue, myConceptWhileStatement, myConceptmapping_element, myConceptstructMemberList);
+    return Arrays.asList(myConceptAddress, myConceptAndExpression, myConceptArrayElement, myConceptAssignementStatement, myConceptBalanceOf, myConceptBinaryExpression, myConceptBool, myConceptBytes, myConceptConstructor, myConceptContract, myConceptContractPart, myConceptDivExpression, myConceptEmptyLine, myConceptEmptySstatement, myConceptEnumDefinition, myConceptEqualExpression, myConceptExpression, myConceptFalseExpression, myConceptFunctionCall, myConceptFunctionDefinition, myConceptGreaterThanExpression, myConceptGreaterThanOrEqualExpression, myConceptIdentifier, myConceptIfStatement, myConceptImmuableStateVariableDeclaration, myConceptInequalExpression, myConceptInteger, myConceptIntegerLiteral, myConceptLessThanExpression, myConceptLessThanOrEqualExpression, myConceptMapping, myConceptMinusExpression, myConceptMinusminus, myConceptMultExpression, myConceptNotExpression, myConceptOrExpression, myConceptParameter, myConceptParameterList, myConceptPayableFunctionDefinition, myConceptPlusExpression, myConceptPlusplus, myConceptRequireStatement, myConceptReturnStatement, myConceptSender, myConceptSolidityGlobalVariables, myConceptStateVariableDeclaration, myConceptStatement, myConceptStatementBlock, myConceptString, myConceptStringLiteral, myConceptStructDefinition, myConceptStructMemberDeclaration, myConceptTransferStatement, myConceptTrueExpression, myConceptType, myConceptUInteger, myConceptUserType, myConceptValue, myConceptWhileStatement, myConceptmapping_element, myConceptstructMemberList);
   }
 
   @Override
@@ -132,8 +131,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptExpression;
       case LanguageConceptSwitch.FalseExpression:
         return myConceptFalseExpression;
-      case LanguageConceptSwitch.FunctioCall:
-        return myConceptFunctioCall;
+      case LanguageConceptSwitch.FunctionCall:
+        return myConceptFunctionCall;
       case LanguageConceptSwitch.FunctionDefinition:
         return myConceptFunctionDefinition;
       case LanguageConceptSwitch.GreaterThanExpression:
@@ -311,8 +310,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("Solidity.structure.ContractPart", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bd882eL);
     b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/7870468911819275704");
     b.version(2);
-    b.aggregate("inputParameters", 0x6d3985c698be63d8L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL).optional(true).ordered(true).multiple(true).origin("7870468911819285464").done();
-    b.aggregate("body", 0x6d3985c698be63faL).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x1ace29e015db0f9cL).optional(false).ordered(true).multiple(false).origin("7870468911819285498").done();
+    b.aggregate("inputParameters", 0x6d3985c698be63d8L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be6347L).optional(true).ordered(true).multiple(true).origin("7870468911819285464").done();
+    b.aggregate("body", 0x6d3985c698be63faL).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be3dc5L).optional(true).ordered(true).multiple(true).origin("7870468911819285498").done();
     b.alias("constructor");
     return b.create();
   }
@@ -394,8 +393,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("false");
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForFunctioCall() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Solidity", "FunctioCall", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c6995cf507L);
+  private static ConceptDescriptor createDescriptorForFunctionCall() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Solidity", "FunctionCall", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c6995cf507L);
     b.class_(false, false, false);
     b.super_("Solidity.structure.Expression", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb3f67L);
     b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/7870468911829677319");
@@ -450,8 +449,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/7870468911819275780");
     b.version(2);
     b.aggregate("condition", 0x6d3985c698be3e05L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb3f67L).optional(false).ordered(true).multiple(false).origin("7870468911819275781").done();
-    b.aggregate("ifTrueBranch", 0x6d3985c698be3e07L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x1ace29e015db0f9cL).optional(false).ordered(true).multiple(false).origin("7870468911819275783").done();
-    b.aggregate("elseBeanch", 0x1ace29e015db1494L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x1ace29e015db0f9cL).optional(true).ordered(true).multiple(false).origin("1931527332604613780").done();
+    b.aggregate("ifTrueBranch", 0x6d3985c698be3e07L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be3dc5L).optional(true).ordered(true).multiple(true).origin("7870468911819275783").done();
+    b.aggregate("elseBeanch", 0x1ace29e015db1494L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be3dc5L).optional(true).ordered(true).multiple(true).origin("1931527332604613780").done();
     b.alias("if");
     return b.create();
   }
@@ -487,7 +486,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("Solidity.structure.Expression", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb3f67L);
     b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/7870468911819080385");
     b.version(2);
-    b.property("value", 0x6d3985c698bb42c2L).type(PrimitiveTypeId.INTEGER).origin("7870468911819080386").done();
+    b.property("value", 0x6d3985c698bb42c2L).type(PrimitiveTypeId.STRING).origin("7870468911819080386").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForLessThanExpression() {
@@ -628,7 +627,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("Solidity.structure.Statement", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be3dc5L);
     b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/7870468911819276335");
     b.version(2);
-    b.aggregate("expr", 0x6d3985c698be4030L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb3f67L).optional(false).ordered(true).multiple(true).origin("7870468911819276336").done();
+    b.aggregate("returns", 0x6d3985c698be4030L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb3f67L).optional(false).ordered(true).multiple(true).origin("7870468911819276336").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForSender() {

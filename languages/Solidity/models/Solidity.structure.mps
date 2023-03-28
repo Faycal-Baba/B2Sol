@@ -7,7 +7,6 @@
   </languages>
   <imports>
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
-    <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -182,7 +181,7 @@
     <node concept="1TJgyi" id="6OTxsqoIOb2" role="1TKVEl">
       <property role="IQ2nx" value="7870468911819080386" />
       <property role="TrG5h" value="value" />
-      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
   </node>
   <node concept="1TIwiD" id="6OTxsqoIOb4">
@@ -354,14 +353,14 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="inputParameters" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
-      <ref role="20lvS9" to="tpee:fz3uBXI" resolve="VariableDeclaration" />
+      <ref role="20lvS9" node="6OTxsqoJAd7" resolve="Parameter" />
     </node>
     <node concept="1TJgyj" id="6OTxsqoJAfU" role="1TKVEi">
       <property role="IQ2ns" value="7870468911819285498" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="body" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="1Feau0lQKYs" resolve="StatementBlock" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="6OTxsqoJzR5" resolve="Statement" />
     </node>
   </node>
   <node concept="1TIwiD" id="6OTxsqoJzR5">
@@ -409,14 +408,15 @@
       <property role="IQ2ns" value="7870468911819275783" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="ifTrueBranch" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="1Feau0lQKYs" resolve="StatementBlock" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="6OTxsqoJzR5" resolve="Statement" />
     </node>
     <node concept="1TJgyj" id="1Feau0lQLik" role="1TKVEi">
       <property role="IQ2ns" value="1931527332604613780" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="elseBeanch" />
-      <ref role="20lvS9" node="1Feau0lQKYs" resolve="StatementBlock" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="6OTxsqoJzR5" resolve="Statement" />
     </node>
   </node>
   <node concept="1TIwiD" id="6OTxsqoJzYD">
@@ -448,7 +448,7 @@
     <node concept="1TJgyj" id="6OTxsqoJ$0K" role="1TKVEi">
       <property role="IQ2ns" value="7870468911819276336" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="expr" />
+      <property role="20kJfa" value="returns" />
       <property role="20lbJX" value="fLJekj6/_1__n" />
       <ref role="20lvS9" node="6OTxsqoINXB" resolve="Expression" />
     </node>
@@ -605,7 +605,7 @@
   <node concept="1TIwiD" id="6OTxsqpnfk7">
     <property role="EcuMT" value="7870468911829677319" />
     <property role="3GE5qa" value="expressions" />
-    <property role="TrG5h" value="FunctioCall" />
+    <property role="TrG5h" value="FunctionCall" />
     <ref role="1TJDcQ" node="6OTxsqoINXB" resolve="Expression" />
     <node concept="1TJgyj" id="6OTxsqpnfk8" role="1TKVEi">
       <property role="IQ2ns" value="7870468911829677320" />

@@ -22,9 +22,11 @@ public class ConstraintsAspectDescriptor extends BaseConstraintsAspectDescriptor
         return new ContractPart_Constraints();
       case 1:
         return new Identifier_Constraints();
+      case 2:
+        return new IntegerLiteral_Constraints();
       default:
     }
     return new BaseConstraintsDescriptor(concept);
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bd882eL), MetaIdFactory.conceptId(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb42beL)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bd882eL), MetaIdFactory.conceptId(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb42beL), MetaIdFactory.conceptId(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb42c1L)).seal();
 }

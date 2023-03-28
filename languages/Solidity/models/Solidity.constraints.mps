@@ -110,5 +110,27 @@
       </node>
     </node>
   </node>
+  <node concept="1M2fIO" id="6IYvSOlVqyd">
+    <property role="3GE5qa" value="expressions" />
+    <ref role="1M2myG" to="lab4:6OTxsqoIOb1" resolve="IntegerLiteral" />
+    <node concept="EnEH3" id="6IYvSOlVqye" role="1MhHOB">
+      <ref role="EomxK" to="lab4:6OTxsqoIOb2" resolve="value" />
+      <node concept="QB0g5" id="6IYvSOlVqzQ" role="QCWH9">
+        <node concept="3clFbS" id="6IYvSOlVqzR" role="2VODD2">
+          <node concept="3clFbF" id="6IYvSOlVqC$" role="3cqZAp">
+            <node concept="2OqwBi" id="6IYvSOlVqYX" role="3clFbG">
+              <node concept="1Wqviy" id="6IYvSOlVqCz" role="2Oq$k0" />
+              <node concept="liA8E" id="6IYvSOlVrey" role="2OqNvi">
+                <ref role="37wK5l" to="wyt6:~String.matches(java.lang.String)" resolve="matches" />
+                <node concept="Xl_RD" id="6IYvSOlVrf$" role="37wK5m">
+                  <property role="Xl_RC" value="([-+]?[1-9][0-9]*)|0" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 
