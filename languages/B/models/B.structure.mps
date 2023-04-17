@@ -249,7 +249,7 @@
     <node concept="1TJgyj" id="6bt2XzALIaz" role="1TKVEi">
       <property role="IQ2ns" value="7123863211782628003" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="values" />
+      <property role="20kJfa" value="constantsValuation" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" node="6bt2XzAN1Gb" resolve="ConstantValuation" />
     </node>
@@ -859,6 +859,13 @@
     <node concept="PrWs8" id="6bt2XzAN1Gc" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
+  </node>
+  <node concept="1TIwiD" id="mRvs4ib9s1">
+    <property role="EcuMT" value="411936159114761985" />
+    <property role="3GE5qa" value="expressions.solidity global variables" />
+    <property role="TrG5h" value="THIS" />
+    <property role="34LRSv" value="THIS" />
+    <ref role="1TJDcQ" node="6OTxsqoHGKf" resolve="SolidityGlobalVariables" />
   </node>
 </model>
 

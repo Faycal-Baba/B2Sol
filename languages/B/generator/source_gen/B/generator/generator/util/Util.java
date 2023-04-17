@@ -65,4 +65,8 @@ public class Util {
     }
     return false;
   }
+  public static void clearMemory() {
+    structCounter = 1;
+    structNames = MapSequence.fromMap(new HashMap<SNode, String>());
+  }
 }

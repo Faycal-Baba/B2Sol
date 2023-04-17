@@ -15,6 +15,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_AssignementStatement;
   private ConceptPresentation props_BalanceOf;
   private ConceptPresentation props_BinaryExpression;
+  private ConceptPresentation props_BlockComment;
   private ConceptPresentation props_Bool;
   private ConceptPresentation props_Bytes;
   private ConceptPresentation props_Constructor;
@@ -39,6 +40,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IntegerLiteral;
   private ConceptPresentation props_LessThanExpression;
   private ConceptPresentation props_LessThanOrEqualExpression;
+  private ConceptPresentation props_LineComment;
   private ConceptPresentation props_Mapping;
   private ConceptPresentation props_MinusExpression;
   private ConceptPresentation props_Minusminus;
@@ -70,6 +72,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_WhileStatement;
   private ConceptPresentation props_mapping_element;
   private ConceptPresentation props_structMemberList;
+  private ConceptPresentation props_thisExpression;
 
   @Override
   @Nullable
@@ -118,6 +121,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BinaryExpression = cpb.create();
         }
         return props_BinaryExpression;
+      case LanguageConceptSwitch.BlockComment:
+        if (props_BlockComment == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_BlockComment = cpb.create();
+        }
+        return props_BlockComment;
       case LanguageConceptSwitch.Bool:
         if (props_Bool == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -284,6 +294,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_LessThanOrEqualExpression = cpb.create();
         }
         return props_LessThanOrEqualExpression;
+      case LanguageConceptSwitch.LineComment:
+        if (props_LineComment == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_LineComment = cpb.create();
+        }
+        return props_LineComment;
       case LanguageConceptSwitch.Mapping:
         if (props_Mapping == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -498,6 +515,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_structMemberList = cpb.create();
         }
         return props_structMemberList;
+      case LanguageConceptSwitch.thisExpression:
+        if (props_thisExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("this");
+          props_thisExpression = cpb.create();
+        }
+        return props_thisExpression;
     }
     return null;
   }

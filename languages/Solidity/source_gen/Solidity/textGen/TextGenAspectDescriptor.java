@@ -31,6 +31,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new BalanceOf_TextGen();
       case LanguageConceptSwitch.BinaryExpression:
         return new BinaryExpression_TextGen();
+      case LanguageConceptSwitch.BlockComment:
+        return new BlockComment_TextGen();
       case LanguageConceptSwitch.Constructor:
         return new Constructor_TextGen();
       case LanguageConceptSwitch.Contract:
@@ -55,6 +57,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ImmuableStateVariableDeclaration_TextGen();
       case LanguageConceptSwitch.IntegerLiteral:
         return new IntegerLiteral_TextGen();
+      case LanguageConceptSwitch.LineComment:
+        return new LineComment_TextGen();
       case LanguageConceptSwitch.Mapping:
         return new Mapping_TextGen();
       case LanguageConceptSwitch.Minusminus:

@@ -14,6 +14,7 @@ public class AssignementStatement_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.lhs$ADhR));
+    tgs.append(" ");
     tgs.append("=");
     tgs.append(" ");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.rhs$ADJT));

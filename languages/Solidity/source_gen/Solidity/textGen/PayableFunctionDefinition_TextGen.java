@@ -24,7 +24,6 @@ public class PayableFunctionDefinition_TextGen extends TextGenDescriptorBase {
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
     tgs.append(" ");
     tgs.append("(");
-    tgs.append(" ");
     for (SNode elem_25 : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.inputParameters$2eCR))) {
       tgs.appendNode(elem_25);
       if ((SNodeOperations.getNextSibling(elem_25) != null)) {

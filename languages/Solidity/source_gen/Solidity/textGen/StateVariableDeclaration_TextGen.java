@@ -30,6 +30,12 @@ public class StateVariableDeclaration_TextGen extends TextGenDescriptorBase {
       tgs.append(" ");
     }
     tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.varname$yDMo), PROPS.name$MnvL));
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.constant$FcBt) & (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.value$SHaO) != null)) {
+      tgs.append(" ");
+      tgs.append("=");
+      tgs.append(" ");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.value$SHaO));
+    }
     tgs.append(";");
 
   }
@@ -37,6 +43,7 @@ public class StateVariableDeclaration_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink type$jqi9 = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bd8892L, 0x6d3985c698be2d37L, "type");
     /*package*/ static final SContainmentLink varname$yDMo = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bd8892L, 0x6d3985c698fbf492L, "varname");
+    /*package*/ static final SContainmentLink value$SHaO = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bd8892L, 0x62dd0bd8e6af8269L, "value");
   }
 
   private static final class PROPS {

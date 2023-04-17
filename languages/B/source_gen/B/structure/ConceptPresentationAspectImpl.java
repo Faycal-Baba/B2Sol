@@ -61,6 +61,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_SolidityGlobalVariables;
   private ConceptPresentation props_StructSet;
   private ConceptPresentation props_Substitution;
+  private ConceptPresentation props_THIS;
   private ConceptPresentation props_TransferOperation;
   private ConceptPresentation props_TypingPredicate;
   private ConceptPresentation props_TypingPredicateInvariant;
@@ -434,6 +435,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Substitution = cpb.create();
         }
         return props_Substitution;
+      case LanguageConceptSwitch.THIS:
+        if (props_THIS == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("THIS");
+          props_THIS = cpb.create();
+        }
+        return props_THIS;
       case LanguageConceptSwitch.TransferOperation:
         if (props_TransferOperation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

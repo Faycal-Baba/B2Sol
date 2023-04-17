@@ -7,6 +7,9 @@
   <imports />
   <registry>
     <language id="f72d3202-8a45-41ad-bb61-2369f7191040" name="Solidity">
+      <concept id="4012924191460589068" name="Solidity.structure.BlockComment" flags="ng" index="1p9bH6">
+        <property id="4012924191460589076" name="text" index="1p9bHu" />
+      </concept>
       <concept id="7870468911825914347" name="Solidity.structure.RequireStatement" flags="ng" index="3O6wKH">
         <child id="7870468911825914348" name="expr" index="3O6wKE" />
       </concept>
@@ -112,7 +115,9 @@
         <node concept="3PxU$p" id="6IYvSOlOtQF" role="3PxYqc" />
       </node>
     </node>
-    <node concept="3PWWNP" id="6IYvSOlQxOJ" role="3Px0RP" />
+    <node concept="1p9bH6" id="3uKLkDIAx7L" role="3Px0RP">
+      <property role="1p9bHu" value="block comment here  can't jump line tho" />
+    </node>
     <node concept="3PxYqU" id="6IYvSOlR5Y7" role="3Px0RP">
       <property role="TrG5h" value="name" />
       <node concept="3PwGtS" id="6IYvSOlR5Y9" role="3PxYqV">
@@ -141,7 +146,6 @@
         <node concept="3OqDhZ" id="3$3Ba2IMHHZ" role="3PxVwd" />
       </node>
     </node>
-    <node concept="3PWWNP" id="3$3Ba2IMoUc" role="3Px0RP" />
     <node concept="3PxVxY" id="6IYvSOlTOr_" role="3Px0RP">
       <node concept="3PxVDJ" id="2ZXaCyoWlhI" role="3PxYoW">
         <node concept="3PxVwe" id="2ZXaCyoWliK" role="3PxVDE">

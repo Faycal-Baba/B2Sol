@@ -19,6 +19,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptAssignementStatement = createDescriptorForAssignementStatement();
   /*package*/ final ConceptDescriptor myConceptBalanceOf = createDescriptorForBalanceOf();
   /*package*/ final ConceptDescriptor myConceptBinaryExpression = createDescriptorForBinaryExpression();
+  /*package*/ final ConceptDescriptor myConceptBlockComment = createDescriptorForBlockComment();
   /*package*/ final ConceptDescriptor myConceptBool = createDescriptorForBool();
   /*package*/ final ConceptDescriptor myConceptBytes = createDescriptorForBytes();
   /*package*/ final ConceptDescriptor myConceptConstructor = createDescriptorForConstructor();
@@ -43,6 +44,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptIntegerLiteral = createDescriptorForIntegerLiteral();
   /*package*/ final ConceptDescriptor myConceptLessThanExpression = createDescriptorForLessThanExpression();
   /*package*/ final ConceptDescriptor myConceptLessThanOrEqualExpression = createDescriptorForLessThanOrEqualExpression();
+  /*package*/ final ConceptDescriptor myConceptLineComment = createDescriptorForLineComment();
   /*package*/ final ConceptDescriptor myConceptMapping = createDescriptorForMapping();
   /*package*/ final ConceptDescriptor myConceptMinusExpression = createDescriptorForMinusExpression();
   /*package*/ final ConceptDescriptor myConceptMinusminus = createDescriptorForMinusminus();
@@ -74,6 +76,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptWhileStatement = createDescriptorForWhileStatement();
   /*package*/ final ConceptDescriptor myConceptmapping_element = createDescriptorFormapping_element();
   /*package*/ final ConceptDescriptor myConceptstructMemberList = createDescriptorForstructMemberList();
+  /*package*/ final ConceptDescriptor myConceptthisExpression = createDescriptorForthisExpression();
   private final LanguageConceptSwitch myIndexSwitch;
 
   public StructureAspectDescriptor() {
@@ -88,7 +91,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAddress, myConceptAndExpression, myConceptArrayElement, myConceptAssignementStatement, myConceptBalanceOf, myConceptBinaryExpression, myConceptBool, myConceptBytes, myConceptConstructor, myConceptContract, myConceptContractPart, myConceptDivExpression, myConceptEmptyLine, myConceptEmptySstatement, myConceptEnumDefinition, myConceptEqualExpression, myConceptExpression, myConceptFalseExpression, myConceptFunctionCall, myConceptFunctionDefinition, myConceptGreaterThanExpression, myConceptGreaterThanOrEqualExpression, myConceptIdentifier, myConceptIfStatement, myConceptImmuableStateVariableDeclaration, myConceptInequalExpression, myConceptInteger, myConceptIntegerLiteral, myConceptLessThanExpression, myConceptLessThanOrEqualExpression, myConceptMapping, myConceptMinusExpression, myConceptMinusminus, myConceptMultExpression, myConceptNotExpression, myConceptOrExpression, myConceptParameter, myConceptParameterList, myConceptPayableFunctionDefinition, myConceptPlusExpression, myConceptPlusplus, myConceptRequireStatement, myConceptReturnStatement, myConceptSender, myConceptSolidityGlobalVariables, myConceptStateVariableDeclaration, myConceptStatement, myConceptStatementBlock, myConceptString, myConceptStringLiteral, myConceptStructDefinition, myConceptStructMemberDeclaration, myConceptTransferStatement, myConceptTrueExpression, myConceptType, myConceptUInteger, myConceptUserType, myConceptValue, myConceptWhileStatement, myConceptmapping_element, myConceptstructMemberList);
+    return Arrays.asList(myConceptAddress, myConceptAndExpression, myConceptArrayElement, myConceptAssignementStatement, myConceptBalanceOf, myConceptBinaryExpression, myConceptBlockComment, myConceptBool, myConceptBytes, myConceptConstructor, myConceptContract, myConceptContractPart, myConceptDivExpression, myConceptEmptyLine, myConceptEmptySstatement, myConceptEnumDefinition, myConceptEqualExpression, myConceptExpression, myConceptFalseExpression, myConceptFunctionCall, myConceptFunctionDefinition, myConceptGreaterThanExpression, myConceptGreaterThanOrEqualExpression, myConceptIdentifier, myConceptIfStatement, myConceptImmuableStateVariableDeclaration, myConceptInequalExpression, myConceptInteger, myConceptIntegerLiteral, myConceptLessThanExpression, myConceptLessThanOrEqualExpression, myConceptLineComment, myConceptMapping, myConceptMinusExpression, myConceptMinusminus, myConceptMultExpression, myConceptNotExpression, myConceptOrExpression, myConceptParameter, myConceptParameterList, myConceptPayableFunctionDefinition, myConceptPlusExpression, myConceptPlusplus, myConceptRequireStatement, myConceptReturnStatement, myConceptSender, myConceptSolidityGlobalVariables, myConceptStateVariableDeclaration, myConceptStatement, myConceptStatementBlock, myConceptString, myConceptStringLiteral, myConceptStructDefinition, myConceptStructMemberDeclaration, myConceptTransferStatement, myConceptTrueExpression, myConceptType, myConceptUInteger, myConceptUserType, myConceptValue, myConceptWhileStatement, myConceptmapping_element, myConceptstructMemberList, myConceptthisExpression);
   }
 
   @Override
@@ -107,6 +110,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptBalanceOf;
       case LanguageConceptSwitch.BinaryExpression:
         return myConceptBinaryExpression;
+      case LanguageConceptSwitch.BlockComment:
+        return myConceptBlockComment;
       case LanguageConceptSwitch.Bool:
         return myConceptBool;
       case LanguageConceptSwitch.Bytes:
@@ -155,6 +160,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptLessThanExpression;
       case LanguageConceptSwitch.LessThanOrEqualExpression:
         return myConceptLessThanOrEqualExpression;
+      case LanguageConceptSwitch.LineComment:
+        return myConceptLineComment;
       case LanguageConceptSwitch.Mapping:
         return myConceptMapping;
       case LanguageConceptSwitch.MinusExpression:
@@ -217,6 +224,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptmapping_element;
       case LanguageConceptSwitch.structMemberList:
         return myConceptstructMemberList;
+      case LanguageConceptSwitch.thisExpression:
+        return myConceptthisExpression;
       default:
         return null;
     }
@@ -284,6 +293,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.aggregate("left", 0x6d3985c698bb42a5L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb3f67L).optional(false).ordered(true).multiple(false).origin("7870468911819080357").done();
     b.aggregate("right", 0x6d3985c698bb42aaL).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb3f67L).optional(false).ordered(true).multiple(false).origin("7870468911819080362").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForBlockComment() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Solidity", "BlockComment", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x37b0c54a6e947e0cL);
+    b.class_(false, false, false);
+    b.super_("Solidity.structure.ContractPart", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bd882eL);
+    b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/4012924191460589068");
+    b.version(2);
+    b.property("text", 0x37b0c54a6e947e14L).type(PrimitiveTypeId.STRING).origin("4012924191460589076").done();
+    b.alias("/*");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForBool() {
@@ -505,6 +524,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/7870468911819080381");
     b.version(2);
     b.alias("<=");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForLineComment() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Solidity", "LineComment", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x37b0c54a6e88c0ceL);
+    b.class_(false, false, false);
+    b.super_("Solidity.structure.ContractPart", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bd882eL);
+    b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/4012924191459819726");
+    b.version(2);
+    b.property("text", 0x37b0c54a6e88c0cfL).type(PrimitiveTypeId.STRING).origin("4012924191459819727").done();
+    b.alias("//");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForMapping() {
@@ -794,6 +823,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/6941111777068121911");
     b.version(2);
     b.aggregate("members", 0x6053c862ba6cff38L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be6347L).optional(false).ordered(true).multiple(true).origin("6941111777068121912").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForthisExpression() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Solidity", "thisExpression", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x147a49e95acddee8L);
+    b.class_(false, false, false);
+    b.super_("Solidity.structure.SolidityGlobalVariables", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c6995303e5L);
+    b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/1475573094516907752");
+    b.version(2);
+    b.alias("this");
     return b.create();
   }
 }

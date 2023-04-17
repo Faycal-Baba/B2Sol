@@ -14,10 +14,6 @@
         <child id="9023011303483511406" name="name" index="1g3Un" />
         <child id="9023011303483737647" name="set" index="1gUFm" />
       </concept>
-      <concept id="9023011303483850061" name="B.structure.IfSubstitution" flags="ng" index="1hh6O">
-        <child id="9023011303483850077" name="condition" index="1hh6$" />
-        <child id="9023011303483853277" name="IfTrueBranch" index="1hmk$" />
-      </concept>
       <concept id="9023011303483850062" name="B.structure.Predicate" flags="ng" index="1hh6R">
         <child id="9023011303483850063" name="expr" index="1hh6Q" />
       </concept>
@@ -26,7 +22,6 @@
         <child id="9023011303483849998" name="expr" index="1hh7R" />
       </concept>
       <concept id="9023011303483337081" name="B.structure.BIdentifier" flags="ng" index="1jkm0" />
-      <concept id="9023011303483337074" name="B.structure.BLessThanExpression" flags="ng" index="1jkmb" />
       <concept id="9023011303483337068" name="B.structure.BPlusExpression" flags="ng" index="1jkml" />
       <concept id="9023011303483337060" name="B.structure.BBinaryExpression" flags="ng" index="1jkmt">
         <child id="9023011303483337061" name="left" index="1jkms" />
@@ -35,7 +30,7 @@
       <concept id="9023011303483351068" name="B.structure.Machine" flags="ng" index="1joN_">
         <child id="9023011303483774394" name="invariant" index="1h3_3" />
         <child id="9023011303484124185" name="initialisation" index="1Ik3w" />
-        <child id="7123863211782628003" name="values" index="246Y_V" />
+        <child id="7123863211782628003" name="constantsValuation" index="246Y_V" />
         <child id="7870468911818348879" name="operations" index="3PypM9" />
       </concept>
       <concept id="9023011303483351061" name="B.structure.BIntegerLiteral" flags="ng" index="1joNG">
@@ -45,6 +40,7 @@
         <child id="7123863211782970128" name="value" index="244h38" />
         <child id="7123863211782970126" name="set" index="244h3m" />
       </concept>
+      <concept id="411936159114761985" name="B.structure.THIS" flags="ng" index="nAYF0" />
       <concept id="3311339031348211820" name="B.structure.TypingPredicateStructMember" flags="ng" index="F$kOy" />
       <concept id="2942298688394272452" name="B.structure.functionElemnent" flags="ng" index="1o0VJl">
         <child id="7123863211779638643" name="function" index="24h4UF" />
@@ -53,6 +49,9 @@
       <concept id="7870468911827540729" name="B.structure.Initialisation" flags="ng" index="3O1tWZ" />
       <concept id="7870468911819080391" name="B.structure.BEqualExpression" flags="ng" index="3PwGs1" />
       <concept id="7870468911818787859" name="B.structure.BSender" flags="ng" index="3PzOBl" />
+      <concept id="7870468911818795825" name="B.structure.BBalanceOf" flags="ng" index="3PzQVR">
+        <child id="7123863211780838194" name="name" index="24tDzE" />
+      </concept>
       <concept id="7870468911817957430" name="B.structure.Operation" flags="ng" index="3P$UnK">
         <child id="7870468911818188445" name="preconditions" index="3P_2dr" />
         <child id="7870468911818188441" name="typingPredicates" index="3P_2dv" />
@@ -82,8 +81,10 @@
       <node concept="1hh6R" id="3$3Ba2IPk6a" role="3P_2dr">
         <node concept="3PwGs1" id="3$3Ba2IPk6l" role="1hh6Q">
           <node concept="3PzOBl" id="3$3Ba2IPk6O" role="1jkms" />
-          <node concept="1jkm0" id="3$3Ba2IPk7a" role="1jkmu">
-            <property role="TrG5h" value="owner" />
+          <node concept="3PzQVR" id="3UXsQ7ZixBe" role="1jkmu">
+            <node concept="1jkm0" id="3UXsQ7ZixBY" role="24tDzE">
+              <property role="TrG5h" value="THIS" />
+            </node>
           </node>
         </node>
       </node>
@@ -93,25 +94,6 @@
         </node>
         <node concept="1g3U3" id="6bt2XzAD2$K" role="1gUFm" />
       </node>
-      <node concept="1hh6O" id="6bt2XzADaiC" role="3P_2d$">
-        <node concept="1UsZ4V" id="6bt2XzAW37G" role="1hmk$">
-          <node concept="1jkm0" id="6bt2XzAW37H" role="1UsZ4Q">
-            <property role="TrG5h" value="THIS" />
-          </node>
-          <node concept="3PzOBl" id="6bt2XzAW37I" role="1UsZ4K" />
-          <node concept="1joNG" id="6bt2XzAW37J" role="1UsZ3f">
-            <property role="1joNJ" value="25" />
-          </node>
-        </node>
-        <node concept="1jkmb" id="6bt2XzADaiJ" role="1hh6$">
-          <node concept="1joNG" id="6bt2XzAFRnt" role="1jkms">
-            <property role="1joNJ" value="55" />
-          </node>
-          <node concept="1joNG" id="6bt2XzAFRnJ" role="1jkmu">
-            <property role="1joNJ" value="66" />
-          </node>
-        </node>
-      </node>
       <node concept="1hh7W" id="6bt2XzAELy9" role="3P_2d$">
         <node concept="1jkm0" id="6bt2XzAELym" role="1hh7P">
           <property role="TrG5h" value="name" />
@@ -120,13 +102,11 @@
           <property role="TrG5h" value="value" />
         </node>
       </node>
-      <node concept="1UsZ4V" id="6bt2XzAU9qw" role="3P_2d$">
-        <node concept="1jkm0" id="6bt2XzAU9rm" role="1UsZ4Q">
-          <property role="TrG5h" value="THIS" />
-        </node>
-        <node concept="3PzOBl" id="6bt2XzAU9rH" role="1UsZ4K" />
-        <node concept="1joNG" id="6bt2XzAU9rR" role="1UsZ3f">
-          <property role="1joNJ" value="12" />
+      <node concept="1UsZ4V" id="3A0bqL_AZlX" role="3P_2d$">
+        <node concept="nAYF0" id="5u_84evIrCS" role="1UsZ4Q" />
+        <node concept="3PzOBl" id="5u_84evIrDf" role="1UsZ4K" />
+        <node concept="1joNG" id="3A0bqL_AZn0" role="1UsZ3f">
+          <property role="1joNJ" value="1" />
         </node>
       </node>
       <node concept="1hh7W" id="6bt2XzAELyB" role="3P_2d$">
@@ -203,6 +183,50 @@
           <node concept="1g3U2" id="7E1Po1byeuA" role="1gUFm" />
         </node>
       </node>
+    </node>
+    <node concept="3PMcwh" id="3UXsQ7ZixoR" role="1h3_3">
+      <node concept="1jkm0" id="3UXsQ7ZixoS" role="1g3Un">
+        <property role="TrG5h" value="structVariable3" />
+      </node>
+      <node concept="1U$HM7" id="3UXsQ7Zixpl" role="1gUFm">
+        <node concept="F$kOy" id="3UXsQ7Zixpn" role="1U$HM4">
+          <node concept="1jkm0" id="3UXsQ7Zixpp" role="1g3Un">
+            <property role="TrG5h" value="value1" />
+          </node>
+          <node concept="1g3U3" id="3UXsQ7Zixpx" role="1gUFm" />
+        </node>
+        <node concept="F$kOy" id="3UXsQ7Zixp$" role="1U$HM4">
+          <node concept="1jkm0" id="3UXsQ7Zixp_" role="1g3Un">
+            <property role="TrG5h" value="value2" />
+          </node>
+          <node concept="1g3U1" id="3UXsQ7ZixpH" role="1gUFm" />
+        </node>
+      </node>
+    </node>
+    <node concept="3PMcwh" id="3UXsQ7Zixqn" role="1h3_3">
+      <node concept="1jkm0" id="3UXsQ7Zixqo" role="1g3Un">
+        <property role="TrG5h" value="structVariable3" />
+      </node>
+      <node concept="1U$HM7" id="3UXsQ7Zixqp" role="1gUFm">
+        <node concept="F$kOy" id="3UXsQ7Zixqq" role="1U$HM4">
+          <node concept="1jkm0" id="3UXsQ7Zixqr" role="1g3Un">
+            <property role="TrG5h" value="value1" />
+          </node>
+          <node concept="1g3U2" id="3UXsQ7ZixsK" role="1gUFm" />
+        </node>
+        <node concept="F$kOy" id="3UXsQ7Zixqt" role="1U$HM4">
+          <node concept="1jkm0" id="3UXsQ7Zixqu" role="1g3Un">
+            <property role="TrG5h" value="value5" />
+          </node>
+          <node concept="1g3U1" id="3UXsQ7Zixqv" role="1gUFm" />
+        </node>
+      </node>
+    </node>
+    <node concept="3PMcwh" id="3kWdF_KAQHJ" role="1h3_3">
+      <node concept="1jkm0" id="3kWdF_KAQHK" role="1g3Un">
+        <property role="TrG5h" value="var" />
+      </node>
+      <node concept="1g3U3" id="3kWdF_KAQIv" role="1gUFm" />
     </node>
   </node>
 </model>

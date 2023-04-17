@@ -174,21 +174,6 @@
           </node>
         </node>
       </node>
-      <node concept="3F0ifn" id="7OSbf_WtsfI" role="3EZMnx">
-        <property role="3F0ifm" value="PROPERTIES" />
-        <ref role="1k5W1q" to="tpen:hgVS8CF" resolve="KeyWord" />
-      </node>
-      <node concept="3EZMnI" id="7OSbf_Wv1nw" role="3EZMnx">
-        <node concept="l2Vlx" id="7OSbf_Wv1nx" role="2iSdaV" />
-        <node concept="3F2HdR" id="7OSbf_Wv1n0" role="3EZMnx">
-          <property role="2czwfO" value="&amp;" />
-          <ref role="1NtTu8" to="rjy5:7OSbf_Wv1mP" resolve="properties" />
-          <node concept="2iRkQZ" id="7OSbf_Wv1n2" role="2czzBx" />
-          <node concept="lj46D" id="7OSbf_Wv1o3" role="3F10Kt">
-            <property role="VOm3f" value="true" />
-          </node>
-        </node>
-      </node>
       <node concept="3F0ifn" id="6bt2XzALIaG" role="3EZMnx">
         <property role="3F0ifm" value="VALUES" />
         <ref role="1k5W1q" to="tpch:24YP6ZDyde4" resolve="Keyword" />
@@ -196,7 +181,7 @@
       <node concept="3EZMnI" id="6bt2XzALIcM" role="3EZMnx">
         <node concept="l2Vlx" id="6bt2XzALIcN" role="2iSdaV" />
         <node concept="3F2HdR" id="6bt2XzALIc3" role="3EZMnx">
-          <ref role="1NtTu8" to="rjy5:6bt2XzALIaz" resolve="values" />
+          <ref role="1NtTu8" to="rjy5:6bt2XzALIaz" resolve="constantsValuation" />
           <node concept="2iRkQZ" id="6bt2XzALIc5" role="2czzBx" />
           <node concept="ljvvj" id="6bt2XzALId$" role="3F10Kt">
             <property role="VOm3f" value="true" />
@@ -1070,6 +1055,14 @@
         <ref role="1NtTu8" to="rjy5:6bt2XzAN1Gg" resolve="value" />
       </node>
       <node concept="2iRfu4" id="6bt2XzAN1Gy" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="mRvs4ib9s9">
+    <property role="3GE5qa" value="expressions.solidity global variables" />
+    <ref role="1XX52x" to="rjy5:mRvs4ib9s1" resolve="THIS" />
+    <node concept="PMmxH" id="1hUiu_qNpHT" role="2wV5jI">
+      <ref role="PMmxG" to="tpco:2wZex4PafBj" resolve="alias" />
+      <ref role="1k5W1q" to="tpen:hgVS8CF" resolve="KeyWord" />
     </node>
   </node>
 </model>

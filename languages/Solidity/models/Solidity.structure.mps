@@ -791,5 +791,36 @@
       <ref role="20lvS9" node="6OTxsqoJAd7" resolve="Parameter" />
     </node>
   </node>
+  <node concept="1TIwiD" id="3uKLkDIyc3e">
+    <property role="EcuMT" value="4012924191459819726" />
+    <property role="3GE5qa" value="contract parts" />
+    <property role="TrG5h" value="LineComment" />
+    <property role="34LRSv" value="//" />
+    <ref role="1TJDcQ" node="6OTxsqoJowI" resolve="ContractPart" />
+    <node concept="1TJgyi" id="3uKLkDIyc3f" role="1TKVEl">
+      <property role="IQ2nx" value="4012924191459819727" />
+      <property role="TrG5h" value="text" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="3uKLkDI_7Sc">
+    <property role="EcuMT" value="4012924191460589068" />
+    <property role="3GE5qa" value="contract parts" />
+    <property role="TrG5h" value="BlockComment" />
+    <property role="34LRSv" value="/*" />
+    <ref role="1TJDcQ" node="6OTxsqoJowI" resolve="ContractPart" />
+    <node concept="1TJgyi" id="3uKLkDI_7Sk" role="1TKVEl">
+      <property role="IQ2nx" value="4012924191460589076" />
+      <property role="TrG5h" value="text" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="1hUiu_qNtVC">
+    <property role="EcuMT" value="1475573094516907752" />
+    <property role="3GE5qa" value="expressions.solidity global variables" />
+    <property role="TrG5h" value="thisExpression" />
+    <property role="34LRSv" value="this" />
+    <ref role="1TJDcQ" node="6OTxsqpkKf_" resolve="SolidityGlobalVariables" />
+  </node>
 </model>
 

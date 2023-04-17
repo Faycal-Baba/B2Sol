@@ -883,7 +883,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             final SNode sourceNode = parentContext.getNode();
             return new Object() {
               public boolean renderingCondition(SNode node) {
-                return (SLinkOperations.getTarget(node, LINKS.value$SHaO) != null);
+                return SPropertyOperations.getBoolean(node, PROPS.constant$FcBt);
               }
             }.renderingCondition(sourceNode);
           }
@@ -1091,7 +1091,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             final SNode sourceNode = parentContext.getNode();
             return new Object() {
               public boolean renderingCondition(SNode node) {
-                return (SLinkOperations.getTarget(node, LINKS.value$SHaO) != null);
+                return SPropertyOperations.getBoolean(node, PROPS.constant$FcBt);
               }
             }.renderingCondition(sourceNode);
           }
@@ -1299,7 +1299,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             final SNode sourceNode = parentContext.getNode();
             return new Object() {
               public boolean renderingCondition(SNode node) {
-                return (SLinkOperations.getTarget(node, LINKS.value$SHaO) != null);
+                return SPropertyOperations.getBoolean(node, PROPS.constant$FcBt);
               }
             }.renderingCondition(sourceNode);
           }

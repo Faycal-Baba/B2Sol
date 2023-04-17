@@ -51,6 +51,8 @@
         <reference id="1381004262292426837" name="parentStyleClass" index="1k5W1q" />
       </concept>
       <concept id="1139848536355" name="jetbrains.mps.lang.editor.structure.CellModel_WithRole" flags="ng" index="1$h60E">
+        <property id="1214560368769" name="emptyNoTargetText" index="39s7Ar" />
+        <property id="1140114345053" name="allowEmptyText" index="1O74Pk" />
         <reference id="1140103550593" name="relationDeclaration" index="1NtTu8" />
       </concept>
       <concept id="1073389214265" name="jetbrains.mps.lang.editor.structure.EditorCellModel" flags="ng" index="3EYTF0">
@@ -127,15 +129,14 @@
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="6870613620390542976" name="jetbrains.mps.lang.smodel.structure.ConceptAliasOperation" flags="ng" index="3n3YKJ" />
-      <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1180636770613" name="jetbrains.mps.lang.smodel.structure.SNodeCreator" flags="nn" index="3zrR0B">
         <child id="1180636770616" name="createdType" index="3zrR0E" />
       </concept>
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2">
         <reference id="1138405853777" name="concept" index="ehGHo" />
       </concept>
-      <concept id="1138056143562" name="jetbrains.mps.lang.smodel.structure.SLinkAccess" flags="nn" index="3TrEf2">
-        <reference id="1138056516764" name="link" index="3Tt5mk" />
+      <concept id="1138056022639" name="jetbrains.mps.lang.smodel.structure.SPropertyAccess" flags="nn" index="3TrcHB">
+        <reference id="1138056395725" name="property" index="3TsBF5" />
       </concept>
       <concept id="1138056282393" name="jetbrains.mps.lang.smodel.structure.SLinkListAccess" flags="nn" index="3Tsc0h">
         <reference id="1138056546658" name="link" index="3TtcxE" />
@@ -339,14 +340,11 @@
             <node concept="pkWqt" id="6bt2XzAFSaf" role="pqm2j">
               <node concept="3clFbS" id="6bt2XzAFSag" role="2VODD2">
                 <node concept="3clFbF" id="6bt2XzAFSea" role="3cqZAp">
-                  <node concept="2OqwBi" id="6bt2XzAFSZV" role="3clFbG">
-                    <node concept="2OqwBi" id="6bt2XzAFSts" role="2Oq$k0">
-                      <node concept="pncrf" id="6bt2XzAFSe9" role="2Oq$k0" />
-                      <node concept="3TrEf2" id="6bt2XzAFSKl" role="2OqNvi">
-                        <ref role="3Tt5mk" to="lab4:6bt2XzAFS9D" resolve="value" />
-                      </node>
+                  <node concept="2OqwBi" id="3UXsQ7ZiRms" role="3clFbG">
+                    <node concept="pncrf" id="3UXsQ7ZiR7b" role="2Oq$k0" />
+                    <node concept="3TrcHB" id="3UXsQ7ZiRDh" role="2OqNvi">
+                      <ref role="3TsBF5" to="lab4:6bt2XzAFS84" resolve="constant" />
                     </node>
-                    <node concept="3x8VRR" id="6bt2XzAFTeM" role="2OqNvi" />
                   </node>
                 </node>
               </node>
@@ -1265,6 +1263,53 @@
         <node concept="2iRkQZ" id="61jM6aUrfXc" role="2czzBx" />
       </node>
       <node concept="2iRkQZ" id="61jM6aUrfX6" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="3uKLkDIyc3o">
+    <property role="3GE5qa" value="contract parts" />
+    <ref role="1XX52x" to="lab4:3uKLkDIyc3e" resolve="LineComment" />
+    <node concept="3EZMnI" id="3uKLkDIyc3q" role="2wV5jI">
+      <node concept="3F0ifn" id="3uKLkDIyc3x" role="3EZMnx">
+        <property role="3F0ifm" value="//" />
+      </node>
+      <node concept="3F0A7n" id="3uKLkDIyc3B" role="3EZMnx">
+        <property role="39s7Ar" value="true" />
+        <property role="1O74Pk" value="true" />
+        <ref role="1NtTu8" to="lab4:3uKLkDIyc3f" resolve="text" />
+        <node concept="VPxyj" id="3uKLkDIzUxj" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="2iRfu4" id="3uKLkDIyc3t" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="3uKLkDI_7St">
+    <property role="3GE5qa" value="contract parts" />
+    <ref role="1XX52x" to="lab4:3uKLkDI_7Sc" resolve="BlockComment" />
+    <node concept="3EZMnI" id="3uKLkDI_7Sv" role="2wV5jI">
+      <node concept="3F0ifn" id="3uKLkDI_7SA" role="3EZMnx">
+        <property role="3F0ifm" value="/*" />
+      </node>
+      <node concept="3F0A7n" id="3uKLkDI_7SK" role="3EZMnx">
+        <property role="1O74Pk" value="true" />
+        <property role="39s7Ar" value="true" />
+        <ref role="1NtTu8" to="lab4:3uKLkDI_7Sk" resolve="text" />
+        <node concept="VPxyj" id="3uKLkDI_7SP" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="3uKLkDI_7SG" role="3EZMnx">
+        <property role="3F0ifm" value="*/" />
+      </node>
+      <node concept="2iRkQZ" id="3uKLkDI_7Sy" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="1hUiu_qNtVK">
+    <property role="3GE5qa" value="expressions.solidity global variables" />
+    <ref role="1XX52x" to="lab4:1hUiu_qNtVC" resolve="thisExpression" />
+    <node concept="PMmxH" id="1hUiu_qNtVP" role="2wV5jI">
+      <ref role="PMmxG" to="tpco:2wZex4PafBj" resolve="alias" />
+      <ref role="1k5W1q" to="tpen:hgVS8CF" resolve="KeyWord" />
     </node>
   </node>
 </model>

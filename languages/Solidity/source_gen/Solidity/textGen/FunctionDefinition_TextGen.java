@@ -24,7 +24,6 @@ public class FunctionDefinition_TextGen extends TextGenDescriptorBase {
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
     tgs.append(" ");
     tgs.append("(");
-    tgs.append(" ");
     for (SNode elem_21 : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.inputParameters$orxR))) {
       tgs.appendNode(elem_21);
       if ((SNodeOperations.getNextSibling(elem_21) != null)) {

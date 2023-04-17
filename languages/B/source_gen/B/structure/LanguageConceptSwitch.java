@@ -61,17 +61,18 @@ public final class LanguageConceptSwitch {
   public static final int SolidityGlobalVariables = 49;
   public static final int StructSet = 50;
   public static final int Substitution = 51;
-  public static final int TransferOperation = 52;
-  public static final int TypingPredicate = 53;
-  public static final int TypingPredicateInvariant = 54;
-  public static final int TypingPredicateParameter = 55;
-  public static final int TypingPredicateProperties = 56;
-  public static final int TypingPredicateStructMember = 57;
-  public static final int WhileSubstitution = 58;
-  public static final int functionElemnent = 59;
-  public static final int pred = 60;
-  public static final int succ = 61;
-  public static final int userDefinedSet = 62;
+  public static final int THIS = 52;
+  public static final int TransferOperation = 53;
+  public static final int TypingPredicate = 54;
+  public static final int TypingPredicateInvariant = 55;
+  public static final int TypingPredicateParameter = 56;
+  public static final int TypingPredicateProperties = 57;
+  public static final int TypingPredicateStructMember = 58;
+  public static final int WhileSubstitution = 59;
+  public static final int functionElemnent = 60;
+  public static final int pred = 61;
+  public static final int succ = 62;
+  public static final int userDefinedSet = 63;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L);
@@ -127,6 +128,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x6d3985c698b6cc0fL, SolidityGlobalVariables);
     builder.put(0x3d1067ce4782bb49L, StructSet);
     builder.put(0x7d382cf97c7d3d02L, Substitution);
+    builder.put(0x5b77dc1122c9701L, THIS);
     builder.put(0x3d1067ce476396f5L, TransferOperation);
     builder.put(0x7d382cf97c78126dL, TypingPredicate);
     builder.put(0x6d3985c698f14dd7L, TypingPredicateInvariant);
