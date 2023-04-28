@@ -1,4 +1,6 @@
-contract_dummy
+pragma solidity ^0.7;
+
+contract _dummy
 {
     uint private nn;
     mapping (address => uint) private usersBalance;
@@ -7,18 +9,25 @@ contract_dummy
       uint amount;
       address user
     }
- 
+    /**
+    block comment here  can't jump line tho
+    */
     enum name{elem1, elem2, elem3 }
  
+    function receive ( ) public {
+      var = msg.value;
+      var2 = msg.sender;
+    }
+    
     constructor (){
-      nn= 565;
-      nn= 546;
-      if ( msg.value>2 ){
-        nn= 100;
+      while(n>5){
+        i = i+1;
+        payable(address).transfer(554);
       }
-      else {
-        nn= 5651;
-
-      }
+    }
+ 
+    function receive ( ) public {
+      require(x>55);
+    }
+    
 }
-  
