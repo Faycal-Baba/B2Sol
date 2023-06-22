@@ -851,7 +851,7 @@
   </node>
   <node concept="WtQ9Q" id="4lth4t2w3TS">
     <property role="3GE5qa" value="b substitutions" />
-    <ref role="WuzLi" to="rjy5:7OSbf_WvjPd" resolve="IfSubstitution" />
+    <ref role="WuzLi" to="rjy5:7OSbf_WvjPd" resolve="IfInstruction" />
     <node concept="11bSqf" id="4lth4t2w3TT" role="11c4hB">
       <node concept="3clFbS" id="4lth4t2w3TU" role="2VODD2">
         <node concept="lc7rE" id="4lth4t2w3TZ" role="3cqZAp">
@@ -927,7 +927,7 @@
   </node>
   <node concept="WtQ9Q" id="4lth4t2w3VG">
     <property role="3GE5qa" value="b substitutions" />
-    <ref role="WuzLi" to="rjy5:7OSbf_Ww1P6" resolve="WhileSubstitution" />
+    <ref role="WuzLi" to="rjy5:7OSbf_Ww1P6" resolve="WhileInstruction" />
     <node concept="11bSqf" id="4lth4t2w3VH" role="11c4hB">
       <node concept="3clFbS" id="4lth4t2w3VI" role="2VODD2">
         <node concept="lc7rE" id="4lth4t2w3VN" role="3cqZAp">
@@ -2560,7 +2560,7 @@
   </node>
   <node concept="WtQ9Q" id="4lth4t2w4nI">
     <property role="3GE5qa" value="expressions" />
-    <ref role="WuzLi" to="rjy5:2zl9h5KPDV4" resolve="functionElemnent" />
+    <ref role="WuzLi" to="rjy5:2zl9h5KPDV4" resolve="functionElement" />
     <node concept="11bSqf" id="4lth4t2w4nJ" role="11c4hB">
       <node concept="3clFbS" id="4lth4t2w4nK" role="2VODD2">
         <node concept="lc7rE" id="4lth4t2w4nT" role="3cqZAp">

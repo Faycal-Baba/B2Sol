@@ -147,11 +147,17 @@
     <language id="f72d3202-8a45-41ad-bb61-2369f7191040" name="Solidity">
       <concept id="1931527332604612508" name="Solidity.structure.StatementBlock" flags="ng" index="f5ipW" />
       <concept id="608631649157036827" name="Solidity.structure.mapping_element" flags="ng" index="2noJ1p" />
+      <concept id="1388727268627626976" name="Solidity.structure.NegativeExpression" flags="ng" index="33dRJR">
+        <child id="1388727268627626977" name="expression" index="33dRJQ" />
+      </concept>
       <concept id="1475573094516907752" name="Solidity.structure.thisExpression" flags="ng" index="1eHTs1" />
       <concept id="4012924191460589068" name="Solidity.structure.BlockComment" flags="ng" index="1p9bH6">
         <property id="4012924191460589076" name="text" index="1p9bHu" />
       </concept>
       <concept id="6941111777069276566" name="Solidity.structure.UserType" flags="ng" index="3qblnO" />
+      <concept id="5474412545813557793" name="Solidity.structure.ParenthesisExpression" flags="ng" index="3wOrsl">
+        <child id="5474412545813557794" name="expr" index="3wOrsm" />
+      </concept>
       <concept id="7870468911825914347" name="Solidity.structure.RequireStatement" flags="ng" index="3O6wKH">
         <child id="7870468911825914348" name="expr" index="3O6wKE" />
       </concept>
@@ -842,6 +848,52 @@
         </node>
       </node>
     </node>
+    <node concept="3aamgX" id="4JT1jiFbEJE" role="3aUrZf">
+      <ref role="30HIoZ" to="rjy5:4JT1jiFbE08" resolve="BParenthesisExpression" />
+      <node concept="gft3U" id="4JT1jiFbEKP" role="1lVwrX">
+        <node concept="3wOrsl" id="4JT1jiFbEKV" role="gfFT$">
+          <node concept="3PwFEx" id="4JT1jiFbEKW" role="3wOrsm">
+            <node concept="29HgVG" id="4JT1jiFbEL0" role="lGtFl">
+              <node concept="3NFfHV" id="4JT1jiFbEL1" role="3NFExx">
+                <node concept="3clFbS" id="4JT1jiFbEL2" role="2VODD2">
+                  <node concept="3clFbF" id="4JT1jiFbEL8" role="3cqZAp">
+                    <node concept="2OqwBi" id="4JT1jiFbEL3" role="3clFbG">
+                      <node concept="3TrEf2" id="4JT1jiFbEL6" role="2OqNvi">
+                        <ref role="3Tt5mk" to="rjy5:4JT1jiFbE09" resolve="expr" />
+                      </node>
+                      <node concept="30H73N" id="4JT1jiFbEL7" role="2Oq$k0" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="1d5K1vgu88L" role="3aUrZf">
+      <ref role="30HIoZ" to="rjy5:1d5K1vgrmgt" resolve="BNegativeExpression" />
+      <node concept="gft3U" id="1d5K1vgu8a7" role="1lVwrX">
+        <node concept="33dRJR" id="1d5K1vgu8ad" role="gfFT$">
+          <node concept="3PwFEx" id="1d5K1vgu8ae" role="33dRJQ">
+            <node concept="29HgVG" id="1d5K1vgu8ai" role="lGtFl">
+              <node concept="3NFfHV" id="1d5K1vgu8aj" role="3NFExx">
+                <node concept="3clFbS" id="1d5K1vgu8ak" role="2VODD2">
+                  <node concept="3clFbF" id="1d5K1vgu8aq" role="3cqZAp">
+                    <node concept="2OqwBi" id="1d5K1vgu8al" role="3clFbG">
+                      <node concept="3TrEf2" id="1d5K1vgu8ao" role="2OqNvi">
+                        <ref role="3Tt5mk" to="rjy5:1d5K1vgrmgu" resolve="expr" />
+                      </node>
+                      <node concept="30H73N" id="1d5K1vgu8ap" role="2Oq$k0" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="jVnub" id="6OTxsqoQUGM">
     <property role="TrG5h" value="BinaryExpressionSwitch" />
@@ -868,7 +920,7 @@
       </node>
     </node>
     <node concept="3aamgX" id="6glZ_QSzeeN" role="3aUrZf">
-      <ref role="30HIoZ" to="rjy5:2zl9h5KPDV4" resolve="functionElemnent" />
+      <ref role="30HIoZ" to="rjy5:2zl9h5KPDV4" resolve="functionElement" />
       <node concept="gft3U" id="6bt2XzAAzBc" role="1lVwrX">
         <node concept="2noJ1p" id="6bt2XzAAzBi" role="gfFT$">
           <node concept="3PwFEx" id="6bt2XzAAzBj" role="3PwGtz">
@@ -2104,7 +2156,7 @@
   <node concept="jVnub" id="6bt2XzAA$3I">
     <property role="TrG5h" value="BLhsExpression" />
     <node concept="3aamgX" id="6bt2XzAA$3J" role="3aUrZf">
-      <ref role="30HIoZ" to="rjy5:2zl9h5KPDV4" resolve="functionElemnent" />
+      <ref role="30HIoZ" to="rjy5:2zl9h5KPDV4" resolve="functionElement" />
       <node concept="gft3U" id="6bt2XzAA$3N" role="1lVwrX">
         <node concept="2noJ1p" id="6bt2XzAA$3T" role="gfFT$">
           <node concept="3PwFEx" id="6bt2XzAA$3U" role="3PwGtz">

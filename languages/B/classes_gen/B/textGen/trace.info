@@ -367,7 +367,7 @@
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186232">
-    <file name="IfSubstitution_TextGen.java">
+    <file name="IfInstruction_TextGen.java">
       <node id="4998226234300186232" at="17,54,18,55" concept="7" />
       <node id="4998226234300186238" at="18,55,19,21" concept="3" />
       <node id="4998226234300186251" at="19,21,20,20" concept="3" />
@@ -398,20 +398,20 @@
       <scope id="4998226234300186232" at="16,0,37,0">
         <var name="ctx" id="4998226234300186232" />
       </scope>
-      <unit id="4998226234300186232" at="38,0,42,0" name="B.textGen.IfSubstitution_TextGen$LINKS" />
-      <unit id="4998226234300186232" at="15,0,43,0" name="B.textGen.IfSubstitution_TextGen" />
+      <unit id="4998226234300186232" at="38,0,42,0" name="B.textGen.IfInstruction_TextGen$LINKS" />
+      <unit id="4998226234300186232" at="15,0,43,0" name="B.textGen.IfInstruction_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186232" at="52,48,53,44" concept="8" />
-      <scope id="4998226234300186232" at="52,48,53,44" />
+      <node id="4998226234300186232" at="52,47,53,43" concept="8" />
+      <scope id="4998226234300186232" at="52,47,53,43" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186348">
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186348" at="74,51,75,47" concept="8" />
-      <scope id="4998226234300186348" at="74,51,75,47" />
+      <node id="4998226234300186348" at="74,50,75,46" concept="8" />
+      <scope id="4998226234300186348" at="74,50,75,46" />
     </file>
-    <file name="WhileSubstitution_TextGen.java">
+    <file name="WhileInstruction_TextGen.java">
       <node id="4998226234300186348" at="17,54,18,55" concept="7" />
       <node id="4998226234300186354" at="18,55,19,24" concept="3" />
       <node id="4998226234300186367" at="19,24,20,20" concept="3" />
@@ -449,8 +449,8 @@
       <scope id="4998226234300186348" at="16,0,42,0">
         <var name="ctx" id="4998226234300186348" />
       </scope>
-      <unit id="4998226234300186348" at="43,0,49,0" name="B.textGen.WhileSubstitution_TextGen$LINKS" />
-      <unit id="4998226234300186348" at="15,0,50,0" name="B.textGen.WhileSubstitution_TextGen" />
+      <unit id="4998226234300186348" at="43,0,49,0" name="B.textGen.WhileInstruction_TextGen$LINKS" />
+      <unit id="4998226234300186348" at="15,0,50,0" name="B.textGen.WhileInstruction_TextGen" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186522">
@@ -1042,10 +1042,10 @@
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300188142">
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300188142" at="76,50,77,46" concept="8" />
-      <scope id="4998226234300188142" at="76,50,77,46" />
+      <node id="4998226234300188142" at="76,49,77,45" concept="8" />
+      <scope id="4998226234300188142" at="76,49,77,45" />
     </file>
-    <file name="functionElemnent_TextGen.java">
+    <file name="functionElement_TextGen.java">
       <node id="4998226234300188142" at="14,54,15,55" concept="7" />
       <node id="4998226234300188151" at="15,55,16,90" concept="3" />
       <node id="4998226234300188165" at="16,90,17,20" concept="3" />
@@ -1061,8 +1061,8 @@
       <scope id="4998226234300188142" at="13,0,22,0">
         <var name="ctx" id="4998226234300188142" />
       </scope>
-      <unit id="4998226234300188142" at="23,0,27,0" name="B.textGen.functionElemnent_TextGen$LINKS" />
-      <unit id="4998226234300188142" at="12,0,28,0" name="B.textGen.functionElemnent_TextGen" />
+      <unit id="4998226234300188142" at="23,0,27,0" name="B.textGen.functionElement_TextGen$LINKS" />
+      <unit id="4998226234300188142" at="12,0,28,0" name="B.textGen.functionElement_TextGen" />
     </file>
   </root>
 </debug-info>

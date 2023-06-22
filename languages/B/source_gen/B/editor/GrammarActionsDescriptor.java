@@ -733,9 +733,9 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
         ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from(new Object() {
           public TransformationMenuContext redirect() {
             // redirect to IfTrueBranch 
-            final SNode listElement = GrammarCellsUtil.getListElementForSideTransformation(_context.getNode(), LINKS.IfTrueBranch$4$iY, CONCEPTS.IfSubstitution$dN, CONCEPTS.Substitution$Rh, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM);
+            final SNode listElement = GrammarCellsUtil.getListElementForSideTransformation(_context.getNode(), LINKS.IfTrueBranch$4$iY, CONCEPTS.IfInstruction$dN, CONCEPTS.Instruction$Rh, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM);
             if (listElement != null && (_context.getMenuLocation() == MenuLocations.RIGHT_SIDE_TRANSFORM) == true) {
-              List<SNode> allChildren = SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(listElement), CONCEPTS.IfSubstitution$dN), LINKS.IfTrueBranch$4$iY);
+              List<SNode> allChildren = SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(listElement), CONCEPTS.IfInstruction$dN), LINKS.IfTrueBranch$4$iY);
               SNode allowedChild = null;
               allowedChild = ListSequence.fromList(allChildren).last();
               if (listElement == allowedChild) {
@@ -752,7 +752,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             return true;
           }
         }));
-        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfSubstitution$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
+        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfInstruction$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
           public Boolean invoke(TransformationMenuContext parentContext) {
             final SNode sourceNode = parentContext.getNode();
             return true;
@@ -764,13 +764,13 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             final SNode sourceNode = _context.getNode();
 
             // Use the grammar rules for a deep search 
-            SNode parentNode = new Parser(_context.getModel()).isEndOf(sourceNode, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM, CONCEPTS.IfSubstitution$dN, LINKS.condition$PSJv);
+            SNode parentNode = new Parser(_context.getModel()).isEndOf(sourceNode, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM, CONCEPTS.IfInstruction$dN, LINKS.condition$PSJv);
             if (parentNode != null) {
               return _context.withNode(parentNode);
             }
 
             // There might be no grammar for some concepts. Try a single level check. 
-            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.BExpression$HK) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(sourceNode), CONCEPTS.IfSubstitution$dN) && Objects.equals(sourceNode.getContainmentLink(), LINKS.condition$PSJv) && (_context.getMenuLocation() == MenuLocations.RIGHT_SIDE_TRANSFORM) == true) {
+            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.BExpression$HK) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(sourceNode), CONCEPTS.IfInstruction$dN) && Objects.equals(sourceNode.getContainmentLink(), LINKS.condition$PSJv) && (_context.getMenuLocation() == MenuLocations.RIGHT_SIDE_TRANSFORM) == true) {
               TransformationMenuContext parentContext = _context.withNode(_context.getNode().getParent());
               return parentContext;
             }
@@ -783,7 +783,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             return true;
           }
         }));
-        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfSubstitution$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
+        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfInstruction$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
           public Boolean invoke(TransformationMenuContext parentContext) {
             final SNode sourceNode = parentContext.getNode();
             return true;
@@ -791,7 +791,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
         }));
 
         List<Tuples._2<TransformationMenuContext, _FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>> redirectedAfter = ListSequence.fromList(new ArrayList<Tuples._2<TransformationMenuContext, _FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>>());
-        ListSequence.fromList(redirectedAfter).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfSubstitution$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
+        ListSequence.fromList(redirectedAfter).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfInstruction$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
           public Boolean invoke(TransformationMenuContext parentContext) {
             final SNode sourceNode = parentContext.getNode();
             return new Object() {
@@ -804,9 +804,9 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
         ListSequence.fromList(redirectedAfter).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from(new Object() {
           public TransformationMenuContext redirect() {
             // redirect to ElseBranch 
-            final SNode listElement = GrammarCellsUtil.getListElementForSideTransformation(_context.getNode(), LINKS.ElseBranch$4DVm, CONCEPTS.IfSubstitution$dN, CONCEPTS.Substitution$Rh, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM);
+            final SNode listElement = GrammarCellsUtil.getListElementForSideTransformation(_context.getNode(), LINKS.ElseBranch$4DVm, CONCEPTS.IfInstruction$dN, CONCEPTS.Instruction$Rh, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM);
             if (listElement != null && (_context.getMenuLocation() == MenuLocations.RIGHT_SIDE_TRANSFORM) == false) {
-              List<SNode> allChildren = SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(listElement), CONCEPTS.IfSubstitution$dN), LINKS.ElseBranch$4DVm);
+              List<SNode> allChildren = SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(listElement), CONCEPTS.IfInstruction$dN), LINKS.ElseBranch$4DVm);
               SNode allowedChild = null;
               allowedChild = ListSequence.fromList(allChildren).first();
               if (listElement == allowedChild) {
@@ -827,7 +827,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             }.renderingCondition(sourceNode);
           }
         }));
-        ListSequence.fromList(redirectedAfter).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfSubstitution$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
+        ListSequence.fromList(redirectedAfter).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfInstruction$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
           public Boolean invoke(TransformationMenuContext parentContext) {
             final SNode sourceNode = parentContext.getNode();
             return true;
@@ -839,7 +839,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
               return;
             }
             final SNode sourceNode = _context.getNode();
-            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.IfSubstitution$dN)) {
+            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.IfInstruction$dN)) {
               final Iterable<String> matchingTexts = new StringOrSequenceQuery() {
                 public Object queryStringOrSequence() {
                   return Sequence.<String>singleton("ELSE");
@@ -847,7 +847,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
               }.query();
               final boolean isApplicable = new Object() {
                 public boolean query() {
-                  return ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(_context.getNode(), CONCEPTS.IfSubstitution$dN), LINKS.ElseBranch$4DVm)).isNotEmpty();
+                  return ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(_context.getNode(), CONCEPTS.IfInstruction$dN), LINKS.ElseBranch$4DVm)).isNotEmpty();
                 }
               }.query();
 
@@ -858,13 +858,13 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
                     doSubstitute(pattern);
                   }
                   public SNode doSubstitute(@NotNull String pattern) {
-                    SNode result = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(_context.getNode(), CONCEPTS.IfSubstitution$dN), LINKS.ElseBranch$4DVm)).insertElement(0, SNodeFactoryOperations.createNewNode(CONCEPTS.Substitution$Rh, null));
+                    SNode result = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(_context.getNode(), CONCEPTS.IfInstruction$dN), LINKS.ElseBranch$4DVm)).insertElement(0, SNodeFactoryOperations.createNewNode(CONCEPTS.Instruction$Rh, null));
 
                     return result;
                   }
                   @Override
                   public SAbstractConcept getOutputConcept() {
-                    return CONCEPTS.IfSubstitution$dN;
+                    return CONCEPTS.IfInstruction$dN;
                   }
                 });
               }
@@ -893,7 +893,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
                 continue;
               }
 
-              if (!(EditorHierachyCache.getInstance().isActiveEditor(IfSubstitution_Editor.class, redirectedContext.getNode().getConcept(), GrammarCellsUtil.getSelectionHints(_context.getEditorContext())))) {
+              if (!(EditorHierachyCache.getInstance().isActiveEditor(IfInstruction_Editor.class, redirectedContext.getNode().getConcept(), GrammarCellsUtil.getSelectionHints(_context.getEditorContext())))) {
                 continue;
               }
 
@@ -909,9 +909,9 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
         ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from(new Object() {
           public TransformationMenuContext redirect() {
             // redirect to ElseBranch 
-            final SNode listElement = GrammarCellsUtil.getListElementForSideTransformation(_context.getNode(), LINKS.ElseBranch$4DVm, CONCEPTS.IfSubstitution$dN, CONCEPTS.Substitution$Rh, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM);
+            final SNode listElement = GrammarCellsUtil.getListElementForSideTransformation(_context.getNode(), LINKS.ElseBranch$4DVm, CONCEPTS.IfInstruction$dN, CONCEPTS.Instruction$Rh, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM);
             if (listElement != null && (_context.getMenuLocation() == MenuLocations.RIGHT_SIDE_TRANSFORM) == true) {
-              List<SNode> allChildren = SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(listElement), CONCEPTS.IfSubstitution$dN), LINKS.ElseBranch$4DVm);
+              List<SNode> allChildren = SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(listElement), CONCEPTS.IfInstruction$dN), LINKS.ElseBranch$4DVm);
               SNode allowedChild = null;
               allowedChild = ListSequence.fromList(allChildren).last();
               if (listElement == allowedChild) {
@@ -932,7 +932,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             }.renderingCondition(sourceNode);
           }
         }));
-        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfSubstitution$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
+        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfInstruction$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
           public Boolean invoke(TransformationMenuContext parentContext) {
             final SNode sourceNode = parentContext.getNode();
             return new Object() {
@@ -945,9 +945,9 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
         ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from(new Object() {
           public TransformationMenuContext redirect() {
             // redirect to IfTrueBranch 
-            final SNode listElement = GrammarCellsUtil.getListElementForSideTransformation(_context.getNode(), LINKS.IfTrueBranch$4$iY, CONCEPTS.IfSubstitution$dN, CONCEPTS.Substitution$Rh, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM);
+            final SNode listElement = GrammarCellsUtil.getListElementForSideTransformation(_context.getNode(), LINKS.IfTrueBranch$4$iY, CONCEPTS.IfInstruction$dN, CONCEPTS.Instruction$Rh, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM);
             if (listElement != null && (_context.getMenuLocation() == MenuLocations.RIGHT_SIDE_TRANSFORM) == true) {
-              List<SNode> allChildren = SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(listElement), CONCEPTS.IfSubstitution$dN), LINKS.IfTrueBranch$4$iY);
+              List<SNode> allChildren = SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(listElement), CONCEPTS.IfInstruction$dN), LINKS.IfTrueBranch$4$iY);
               SNode allowedChild = null;
               allowedChild = ListSequence.fromList(allChildren).last();
               if (listElement == allowedChild) {
@@ -964,7 +964,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             return true;
           }
         }));
-        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfSubstitution$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
+        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfInstruction$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
           public Boolean invoke(TransformationMenuContext parentContext) {
             final SNode sourceNode = parentContext.getNode();
             return true;
@@ -976,13 +976,13 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             final SNode sourceNode = _context.getNode();
 
             // Use the grammar rules for a deep search 
-            SNode parentNode = new Parser(_context.getModel()).isEndOf(sourceNode, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM, CONCEPTS.IfSubstitution$dN, LINKS.condition$PSJv);
+            SNode parentNode = new Parser(_context.getModel()).isEndOf(sourceNode, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM, CONCEPTS.IfInstruction$dN, LINKS.condition$PSJv);
             if (parentNode != null) {
               return _context.withNode(parentNode);
             }
 
             // There might be no grammar for some concepts. Try a single level check. 
-            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.BExpression$HK) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(sourceNode), CONCEPTS.IfSubstitution$dN) && Objects.equals(sourceNode.getContainmentLink(), LINKS.condition$PSJv) && (_context.getMenuLocation() == MenuLocations.RIGHT_SIDE_TRANSFORM) == true) {
+            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.BExpression$HK) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(sourceNode), CONCEPTS.IfInstruction$dN) && Objects.equals(sourceNode.getContainmentLink(), LINKS.condition$PSJv) && (_context.getMenuLocation() == MenuLocations.RIGHT_SIDE_TRANSFORM) == true) {
               TransformationMenuContext parentContext = _context.withNode(_context.getNode().getParent());
               return parentContext;
             }
@@ -995,7 +995,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             return true;
           }
         }));
-        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfSubstitution$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
+        ListSequence.fromList(redirectedBefore).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfInstruction$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
           public Boolean invoke(TransformationMenuContext parentContext) {
             final SNode sourceNode = parentContext.getNode();
             return true;
@@ -1003,7 +1003,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
         }));
 
         List<Tuples._2<TransformationMenuContext, _FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>> redirectedAfter = ListSequence.fromList(new ArrayList<Tuples._2<TransformationMenuContext, _FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>>());
-        ListSequence.fromList(redirectedAfter).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfSubstitution$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
+        ListSequence.fromList(redirectedAfter).addElement(MultiTuple.<TransformationMenuContext,_FunctionTypes._return_P1_E0<? extends Boolean, ? super TransformationMenuContext>>from((SNodeOperations.isInstanceOf(((SNode) _context.getNode()), CONCEPTS.IfInstruction$dN) ? _context : null), new _FunctionTypes._return_P1_E0<Boolean, TransformationMenuContext>() {
           public Boolean invoke(TransformationMenuContext parentContext) {
             final SNode sourceNode = parentContext.getNode();
             return true;
@@ -1015,7 +1015,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
               return;
             }
             final SNode sourceNode = _context.getNode();
-            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.IfSubstitution$dN)) {
+            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.IfInstruction$dN)) {
               final Iterable<String> matchingTexts = new StringOrSequenceQuery() {
                 public Object queryStringOrSequence() {
                   return Sequence.<String>singleton("ELSE");
@@ -1034,12 +1034,12 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
                     doSubstitute(pattern);
                   }
                   public SNode doSubstitute(@NotNull String pattern) {
-                    SNode result = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(_context.getNode(), CONCEPTS.IfSubstitution$dN), LINKS.ElseBranch$4DVm, null);
+                    SNode result = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(_context.getNode(), CONCEPTS.IfInstruction$dN), LINKS.ElseBranch$4DVm, null);
                     return result;
                   }
                   @Override
                   public SAbstractConcept getOutputConcept() {
-                    return CONCEPTS.IfSubstitution$dN;
+                    return CONCEPTS.IfInstruction$dN;
                   }
                 });
               }
@@ -1068,7 +1068,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
                 continue;
               }
 
-              if (!(EditorHierachyCache.getInstance().isActiveEditor(IfSubstitution_Editor.class, redirectedContext.getNode().getConcept(), GrammarCellsUtil.getSelectionHints(_context.getEditorContext())))) {
+              if (!(EditorHierachyCache.getInstance().isActiveEditor(IfInstruction_Editor.class, redirectedContext.getNode().getConcept(), GrammarCellsUtil.getSelectionHints(_context.getEditorContext())))) {
                 continue;
               }
 
@@ -1103,7 +1103,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
             }
             public SNode doSubstitute(String pattern) {
               SNode listElement = GrammarCellsUtil.getListElementForSideTransformation(_context.getNode(), LINKS.ElseBranch$4DVm, _context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM);
-              SNode newNode = SNodeFactoryOperations.createNewNode(CONCEPTS.Substitution$Rh, null);
+              SNode newNode = SNodeFactoryOperations.createNewNode(CONCEPTS.Instruction$Rh, null);
               if (_context.getMenuLocation() == MenuLocations.LEFT_SIDE_TRANSFORM) {
                 SNodeOperations.insertPrevSiblingChild(listElement, newNode);
               } else {
@@ -1112,7 +1112,7 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
               return newNode;
             }
             public SAbstractConcept getOutputConcept() {
-              return CONCEPTS.IfSubstitution$dN;
+              return CONCEPTS.IfInstruction$dN;
             }
           });
         }
@@ -1196,8 +1196,8 @@ public class GrammarActionsDescriptor extends AbstractGrammarActionDescriptor im
     /*package*/ static final SConcept BIntegerLiteral$aJ = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a015L, "B.structure.BIntegerLiteral");
     /*package*/ static final SConcept BExpression$HK = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L, "B.structure.BExpression");
     /*package*/ static final SConcept BBinaryExpression$To = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756964L, "B.structure.BBinaryExpression");
-    /*package*/ static final SConcept IfSubstitution$dN = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL, "B.structure.IfSubstitution");
-    /*package*/ static final SConcept Substitution$Rh = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d02L, "B.structure.Substitution");
+    /*package*/ static final SConcept IfInstruction$dN = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL, "B.structure.IfInstruction");
+    /*package*/ static final SConcept Instruction$Rh = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d02L, "B.structure.Instruction");
   }
 
   private static final class LINKS {

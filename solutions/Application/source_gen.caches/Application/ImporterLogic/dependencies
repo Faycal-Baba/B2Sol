@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependenciesRoot>
+  <dependency className="Application.ImporterLogic.Importer">
+    <classNode dependClassName="B.behavior.ArrayElement__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BBalanceOf__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BBinaryExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BIdentifier__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BNegativeExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BNotExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BParenthesisExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BecomesSubstitution__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.ElseIf__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.IfInstruction__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.Initialisation__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.Machine__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.Operation__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.StructSet__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.TransferOperation__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.TypingPredicate__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.WhileInstruction__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.mappingUpdate__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.pred__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.succ__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.userDefinedSet__BehaviorDescriptor" />
+    <classNode dependClassName="antlrGenerated.BImplGrammarParser" />
+    <classNode dependClassName="application.BImplListener" />
+    <classNode dependClassName="application.BParserInteface" />
+    <classNode dependClassName="application.Util" />
+    <classNode dependClassName="java.io.IOException" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.nio.file.Files" />
+    <classNode dependClassName="java.nio.file.Paths" />
+    <classNode dependClassName="java.util.ArrayList" />
+    <classNode dependClassName="java.util.Iterator" />
+    <classNode dependClassName="java.util.List" />
+    <classNode dependClassName="java.util.Map" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IMapping" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+  </dependency>
+</dependenciesRoot>
+

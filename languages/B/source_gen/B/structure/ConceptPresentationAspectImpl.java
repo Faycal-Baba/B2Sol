@@ -33,11 +33,15 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_BLhsExpression;
   private ConceptPresentation props_BLogicalExpression;
   private ConceptPresentation props_BMinusExpression;
+  private ConceptPresentation props_BModuloExpression;
   private ConceptPresentation props_BMultExpression;
   private ConceptPresentation props_BNatural;
+  private ConceptPresentation props_BNegativeExpression;
   private ConceptPresentation props_BNotExpression;
   private ConceptPresentation props_BOrExpression;
+  private ConceptPresentation props_BParenthesisExpression;
   private ConceptPresentation props_BPlusExpression;
+  private ConceptPresentation props_BPowerExpression;
   private ConceptPresentation props_BSender;
   private ConceptPresentation props_BSpaceChar;
   private ConceptPresentation props_BString;
@@ -51,8 +55,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EmptySubsitution;
   private ConceptPresentation props_EnumeratedSet;
   private ConceptPresentation props_Function;
-  private ConceptPresentation props_IfSubstitution;
+  private ConceptPresentation props_IfInstruction;
   private ConceptPresentation props_Initialisation;
+  private ConceptPresentation props_Instruction;
   private ConceptPresentation props_Machine;
   private ConceptPresentation props_Operation;
   private ConceptPresentation props_Predicate;
@@ -60,7 +65,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Set;
   private ConceptPresentation props_SolidityGlobalVariables;
   private ConceptPresentation props_StructSet;
-  private ConceptPresentation props_Substitution;
   private ConceptPresentation props_THIS;
   private ConceptPresentation props_TransferOperation;
   private ConceptPresentation props_TypingPredicate;
@@ -68,8 +72,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_TypingPredicateParameter;
   private ConceptPresentation props_TypingPredicateProperties;
   private ConceptPresentation props_TypingPredicateStructMember;
-  private ConceptPresentation props_WhileSubstitution;
-  private ConceptPresentation props_functionElemnent;
+  private ConceptPresentation props_WhileInstruction;
+  private ConceptPresentation props_functionElement;
+  private ConceptPresentation props_mappingUpdate;
   private ConceptPresentation props_pred;
   private ConceptPresentation props_succ;
   private ConceptPresentation props_userDefinedSet;
@@ -242,6 +247,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BMinusExpression = cpb.create();
         }
         return props_BMinusExpression;
+      case LanguageConceptSwitch.BModuloExpression:
+        if (props_BModuloExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("mod");
+          props_BModuloExpression = cpb.create();
+        }
+        return props_BModuloExpression;
       case LanguageConceptSwitch.BMultExpression:
         if (props_BMultExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -256,6 +268,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BNatural = cpb.create();
         }
         return props_BNatural;
+      case LanguageConceptSwitch.BNegativeExpression:
+        if (props_BNegativeExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("BNegativeExpression");
+          props_BNegativeExpression = cpb.create();
+        }
+        return props_BNegativeExpression;
       case LanguageConceptSwitch.BNotExpression:
         if (props_BNotExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -270,6 +289,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BOrExpression = cpb.create();
         }
         return props_BOrExpression;
+      case LanguageConceptSwitch.BParenthesisExpression:
+        if (props_BParenthesisExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("(");
+          props_BParenthesisExpression = cpb.create();
+        }
+        return props_BParenthesisExpression;
       case LanguageConceptSwitch.BPlusExpression:
         if (props_BPlusExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -277,6 +303,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BPlusExpression = cpb.create();
         }
         return props_BPlusExpression;
+      case LanguageConceptSwitch.BPowerExpression:
+        if (props_BPowerExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("**");
+          props_BPowerExpression = cpb.create();
+        }
+        return props_BPowerExpression;
       case LanguageConceptSwitch.BSender:
         if (props_BSender == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -368,13 +401,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Function = cpb.create();
         }
         return props_Function;
-      case LanguageConceptSwitch.IfSubstitution:
-        if (props_IfSubstitution == null) {
+      case LanguageConceptSwitch.IfInstruction:
+        if (props_IfInstruction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("IF");
-          props_IfSubstitution = cpb.create();
+          props_IfInstruction = cpb.create();
         }
-        return props_IfSubstitution;
+        return props_IfInstruction;
       case LanguageConceptSwitch.Initialisation:
         if (props_Initialisation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -382,6 +415,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Initialisation = cpb.create();
         }
         return props_Initialisation;
+      case LanguageConceptSwitch.Instruction:
+        if (props_Instruction == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_Instruction = cpb.create();
+        }
+        return props_Instruction;
       case LanguageConceptSwitch.Machine:
         if (props_Machine == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -429,12 +468,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_StructSet = cpb.create();
         }
         return props_StructSet;
-      case LanguageConceptSwitch.Substitution:
-        if (props_Substitution == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_Substitution = cpb.create();
-        }
-        return props_Substitution;
       case LanguageConceptSwitch.THIS:
         if (props_THIS == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -483,20 +516,27 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_TypingPredicateStructMember = cpb.create();
         }
         return props_TypingPredicateStructMember;
-      case LanguageConceptSwitch.WhileSubstitution:
-        if (props_WhileSubstitution == null) {
+      case LanguageConceptSwitch.WhileInstruction:
+        if (props_WhileInstruction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("while");
-          props_WhileSubstitution = cpb.create();
+          props_WhileInstruction = cpb.create();
         }
-        return props_WhileSubstitution;
-      case LanguageConceptSwitch.functionElemnent:
-        if (props_functionElemnent == null) {
+        return props_WhileInstruction;
+      case LanguageConceptSwitch.functionElement:
+        if (props_functionElement == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("fun");
-          props_functionElemnent = cpb.create();
+          props_functionElement = cpb.create();
         }
-        return props_functionElemnent;
+        return props_functionElement;
+      case LanguageConceptSwitch.mappingUpdate:
+        if (props_mappingUpdate == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("mappingUpdate");
+          props_mappingUpdate = cpb.create();
+        }
+        return props_mappingUpdate;
       case LanguageConceptSwitch.pred:
         if (props_pred == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

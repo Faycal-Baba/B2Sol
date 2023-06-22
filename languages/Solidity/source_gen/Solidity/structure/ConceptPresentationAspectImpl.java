@@ -45,10 +45,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_MinusExpression;
   private ConceptPresentation props_Minusminus;
   private ConceptPresentation props_MultExpression;
+  private ConceptPresentation props_NegativeExpression;
   private ConceptPresentation props_NotExpression;
   private ConceptPresentation props_OrExpression;
   private ConceptPresentation props_Parameter;
   private ConceptPresentation props_ParameterList;
+  private ConceptPresentation props_ParenthesisExpression;
   private ConceptPresentation props_PayableFunctionDefinition;
   private ConceptPresentation props_PlusExpression;
   private ConceptPresentation props_Plusplus;
@@ -329,6 +331,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_MultExpression = cpb.create();
         }
         return props_MultExpression;
+      case LanguageConceptSwitch.NegativeExpression:
+        if (props_NegativeExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("NegativeExpression");
+          props_NegativeExpression = cpb.create();
+        }
+        return props_NegativeExpression;
       case LanguageConceptSwitch.NotExpression:
         if (props_NotExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -357,6 +366,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ParameterList = cpb.create();
         }
         return props_ParameterList;
+      case LanguageConceptSwitch.ParenthesisExpression:
+        if (props_ParenthesisExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("(");
+          props_ParenthesisExpression = cpb.create();
+        }
+        return props_ParenthesisExpression;
       case LanguageConceptSwitch.PayableFunctionDefinition:
         if (props_PayableFunctionDefinition == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

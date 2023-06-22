@@ -49,8 +49,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new EnumeratedSet_TextGen();
       case LanguageConceptSwitch.Function:
         return new Function_TextGen();
-      case LanguageConceptSwitch.IfSubstitution:
-        return new IfSubstitution_TextGen();
+      case LanguageConceptSwitch.IfInstruction:
+        return new IfInstruction_TextGen();
       case LanguageConceptSwitch.Initialisation:
         return new Initialisation_TextGen();
       case LanguageConceptSwitch.Machine:
@@ -71,10 +71,10 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new TransferOperation_TextGen();
       case LanguageConceptSwitch.TypingPredicate:
         return new TypingPredicate_TextGen();
-      case LanguageConceptSwitch.WhileSubstitution:
-        return new WhileSubstitution_TextGen();
-      case LanguageConceptSwitch.functionElemnent:
-        return new functionElemnent_TextGen();
+      case LanguageConceptSwitch.WhileInstruction:
+        return new WhileInstruction_TextGen();
+      case LanguageConceptSwitch.functionElement:
+        return new functionElement_TextGen();
       case LanguageConceptSwitch.pred:
         return new pred_TextGen();
       case LanguageConceptSwitch.succ:

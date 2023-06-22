@@ -17,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -28,8 +29,9 @@ public final class StructSet__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<Boolean> equals_id7E1Po1byfmE = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("equals").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7E1Po1byfmE").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Integer> hashcode_id7E1Po1byfFf = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("hashcode").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7E1Po1byfFf").build();
+  public static final SMethod<Void> addElement_id5vMBZAy63e$ = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addElement").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy63e$").build(SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(equals_id7E1Po1byfmE, hashcode_id7E1Po1byfFf);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(equals_id7E1Po1byfmE, hashcode_id7E1Po1byfFf, addElement_id5vMBZAy63e$);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -46,6 +48,12 @@ public final class StructSet__BehaviorDescriptor extends BaseBHDescriptor {
       value = SPropertyOperations.getString(SLinkOperations.getTarget(t, LINKS.name$3HGV), PROPS.name$MnvL).hashCode() * (int) Set__BehaviorDescriptor.hashcode_id7E1Po1bAC$3.invoke(SLinkOperations.getTarget(t, LINKS.set$YcdO)) * value;
     }
     return value;
+  }
+  /*package*/ static void addElement_id5vMBZAy63e$(@NotNull SNode __thisNode__, String name, SNode set) {
+    SNode tp = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x2df43d4e0665706cL, "B.structure.TypingPredicateStructMember"));
+    TypingPredicate__BehaviorDescriptor.setName_id5vMBZAy5RAC.invoke(tp, name);
+    TypingPredicate__BehaviorDescriptor.setSet_id5vMBZAy5UgC.invoke(tp, set);
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$ppwr)).addElement(tp);
   }
 
   /*package*/ StructSet__BehaviorDescriptor() {
@@ -67,6 +75,9 @@ public final class StructSet__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Boolean) equals_id7E1Po1byfmE(node, (SNode) parameters[0]));
       case 1:
         return (T) ((Integer) hashcode_id7E1Po1byfFf(node));
+      case 2:
+        addElement_id5vMBZAy63e$(node, (String) parameters[0], (SNode) parameters[1]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

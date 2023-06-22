@@ -176,7 +176,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return LINKS.substitutions$QmAM;
     }
     public SAbstractConcept getChildSConcept() {
-      return CONCEPTS.Substitution$Rh;
+      return CONCEPTS.Instruction$Rh;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -233,6 +233,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept Substitution$Rh = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d02L, "B.structure.Substitution");
+    /*package*/ static final SConcept Instruction$Rh = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d02L, "B.structure.Instruction");
   }
 }

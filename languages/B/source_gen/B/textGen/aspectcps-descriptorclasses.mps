@@ -2734,15 +2734,15 @@
         </node>
       </node>
       <node concept="39e2AG" id="as" role="39e3Y0">
-        <ref role="39e2AK" to="2iz:4lth4t2w3TS" resolve="IfSubstitution_TextGen" />
+        <ref role="39e2AK" to="2iz:4lth4t2w3TS" resolve="IfInstruction_TextGen" />
         <node concept="385nmt" id="bj" role="385vvn">
-          <property role="385vuF" value="IfSubstitution_TextGen" />
+          <property role="385vuF" value="IfInstruction_TextGen" />
           <node concept="3u3nmq" id="bl" role="385v07">
             <property role="3u3nmv" value="4998226234300186232" />
           </node>
         </node>
         <node concept="39e2AT" id="bk" role="39e2AY">
-          <ref role="39e2AS" node="c5" resolve="IfSubstitution_TextGen" />
+          <ref role="39e2AS" node="c5" resolve="IfInstruction_TextGen" />
         </node>
       </node>
       <node concept="39e2AG" id="at" role="39e3Y0">
@@ -2866,27 +2866,27 @@
         </node>
       </node>
       <node concept="39e2AG" id="aB" role="39e3Y0">
-        <ref role="39e2AK" to="2iz:4lth4t2w3VG" resolve="WhileSubstitution_TextGen" />
+        <ref role="39e2AK" to="2iz:4lth4t2w3VG" resolve="WhileInstruction_TextGen" />
         <node concept="385nmt" id="bO" role="385vvn">
-          <property role="385vuF" value="WhileSubstitution_TextGen" />
+          <property role="385vuF" value="WhileInstruction_TextGen" />
           <node concept="3u3nmq" id="bQ" role="385v07">
             <property role="3u3nmv" value="4998226234300186348" />
           </node>
         </node>
         <node concept="39e2AT" id="bP" role="39e2AY">
-          <ref role="39e2AS" node="BO" resolve="WhileSubstitution_TextGen" />
+          <ref role="39e2AS" node="BO" resolve="WhileInstruction_TextGen" />
         </node>
       </node>
       <node concept="39e2AG" id="aC" role="39e3Y0">
-        <ref role="39e2AK" to="2iz:4lth4t2w4nI" resolve="functionElemnent_TextGen" />
+        <ref role="39e2AK" to="2iz:4lth4t2w4nI" resolve="functionElement_TextGen" />
         <node concept="385nmt" id="bR" role="385vvn">
-          <property role="385vuF" value="functionElemnent_TextGen" />
+          <property role="385vuF" value="functionElement_TextGen" />
           <node concept="3u3nmq" id="bT" role="385v07">
             <property role="3u3nmv" value="4998226234300188142" />
           </node>
         </node>
         <node concept="39e2AT" id="bS" role="39e2AY">
-          <ref role="39e2AS" node="DO" resolve="functionElemnent_TextGen" />
+          <ref role="39e2AS" node="DO" resolve="functionElement_TextGen" />
         </node>
       </node>
       <node concept="39e2AG" id="aD" role="39e3Y0">
@@ -2938,7 +2938,7 @@
   </node>
   <node concept="312cEu" id="c5">
     <property role="1sVAO0" value="false" />
-    <property role="TrG5h" value="IfSubstitution_TextGen" />
+    <property role="TrG5h" value="IfInstruction_TextGen" />
     <property role="3GE5qa" value="b substitutions" />
     <uo k="s:originTrace" v="n:4998226234300186232" />
     <node concept="3Tm1VV" id="c6" role="1B3o_S">
@@ -7897,14 +7897,14 @@
           </node>
           <node concept="3KbdKl" id="xE" role="3KbHQx">
             <node concept="1n$iZg" id="yY" role="3Kbmr1">
-              <property role="1n_iUB" value="IfSubstitution" />
+              <property role="1n_iUB" value="IfInstruction" />
               <property role="1n_ezw" value="B.structure.LanguageConceptSwitch" />
             </node>
             <node concept="3clFbS" id="yZ" role="3Kbo56">
               <node concept="3cpWs6" id="z0" role="3cqZAp">
                 <node concept="2ShNRf" id="z1" role="3cqZAk">
                   <node concept="HV5vD" id="z2" role="2ShVmc">
-                    <ref role="HV5vE" node="c5" resolve="IfSubstitution_TextGen" />
+                    <ref role="HV5vE" node="c5" resolve="IfInstruction_TextGen" />
                   </node>
                 </node>
               </node>
@@ -8062,14 +8062,14 @@
           </node>
           <node concept="3KbdKl" id="xP" role="3KbHQx">
             <node concept="1n$iZg" id="zP" role="3Kbmr1">
-              <property role="1n_iUB" value="WhileSubstitution" />
+              <property role="1n_iUB" value="WhileInstruction" />
               <property role="1n_ezw" value="B.structure.LanguageConceptSwitch" />
             </node>
             <node concept="3clFbS" id="zQ" role="3Kbo56">
               <node concept="3cpWs6" id="zR" role="3cqZAp">
                 <node concept="2ShNRf" id="zS" role="3cqZAk">
                   <node concept="HV5vD" id="zT" role="2ShVmc">
-                    <ref role="HV5vE" node="BO" resolve="WhileSubstitution_TextGen" />
+                    <ref role="HV5vE" node="BO" resolve="WhileInstruction_TextGen" />
                   </node>
                 </node>
               </node>
@@ -8077,14 +8077,14 @@
           </node>
           <node concept="3KbdKl" id="xQ" role="3KbHQx">
             <node concept="1n$iZg" id="zU" role="3Kbmr1">
-              <property role="1n_iUB" value="functionElemnent" />
+              <property role="1n_iUB" value="functionElement" />
               <property role="1n_ezw" value="B.structure.LanguageConceptSwitch" />
             </node>
             <node concept="3clFbS" id="zV" role="3Kbo56">
               <node concept="3cpWs6" id="zW" role="3cqZAp">
                 <node concept="2ShNRf" id="zX" role="3cqZAk">
                   <node concept="HV5vD" id="zY" role="2ShVmc">
-                    <ref role="HV5vE" node="DO" resolve="functionElemnent_TextGen" />
+                    <ref role="HV5vE" node="DO" resolve="functionElement_TextGen" />
                   </node>
                 </node>
               </node>
@@ -8913,7 +8913,7 @@
   </node>
   <node concept="312cEu" id="BO">
     <property role="1sVAO0" value="false" />
-    <property role="TrG5h" value="WhileSubstitution_TextGen" />
+    <property role="TrG5h" value="WhileInstruction_TextGen" />
     <property role="3GE5qa" value="b substitutions" />
     <uo k="s:originTrace" v="n:4998226234300186348" />
     <node concept="3Tm1VV" id="BP" role="1B3o_S">
@@ -9363,7 +9363,7 @@
   </node>
   <node concept="312cEu" id="DO">
     <property role="1sVAO0" value="false" />
-    <property role="TrG5h" value="functionElemnent_TextGen" />
+    <property role="TrG5h" value="functionElement_TextGen" />
     <property role="3GE5qa" value="expressions" />
     <uo k="s:originTrace" v="n:4998226234300188142" />
     <node concept="3Tm1VV" id="DP" role="1B3o_S">

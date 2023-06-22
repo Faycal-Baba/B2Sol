@@ -580,7 +580,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return LINKS.body$4v9z;
     }
     public SAbstractConcept getChildSConcept() {
-      return CONCEPTS.Substitution$Rh;
+      return CONCEPTS.Instruction$Rh;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -654,7 +654,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     /*package*/ static final SConcept PropertyAttribute$Gb = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
     /*package*/ static final SConcept BIdentifier$nT = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier");
     /*package*/ static final SConcept Predicate$ei = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4eL, "B.structure.Predicate");
-    /*package*/ static final SConcept Substitution$Rh = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d02L, "B.structure.Substitution");
+    /*package*/ static final SConcept Instruction$Rh = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d02L, "B.structure.Instruction");
   }
 
   private static final class PROPS {

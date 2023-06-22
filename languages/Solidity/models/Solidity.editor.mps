@@ -16,6 +16,7 @@
     <import index="tpch" ref="r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)" implicit="true" />
     <import index="tpc5" ref="r:00000000-0000-4000-0000-011c89590299(jetbrains.mps.lang.editor.editor)" implicit="true" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" implicit="true" />
+    <import index="tp2u" ref="r:00000000-0000-4000-0000-011c8959032a(jetbrains.mps.baseLanguage.collections.editor)" implicit="true" />
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
@@ -1310,6 +1311,38 @@
     <node concept="PMmxH" id="1hUiu_qNtVP" role="2wV5jI">
       <ref role="PMmxG" to="tpco:2wZex4PafBj" resolve="alias" />
       <ref role="1k5W1q" to="tpen:hgVS8CF" resolve="KeyWord" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="4JT1jiFab8F">
+    <property role="3GE5qa" value="expressions" />
+    <ref role="1XX52x" to="lab4:4JT1jiFab8x" resolve="ParenthesisExpression" />
+    <node concept="3EZMnI" id="4JT1jiFab8H" role="2wV5jI">
+      <node concept="3F0ifn" id="4JT1jiFab8O" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" to="tpen:hFCSAw$" resolve="LeftParen" />
+      </node>
+      <node concept="3F1sOY" id="4JT1jiFab8U" role="3EZMnx">
+        <ref role="1NtTu8" to="lab4:4JT1jiFab8y" resolve="expr" />
+      </node>
+      <node concept="3F0ifn" id="4JT1jiFab92" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" to="tpen:hFCSUmN" resolve="RightParen" />
+      </node>
+      <node concept="2iRfu4" id="4JT1jiFab8K" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="1d5K1vgsFJE">
+    <property role="3GE5qa" value="expressions" />
+    <ref role="1XX52x" to="lab4:1d5K1vgsFJw" resolve="NegativeExpression" />
+    <node concept="3EZMnI" id="1d5K1vgsFJG" role="2wV5jI">
+      <node concept="3F0ifn" id="1d5K1vgsFJN" role="3EZMnx">
+        <property role="3F0ifm" value="-" />
+        <ref role="1k5W1q" to="tp2u:hGdPUoh" resolve="Operation" />
+      </node>
+      <node concept="3F1sOY" id="1d5K1vgsFJT" role="3EZMnx">
+        <ref role="1NtTu8" to="lab4:1d5K1vgsFJx" resolve="expression" />
+      </node>
+      <node concept="2iRfu4" id="1d5K1vgsFJJ" role="2iSdaV" />
     </node>
   </node>
 </model>

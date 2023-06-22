@@ -10,10 +10,10 @@ import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.SModifiersImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -27,8 +27,9 @@ public final class Predicate__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<Boolean> usesTimestamp_id283pMPgAyl2 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("usesTimestamp").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("283pMPgAyl2").build();
   public static final SMethod<Boolean> BalanceStrictEquality_id283pMPgAymH = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("BalanceStrictEquality").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("283pMPgAymH").build();
+  public static final SMethod<Void> setPredicate_id5vMBZAy7WOP = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setPredicate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7WOP").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(usesTimestamp_id283pMPgAyl2, BalanceStrictEquality_id283pMPgAymH);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(usesTimestamp_id283pMPgAyl2, BalanceStrictEquality_id283pMPgAymH, setPredicate_id5vMBZAy7WOP);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -44,6 +45,9 @@ public final class Predicate__BehaviorDescriptor extends BaseBHDescriptor {
       }
     }
     return false;
+  }
+  /*package*/ static void setPredicate_id5vMBZAy7WOP(@NotNull SNode __thisNode__, SNode expr) {
+    SLinkOperations.setTarget(__thisNode__, LINKS.expr$PKyr, expr);
   }
 
   /*package*/ Predicate__BehaviorDescriptor() {
@@ -65,6 +69,9 @@ public final class Predicate__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Boolean) usesTimestamp_id283pMPgAyl2(node));
       case 1:
         return (T) ((Boolean) BalanceStrictEquality_id283pMPgAymH(node));
+      case 2:
+        setPredicate_id5vMBZAy7WOP(node, (SNode) parameters[0]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

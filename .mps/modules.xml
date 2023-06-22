@@ -2,10 +2,11 @@
 <project version="4">
   <component name="MPSProject">
     <projectModules>
-      <modulePath path="$PROJECT_DIR$/languages/B/B.mpl" folder="" />
-      <modulePath path="$PROJECT_DIR$/languages/B/sandbox/B.sandbox.msd" folder="" />
-      <modulePath path="$PROJECT_DIR$/languages/Solidity/Solidity.mpl" folder="" />
-      <modulePath path="$PROJECT_DIR$/languages/Solidity/sandbox/Solidity.sandbox.msd" folder="" />
+      <modulePath path="${TEXTGENGEN_HOME}/languages/B/B.mpl" folder="" />
+      <modulePath path="${TEXTGENGEN_HOME}/languages/B/sandbox/B.sandbox.msd" folder="" />
+      <modulePath path="${TEXTGENGEN_HOME}/languages/Solidity/Solidity.mpl" folder="" />
+      <modulePath path="${TEXTGENGEN_HOME}/languages/Solidity/sandbox/Solidity.sandbox.msd" folder="" />
+      <modulePath path="${TEXTGENGEN_HOME}/solutions/Application/Application.msd" folder="" />
     </projectModules>
   </component>
 </project>

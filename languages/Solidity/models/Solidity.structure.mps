@@ -822,5 +822,32 @@
     <property role="34LRSv" value="this" />
     <ref role="1TJDcQ" node="6OTxsqpkKf_" resolve="SolidityGlobalVariables" />
   </node>
+  <node concept="1TIwiD" id="4JT1jiFab8x">
+    <property role="EcuMT" value="5474412545813557793" />
+    <property role="3GE5qa" value="expressions" />
+    <property role="TrG5h" value="ParenthesisExpression" />
+    <property role="34LRSv" value="(" />
+    <ref role="1TJDcQ" node="6OTxsqoINXB" resolve="Expression" />
+    <node concept="1TJgyj" id="4JT1jiFab8y" role="1TKVEi">
+      <property role="IQ2ns" value="5474412545813557794" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="expr" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="6OTxsqoINXB" resolve="Expression" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="1d5K1vgsFJw">
+    <property role="EcuMT" value="1388727268627626976" />
+    <property role="3GE5qa" value="expressions" />
+    <property role="TrG5h" value="NegativeExpression" />
+    <ref role="1TJDcQ" node="6OTxsqoINXB" resolve="Expression" />
+    <node concept="1TJgyj" id="1d5K1vgsFJx" role="1TKVEi">
+      <property role="IQ2ns" value="1388727268627626977" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="expression" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="6OTxsqoINXB" resolve="Expression" />
+    </node>
+  </node>
 </model>
 
