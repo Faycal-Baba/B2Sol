@@ -7,6 +7,7 @@
       <modulePath path="${TEXTGENGEN_HOME}/languages/Solidity/Solidity.mpl" folder="" />
       <modulePath path="${TEXTGENGEN_HOME}/languages/Solidity/sandbox/Solidity.sandbox.msd" folder="" />
       <modulePath path="${TEXTGENGEN_HOME}/solutions/Application/Application.msd" folder="" />
+      <modulePath path="${TEXTGENGEN_HOME}/solutions/solution/solution.msd" folder="" />
     </projectModules>
   </component>
 </project>

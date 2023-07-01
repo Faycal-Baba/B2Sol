@@ -33,11 +33,11 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Boolean> checkIfReentrant_idmRvs4iaW_k = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("checkIfReentrant").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("mRvs4iaW_k").build();
   public static final SMethod<Void> setName_id5vMBZAy7FbG = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7FbG").build(SMethodBuilder.createJavaParameter(String.class, ""));
   public static final SMethod<Void> addTypingPredicate_id5vMBZAy7HPw = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addTypingPredicate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7HPw").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<Void> addSubstitution_id5vMBZAy7M8e = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addSubstitution").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7M8e").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> addInstruction_id5vMBZAy7M8e = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addInstruction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7M8e").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> addPrecondition_id5vMBZAy7QHu = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addPrecondition").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7QHu").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> setInputParam_id1Qhl$$IKL0o = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setInputParam").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1Qhl$$IKL0o").build(SMethodBuilder.createJavaParameter((Class<List<String>>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(BalanceStrictEqualityCheck_id283pMPgAuW2, checkIfReentrant_idmRvs4iaW_k, setName_id5vMBZAy7FbG, addTypingPredicate_id5vMBZAy7HPw, addSubstitution_id5vMBZAy7M8e, addPrecondition_id5vMBZAy7QHu, setInputParam_id1Qhl$$IKL0o);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(BalanceStrictEqualityCheck_id283pMPgAuW2, checkIfReentrant_idmRvs4iaW_k, setName_id5vMBZAy7FbG, addTypingPredicate_id5vMBZAy7HPw, addInstruction_id5vMBZAy7M8e, addPrecondition_id5vMBZAy7QHu, setInputParam_id1Qhl$$IKL0o);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -76,8 +76,8 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static void addTypingPredicate_id5vMBZAy7HPw(@NotNull SNode __thisNode__, SNode tp) {
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typingPredicates$4o75)).addElement(tp);
   }
-  /*package*/ static void addSubstitution_id5vMBZAy7M8e(@NotNull SNode __thisNode__, SNode subs) {
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.body$4v9z)).addElement(subs);
+  /*package*/ static void addInstruction_id5vMBZAy7M8e(@NotNull SNode __thisNode__, SNode instr) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.body$4v9z)).addElement(instr);
   }
   /*package*/ static void addPrecondition_id5vMBZAy7QHu(@NotNull SNode __thisNode__, SNode predicate) {
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.preconditions$4p39)).addElement(predicate);
@@ -116,7 +116,7 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
         addTypingPredicate_id5vMBZAy7HPw(node, (SNode) parameters[0]);
         return null;
       case 4:
-        addSubstitution_id5vMBZAy7M8e(node, (SNode) parameters[0]);
+        addInstruction_id5vMBZAy7M8e(node, (SNode) parameters[0]);
         return null;
       case 5:
         addPrecondition_id5vMBZAy7QHu(node, (SNode) parameters[0]);

@@ -31,8 +31,8 @@ public final class Initialisation__BehaviorDescriptor extends BaseBHDescriptor {
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void addInstruction_id5vMBZAy7ASM(@NotNull SNode __thisNode__, SNode subs) {
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.body$aE2)).addElement(subs);
+  /*package*/ static void addInstruction_id5vMBZAy7ASM(@NotNull SNode __thisNode__, SNode instr) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.body$aE2)).addElement(instr);
   }
 
   /*package*/ Initialisation__BehaviorDescriptor() {

@@ -56,6 +56,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EnumeratedSet;
   private ConceptPresentation props_Function;
   private ConceptPresentation props_IfInstruction;
+  private ConceptPresentation props_ImporterLogic;
   private ConceptPresentation props_Initialisation;
   private ConceptPresentation props_Instruction;
   private ConceptPresentation props_Machine;
@@ -203,7 +204,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.BInteger:
         if (props_BInteger == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("INTl");
+          cpb.rawPresentation("INT");
           props_BInteger = cpb.create();
         }
         return props_BInteger;
@@ -408,6 +409,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IfInstruction = cpb.create();
         }
         return props_IfInstruction;
+      case LanguageConceptSwitch.ImporterLogic:
+        if (props_ImporterLogic == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("ImporterLogic");
+          props_ImporterLogic = cpb.create();
+        }
+        return props_ImporterLogic;
       case LanguageConceptSwitch.Initialisation:
         if (props_Initialisation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

@@ -16,7 +16,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/5351203823916750322:jetbrains.mps.baseLanguage.structure.TryUniversalStatement" />
   <root>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="18,0,288,0" name="B.editor.EditorAspectDescriptorImpl" />
+      <unit at="18,0,290,0" name="B.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="GrammarActionsDescriptor.java">
       <unit at="1191,0,1194,0" name="B.editor.GrammarActionsDescriptor$PROPS" />
@@ -298,6 +298,11 @@
       <unit at="57,0,60,0" name="B.editor.GrammarCellsSubstituteMenu_IfInstruction$CONCEPTS" />
       <unit at="46,0,56,0" name="B.editor.GrammarCellsSubstituteMenu_IfInstruction$GrammarCellsSubstituteMenuPart_s3n4a_a" />
       <unit at="21,0,61,0" name="B.editor.GrammarCellsSubstituteMenu_IfInstruction" />
+    </file>
+    <file name="GrammarCellsSubstituteMenu_ImporterLogic.java">
+      <unit at="57,0,60,0" name="B.editor.GrammarCellsSubstituteMenu_ImporterLogic$CONCEPTS" />
+      <unit at="46,0,56,0" name="B.editor.GrammarCellsSubstituteMenu_ImporterLogic$GrammarCellsSubstituteMenuPart_kkgg6g_a" />
+      <unit at="21,0,61,0" name="B.editor.GrammarCellsSubstituteMenu_ImporterLogic" />
     </file>
     <file name="GrammarCellsSubstituteMenu_Initialisation.java">
       <unit at="57,0,60,0" name="B.editor.GrammarCellsSubstituteMenu_Initialisation$CONCEPTS" />
