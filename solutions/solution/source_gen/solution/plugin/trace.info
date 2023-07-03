@@ -70,14 +70,14 @@
       <node id="8582171571421442477" at="56,5,57,16" concept="7" />
       <node id="3674144560974056569" at="60,96,61,0" concept="9" />
       <node id="3674144560974056902" at="61,0,62,0" concept="9" />
-      <node id="3674144560974076383" at="62,0,63,163" concept="6" />
-      <node id="3674144560974056953" at="63,163,64,0" concept="9" />
+      <node id="3674144560974076383" at="62,0,63,169" concept="6" />
+      <node id="3674144560974056953" at="63,169,64,0" concept="9" />
       <node id="2376978203911560237" at="65,31,66,67" concept="2" />
       <node id="3674144560974084205" at="66,67,67,13" concept="7" />
       <node id="3674144560974057005" at="68,5,69,0" concept="9" />
-      <node id="8582171571422598882" at="69,0,70,67" concept="6" />
-      <node id="1115217409704621682" at="70,67,71,0" concept="9" />
-      <node id="958108220649319365" at="74,13,75,0" concept="9" />
+      <node id="1755957277291654974" at="69,0,70,0" concept="9" />
+      <node id="8582171571422598882" at="73,13,74,67" concept="6" />
+      <node id="958108220649319365" at="74,67,75,0" concept="9" />
       <node id="2376978203911577559" at="75,0,76,58" concept="2" />
       <node id="958108220649644952" at="76,58,77,67" concept="2" />
       <node id="1755957277291291308" at="77,67,78,0" concept="9" />
@@ -92,9 +92,9 @@
       <node id="8582171571421508653" at="38,5,44,5" concept="0" />
       <node id="8582171571421508655" at="44,5,50,5" concept="0" />
       <node id="8582171571421508657" at="50,5,56,5" concept="0" />
-      <node id="8582171571421508029" at="73,25,81,9" concept="12" />
-      <node id="8582171571421508027" at="73,0,83,0" concept="5" trace="run#()V" />
-      <node id="8582171571421508026" at="71,0,83,7" concept="2" />
+      <node id="8582171571421508029" at="72,25,81,9" concept="12" />
+      <node id="1755957277291656597" at="72,0,83,0" concept="5" trace="run#()V" />
+      <node id="1755957277291656595" at="70,0,83,7" concept="2" />
       <node id="8582171571421442477" at="34,0,59,0" concept="5" trace="collectActionData#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)Z" />
       <node id="8582171571421442477" at="59,0,85,0" concept="5" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
       <scope id="8582171571421442477" at="31,32,32,16" />
@@ -118,14 +118,15 @@
       <scope id="8582171571421508657" at="51,5,55,7">
         <var name="p" id="8582171571421508657" />
       </scope>
-      <scope id="8582171571421508048" at="74,13,78,0" />
       <scope id="8582171571421442477" at="25,0,30,0" />
-      <scope id="8582171571421508028" at="73,25,81,9" />
-      <scope id="8582171571421508027" at="73,0,83,0" />
+      <scope id="8582171571421508048" at="73,13,78,0">
+        <var name="test" id="8582171571422598883" />
+      </scope>
+      <scope id="1755957277291656599" at="72,25,81,9" />
+      <scope id="1755957277291656597" at="72,0,83,0" />
       <scope id="8582171571421442477" at="35,95,57,16" />
       <scope id="8582171571421442477" at="60,96,83,7">
         <var name="selectedFile" id="3674144560974076384" />
-        <var name="test" id="8582171571422598883" />
       </scope>
       <scope id="8582171571421442477" at="34,0,59,0">
         <var name="_params" id="8582171571421442477" />
@@ -135,7 +136,7 @@
         <var name="_params" id="8582171571421442477" />
         <var name="event" id="8582171571421442477" />
       </scope>
-      <unit id="8582171571421508027" at="72,101,83,5" name="solution.plugin.ImportBModel_Action$1" />
+      <unit id="1755957277291656597" at="71,106,83,5" name="solution.plugin.ImportBModel_Action$1" />
       <unit id="8582171571421442477" at="22,0,86,0" name="solution.plugin.ImportBModel_Action" />
     </file>
     <file name="Solution_ApplicationPlugin.java">

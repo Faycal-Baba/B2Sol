@@ -60,18 +60,18 @@ public class ImportBModel_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
 
 
-    VirtualFile selectedFile = FileChooser.chooseFile(FileChooserDescriptorFactory.createSingleFileDescriptor("imp"), event.getData(CommonDataKeys.PROJECT), null);
+    final VirtualFile selectedFile = FileChooser.chooseFile(FileChooserDescriptorFactory.createSingleFileDescriptor("imp"), event.getData(CommonDataKeys.PROJECT), null);
 
     if (selectedFile == null) {
       System.out.println("selected File == null for some reasons");
       return;
     }
 
-    final SNode test = Importer.importData(selectedFile.getPath());
 
-    event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository().getModelAccess().executeCommand(new Runnable() {
+    event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository().getModelAccess().executeCommandInEDT(new Runnable() {
       public void run() {
         try {
+          SNode test = Importer.importData(selectedFile.getPath());
 
           System.out.println("adding new model to model");
           event.getData(MPSCommonDataKeys.MODEL).addRootNode(test);

@@ -36,8 +36,9 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> addInstruction_id5vMBZAy7M8e = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addInstruction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7M8e").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> addPrecondition_id5vMBZAy7QHu = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addPrecondition").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7QHu").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> setInputParam_id1Qhl$$IKL0o = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setInputParam").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1Qhl$$IKL0o").build(SMethodBuilder.createJavaParameter((Class<List<String>>) ((Class) Object.class), ""));
+  public static final SMethod<Void> addInputParam_id5wdOlJ2mvKy = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addInputParam").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5wdOlJ2mvKy").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(BalanceStrictEqualityCheck_id283pMPgAuW2, checkIfReentrant_idmRvs4iaW_k, setName_id5vMBZAy7FbG, addTypingPredicate_id5vMBZAy7HPw, addInstruction_id5vMBZAy7M8e, addPrecondition_id5vMBZAy7QHu, setInputParam_id1Qhl$$IKL0o);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(BalanceStrictEqualityCheck_id283pMPgAuW2, checkIfReentrant_idmRvs4iaW_k, setName_id5vMBZAy7FbG, addTypingPredicate_id5vMBZAy7HPw, addInstruction_id5vMBZAy7M8e, addPrecondition_id5vMBZAy7QHu, setInputParam_id1Qhl$$IKL0o, addInputParam_id5wdOlJ2mvKy);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -89,6 +90,11 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
       ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.inputParameters$4i0F)).addElement(id);
     }
   }
+  /*package*/ static void addInputParam_id5wdOlJ2mvKy(@NotNull SNode __thisNode__, String inputParam) {
+    SNode inputParamId = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier"));
+    BIdentifier__BehaviorDescriptor.setName_id7B8mKgzi8Kz.invoke(inputParamId, inputParam);
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.inputParameters$4i0F)).addElement(inputParamId);
+  }
 
   /*package*/ Operation__BehaviorDescriptor() {
   }
@@ -123,6 +129,9 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
         return null;
       case 6:
         setInputParam_id1Qhl$$IKL0o(node, (List<String>) parameters[0]);
+        return null;
+      case 7:
+        addInputParam_id5wdOlJ2mvKy(node, (String) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);

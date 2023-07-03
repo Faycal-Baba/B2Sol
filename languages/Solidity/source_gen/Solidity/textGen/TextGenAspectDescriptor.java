@@ -69,6 +69,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new Parameter_TextGen();
       case LanguageConceptSwitch.ParameterList:
         return new ParameterList_TextGen();
+      case LanguageConceptSwitch.ParenthesisExpression:
+        return new ParenthesisExpression_TextGen();
       case LanguageConceptSwitch.PayableFunctionDefinition:
         return new PayableFunctionDefinition_TextGen();
       case LanguageConceptSwitch.Plusplus:

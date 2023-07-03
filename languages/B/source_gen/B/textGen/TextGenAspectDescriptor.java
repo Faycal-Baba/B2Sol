@@ -37,6 +37,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new BIntegerLiteral_TextGen();
       case LanguageConceptSwitch.BNotExpression:
         return new BNotExpression_TextGen();
+      case LanguageConceptSwitch.BParenthesisExpression:
+        return new BParenthesisExpression_TextGen();
       case LanguageConceptSwitch.BSpaceChar:
         return new BSpaceChar_TextGen();
       case LanguageConceptSwitch.BStringLiteral:

@@ -19,15 +19,19 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.Iterator;
 import jetbrains.mps.internal.collections.runtime.IMapping;
 import B.behavior.TypingPredicate__BehaviorDescriptor;
+import B.behavior.Initialisation__BehaviorDescriptor;
+import B.behavior.Operation__BehaviorDescriptor;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import B.behavior.BParenthesisExpression__BehaviorDescriptor;
 import B.behavior.BNegativeExpression__BehaviorDescriptor;
 import B.behavior.BNotExpression__BehaviorDescriptor;
+import B.behavior.BParenthesisExpression__BehaviorDescriptor;
 import B.behavior.BBinaryExpression__BehaviorDescriptor;
 import B.behavior.succ__BehaviorDescriptor;
 import B.behavior.pred__BehaviorDescriptor;
 import B.behavior.BBalanceOf__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.logging.runtime.model.LoggingRuntime;
+import org.apache.log4j.Level;
 import B.behavior.BIdentifier__BehaviorDescriptor;
 import B.behavior.BecomesSubstitution__BehaviorDescriptor;
 import B.behavior.TransferOperation__BehaviorDescriptor;
@@ -35,17 +39,13 @@ import B.behavior.IfInstruction__BehaviorDescriptor;
 import B.behavior.ElseIf__BehaviorDescriptor;
 import B.behavior.WhileInstruction__BehaviorDescriptor;
 import B.behavior.mappingUpdate__BehaviorDescriptor;
-import jetbrains.mps.baseLanguage.logging.runtime.model.LoggingRuntime;
-import org.apache.log4j.Level;
 import B.behavior.StructSet__BehaviorDescriptor;
 import B.behavior.userDefinedSet__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import B.behavior.ArrayElement__BehaviorDescriptor;
-import B.behavior.Initialisation__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import B.behavior.Operation__BehaviorDescriptor;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Importer {
   private static final Logger LOG = LogManager.getLogger(Importer.class);
@@ -85,8 +85,6 @@ public class Importer {
       Iterator<IMapping<String, BImplGrammarParser.TypeContext>> iter = MapSequence.fromMap(varTypingPredicates).iterator();
 
       if (iter != null) {
-
-
         while (iter.hasNext()) {
           IMapping<String, BImplGrammarParser.TypeContext> context = iter.next();
           SNode type = evaluateBType(context.value());
@@ -98,19 +96,69 @@ public class Importer {
       }
     }
 
+    Map<String, BImplGrammarParser.TypeContext> constantsTypingPredicates = tree.getConstantsTypingPredicates();
+    Map<String, BImplGrammarParser.ExpressionContext> constantsValuations = tree.getConstantsValuation();
+
+    if (constantsTypingPredicates != null && constantsValuations != null && !(constantsTypingPredicates.isEmpty()) && !(constantsValuations.isEmpty())) {
+      for (String key : constantsTypingPredicates.keySet()) {
+        // get key type valuation 
+        BImplGrammarParser.TypeContext constantType = constantsTypingPredicates.get(key);
+        SNode evaluatedBType = evaluateBType(constantType);
+        // get key valuation 
+        if (constantsValuations.get(key) != null) {
+          BImplGrammarParser.ExpressionContext constantValuation = constantsValuations.get(key);
+          SNode evaluatedExpression = evaluateExpression(constantValuation);
+          Machine__BehaviorDescriptor.addConstantValuation_id5vMBZAy88ub.invoke(machine, evaluatedExpression, evaluatedBType, key);
+        } else {
+          SNode tpp = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698f14dd8L, "B.structure.TypingPredicateProperties"));
+          TypingPredicate__BehaviorDescriptor.setName_id5vMBZAy5RAC.invoke(tpp, key);
+          TypingPredicate__BehaviorDescriptor.setSet_id5vMBZAy5UgC.invoke(tpp, evaluatedBType);
+          Machine__BehaviorDescriptor.addPropertiesPredicate_id5vMBZAy8oyU.invoke(machine, tpp);
+        }
+      }
+    }
+
+    List<BImplGrammarParser.StatementContext> init = tree.getInit();
+
+    if (init != null && !(init.isEmpty())) {
+      SNode initialisation = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c6993c5af9L, "B.structure.Initialisation"));
+      for (BImplGrammarParser.StatementContext st : ListSequence.fromList(init)) {
+        SNode evaluateInstruction = evaluateInstruction(st);
+        Initialisation__BehaviorDescriptor.addInstruction_id5vMBZAy7ASM.invoke(initialisation, evaluateInstruction);
+      }
+      Machine__BehaviorDescriptor.setinit_id5vMBZAy8txW.invoke(machine, initialisation);
+    }
+
+    List<BImplGrammarParser.OperationContext> operationList = tree.getOperationList();
+
+    if (operationList != null && !(operationList.isEmpty())) {
+      for (BImplGrammarParser.OperationContext op : ListSequence.fromList(operationList)) {
+        SNode newOperation = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L, "B.structure.Operation"));
+        Operation__BehaviorDescriptor.setName_id5vMBZAy7FbG.invoke(newOperation, op.Identifier().getText());
+
+        BImplGrammarParser.ParameterListContext inputParam = op.inputParam;
+        if (inputParam != null) {
+          if (inputParam.parameter() != null && inputParam.parameter().size() > 0) {
+            for (BImplGrammarParser.ParameterContext ip : ListSequence.fromList(inputParam.parameter())) {
+              Operation__BehaviorDescriptor.addInputParam_id5wdOlJ2mvKy.invoke(newOperation, ip.getText());
+            }
+          }
+        }
+
+        List<BImplGrammarParser.StatementContext> statement = op.statementList().statement();
+
+        // add instructions 
+        for (BImplGrammarParser.StatementContext st : ListSequence.fromList(statement)) {
+          SNode evaluateInstruction = evaluateInstruction(st);
+          Operation__BehaviorDescriptor.addInstruction_id5vMBZAy7M8e.invoke(newOperation, evaluateInstruction);
+        }
+        Machine__BehaviorDescriptor.addOperation_id5vMBZAy8wr2.invoke(machine, newOperation);
+      }
+    }
 
 
 
 
-
-
-
-
-    /*
-      <node> 
-       <node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node><node>
-
-    */
 
     return machine;
 
@@ -133,43 +181,60 @@ public class Importer {
   public static SNode evaluateExpression(BImplGrammarParser.ExpressionContext expr) {
 
     int numChildCount = expr.getChildCount();
-
-    if (numChildCount == 3 & expr.getChild(0).getText().equals("(")) {
-      SNode expression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4bf90534ab2ea008L, "B.structure.BParenthesisExpression"));
-      SNode innerExpr = evaluateExpression(expr.expression(0));
-      BParenthesisExpression__BehaviorDescriptor.setExpr_id4JT1jiFcT35.invoke(expression, innerExpr);
+    if (numChildCount == 1 && expr.primaryExpression() == null) {
+      if (expr.getText().equals("msg_sender")) {
+        return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6cc13L, "B.structure.BSender"));
+      }
+      if (expr.getText().equals("THIS")) {
+        return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5b77dc1122c9701L, "B.structure.THIS"));
+      }
+      if (expr.getText().equals("msg_value")) {
+        return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6cc12L, "B.structure.BValue"));
+      }
+    }
+    if (numChildCount == 1 && expr.primaryExpression() != null) {
+      SNode expression = evaluatePrimaryExpr(expr.primaryExpression());
       return expression;
-
-    } else if (numChildCount == 2) {
+    }
+    if (numChildCount == 2) {
       if (expr.getChild(0).getText().equals("-")) {
         SNode innerExpr = evaluateExpression(expr.expression(0));
         SNode expression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1345c017d06d641dL, "B.structure.BNegativeExpression"));
         BNegativeExpression__BehaviorDescriptor.setExpr_id1d5K1vgrmh5.invoke(expression, innerExpr);
         return expression;
-      } else if (expr.getChild(0).getText().equals("not")) {
+      }
+      if (expr.getChild(0).getText().equals("not")) {
         SNode innerExpr = evaluateExpression(expr.expression(0));
         SNode expression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756976L, "B.structure.BNotExpression"));
         BNotExpression__BehaviorDescriptor.setExpr_id5vMBZAy6VN7.invoke(expression, innerExpr);
         return expression;
       }
-    } else if (numChildCount == 3 & expr.binOp() != null) {
-      SNode expression = evaluatBinaryExpression(expr);
-      SNode leftExpression = evaluateExpression(expr.expression(0));
-      SNode rightExpression = evaluateExpression(expr.expression(1));
-      BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(expression, leftExpression);
-      BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(expression, rightExpression);
-      return expression;
-    } else if (numChildCount == 3 & expr.binOp() == null & expr.getChild(1).getText().equals("mod")) {
-      SNode expression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1345c017d07fe41bL, "B.structure.BModuloExpression"));
-      SNode leftExpression = evaluateExpression(expr.expression(0));
-      SNode rightExpression = evaluateExpression(expr.expression(1));
-      BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(expression, leftExpression);
-      BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(expression, rightExpression);
-      return expression;
-    } else if (numChildCount == 1 & expr.primaryExpression() != null) {
-      SNode expression = evaluatePrimaryExpr(expr.primaryExpression());
-      return expression;
-    } else if (numChildCount == 4) {
+    }
+    if (numChildCount == 3) {
+      if (expr.getChild(0).getText().equals("(")) {
+        SNode expression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4bf90534ab2ea008L, "B.structure.BParenthesisExpression"));
+        SNode innerExpr = evaluateExpression(expr.expression(0));
+        BParenthesisExpression__BehaviorDescriptor.setExpr_id4JT1jiFcT35.invoke(expression, innerExpr);
+        return expression;
+      }
+      if (expr.binOp() != null) {
+        SNode expression = evaluateBinaryExpression(expr);
+        SNode leftExpression = evaluateExpression(expr.expression(0));
+        SNode rightExpression = evaluateExpression(expr.expression(1));
+        BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(expression, leftExpression);
+        BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(expression, rightExpression);
+        return expression;
+      }
+      if (expr.binOp() == null && expr.getChild(1).getText().equals("mod")) {
+        SNode expression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1345c017d07fe41bL, "B.structure.BModuloExpression"));
+        SNode leftExpression = evaluateExpression(expr.expression(0));
+        SNode rightExpression = evaluateExpression(expr.expression(1));
+        BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(expression, leftExpression);
+        BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(expression, rightExpression);
+        return expression;
+      }
+    }
+    if (numChildCount == 4) {
       if (expr.getChild(0).getText().equals("succ")) {
         SNode expression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x2ddbf14b541b29e2L, "B.structure.succ"));
         SNode innerExpression = evaluateExpression(expr.expression(0));
@@ -186,59 +251,59 @@ public class Importer {
         BBalanceOf__BehaviorDescriptor.setExpr_id5vMBZAy74$9.invoke(expression, innerExpression);
         return expression;
       }
-    } else if (numChildCount == 1 && expr.primaryExpression() == null) {
-      if (expr.getText().equals("msg_sender")) {
-        return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6cc13L, "B.structure.BSender"));
-      }
-      if (expr.getText().equals("THIS")) {
-        return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5b77dc1122c9701L, "B.structure.THIS"));
-      }
-      if (expr.getText().equals("msg_value")) {
-        return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6cc12L, "B.structure.BValue"));
-      }
     }
-
     return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a01bL, "B.structure.BSpaceChar"));
   }
 
+
+
+
   public static SNode evaluateCondition(BImplGrammarParser.ConditionContext cond) {
-    if (cond.expression() != null) {
-      // case it's expr comparOp expr  
-      SNode leftExpression = evaluatBinaryExpression(cond.expression(0));
+
+    //  parenthesis case 
+    LoggingRuntime.logMsgView(Level.INFO, "Print Condition" + cond.getText(), Importer.class, null, null);
+
+    if (cond.getChild(0).getText().equals("(") && cond.getChild(2).getText().equals(")")) {
+      SNode paren = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4bf90534ab2ea008L, "B.structure.BParenthesisExpression"));
+      SNode inner = evaluateCondition(cond.condition(0));
+      BParenthesisExpression__BehaviorDescriptor.setExpr_id4JT1jiFcT35.invoke(paren, inner);
+      return paren;
+    }
+    if (cond.expression() != null && (cond.expression().size() == 2)) {
+      LoggingRuntime.logMsgView(Level.INFO, "TEST" + cond.expression().size(), Importer.class, null, null);
+      // case it's expr comparOp expr 
+      LoggingRuntime.logMsgView(Level.INFO, "condition " + cond.expression(0).getText(), Importer.class, null, null);
+      SNode leftExpression = evaluateExpression(cond.expression(0));
       SNode condition = evaluateCompOperator(cond.compareOp().getText());
-      SNode rightExpression = evaluatBinaryExpression(cond.expression(1));
+      LoggingRuntime.logMsgView(Level.INFO, "expression1 " + cond.expression(1).getText(), Importer.class, null, null);
+      SNode rightExpression = evaluateExpression(cond.expression(1));
       BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(condition, leftExpression);
       BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(condition, rightExpression);
       return condition;
-    } else {
-      if (cond.getChild(0).getText().equals("not")) {
-        SNode condition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756976L, "B.structure.BNotExpression"));
-        SNode innerCondition = evaluateCondition(cond.condition(0));
-        BNotExpression__BehaviorDescriptor.setExpr_id5vMBZAy6VN7.invoke(condition, innerCondition);
-        return condition;
-      } else if (cond.getChild(0).getText().equals("(") && cond.getChild(3).getText().equals(")")) {
-        SNode paren = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4bf90534ab2ea008L, "B.structure.BParenthesisExpression"));
-        SNode inner = evaluateCondition(cond.condition(0));
-        BParenthesisExpression__BehaviorDescriptor.setExpr_id4JT1jiFcT35.invoke(paren, inner);
-        return paren;
-      }
-      if (cond.condition().size() == 2) {
-        SNode leftExpression = evaluateCondition(cond.condition(0));
-        SNode rightExpression = evaluateCondition(cond.condition(1));
-        if (cond.getChild(1).getText().equals("&")) {
-          SNode condition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756970L, "B.structure.BAndExpression"));
-          BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(condition, leftExpression);
-          BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(condition, rightExpression);
-          return condition;
-        } else if (cond.getChild(1).getText().equals("OR")) {
-          SNode condition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756971L, "B.structure.BOrExpression"));
-          BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(condition, leftExpression);
-          BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(condition, rightExpression);
-          return condition;
-        }
-
-      }
     }
+    if (cond.getChild(0).getText().equals("not")) {
+      SNode condition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756976L, "B.structure.BNotExpression"));
+      SNode innerCondition = evaluateCondition(cond.condition(0));
+      BNotExpression__BehaviorDescriptor.setExpr_id5vMBZAy6VN7.invoke(condition, innerCondition);
+      return condition;
+    }
+    if (cond.condition().size() == 2) {
+      SNode leftExpression = evaluateCondition(cond.condition(0));
+      SNode rightExpression = evaluateCondition(cond.condition(1));
+      if (cond.getChild(1).getText().equals("&")) {
+        SNode condition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756970L, "B.structure.BAndExpression"));
+        BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(condition, leftExpression);
+        BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(condition, rightExpression);
+        return condition;
+      } else if (cond.getChild(1).getText().equals("OR")) {
+        SNode condition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756971L, "B.structure.BOrExpression"));
+        BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(condition, leftExpression);
+        BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(condition, rightExpression);
+        return condition;
+      }
+
+    }
+
 
     return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L, "B.structure.BExpression"));
   }
@@ -265,12 +330,16 @@ public class Importer {
 
 
   public static SNode evaluateInstruction(BImplGrammarParser.StatementContext input) {
+    LoggingRuntime.logMsgView(Level.INFO, "InstructionEvaluation", Importer.class, null, null);
     if (!((input.assignment() == null))) {
       SNode substitution = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L, "B.structure.BecomesSubstitution"));
       SNode expr = evaluateExpression(input.assignment().expression());
       if (input.assignment().lhs().Identifier() != null) {
-        SNode lhs = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier"));
-        BIdentifier__BehaviorDescriptor.setName_id7B8mKgzi8Kz.invoke(lhs, input.assignment().lhs().Identifier().getText());
+        SNode identifier = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier"));
+        SNode blhs;
+        String text = input.assignment().lhs().Identifier().getText();
+        BIdentifier__BehaviorDescriptor.setName_id7B8mKgzi8Kz.invoke(identifier, text);
+        BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(substitution, identifier);
       } else if (input.assignment().lhs().field() != null) {
         SNode lhs = evaluateField(input.assignment().lhs().field());
       }
@@ -290,6 +359,7 @@ public class Importer {
       return substitution;
     }
     if (!((input.ifSubstitution() == null))) {
+      LoggingRuntime.logMsgView(Level.INFO, "IF CLAUSE", Importer.class, null, null);
       BImplGrammarParser.IfSubstitutionContext ifInstr = input.ifSubstitution();
       SNode instruction = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL, "B.structure.IfInstruction"));
       SNode condition = evaluateCondition(ifInstr.condition(0));
@@ -302,7 +372,7 @@ public class Importer {
       if (ifInstr.condition().size() > 1) {
         for (int i = 1; i < ifInstr.condition().size(); i++) {
           SNode elseIf = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L, "B.structure.ElseIf"));
-          SNode innerCondition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L, "B.structure.BExpression"));
+          SNode innerCondition;
           innerCondition = evaluateCondition(ifInstr.condition(i));
           ElseIf__BehaviorDescriptor.setCondition_id5vMBZAy75w2.invoke(elseIf, innerCondition);
           List<BImplGrammarParser.StatementContext> innerElseIfBlock = ifInstr.statementList(i).statement();
@@ -354,33 +424,25 @@ public class Importer {
   }
 
   public static SNode evaluateBType(BImplGrammarParser.TypeContext type) {
-    LoggingRuntime.logMsgView(Level.INFO, "EVALUATE TYPE", Importer.class, null, null);
     if (type != null) {
       if (type.basicType() != null && !(type.basicType().isEmpty())) {
-        if (type.basicType().elementaryType() != null & !(type.basicType().elementaryType().isEmpty())) {
-          switch (type.basicType().elementaryType().getText()) {
-            case "INT":
-              return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781277L, "B.structure.BInteger"));
-            case "NAT":
-              return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781278L, "B.structure.BNatural"));
-            case "NAT1":
-              return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781278L, "B.structure.BNatural"));
-            case "BOOL":
-              return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127bL, "B.structure.BBool"));
-            case "STRING":
-              return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127cL, "B.structure.BString"));
-          }
-        }
-        if (type.basicType().solidityTypeRepresentation() != null && !(type.basicType().solidityTypeRepresentation().isEmpty())) {
-          switch (type.basicType().solidityTypeRepresentation().getText()) {
-            case "USERS":
-              return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127aL, "B.structure.BAddress"));
-            case "ADDRESS":
-              LoggingRuntime.logMsgView(Level.INFO, "CASE ADDRESS", Importer.class, null, null);
-              return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127aL, "B.structure.BAddress"));
-            case "BYTES":
-              return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781279L, "B.structure.BBytes"));
-          }
+        switch (type.basicType().getText()) {
+          case "INT":
+            return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781277L, "B.structure.BInteger"));
+          case "NAT":
+            return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781278L, "B.structure.BNatural"));
+          case "NAT1":
+            return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781278L, "B.structure.BNatural"));
+          case "BOOL":
+            return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127bL, "B.structure.BBool"));
+          case "STRINGS":
+            return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127cL, "B.structure.BString"));
+          case "USERS":
+            return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127aL, "B.structure.BAddress"));
+          case "ADDRESS":
+            return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127aL, "B.structure.BAddress"));
+          case "BYTES":
+            return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781279L, "B.structure.BBytes"));
         }
       }
       if (type.userDefinedType() != null && !(type.userDefinedType().isEmpty())) {
@@ -412,6 +474,7 @@ public class Importer {
 
 
 
+
   public static SNode evaluatePrimaryExpr(BImplGrammarParser.PrimaryExpressionContext ctx) {
     if (ctx.Boolean_lit() != null) {
       if (ctx.Boolean_lit().getText() == "TRUE") {
@@ -433,7 +496,7 @@ public class Importer {
     return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L, "B.structure.BExpression"));
   }
 
-  public static SNode evaluatBinaryExpression(BImplGrammarParser.ExpressionContext expr) {
+  public static SNode evaluateBinaryExpression(BImplGrammarParser.ExpressionContext expr) {
 
     if (expr.getChild(1).getText().equals("+")) {
       return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75696cL, "B.structure.BPlusExpression"));
@@ -567,11 +630,11 @@ public class Importer {
   }
 
 
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink initialisation$GunN = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a01cL, 0x7d382cf97c816c19L, "initialisation");
-  }
-
   private static final class PROPS {
     /*package*/ static final SProperty value$HeKV = MetaAdapterFactory.getProperty(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a015L, 0x7d382cf97c75a016L, "value");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink initialisation$GunN = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a01cL, 0x7d382cf97c816c19L, "initialisation");
   }
 }

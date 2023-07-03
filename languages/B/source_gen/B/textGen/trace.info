@@ -14,8 +14,8 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
   <root>
     <file name="TextGenAspectDescriptor.java">
-      <unit at="106,0,109,0" name="B.textGen.TextGenAspectDescriptor$CONCEPTS" />
-      <unit at="16,0,110,0" name="B.textGen.TextGenAspectDescriptor" />
+      <unit at="108,0,111,0" name="B.textGen.TextGenAspectDescriptor$CONCEPTS" />
+      <unit at="16,0,112,0" name="B.textGen.TextGenAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300185290">
@@ -154,26 +154,26 @@
       <unit id="4998226234300185290" at="17,0,132,0" name="B.textGen.Machine_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300185290" at="56,41,57,37" concept="8" />
-      <node id="4998226234300185290" at="91,58,92,49" concept="7" />
-      <node id="4998226234300185290" at="92,49,93,52" concept="7" />
-      <node id="4998226234300185290" at="93,52,94,84" concept="3" />
-      <node id="4998226234300185290" at="94,84,95,17" concept="1" />
-      <node id="4998226234300185290" at="99,57,100,26" concept="8" />
-      <node id="4998226234300185753" at="102,62,103,14" concept="8" />
-      <node id="4998226234300185290" at="99,0,102,0" concept="11" trace="getFileName_Machine#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="4998226234300185290" at="102,0,105,0" concept="11" trace="getFileExtension_Machine#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="4998226234300185290" at="90,58,96,7" concept="5" />
-      <scope id="4998226234300185290" at="56,41,57,37" />
-      <scope id="4998226234300185290" at="99,57,100,26" />
-      <scope id="4998226234300185290" at="102,62,103,14" />
-      <scope id="4998226234300185290" at="99,0,102,0">
+      <node id="4998226234300185290" at="58,41,59,37" concept="8" />
+      <node id="4998226234300185290" at="93,58,94,49" concept="7" />
+      <node id="4998226234300185290" at="94,49,95,52" concept="7" />
+      <node id="4998226234300185290" at="95,52,96,84" concept="3" />
+      <node id="4998226234300185290" at="96,84,97,17" concept="1" />
+      <node id="4998226234300185290" at="101,57,102,26" concept="8" />
+      <node id="4998226234300185753" at="104,62,105,14" concept="8" />
+      <node id="4998226234300185290" at="101,0,104,0" concept="11" trace="getFileName_Machine#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="4998226234300185290" at="104,0,107,0" concept="11" trace="getFileExtension_Machine#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="4998226234300185290" at="92,58,98,7" concept="5" />
+      <scope id="4998226234300185290" at="58,41,59,37" />
+      <scope id="4998226234300185290" at="101,57,102,26" />
+      <scope id="4998226234300185290" at="104,62,105,14" />
+      <scope id="4998226234300185290" at="101,0,104,0">
         <var name="node" id="4998226234300185290" />
       </scope>
-      <scope id="4998226234300185290" at="102,0,105,0">
+      <scope id="4998226234300185290" at="104,0,107,0">
         <var name="node" id="4998226234300185290" />
       </scope>
-      <scope id="4998226234300185290" at="91,58,95,17">
+      <scope id="4998226234300185290" at="93,58,97,17">
         <var name="ext" id="4998226234300185290" />
         <var name="fname" id="4998226234300185290" />
       </scope>
@@ -217,8 +217,8 @@
       <unit id="4998226234300185766" at="17,0,49,0" name="B.textGen.EnumeratedSet_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300185766" at="48,47,49,43" concept="8" />
-      <scope id="4998226234300185766" at="48,47,49,43" />
+      <node id="4998226234300185766" at="50,47,51,43" concept="8" />
+      <scope id="4998226234300185766" at="50,47,51,43" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300185887">
@@ -243,8 +243,8 @@
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300185907">
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300185907" at="82,48,83,44" concept="8" />
-      <scope id="4998226234300185907" at="82,48,83,44" />
+      <node id="4998226234300185907" at="84,48,85,44" concept="8" />
+      <scope id="4998226234300185907" at="84,48,85,44" />
     </file>
     <file name="userDefinedSet_TextGen.java">
       <node id="4998226234300185907" at="14,54,15,55" concept="7" />
@@ -282,8 +282,8 @@
       <unit id="4998226234300185932" at="12,0,28,0" name="B.textGen.Function_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300185932" at="50,42,51,38" concept="8" />
-      <scope id="4998226234300185932" at="50,42,51,38" />
+      <node id="4998226234300185932" at="52,42,53,38" concept="8" />
+      <scope id="4998226234300185932" at="52,42,53,38" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186000">
@@ -299,14 +299,14 @@
       <unit id="4998226234300186000" at="9,0,15,0" name="B.textGen.Set_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186000" at="64,37,65,33" concept="8" />
-      <scope id="4998226234300186000" at="64,37,65,33" />
+      <node id="4998226234300186000" at="66,37,67,33" concept="8" />
+      <scope id="4998226234300186000" at="66,37,67,33" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186009">
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186009" at="72,49,73,45" concept="8" />
-      <scope id="4998226234300186009" at="72,49,73,45" />
+      <node id="4998226234300186009" at="74,49,75,45" concept="8" />
+      <scope id="4998226234300186009" at="74,49,75,45" />
     </file>
     <file name="TypingPredicate_TextGen.java">
       <node id="4998226234300186009" at="14,54,15,55" concept="7" />
@@ -362,8 +362,8 @@
       <unit id="4998226234300186075" at="14,0,42,0" name="B.textGen.BecomesSubstitution_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186075" at="46,53,47,49" concept="8" />
-      <scope id="4998226234300186075" at="46,53,47,49" />
+      <node id="4998226234300186075" at="48,53,49,49" concept="8" />
+      <scope id="4998226234300186075" at="48,53,49,49" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186232">
@@ -402,14 +402,14 @@
       <unit id="4998226234300186232" at="15,0,43,0" name="B.textGen.IfInstruction_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186232" at="52,47,53,43" concept="8" />
-      <scope id="4998226234300186232" at="52,47,53,43" />
+      <node id="4998226234300186232" at="54,47,55,43" concept="8" />
+      <scope id="4998226234300186232" at="54,47,55,43" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186348">
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186348" at="74,50,75,46" concept="8" />
-      <scope id="4998226234300186348" at="74,50,75,46" />
+      <node id="4998226234300186348" at="76,50,77,46" concept="8" />
+      <scope id="4998226234300186348" at="76,50,77,46" />
     </file>
     <file name="WhileInstruction_TextGen.java">
       <node id="4998226234300186348" at="17,54,18,55" concept="7" />
@@ -466,8 +466,8 @@
       <unit id="4998226234300186522" at="9,0,15,0" name="B.textGen.BStringLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186522" at="42,48,43,44" concept="8" />
-      <scope id="4998226234300186522" at="42,48,43,44" />
+      <node id="4998226234300186522" at="44,48,45,44" concept="8" />
+      <scope id="4998226234300186522" at="44,48,45,44" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186528">
@@ -529,8 +529,8 @@
       <unit id="4998226234300186552" at="11,0,28,0" name="B.textGen.BTrueExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186552" at="44,49,45,45" concept="8" />
-      <scope id="4998226234300186552" at="44,49,45,45" />
+      <node id="4998226234300186552" at="46,49,47,45" concept="8" />
+      <scope id="4998226234300186552" at="46,49,47,45" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186618">
@@ -546,8 +546,8 @@
       <unit id="4998226234300186618" at="9,0,15,0" name="B.textGen.BSpaceChar_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186618" at="40,44,41,40" concept="8" />
-      <scope id="4998226234300186618" at="40,44,41,40" />
+      <node id="4998226234300186618" at="42,44,43,40" concept="8" />
+      <scope id="4998226234300186618" at="42,44,43,40" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300186623">
@@ -716,8 +716,8 @@
       <unit id="4998226234300186747" at="17,0,133,0" name="B.textGen.Operation_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300186747" at="58,43,59,39" concept="8" />
-      <scope id="4998226234300186747" at="58,43,59,39" />
+      <node id="4998226234300186747" at="60,43,61,39" concept="8" />
+      <scope id="4998226234300186747" at="60,43,61,39" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300187228">
@@ -733,8 +733,8 @@
       <unit id="4998226234300187228" at="9,0,15,0" name="B.textGen.SolidityGlobalVariables_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300187228" at="66,57,67,53" concept="8" />
-      <scope id="4998226234300187228" at="66,57,67,53" />
+      <node id="4998226234300187228" at="68,57,69,53" concept="8" />
+      <scope id="4998226234300187228" at="68,57,69,53" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300187238">
@@ -809,8 +809,8 @@
       <unit id="4998226234300187389" at="12,0,27,0" name="B.textGen.Predicate_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300187389" at="60,43,61,39" concept="8" />
-      <scope id="4998226234300187389" at="60,43,61,39" />
+      <node id="4998226234300187389" at="62,43,63,39" concept="8" />
+      <scope id="4998226234300187389" at="62,43,63,39" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300187448">
@@ -839,14 +839,14 @@
       <unit id="4998226234300187448" at="15,0,33,0" name="B.textGen.Initialisation_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300187448" at="54,48,55,44" concept="8" />
-      <scope id="4998226234300187448" at="54,48,55,44" />
+      <node id="4998226234300187448" at="56,48,57,44" concept="8" />
+      <scope id="4998226234300187448" at="56,48,57,44" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300187497">
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300187497" at="70,51,71,47" concept="8" />
-      <scope id="4998226234300187497" at="70,51,71,47" />
+      <node id="4998226234300187497" at="72,51,73,47" concept="8" />
+      <scope id="4998226234300187497" at="72,51,73,47" />
     </file>
     <file name="TransferOperation_TextGen.java">
       <node id="4998226234300187497" at="14,54,15,55" concept="7" />
@@ -922,8 +922,8 @@
       <unit id="4998226234300187666" at="15,0,45,0" name="B.textGen.ReturnSubstitution_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300187666" at="62,52,63,48" concept="8" />
-      <scope id="4998226234300187666" at="62,52,63,48" />
+      <node id="4998226234300187666" at="64,52,65,48" concept="8" />
+      <scope id="4998226234300187666" at="64,52,65,48" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300187801">
@@ -957,14 +957,14 @@
       <unit id="4998226234300187801" at="15,0,38,0" name="B.textGen.StructSet_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300187801" at="68,43,69,39" concept="8" />
-      <scope id="4998226234300187801" at="68,43,69,39" />
+      <node id="4998226234300187801" at="70,43,71,39" concept="8" />
+      <scope id="4998226234300187801" at="70,43,71,39" />
     </file>
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300187904">
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300187904" at="78,38,79,34" concept="8" />
-      <scope id="4998226234300187904" at="78,38,79,34" />
+      <node id="4998226234300187904" at="80,38,81,34" concept="8" />
+      <scope id="4998226234300187904" at="80,38,81,34" />
     </file>
     <file name="pred_TextGen.java">
       <node id="4998226234300187904" at="14,54,15,55" concept="7" />
@@ -989,8 +989,8 @@
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300187981">
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300187981" at="80,38,81,34" concept="8" />
-      <scope id="4998226234300187981" at="80,38,81,34" />
+      <node id="4998226234300187981" at="82,38,83,34" concept="8" />
+      <scope id="4998226234300187981" at="82,38,83,34" />
     </file>
     <file name="succ_TextGen.java">
       <node id="4998226234300187981" at="14,54,15,55" concept="7" />
@@ -1042,8 +1042,8 @@
   </root>
   <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/4998226234300188142">
     <file name="TextGenAspectDescriptor.java">
-      <node id="4998226234300188142" at="76,49,77,45" concept="8" />
-      <scope id="4998226234300188142" at="76,49,77,45" />
+      <node id="4998226234300188142" at="78,49,79,45" concept="8" />
+      <scope id="4998226234300188142" at="78,49,79,45" />
     </file>
     <file name="functionElement_TextGen.java">
       <node id="4998226234300188142" at="14,54,15,55" concept="7" />
@@ -1063,6 +1063,30 @@
       </scope>
       <unit id="4998226234300188142" at="23,0,27,0" name="B.textGen.functionElement_TextGen$LINKS" />
       <unit id="4998226234300188142" at="12,0,28,0" name="B.textGen.functionElement_TextGen" />
+    </file>
+  </root>
+  <root nodeRef="r:be07231b-4b82-4712-9803-5bb6e1d89674(B.textGen)/8629705098718305178">
+    <file name="BParenthesisExpression_TextGen.java">
+      <node id="8629705098718305178" at="14,54,15,55" concept="7" />
+      <node id="8629705098718305561" at="15,55,16,20" concept="3" />
+      <node id="8629705098718307850" at="16,20,17,20" concept="3" />
+      <node id="8629705098718305614" at="17,20,18,86" concept="3" />
+      <node id="8629705098718307490" at="18,86,19,20" concept="3" />
+      <node id="8629705098718307367" at="19,20,20,20" concept="3" />
+      <node id="8629705098718305178" at="24,0,25,0" concept="10" trace="expr$G7Xr" />
+      <node id="8629705098718305178" at="13,0,22,0" concept="6" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="8629705098718305178" at="14,54,20,20">
+        <var name="tgs" id="8629705098718305178" />
+      </scope>
+      <scope id="8629705098718305178" at="13,0,22,0">
+        <var name="ctx" id="8629705098718305178" />
+      </scope>
+      <unit id="8629705098718305178" at="23,0,26,0" name="B.textGen.BParenthesisExpression_TextGen$LINKS" />
+      <unit id="8629705098718305178" at="12,0,27,0" name="B.textGen.BParenthesisExpression_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="8629705098718305178" at="40,56,41,52" concept="8" />
+      <scope id="8629705098718305178" at="40,56,41,52" />
     </file>
   </root>
 </debug-info>

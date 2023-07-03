@@ -218,6 +218,15 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
+  <dependency className="Solidity.textGen.ParenthesisExpression_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
   <dependency className="Solidity.textGen.PayableFunctionDefinition_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
@@ -339,6 +348,7 @@
     <classNode dependClassName="Solidity.textGen.NotExpression_TextGen" />
     <classNode dependClassName="Solidity.textGen.ParameterList_TextGen" />
     <classNode dependClassName="Solidity.textGen.Parameter_TextGen" />
+    <classNode dependClassName="Solidity.textGen.ParenthesisExpression_TextGen" />
     <classNode dependClassName="Solidity.textGen.PayableFunctionDefinition_TextGen" />
     <classNode dependClassName="Solidity.textGen.Plusplus_TextGen" />
     <classNode dependClassName="Solidity.textGen.RequireStatement_TextGen" />
