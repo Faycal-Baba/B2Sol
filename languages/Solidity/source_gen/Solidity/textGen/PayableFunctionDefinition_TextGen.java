@@ -40,7 +40,6 @@ public class PayableFunctionDefinition_TextGen extends TextGenDescriptorBase {
     tgs.append(" ");
     tgs.append("{");
     tgs.newLine();
-    tgs.indent();
     tgs.increaseIndent();
     for (SNode elem_22 : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.body$2f6T))) {
       tgs.indent();

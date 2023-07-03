@@ -149,8 +149,8 @@ public class Importer {
 
         // add instructions 
         for (BImplGrammarParser.StatementContext st : ListSequence.fromList(statement)) {
-          SNode evaluateInstruction = evaluateInstruction(st);
-          Operation__BehaviorDescriptor.addInstruction_id5vMBZAy7M8e.invoke(newOperation, evaluateInstruction);
+          SNode newInstruction = evaluateInstruction(st);
+          Operation__BehaviorDescriptor.addInstruction_id5vMBZAy7M8e.invoke(newOperation, newInstruction);
         }
         Machine__BehaviorDescriptor.addOperation_id5vMBZAy8wr2.invoke(machine, newOperation);
       }
@@ -359,7 +359,6 @@ public class Importer {
       return substitution;
     }
     if (!((input.ifSubstitution() == null))) {
-      LoggingRuntime.logMsgView(Level.INFO, "IF CLAUSE", Importer.class, null, null);
       BImplGrammarParser.IfSubstitutionContext ifInstr = input.ifSubstitution();
       SNode instruction = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL, "B.structure.IfInstruction"));
       SNode condition = evaluateCondition(ifInstr.condition(0));

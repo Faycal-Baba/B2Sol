@@ -6,10 +6,16 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Map;
 import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import B.behavior.StructSet__BehaviorDescriptor;
 import java.util.HashMap;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class Util {
 
@@ -26,6 +32,17 @@ public class Util {
     outputparamlist = new ArrayList<SNode>();
   }
 
+  public static boolean isPayable(SNode operation) {
+    for (SNode st : ListSequence.fromList(SLinkOperations.getChildren(operation, LINKS.body$4v9z))) {
+      if (st instanceof SNode) {
+        SNode node = ((SNode) st);
+        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.to$g5So), CONCEPTS.THIS$mL)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 
   public static String getName(SNode set) {
     if (structNames == null) {
@@ -68,5 +85,14 @@ public class Util {
   public static void clearMemory() {
     structCounter = 1;
     structNames = MapSequence.fromMap(new HashMap<SNode, String>());
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink to$g5So = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce476396f5L, 0x3d1067ce476396feL, "to");
+    /*package*/ static final SContainmentLink body$4v9z = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L, 0x6d3985c698ada6a2L, "body");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept THIS$mL = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5b77dc1122c9701L, "B.structure.THIS");
   }
 }

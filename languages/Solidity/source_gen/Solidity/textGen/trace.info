@@ -1086,41 +1086,40 @@
       <node id="7763783051566137715" at="39,25,40,20" concept="2" />
       <node id="7763783051566137720" at="40,20,41,20" concept="2" />
       <node id="7763783051566137728" at="41,20,42,18" concept="2" />
-      <node id="7763783051566137730" at="42,18,43,17" concept="2" />
-      <node id="4108299499033386043" at="43,17,44,25" concept="2" />
-      <node id="4108299499033386048" at="45,118,46,19" concept="2" />
-      <node id="4108299499033386049" at="46,19,47,30" concept="2" />
-      <node id="4108299499033386051" at="47,30,48,20" concept="2" />
-      <node id="4108299499033386055" at="49,5,50,25" concept="2" />
-      <node id="4108299499033386057" at="50,25,51,17" concept="2" />
-      <node id="4108299499033386058" at="51,17,52,20" concept="2" />
-      <node id="4108299499033386059" at="52,20,53,18" concept="2" />
-      <node id="4108299499033386060" at="53,18,54,17" concept="2" />
-      <node id="7763783051566137566" at="58,0,59,0" concept="9" trace="name$MnvL" />
-      <node id="7763783051566137566" at="62,0,63,0" concept="9" trace="inputParameters$2eCR" />
-      <node id="7763783051566137566" at="63,0,64,0" concept="9" trace="body$2f6T" />
+      <node id="4108299499033386043" at="42,18,43,25" concept="2" />
+      <node id="4108299499033386048" at="44,118,45,19" concept="2" />
+      <node id="4108299499033386049" at="45,19,46,30" concept="2" />
+      <node id="4108299499033386051" at="46,30,47,20" concept="2" />
+      <node id="4108299499033386055" at="48,5,49,25" concept="2" />
+      <node id="4108299499033386057" at="49,25,50,17" concept="2" />
+      <node id="4108299499033386058" at="50,17,51,20" concept="2" />
+      <node id="4108299499033386059" at="51,20,52,18" concept="2" />
+      <node id="4108299499033386060" at="52,18,53,17" concept="2" />
+      <node id="7763783051566137566" at="57,0,58,0" concept="9" trace="name$MnvL" />
+      <node id="7763783051566137566" at="61,0,62,0" concept="9" trace="inputParameters$2eCR" />
+      <node id="7763783051566137566" at="62,0,63,0" concept="9" trace="body$2f6T" />
       <node id="7763783051566137662" at="28,30,32,7" concept="4" />
-      <node id="4108299499033386044" at="44,25,49,5" concept="3" />
+      <node id="4108299499033386044" at="43,25,48,5" concept="3" />
       <node id="7763783051566137664" at="26,20,33,5" concept="3" />
-      <node id="7763783051566137566" at="18,0,56,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <node id="7763783051566137566" at="18,0,55,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
       <scope id="7763783051566137661" at="29,62,31,24" />
-      <scope id="4108299499033386046" at="45,118,48,20" />
+      <scope id="4108299499033386046" at="44,118,47,20" />
       <scope id="7763783051566137663" at="27,129,32,7" />
-      <scope id="4108299499033386044" at="44,25,49,5">
+      <scope id="4108299499033386044" at="43,25,48,5">
         <var name="elem_22" id="4108299499033386045" />
       </scope>
       <scope id="7763783051566137664" at="26,20,33,5">
         <var name="elem_25" id="7763783051566137628" />
       </scope>
-      <scope id="7763783051566137566" at="19,54,54,17">
+      <scope id="7763783051566137566" at="19,54,53,17">
         <var name="tgs" id="7763783051566137566" />
       </scope>
-      <scope id="7763783051566137566" at="18,0,56,0">
+      <scope id="7763783051566137566" at="18,0,55,0">
         <var name="ctx" id="7763783051566137566" />
       </scope>
-      <unit id="7763783051566137566" at="57,0,60,0" name="Solidity.textGen.PayableFunctionDefinition_TextGen$PROPS" />
-      <unit id="7763783051566137566" at="61,0,65,0" name="Solidity.textGen.PayableFunctionDefinition_TextGen$LINKS" />
-      <unit id="7763783051566137566" at="17,0,66,0" name="Solidity.textGen.PayableFunctionDefinition_TextGen" />
+      <unit id="7763783051566137566" at="56,0,59,0" name="Solidity.textGen.PayableFunctionDefinition_TextGen$PROPS" />
+      <unit id="7763783051566137566" at="60,0,64,0" name="Solidity.textGen.PayableFunctionDefinition_TextGen$LINKS" />
+      <unit id="7763783051566137566" at="17,0,65,0" name="Solidity.textGen.PayableFunctionDefinition_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
       <node id="7763783051566137566" at="74,59,75,55" concept="7" />

@@ -1307,7 +1307,7 @@
                   <node concept="3clFbS" id="5wdOlJ2lOLw" role="2LFqv$">
                     <node concept="3cpWs8" id="5wdOlJ2lPOB" role="3cqZAp">
                       <node concept="3cpWsn" id="5wdOlJ2lPOC" role="3cpWs9">
-                        <property role="TrG5h" value="evaluateInstruction" />
+                        <property role="TrG5h" value="newInstruction" />
                         <node concept="3Tqbb2" id="5wdOlJ2lPO0" role="1tU5fm">
                           <ref role="ehGHo" to="rjy5:7OSbf_WvjO2" resolve="Instruction" />
                         </node>
@@ -1327,7 +1327,7 @@
                         <node concept="2qgKlT" id="5wdOlJ2lRca" role="2OqNvi">
                           <ref role="37wK5l" to="vf2:5vMBZAy7M8e" resolve="addInstruction" />
                           <node concept="37vLTw" id="5wdOlJ2lRhG" role="37wK5m">
-                            <ref role="3cqZAo" node="5wdOlJ2lPOC" resolve="evaluateInstruction" />
+                            <ref role="3cqZAo" node="5wdOlJ2lPOC" resolve="newInstruction" />
                           </node>
                         </node>
                       </node>
@@ -3656,12 +3656,6 @@
         </node>
         <node concept="3clFbJ" id="5vMBZAy6ifz" role="3cqZAp">
           <node concept="3clFbS" id="5vMBZAy6if$" role="3clFbx">
-            <node concept="2xdQw9" id="7v2RL2GYZo6" role="3cqZAp">
-              <property role="2xdLsb" value="h1akgim/info" />
-              <node concept="Xl_RD" id="7v2RL2GYZo8" role="9lYJi">
-                <property role="Xl_RC" value="IF CLAUSE" />
-              </node>
-            </node>
             <node concept="3cpWs8" id="3I8KTO$gb6v" role="3cqZAp">
               <node concept="3cpWsn" id="3I8KTO$gb6w" role="3cpWs9">
                 <property role="TrG5h" value="ifInstr" />
