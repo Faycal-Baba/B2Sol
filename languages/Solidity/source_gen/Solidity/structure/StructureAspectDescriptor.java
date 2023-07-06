@@ -20,6 +20,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptBalanceOf = createDescriptorForBalanceOf();
   /*package*/ final ConceptDescriptor myConceptBinaryExpression = createDescriptorForBinaryExpression();
   /*package*/ final ConceptDescriptor myConceptBlockComment = createDescriptorForBlockComment();
+  /*package*/ final ConceptDescriptor myConceptBlockTimeStamp = createDescriptorForBlockTimeStamp();
   /*package*/ final ConceptDescriptor myConceptBool = createDescriptorForBool();
   /*package*/ final ConceptDescriptor myConceptBytes = createDescriptorForBytes();
   /*package*/ final ConceptDescriptor myConceptConstructor = createDescriptorForConstructor();
@@ -29,6 +30,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptEmptyLine = createDescriptorForEmptyLine();
   /*package*/ final ConceptDescriptor myConceptEmptySstatement = createDescriptorForEmptySstatement();
   /*package*/ final ConceptDescriptor myConceptEnumDefinition = createDescriptorForEnumDefinition();
+  /*package*/ final ConceptDescriptor myConceptEnumMember = createDescriptorForEnumMember();
   /*package*/ final ConceptDescriptor myConceptEqualExpression = createDescriptorForEqualExpression();
   /*package*/ final ConceptDescriptor myConceptExpression = createDescriptorForExpression();
   /*package*/ final ConceptDescriptor myConceptFalseExpression = createDescriptorForFalseExpression();
@@ -51,6 +53,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptMultExpression = createDescriptorForMultExpression();
   /*package*/ final ConceptDescriptor myConceptNegativeExpression = createDescriptorForNegativeExpression();
   /*package*/ final ConceptDescriptor myConceptNotExpression = createDescriptorForNotExpression();
+  /*package*/ final ConceptDescriptor myConceptNullAddress = createDescriptorForNullAddress();
   /*package*/ final ConceptDescriptor myConceptOrExpression = createDescriptorForOrExpression();
   /*package*/ final ConceptDescriptor myConceptParameter = createDescriptorForParameter();
   /*package*/ final ConceptDescriptor myConceptParameterList = createDescriptorForParameterList();
@@ -93,7 +96,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAddress, myConceptAndExpression, myConceptArrayElement, myConceptAssignementStatement, myConceptBalanceOf, myConceptBinaryExpression, myConceptBlockComment, myConceptBool, myConceptBytes, myConceptConstructor, myConceptContract, myConceptContractPart, myConceptDivExpression, myConceptEmptyLine, myConceptEmptySstatement, myConceptEnumDefinition, myConceptEqualExpression, myConceptExpression, myConceptFalseExpression, myConceptFunctionCall, myConceptFunctionDefinition, myConceptGreaterThanExpression, myConceptGreaterThanOrEqualExpression, myConceptIdentifier, myConceptIfStatement, myConceptImmuableStateVariableDeclaration, myConceptInequalExpression, myConceptInteger, myConceptIntegerLiteral, myConceptLessThanExpression, myConceptLessThanOrEqualExpression, myConceptLineComment, myConceptMapping, myConceptMinusExpression, myConceptMinusminus, myConceptMultExpression, myConceptNegativeExpression, myConceptNotExpression, myConceptOrExpression, myConceptParameter, myConceptParameterList, myConceptParenthesisExpression, myConceptPayableFunctionDefinition, myConceptPlusExpression, myConceptPlusplus, myConceptRequireStatement, myConceptReturnStatement, myConceptSender, myConceptSolidityGlobalVariables, myConceptStateVariableDeclaration, myConceptStatement, myConceptStatementBlock, myConceptString, myConceptStringLiteral, myConceptStructDefinition, myConceptStructMemberDeclaration, myConceptTransferStatement, myConceptTrueExpression, myConceptType, myConceptUInteger, myConceptUserType, myConceptValue, myConceptWhileStatement, myConceptmapping_element, myConceptstructMemberList, myConceptthisExpression);
+    return Arrays.asList(myConceptAddress, myConceptAndExpression, myConceptArrayElement, myConceptAssignementStatement, myConceptBalanceOf, myConceptBinaryExpression, myConceptBlockComment, myConceptBlockTimeStamp, myConceptBool, myConceptBytes, myConceptConstructor, myConceptContract, myConceptContractPart, myConceptDivExpression, myConceptEmptyLine, myConceptEmptySstatement, myConceptEnumDefinition, myConceptEnumMember, myConceptEqualExpression, myConceptExpression, myConceptFalseExpression, myConceptFunctionCall, myConceptFunctionDefinition, myConceptGreaterThanExpression, myConceptGreaterThanOrEqualExpression, myConceptIdentifier, myConceptIfStatement, myConceptImmuableStateVariableDeclaration, myConceptInequalExpression, myConceptInteger, myConceptIntegerLiteral, myConceptLessThanExpression, myConceptLessThanOrEqualExpression, myConceptLineComment, myConceptMapping, myConceptMinusExpression, myConceptMinusminus, myConceptMultExpression, myConceptNegativeExpression, myConceptNotExpression, myConceptNullAddress, myConceptOrExpression, myConceptParameter, myConceptParameterList, myConceptParenthesisExpression, myConceptPayableFunctionDefinition, myConceptPlusExpression, myConceptPlusplus, myConceptRequireStatement, myConceptReturnStatement, myConceptSender, myConceptSolidityGlobalVariables, myConceptStateVariableDeclaration, myConceptStatement, myConceptStatementBlock, myConceptString, myConceptStringLiteral, myConceptStructDefinition, myConceptStructMemberDeclaration, myConceptTransferStatement, myConceptTrueExpression, myConceptType, myConceptUInteger, myConceptUserType, myConceptValue, myConceptWhileStatement, myConceptmapping_element, myConceptstructMemberList, myConceptthisExpression);
   }
 
   @Override
@@ -114,6 +117,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptBinaryExpression;
       case LanguageConceptSwitch.BlockComment:
         return myConceptBlockComment;
+      case LanguageConceptSwitch.BlockTimeStamp:
+        return myConceptBlockTimeStamp;
       case LanguageConceptSwitch.Bool:
         return myConceptBool;
       case LanguageConceptSwitch.Bytes:
@@ -132,6 +137,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptEmptySstatement;
       case LanguageConceptSwitch.EnumDefinition:
         return myConceptEnumDefinition;
+      case LanguageConceptSwitch.EnumMember:
+        return myConceptEnumMember;
       case LanguageConceptSwitch.EqualExpression:
         return myConceptEqualExpression;
       case LanguageConceptSwitch.Expression:
@@ -176,6 +183,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptNegativeExpression;
       case LanguageConceptSwitch.NotExpression:
         return myConceptNotExpression;
+      case LanguageConceptSwitch.NullAddress:
+        return myConceptNullAddress;
       case LanguageConceptSwitch.OrExpression:
         return myConceptOrExpression;
       case LanguageConceptSwitch.Parameter:
@@ -311,6 +320,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("/*");
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForBlockTimeStamp() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Solidity", "BlockTimeStamp", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x775e747952f096e6L);
+    b.class_(false, false, false);
+    b.super_("Solidity.structure.SolidityGlobalVariables", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c6995303e5L);
+    b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/8601440402755589862");
+    b.version(2);
+    b.alias("block.timestamp");
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForBool() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Solidity", "Bool", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be2d36L);
     b.class_(false, false, false);
@@ -391,6 +409,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.aggregate("elements", 0x6d3985c698be637dL).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb42beL).optional(false).ordered(true).multiple(true).origin("7870468911819285373").done();
     b.alias("enum");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForEnumMember() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Solidity", "EnumMember", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x775e747952f0b82bL);
+    b.class_(false, false, false);
+    b.super_("Solidity.structure.Expression", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb3f67L);
+    b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/8601440402755598379");
+    b.version(2);
+    b.aggregate("enumName", 0x7d37e50415579beaL).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb42beL).optional(false).ordered(true).multiple(false).origin("9022932184160771050").done();
+    b.aggregate("enumMember", 0x7d37e50415579becL).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb42beL).optional(false).ordered(true).multiple(false).origin("9022932184160771052").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForEqualExpression() {
@@ -597,6 +625,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.aggregate("expr", 0x6d3985c698bb42b7L).target(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bb3f67L).optional(false).ordered(true).multiple(false).origin("7870468911819080375").done();
     b.alias("!");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForNullAddress() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Solidity", "NullAddress", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x775e747952e9fd23L);
+    b.class_(false, false, false);
+    b.super_("Solidity.structure.SolidityGlobalVariables", 0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c6995303e5L);
+    b.origin("r:f1c15c3b-6dc7-4b98-a380-5d14c147b0c7(Solidity.structure)/8601440402755157283");
+    b.version(2);
+    b.alias("address(0x0)");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForOrExpression() {

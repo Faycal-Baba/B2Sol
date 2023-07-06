@@ -13,9 +13,11 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import B.behavior.StructSet__BehaviorDescriptor;
 import java.util.HashMap;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Util {
 
@@ -87,6 +89,21 @@ public class Util {
     structNames = MapSequence.fromMap(new HashMap<SNode, String>());
   }
 
+  public static boolean isSolEnvVar(SNode id) {
+    switch (SPropertyOperations.getString(id, PROPS.name$MnvL)) {
+      case "msg_sender":
+        return true;
+      case "msg_value":
+        return true;
+      case "block_timestamp":
+        return true;
+      default:
+        return false;
+    }
+
+
+  }
+
   private static final class LINKS {
     /*package*/ static final SContainmentLink to$g5So = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce476396f5L, 0x3d1067ce476396feL, "to");
     /*package*/ static final SContainmentLink body$4v9z = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L, 0x6d3985c698ada6a2L, "body");
@@ -94,5 +111,9 @@ public class Util {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept THIS$mL = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5b77dc1122c9701L, "B.structure.THIS");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

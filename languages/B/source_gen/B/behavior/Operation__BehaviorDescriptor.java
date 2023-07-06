@@ -10,8 +10,8 @@ import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.SModifiersImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -31,14 +31,16 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<Boolean> BalanceStrictEqualityCheck_id283pMPgAuW2 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("BalanceStrictEqualityCheck").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("283pMPgAuW2").build();
   public static final SMethod<Boolean> checkIfReentrant_idmRvs4iaW_k = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("checkIfReentrant").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("mRvs4iaW_k").build();
+  public static final SMethod<Void> addAllTypingPredicates_id7HMlmOJW2It = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addAllTypingPredicates").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7HMlmOJW2It").build(SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
   public static final SMethod<Void> setName_id5vMBZAy7FbG = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7FbG").build(SMethodBuilder.createJavaParameter(String.class, ""));
   public static final SMethod<Void> addTypingPredicate_id5vMBZAy7HPw = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addTypingPredicate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7HPw").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> addInstruction_id5vMBZAy7M8e = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addInstruction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7M8e").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> addPrecondition_id5vMBZAy7QHu = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addPrecondition").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7QHu").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> setInputParam_id1Qhl$$IKL0o = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setInputParam").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1Qhl$$IKL0o").build(SMethodBuilder.createJavaParameter((Class<List<String>>) ((Class) Object.class), ""));
   public static final SMethod<Void> addInputParam_id5wdOlJ2mvKy = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addInputParam").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5wdOlJ2mvKy").build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<Void> addAllPreconditions_id7HMlmOJWIST = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addAllPreconditions").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7HMlmOJWIST").build(SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(BalanceStrictEqualityCheck_id283pMPgAuW2, checkIfReentrant_idmRvs4iaW_k, setName_id5vMBZAy7FbG, addTypingPredicate_id5vMBZAy7HPw, addInstruction_id5vMBZAy7M8e, addPrecondition_id5vMBZAy7QHu, setInputParam_id1Qhl$$IKL0o, addInputParam_id5wdOlJ2mvKy);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(BalanceStrictEqualityCheck_id283pMPgAuW2, checkIfReentrant_idmRvs4iaW_k, addAllTypingPredicates_id7HMlmOJW2It, setName_id5vMBZAy7FbG, addTypingPredicate_id5vMBZAy7HPw, addInstruction_id5vMBZAy7M8e, addPrecondition_id5vMBZAy7QHu, setInputParam_id1Qhl$$IKL0o, addInputParam_id5wdOlJ2mvKy, addAllPreconditions_id7HMlmOJWIST);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -71,6 +73,9 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
     }
     return false;
   }
+  /*package*/ static void addAllTypingPredicates_id7HMlmOJW2It(@NotNull SNode __thisNode__, List<SNode> tppList) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typingPredicates$4o75)).addSequence(ListSequence.fromList(tppList));
+  }
   /*package*/ static void setName_id5vMBZAy7FbG(@NotNull SNode __thisNode__, String name) {
     SPropertyOperations.assign(__thisNode__, PROPS.name$MnvL, name);
   }
@@ -95,6 +100,9 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
     BIdentifier__BehaviorDescriptor.setName_id7B8mKgzi8Kz.invoke(inputParamId, inputParam);
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.inputParameters$4i0F)).addElement(inputParamId);
   }
+  /*package*/ static void addAllPreconditions_id7HMlmOJWIST(@NotNull SNode __thisNode__, List<SNode> listOfPredicates) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.preconditions$4p39)).addSequence(ListSequence.fromList(listOfPredicates));
+  }
 
   /*package*/ Operation__BehaviorDescriptor() {
   }
@@ -116,22 +124,28 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
       case 1:
         return (T) ((Boolean) checkIfReentrant_idmRvs4iaW_k(node));
       case 2:
-        setName_id5vMBZAy7FbG(node, (String) parameters[0]);
+        addAllTypingPredicates_id7HMlmOJW2It(node, (List<SNode>) parameters[0]);
         return null;
       case 3:
-        addTypingPredicate_id5vMBZAy7HPw(node, (SNode) parameters[0]);
+        setName_id5vMBZAy7FbG(node, (String) parameters[0]);
         return null;
       case 4:
-        addInstruction_id5vMBZAy7M8e(node, (SNode) parameters[0]);
+        addTypingPredicate_id5vMBZAy7HPw(node, (SNode) parameters[0]);
         return null;
       case 5:
-        addPrecondition_id5vMBZAy7QHu(node, (SNode) parameters[0]);
+        addInstruction_id5vMBZAy7M8e(node, (SNode) parameters[0]);
         return null;
       case 6:
-        setInputParam_id1Qhl$$IKL0o(node, (List<String>) parameters[0]);
+        addPrecondition_id5vMBZAy7QHu(node, (SNode) parameters[0]);
         return null;
       case 7:
+        setInputParam_id1Qhl$$IKL0o(node, (List<String>) parameters[0]);
+        return null;
+      case 8:
         addInputParam_id5wdOlJ2mvKy(node, (String) parameters[0]);
+        return null;
+      case 9:
+        addAllPreconditions_id7HMlmOJWIST(node, (List<SNode>) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);

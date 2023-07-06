@@ -849,5 +849,39 @@
       <ref role="20lvS9" node="6OTxsqoINXB" resolve="Expression" />
     </node>
   </node>
+  <node concept="1TIwiD" id="7tut7_iUvOz">
+    <property role="EcuMT" value="8601440402755157283" />
+    <property role="3GE5qa" value="expressions.solidity global variables" />
+    <property role="TrG5h" value="NullAddress" />
+    <property role="34LRSv" value="address(0x0)" />
+    <ref role="1TJDcQ" node="6OTxsqpkKf_" resolve="SolidityGlobalVariables" />
+  </node>
+  <node concept="1TIwiD" id="7tut7_iW9rA">
+    <property role="EcuMT" value="8601440402755589862" />
+    <property role="3GE5qa" value="expressions.solidity global variables" />
+    <property role="TrG5h" value="BlockTimeStamp" />
+    <property role="34LRSv" value="block.timestamp" />
+    <ref role="1TJDcQ" node="6OTxsqpkKf_" resolve="SolidityGlobalVariables" />
+  </node>
+  <node concept="1TIwiD" id="7tut7_iWbwF">
+    <property role="EcuMT" value="8601440402755598379" />
+    <property role="3GE5qa" value="expressions" />
+    <property role="TrG5h" value="EnumMember" />
+    <ref role="1TJDcQ" node="6OTxsqoINXB" resolve="Expression" />
+    <node concept="1TJgyj" id="7ORTggllTJE" role="1TKVEi">
+      <property role="IQ2ns" value="9022932184160771050" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="enumName" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="6OTxsqoIOaY" resolve="Identifier" />
+    </node>
+    <node concept="1TJgyj" id="7ORTggllTJG" role="1TKVEi">
+      <property role="IQ2ns" value="9022932184160771052" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <property role="20kJfa" value="enumMember" />
+      <ref role="20lvS9" node="6OTxsqoIOaY" resolve="Identifier" />
+    </node>
+  </node>
 </model>
 

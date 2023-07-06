@@ -1,0 +1,87 @@
+THEORY BalanceX IS
+Escrow_contract,19,0,0,17,0,0,0;
+Initialisation,2,0,0,0,0,0,0;
+Operation_completed,1,0,0,1,0,0,0;
+Operation_payement,3,0,0,3,0,0,0;
+Operation_refund,1,0,0,1,0,0,0;
+WellDefinednessPrecondition_completed,4,0,0,4,0,0,0;
+WellDefinednessPrecondition_payement,4,0,0,4,0,0,0;
+WellDefinednessPrecondition_refund,4,0,0,4,0,0,0
+END
+&
+THEORY ProofState IS
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Unproved;
+Unproved
+END
+&
+THEORY MethodList IS
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+?;
+?
+END
+&
+THEORY PassList IS
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),(?; 0);
+Force(0),(?; 0)
+END
+&
+THEORY Status IS
+Escrow_contract,19,0,17,0,0,0;
+Initialisation,2,0,0,0,0,0;
+Operation_completed,1,0,1,0,0,0;
+Operation_payement,3,0,3,0,0,0;
+Operation_refund,1,0,1,0,0,0;
+WellDefinednessPrecondition_completed,4,0,4,0,0,0;
+WellDefinednessPrecondition_payement,4,0,4,0,0,0;
+WellDefinednessPrecondition_refund,4,0,4,0,0,0
+END

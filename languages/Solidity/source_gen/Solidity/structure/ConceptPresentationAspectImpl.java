@@ -16,6 +16,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_BalanceOf;
   private ConceptPresentation props_BinaryExpression;
   private ConceptPresentation props_BlockComment;
+  private ConceptPresentation props_BlockTimeStamp;
   private ConceptPresentation props_Bool;
   private ConceptPresentation props_Bytes;
   private ConceptPresentation props_Constructor;
@@ -25,6 +26,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EmptyLine;
   private ConceptPresentation props_EmptySstatement;
   private ConceptPresentation props_EnumDefinition;
+  private ConceptPresentation props_EnumMember;
   private ConceptPresentation props_EqualExpression;
   private ConceptPresentation props_Expression;
   private ConceptPresentation props_FalseExpression;
@@ -47,6 +49,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_MultExpression;
   private ConceptPresentation props_NegativeExpression;
   private ConceptPresentation props_NotExpression;
+  private ConceptPresentation props_NullAddress;
   private ConceptPresentation props_OrExpression;
   private ConceptPresentation props_Parameter;
   private ConceptPresentation props_ParameterList;
@@ -130,6 +133,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BlockComment = cpb.create();
         }
         return props_BlockComment;
+      case LanguageConceptSwitch.BlockTimeStamp:
+        if (props_BlockTimeStamp == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("block.timestamp");
+          props_BlockTimeStamp = cpb.create();
+        }
+        return props_BlockTimeStamp;
       case LanguageConceptSwitch.Bool:
         if (props_Bool == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -192,6 +202,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_EnumDefinition = cpb.create();
         }
         return props_EnumDefinition;
+      case LanguageConceptSwitch.EnumMember:
+        if (props_EnumMember == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("EnumMember");
+          props_EnumMember = cpb.create();
+        }
+        return props_EnumMember;
       case LanguageConceptSwitch.EqualExpression:
         if (props_EqualExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -345,6 +362,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NotExpression = cpb.create();
         }
         return props_NotExpression;
+      case LanguageConceptSwitch.NullAddress:
+        if (props_NullAddress == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("address(0x0)");
+          props_NullAddress = cpb.create();
+        }
+        return props_NullAddress;
       case LanguageConceptSwitch.OrExpression:
         if (props_OrExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

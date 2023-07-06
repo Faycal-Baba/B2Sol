@@ -25,14 +25,18 @@ public final class Initialisation__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c6993c5af9L, "B.structure.Initialisation");
 
   public static final SMethod<Void> addInstruction_id5vMBZAy7ASM = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addInstruction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7ASM").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> addInputParam_id7tut7_j36CI = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addInputParam").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7tut7_j36CI").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(addInstruction_id5vMBZAy7ASM);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(addInstruction_id5vMBZAy7ASM, addInputParam_id7tut7_j36CI);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static void addInstruction_id5vMBZAy7ASM(@NotNull SNode __thisNode__, SNode instr) {
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.body$aE2)).addElement(instr);
+  }
+  /*package*/ static void addInputParam_id7tut7_j36CI(@NotNull SNode __thisNode__, SNode tpp) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.initInputParam$Txoy)).addElement(tpp);
   }
 
   /*package*/ Initialisation__BehaviorDescriptor() {
@@ -52,6 +56,9 @@ public final class Initialisation__BehaviorDescriptor extends BaseBHDescriptor {
     switch (methodIndex) {
       case 0:
         addInstruction_id5vMBZAy7ASM(node, (SNode) parameters[0]);
+        return null;
+      case 1:
+        addInputParam_id7tut7_j36CI(node, (SNode) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -84,5 +91,6 @@ public final class Initialisation__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink body$aE2 = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c6993c5af9L, 0x1ace29e015ec1316L, "body");
+    /*package*/ static final SContainmentLink initInputParam$Txoy = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c6993c5af9L, 0x775e7479530c66ccL, "initInputParam");
   }
 }

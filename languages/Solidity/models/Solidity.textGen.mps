@@ -2053,5 +2053,63 @@
       </node>
     </node>
   </node>
+  <node concept="WtQ9Q" id="7ORTgglB0Eu">
+    <property role="3GE5qa" value="expressions" />
+    <ref role="WuzLi" to="lab4:7tut7_iWbwF" resolve="EnumMember" />
+    <node concept="11bSqf" id="7ORTgglB0Ev" role="11c4hB">
+      <node concept="3clFbS" id="7ORTgglB0Ew" role="2VODD2">
+        <node concept="lc7rE" id="7ORTgglB1ul" role="3cqZAp">
+          <node concept="l9hG8" id="7ORTgglB1uD" role="lcghm">
+            <node concept="2OqwBi" id="7ORTgglB1Bg" role="lb14g">
+              <node concept="117lpO" id="7ORTgglB1vv" role="2Oq$k0" />
+              <node concept="3TrEf2" id="7ORTgglB1Mv" role="2OqNvi">
+                <ref role="3Tt5mk" to="lab4:7ORTggllTJE" resolve="enumName" />
+              </node>
+            </node>
+          </node>
+          <node concept="la8eA" id="7ORTgglB1SJ" role="lcghm">
+            <property role="lacIc" value="." />
+          </node>
+          <node concept="l9hG8" id="7ORTgglB1Uq" role="lcghm">
+            <node concept="2OqwBi" id="7ORTgglB1W9" role="lb14g">
+              <node concept="117lpO" id="7ORTgglB1VG" role="2Oq$k0" />
+              <node concept="3TrEf2" id="7ORTgglB288" role="2OqNvi">
+                <ref role="3Tt5mk" to="lab4:7ORTggllTJG" resolve="enumMember" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="WtQ9Q" id="7ORTgglB2dF">
+    <property role="3GE5qa" value="expressions" />
+    <ref role="WuzLi" to="lab4:6OTxsqoIOaT" resolve="GreaterThanExpression" />
+    <node concept="11bSqf" id="7ORTgglB2dG" role="11c4hB">
+      <node concept="3clFbS" id="7ORTgglB2dH" role="2VODD2">
+        <node concept="lc7rE" id="7ORTgglB2dY" role="3cqZAp">
+          <node concept="l9hG8" id="7ORTgglB2ka" role="lcghm">
+            <node concept="2OqwBi" id="7ORTgglB2tt" role="lb14g">
+              <node concept="117lpO" id="7ORTgglB2l0" role="2Oq$k0" />
+              <node concept="3TrEf2" id="7ORTgglB2E7" role="2OqNvi">
+                <ref role="3Tt5mk" to="lab4:6OTxsqoIOa_" resolve="left" />
+              </node>
+            </node>
+          </node>
+          <node concept="la8eA" id="7ORTgglB2Kc" role="lcghm">
+            <property role="lacIc" value="&gt;" />
+          </node>
+          <node concept="l9hG8" id="7ORTgglB2MH" role="lcghm">
+            <node concept="2OqwBi" id="7ORTgglB2Ws" role="lb14g">
+              <node concept="117lpO" id="7ORTgglB2NZ" role="2Oq$k0" />
+              <node concept="3TrEf2" id="7ORTgglB396" role="2OqNvi">
+                <ref role="3Tt5mk" to="lab4:6OTxsqoIOaE" resolve="right" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

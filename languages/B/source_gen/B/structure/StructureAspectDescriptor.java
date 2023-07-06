@@ -64,6 +64,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptInitialisation = createDescriptorForInitialisation();
   /*package*/ final ConceptDescriptor myConceptInstruction = createDescriptorForInstruction();
   /*package*/ final ConceptDescriptor myConceptMachine = createDescriptorForMachine();
+  /*package*/ final ConceptDescriptor myConceptNullAddress = createDescriptorForNullAddress();
   /*package*/ final ConceptDescriptor myConceptOperation = createDescriptorForOperation();
   /*package*/ final ConceptDescriptor myConceptPredicate = createDescriptorForPredicate();
   /*package*/ final ConceptDescriptor myConceptReturnSubstitution = createDescriptorForReturnSubstitution();
@@ -78,6 +79,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptTypingPredicateProperties = createDescriptorForTypingPredicateProperties();
   /*package*/ final ConceptDescriptor myConceptTypingPredicateStructMember = createDescriptorForTypingPredicateStructMember();
   /*package*/ final ConceptDescriptor myConceptWhileInstruction = createDescriptorForWhileInstruction();
+  /*package*/ final ConceptDescriptor myConceptblock_timestamp = createDescriptorForblock_timestamp();
+  /*package*/ final ConceptDescriptor myConceptenumMember = createDescriptorForenumMember();
   /*package*/ final ConceptDescriptor myConceptfunctionElement = createDescriptorForfunctionElement();
   /*package*/ final ConceptDescriptor myConceptmappingUpdate = createDescriptorFormappingUpdate();
   /*package*/ final ConceptDescriptor myConceptpred = createDescriptorForpred();
@@ -97,7 +100,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptArithmeticBinaryExpression, myConceptArrayElement, myConceptBAddress, myConceptBAndExpression, myConceptBBalanceOf, myConceptBBinaryExpression, myConceptBBinaryLogicalExpression, myConceptBBool, myConceptBBytes, myConceptBDivExpression, myConceptBEqualExpression, myConceptBExpression, myConceptBFalseExpression, myConceptBGreaterThanExpression, myConceptBGreaterThanOrEqualExpression, myConceptBIdentifier, myConceptBInequalExpression, myConceptBInteger, myConceptBIntegerLiteral, myConceptBLessThanExpression, myConceptBLessThanOrEqualExpression, myConceptBLhsExpression, myConceptBLogicalExpression, myConceptBMinusExpression, myConceptBModuloExpression, myConceptBMultExpression, myConceptBNatural, myConceptBNegativeExpression, myConceptBNotExpression, myConceptBOrExpression, myConceptBParenthesisExpression, myConceptBPlusExpression, myConceptBPowerExpression, myConceptBSender, myConceptBSpaceChar, myConceptBString, myConceptBStringLiteral, myConceptBTrueExpression, myConceptBValue, myConceptBecomesSubstitution, myConceptConstantValuation, myConceptElseIf, myConceptEmptyLine, myConceptEmptySubsitution, myConceptEnumeratedSet, myConceptFunction, myConceptIfInstruction, myConceptImporterLogic, myConceptInitialisation, myConceptInstruction, myConceptMachine, myConceptOperation, myConceptPredicate, myConceptReturnSubstitution, myConceptSet, myConceptSolidityGlobalVariables, myConceptStructSet, myConceptTHIS, myConceptTransferOperation, myConceptTypingPredicate, myConceptTypingPredicateInvariant, myConceptTypingPredicateParameter, myConceptTypingPredicateProperties, myConceptTypingPredicateStructMember, myConceptWhileInstruction, myConceptfunctionElement, myConceptmappingUpdate, myConceptpred, myConceptsucc, myConceptuserDefinedSet);
+    return Arrays.asList(myConceptArithmeticBinaryExpression, myConceptArrayElement, myConceptBAddress, myConceptBAndExpression, myConceptBBalanceOf, myConceptBBinaryExpression, myConceptBBinaryLogicalExpression, myConceptBBool, myConceptBBytes, myConceptBDivExpression, myConceptBEqualExpression, myConceptBExpression, myConceptBFalseExpression, myConceptBGreaterThanExpression, myConceptBGreaterThanOrEqualExpression, myConceptBIdentifier, myConceptBInequalExpression, myConceptBInteger, myConceptBIntegerLiteral, myConceptBLessThanExpression, myConceptBLessThanOrEqualExpression, myConceptBLhsExpression, myConceptBLogicalExpression, myConceptBMinusExpression, myConceptBModuloExpression, myConceptBMultExpression, myConceptBNatural, myConceptBNegativeExpression, myConceptBNotExpression, myConceptBOrExpression, myConceptBParenthesisExpression, myConceptBPlusExpression, myConceptBPowerExpression, myConceptBSender, myConceptBSpaceChar, myConceptBString, myConceptBStringLiteral, myConceptBTrueExpression, myConceptBValue, myConceptBecomesSubstitution, myConceptConstantValuation, myConceptElseIf, myConceptEmptyLine, myConceptEmptySubsitution, myConceptEnumeratedSet, myConceptFunction, myConceptIfInstruction, myConceptImporterLogic, myConceptInitialisation, myConceptInstruction, myConceptMachine, myConceptNullAddress, myConceptOperation, myConceptPredicate, myConceptReturnSubstitution, myConceptSet, myConceptSolidityGlobalVariables, myConceptStructSet, myConceptTHIS, myConceptTransferOperation, myConceptTypingPredicate, myConceptTypingPredicateInvariant, myConceptTypingPredicateParameter, myConceptTypingPredicateProperties, myConceptTypingPredicateStructMember, myConceptWhileInstruction, myConceptblock_timestamp, myConceptenumMember, myConceptfunctionElement, myConceptmappingUpdate, myConceptpred, myConceptsucc, myConceptuserDefinedSet);
   }
 
   @Override
@@ -206,6 +209,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptInstruction;
       case LanguageConceptSwitch.Machine:
         return myConceptMachine;
+      case LanguageConceptSwitch.NullAddress:
+        return myConceptNullAddress;
       case LanguageConceptSwitch.Operation:
         return myConceptOperation;
       case LanguageConceptSwitch.Predicate:
@@ -234,6 +239,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptTypingPredicateStructMember;
       case LanguageConceptSwitch.WhileInstruction:
         return myConceptWhileInstruction;
+      case LanguageConceptSwitch.block_timestamp:
+        return myConceptblock_timestamp;
+      case LanguageConceptSwitch.enumMember:
+        return myConceptenumMember;
       case LanguageConceptSwitch.functionElement:
         return myConceptfunctionElement;
       case LanguageConceptSwitch.mappingUpdate:
@@ -698,6 +707,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:d2874149-b575-42a9-9e66-bd8f0639a7d2(B.structure)/7870468911827540729");
     b.version(2);
     b.aggregate("body", 0x1ace29e015ec1316L).target(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d02L).optional(true).ordered(true).multiple(true).origin("1931527332605727510").done();
+    b.aggregate("initInputParam", 0x775e7479530c66ccL).target(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698f14dd9L).optional(true).ordered(true).multiple(true).origin("8601440402757412556").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForInstruction() {
@@ -721,6 +731,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("invariant", 0x7d382cf97c7c15baL).target(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698f14dd7L).optional(true).ordered(true).multiple(true).origin("9023011303483774394").done();
     b.aggregate("initialisation", 0x7d382cf97c816c19L).target(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c6993c5af9L).optional(true).ordered(true).multiple(false).origin("9023011303484124185").done();
     b.aggregate("operations", 0x6d3985c698b0194fL).target(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L).optional(true).ordered(true).multiple(true).origin("7870468911818348879").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForNullAddress() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("B", "NullAddress", 0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x775e747952e6de85L);
+    b.class_(false, false, false);
+    b.super_("B.structure.SolidityGlobalVariables", 0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6cc0fL);
+    b.origin("r:d2874149-b575-42a9-9e66-bd8f0639a7d2(B.structure)/8601440402754952837");
+    b.version(2);
+    b.alias("addr_0");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForOperation() {
@@ -859,6 +878,25 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("invariant", 0x7d382cf97c802047L).target(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L).optional(true).ordered(true).multiple(false).origin("9023011303484039239").done();
     b.aggregate("variant", 0x7d382cf97c80204bL).target(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L).optional(true).ordered(true).multiple(false).origin("9023011303484039243").done();
     b.alias("while");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForblock_timestamp() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("B", "block_timestamp", 0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x775e747952e2b190L);
+    b.class_(false, false, false);
+    b.super_("B.structure.SolidityGlobalVariables", 0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6cc0fL);
+    b.origin("r:d2874149-b575-42a9-9e66-bd8f0639a7d2(B.structure)/8601440402754679184");
+    b.version(2);
+    b.alias("block_timestamp");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForenumMember() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("B", "enumMember", 0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d37e504154a2cdbL);
+    b.class_(false, false, false);
+    b.super_("B.structure.BExpression", 0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L);
+    b.origin("r:d2874149-b575-42a9-9e66-bd8f0639a7d2(B.structure)/9022932184159890651");
+    b.version(2);
+    b.aggregate("enumName", 0x7d37e504155799fcL).target(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L).optional(false).ordered(true).multiple(false).origin("9022932184160770556").done();
+    b.aggregate("enumMember", 0x7d37e504155799feL).target(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L).optional(false).ordered(true).multiple(false).origin("9022932184160770558").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForfunctionElement() {

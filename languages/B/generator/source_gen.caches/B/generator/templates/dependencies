@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
   <dependency className="B.generator.templates.QueriesGenerated">
-    <classNode dependClassName="B.behavior.Operation__BehaviorDescriptor" />
     <classNode dependClassName="B.generator.generator.util.Util" />
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Object" />

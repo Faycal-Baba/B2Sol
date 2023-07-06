@@ -60,6 +60,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Initialisation;
   private ConceptPresentation props_Instruction;
   private ConceptPresentation props_Machine;
+  private ConceptPresentation props_NullAddress;
   private ConceptPresentation props_Operation;
   private ConceptPresentation props_Predicate;
   private ConceptPresentation props_ReturnSubstitution;
@@ -74,6 +75,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_TypingPredicateProperties;
   private ConceptPresentation props_TypingPredicateStructMember;
   private ConceptPresentation props_WhileInstruction;
+  private ConceptPresentation props_block_timestamp;
+  private ConceptPresentation props_enumMember;
   private ConceptPresentation props_functionElement;
   private ConceptPresentation props_mappingUpdate;
   private ConceptPresentation props_pred;
@@ -436,6 +439,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Machine = cpb.create();
         }
         return props_Machine;
+      case LanguageConceptSwitch.NullAddress:
+        if (props_NullAddress == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("addr_0");
+          props_NullAddress = cpb.create();
+        }
+        return props_NullAddress;
       case LanguageConceptSwitch.Operation:
         if (props_Operation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -531,6 +541,20 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_WhileInstruction = cpb.create();
         }
         return props_WhileInstruction;
+      case LanguageConceptSwitch.block_timestamp:
+        if (props_block_timestamp == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("block_timestamp");
+          props_block_timestamp = cpb.create();
+        }
+        return props_block_timestamp;
+      case LanguageConceptSwitch.enumMember:
+        if (props_enumMember == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("enumMember");
+          props_enumMember = cpb.create();
+        }
+        return props_enumMember;
       case LanguageConceptSwitch.functionElement:
         if (props_functionElement == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

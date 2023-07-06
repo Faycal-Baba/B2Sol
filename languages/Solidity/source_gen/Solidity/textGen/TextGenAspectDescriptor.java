@@ -43,12 +43,16 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new EmptySstatement_TextGen();
       case LanguageConceptSwitch.EnumDefinition:
         return new EnumDefinition_TextGen();
+      case LanguageConceptSwitch.EnumMember:
+        return new EnumMember_TextGen();
       case LanguageConceptSwitch.FalseExpression:
         return new FalseExpression_TextGen();
       case LanguageConceptSwitch.FunctionCall:
         return new FunctionCall_TextGen();
       case LanguageConceptSwitch.FunctionDefinition:
         return new FunctionDefinition_TextGen();
+      case LanguageConceptSwitch.GreaterThanExpression:
+        return new GreaterThanExpression_TextGen();
       case LanguageConceptSwitch.Identifier:
         return new Identifier_TextGen();
       case LanguageConceptSwitch.IfStatement:

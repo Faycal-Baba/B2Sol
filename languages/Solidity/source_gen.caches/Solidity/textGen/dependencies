@@ -89,6 +89,15 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
+  <dependency className="Solidity.textGen.EnumMember_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
   <dependency className="Solidity.textGen.FalseExpression_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
@@ -119,6 +128,15 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
+  <dependency className="Solidity.textGen.GreaterThanExpression_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
   <dependency className="Solidity.textGen.Identifier_TextGen">
@@ -335,9 +353,11 @@
     <classNode dependClassName="Solidity.textGen.EmptyLine_TextGen" />
     <classNode dependClassName="Solidity.textGen.EmptySstatement_TextGen" />
     <classNode dependClassName="Solidity.textGen.EnumDefinition_TextGen" />
+    <classNode dependClassName="Solidity.textGen.EnumMember_TextGen" />
     <classNode dependClassName="Solidity.textGen.FalseExpression_TextGen" />
     <classNode dependClassName="Solidity.textGen.FunctionCall_TextGen" />
     <classNode dependClassName="Solidity.textGen.FunctionDefinition_TextGen" />
+    <classNode dependClassName="Solidity.textGen.GreaterThanExpression_TextGen" />
     <classNode dependClassName="Solidity.textGen.Identifier_TextGen" />
     <classNode dependClassName="Solidity.textGen.IfStatement_TextGen" />
     <classNode dependClassName="Solidity.textGen.ImmuableStateVariableDeclaration_TextGen" />
