@@ -13,9 +13,9 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
   <root>
     <file name="TextGenAspectDescriptor.java">
-      <unit at="132,0,135,0" name="Solidity.textGen.TextGenAspectDescriptor$CONCEPTS" />
-      <unit at="136,0,139,0" name="Solidity.textGen.TextGenAspectDescriptor$PROPS" />
-      <unit at="18,0,140,0" name="Solidity.textGen.TextGenAspectDescriptor" />
+      <unit at="136,0,139,0" name="Solidity.textGen.TextGenAspectDescriptor$CONCEPTS" />
+      <unit at="140,0,143,0" name="Solidity.textGen.TextGenAspectDescriptor$PROPS" />
+      <unit at="18,0,144,0" name="Solidity.textGen.TextGenAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/4012924191459819755">
@@ -37,8 +37,8 @@
       <unit id="4012924191459819755" at="12,0,26,0" name="Solidity.textGen.LineComment_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4012924191459819755" at="64,45,65,41" concept="7" />
-      <scope id="4012924191459819755" at="64,45,65,41" />
+      <node id="4012924191459819755" at="66,45,67,41" concept="7" />
+      <scope id="4012924191459819755" at="66,45,67,41" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/4012924191460589114">
@@ -66,6 +66,58 @@
     <file name="TextGenAspectDescriptor.java">
       <node id="4012924191460589114" at="34,46,35,42" concept="7" />
       <scope id="4012924191460589114" at="34,46,35,42" />
+    </file>
+  </root>
+  <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/5740194033788725888">
+    <file name="TextGenAspectDescriptor.java">
+      <node id="5740194033788725888" at="112,40,113,36" concept="7" />
+      <scope id="5740194033788725888" at="112,40,113,36" />
+    </file>
+    <file name="varDec_TextGen.java">
+      <node id="5740194033788725888" at="14,54,15,55" concept="6" />
+      <node id="5740194033788725927" at="15,55,16,86" concept="2" />
+      <node id="5740194033788727836" at="16,86,17,20" concept="2" />
+      <node id="5740194033788727943" at="17,20,18,89" concept="2" />
+      <node id="1655988352133565937" at="19,87,20,22" concept="2" />
+      <node id="1655988352133565938" at="20,22,21,22" concept="2" />
+      <node id="1655988352133572206" at="21,22,22,89" concept="2" />
+      <node id="1655988352133574761" at="23,5,24,20" concept="2" />
+      <node id="5740194033788725888" at="28,0,29,0" concept="9" trace="type$rQJR" />
+      <node id="5740194033788725888" at="29,0,30,0" concept="9" trace="varName$q49o" />
+      <node id="5740194033788725888" at="30,0,31,0" concept="9" trace="value$rXMl" />
+      <node id="1655988352133565931" at="18,89,23,5" concept="4" />
+      <node id="5740194033788725888" at="13,0,26,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="1655988352133565932" at="19,87,22,89" />
+      <scope id="5740194033788725888" at="14,54,24,20">
+        <var name="tgs" id="5740194033788725888" />
+      </scope>
+      <scope id="5740194033788725888" at="13,0,26,0">
+        <var name="ctx" id="5740194033788725888" />
+      </scope>
+      <unit id="5740194033788725888" at="27,0,32,0" name="Solidity.textGen.varDec_TextGen$LINKS" />
+      <unit id="5740194033788725888" at="12,0,33,0" name="Solidity.textGen.varDec_TextGen" />
+    </file>
+  </root>
+  <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/6943274761601902567">
+    <file name="Index_TextGen.java">
+      <node id="6943274761601902567" at="14,54,15,55" concept="6" />
+      <node id="6943274761601902606" at="15,55,16,20" concept="2" />
+      <node id="6943274761601902697" at="16,20,17,87" concept="2" />
+      <node id="6943274761601904235" at="17,87,18,20" concept="2" />
+      <node id="6943274761601902567" at="22,0,23,0" concept="9" trace="value$IK7G" />
+      <node id="6943274761601902567" at="13,0,20,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="6943274761601902567" at="14,54,18,20">
+        <var name="tgs" id="6943274761601902567" />
+      </scope>
+      <scope id="6943274761601902567" at="13,0,20,0">
+        <var name="ctx" id="6943274761601902567" />
+      </scope>
+      <unit id="6943274761601902567" at="21,0,24,0" name="Solidity.textGen.Index_TextGen$LINKS" />
+      <unit id="6943274761601902567" at="12,0,25,0" name="Solidity.textGen.Index_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="6943274761601902567" at="62,39,63,35" concept="7" />
+      <scope id="6943274761601902567" at="62,39,63,35" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566134740">
@@ -104,8 +156,8 @@
       <unit id="7763783051566134746" at="12,0,23,0" name="Solidity.textGen.IntegerLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566134746" at="62,48,63,44" concept="7" />
-      <scope id="7763783051566134746" at="62,48,63,44" />
+      <node id="7763783051566134746" at="64,48,65,44" concept="7" />
+      <scope id="7763783051566134746" at="64,48,65,44" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566134758">
@@ -126,14 +178,14 @@
       <unit id="7763783051566134758" at="12,0,25,0" name="Solidity.textGen.StringLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566134758" at="92,47,93,43" concept="7" />
-      <scope id="7763783051566134758" at="92,47,93,43" />
+      <node id="7763783051566134758" at="96,47,97,43" concept="7" />
+      <scope id="7763783051566134758" at="96,47,97,43" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566134763">
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566134763" at="98,48,99,44" concept="7" />
-      <scope id="7763783051566134763" at="98,48,99,44" />
+      <node id="7763783051566134763" at="102,48,103,44" concept="7" />
+      <scope id="7763783051566134763" at="102,48,103,44" />
     </file>
     <file name="TrueExpression_TextGen.java">
       <node id="7763783051566134763" at="11,54,12,55" concept="6" />
@@ -207,25 +259,25 @@
     </file>
     <file name="TextGenAspectDescriptor.java">
       <node id="7763783051566134913" at="38,42,39,38" concept="7" />
-      <node id="7763783051566134913" at="117,59,118,50" concept="6" />
-      <node id="7763783051566134913" at="118,50,119,53" concept="6" />
-      <node id="7763783051566134913" at="119,53,120,84" concept="2" />
-      <node id="7763783051566134913" at="120,84,121,17" concept="1" />
-      <node id="7763783051566139632" at="125,58,126,78" concept="7" />
-      <node id="7763783051566135018" at="128,63,129,17" concept="7" />
-      <node id="7763783051566134913" at="125,0,128,0" concept="10" trace="getFileName_Contract#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="7763783051566134913" at="128,0,131,0" concept="10" trace="getFileExtension_Contract#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="7763783051566134913" at="116,58,122,7" concept="4" />
+      <node id="7763783051566134913" at="121,59,122,50" concept="6" />
+      <node id="7763783051566134913" at="122,50,123,53" concept="6" />
+      <node id="7763783051566134913" at="123,53,124,84" concept="2" />
+      <node id="7763783051566134913" at="124,84,125,17" concept="1" />
+      <node id="7763783051566139632" at="129,58,130,78" concept="7" />
+      <node id="7763783051566135018" at="132,63,133,17" concept="7" />
+      <node id="7763783051566134913" at="129,0,132,0" concept="10" trace="getFileName_Contract#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="7763783051566134913" at="132,0,135,0" concept="10" trace="getFileExtension_Contract#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="7763783051566134913" at="120,58,126,7" concept="4" />
       <scope id="7763783051566134913" at="38,42,39,38" />
-      <scope id="7763783051566134913" at="125,58,126,78" />
-      <scope id="7763783051566134913" at="128,63,129,17" />
-      <scope id="7763783051566134913" at="125,0,128,0">
+      <scope id="7763783051566134913" at="129,58,130,78" />
+      <scope id="7763783051566134913" at="132,63,133,17" />
+      <scope id="7763783051566134913" at="129,0,132,0">
         <var name="node" id="7763783051566134913" />
       </scope>
-      <scope id="7763783051566134913" at="128,0,131,0">
+      <scope id="7763783051566134913" at="132,0,135,0">
         <var name="node" id="7763783051566134913" />
       </scope>
-      <scope id="7763783051566134913" at="117,59,121,17">
+      <scope id="7763783051566134913" at="121,59,125,17">
         <var name="ext" id="7763783051566134913" />
         <var name="fname" id="7763783051566134913" />
       </scope>
@@ -233,8 +285,8 @@
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566135027">
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566135027" at="100,38,101,34" concept="7" />
-      <scope id="7763783051566135027" at="100,38,101,34" />
+      <node id="7763783051566135027" at="104,38,105,34" concept="7" />
+      <scope id="7763783051566135027" at="104,38,105,34" />
     </file>
     <file name="Type_TextGen.java">
       <node id="7763783051566135027" at="13,54,14,55" concept="6" />
@@ -275,8 +327,8 @@
       <unit id="7763783051566135039" at="12,0,33,0" name="Solidity.textGen.Mapping_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566135039" at="66,41,67,37" concept="7" />
-      <scope id="7763783051566135039" at="66,41,67,37" />
+      <node id="7763783051566135039" at="68,41,69,37" concept="7" />
+      <scope id="7763783051566135039" at="68,41,69,37" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566135169">
@@ -324,8 +376,8 @@
       <unit id="7763783051566135169" at="14,0,55,0" name="Solidity.textGen.StateVariableDeclaration_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566135169" at="88,58,89,54" concept="7" />
-      <scope id="7763783051566135169" at="88,58,89,54" />
+      <node id="7763783051566135169" at="92,58,93,54" concept="7" />
+      <scope id="7763783051566135169" at="92,58,93,54" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566135279">
@@ -420,8 +472,8 @@
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566135512">
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566135512" at="104,48,105,44" concept="7" />
-      <scope id="7763783051566135512" at="104,48,105,44" />
+      <node id="7763783051566135512" at="108,48,109,44" concept="7" />
+      <scope id="7763783051566135512" at="108,48,109,44" />
     </file>
     <file name="WhileStatement_TextGen.java">
       <node id="7763783051566135512" at="16,54,17,55" concept="6" />
@@ -491,8 +543,8 @@
       <unit id="7763783051566135676" at="15,0,42,0" name="Solidity.textGen.ReturnStatement_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566135676" at="84,49,85,45" concept="7" />
-      <scope id="7763783051566135676" at="84,49,85,45" />
+      <node id="7763783051566135676" at="88,49,89,45" concept="7" />
+      <scope id="7763783051566135676" at="88,49,89,45" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566135962">
@@ -539,8 +591,8 @@
       <unit id="7763783051566135970" at="14,0,32,0" name="Solidity.textGen.Parameter_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566135970" at="72,43,73,39" concept="7" />
-      <scope id="7763783051566135970" at="72,43,73,39" />
+      <node id="7763783051566135970" at="76,43,77,39" concept="7" />
+      <scope id="7763783051566135970" at="76,43,77,39" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566136018">
@@ -568,8 +620,8 @@
       <unit id="7763783051566136018" at="15,0,32,0" name="Solidity.textGen.ParameterList_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566136018" at="74,47,75,43" concept="7" />
-      <scope id="7763783051566136018" at="74,47,75,43" />
+      <node id="7763783051566136018" at="78,47,79,43" concept="7" />
+      <scope id="7763783051566136018" at="78,47,79,43" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566136075">
@@ -756,8 +808,8 @@
       <unit id="7763783051566136595" at="12,0,26,0" name="Solidity.textGen.NotExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566136595" at="70,47,71,43" concept="7" />
-      <scope id="7763783051566136595" at="70,47,71,43" />
+      <node id="7763783051566136595" at="74,47,75,43" concept="7" />
+      <scope id="7763783051566136595" at="74,47,75,43" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566136673">
@@ -809,8 +861,8 @@
       <unit id="7763783051566136773" at="12,0,27,0" name="Solidity.textGen.RequireStatement_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566136773" at="82,50,83,46" concept="7" />
-      <scope id="7763783051566136773" at="82,50,83,46" />
+      <node id="7763783051566136773" at="86,50,87,46" concept="7" />
+      <scope id="7763783051566136773" at="86,50,87,46" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566136860">
@@ -845,8 +897,8 @@
       <unit id="7763783051566136871" at="11,0,18,0" name="Solidity.textGen.SolidityGlobalVariables_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566136871" at="86,57,87,53" concept="7" />
-      <scope id="7763783051566136871" at="86,57,87,53" />
+      <node id="7763783051566136871" at="90,57,91,53" concept="7" />
+      <scope id="7763783051566136871" at="90,57,91,53" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566136883">
@@ -908,8 +960,8 @@
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566137044">
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566137044" at="96,51,97,47" concept="7" />
-      <scope id="7763783051566137044" at="96,51,97,47" />
+      <node id="7763783051566137044" at="100,51,101,47" concept="7" />
+      <scope id="7763783051566137044" at="100,51,101,47" />
     </file>
     <file name="TransferStatement_TextGen.java">
       <node id="7763783051566137044" at="14,54,15,55" concept="6" />
@@ -975,14 +1027,14 @@
       <unit id="7763783051566137227" at="17,0,50,0" name="Solidity.textGen.StructDefinition_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566137227" at="94,50,95,46" concept="7" />
-      <scope id="7763783051566137227" at="94,50,95,46" />
+      <node id="7763783051566137227" at="98,50,99,46" concept="7" />
+      <scope id="7763783051566137227" at="98,50,99,46" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566137343">
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566137343" at="102,42,103,38" concept="7" />
-      <scope id="7763783051566137343" at="102,42,103,38" />
+      <node id="7763783051566137343" at="106,42,107,38" concept="7" />
+      <scope id="7763783051566137343" at="106,42,107,38" />
     </file>
     <file name="UserType_TextGen.java">
       <node id="7763783051566137343" at="14,54,15,55" concept="6" />
@@ -1016,8 +1068,8 @@
       <unit id="7763783051566137366" at="12,0,24,0" name="Solidity.textGen.Plusplus_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566137366" at="80,42,81,38" concept="7" />
-      <scope id="7763783051566137366" at="80,42,81,38" />
+      <node id="7763783051566137366" at="84,42,85,38" concept="7" />
+      <scope id="7763783051566137366" at="84,42,85,38" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566137409">
@@ -1037,32 +1089,35 @@
       <unit id="7763783051566137409" at="12,0,24,0" name="Solidity.textGen.Minusminus_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566137409" at="68,44,69,40" concept="7" />
-      <scope id="7763783051566137409" at="68,44,69,40" />
+      <node id="7763783051566137409" at="72,44,73,40" concept="7" />
+      <scope id="7763783051566137409" at="72,44,73,40" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566137454">
-    <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566137454" at="106,49,107,45" concept="7" />
-      <scope id="7763783051566137454" at="106,49,107,45" />
-    </file>
-    <file name="mapping_element_TextGen.java">
-      <node id="7763783051566137454" at="14,54,15,55" concept="6" />
-      <node id="7763783051566137463" at="15,55,16,86" concept="2" />
-      <node id="7763783051566137480" at="16,86,17,20" concept="2" />
-      <node id="7763783051566137500" at="17,20,18,87" concept="2" />
-      <node id="7763783051566137517" at="18,87,19,20" concept="2" />
-      <node id="7763783051566137454" at="23,0,24,0" concept="9" trace="left$BRun" />
-      <node id="7763783051566137454" at="24,0,25,0" concept="9" trace="right$BX$L" />
-      <node id="7763783051566137454" at="13,0,21,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
-      <scope id="7763783051566137454" at="14,54,19,20">
+    <file name="MappingElement_TextGen.java">
+      <node id="7763783051566137454" at="15,54,16,55" concept="6" />
+      <node id="6943274761601904653" at="16,55,17,89" concept="2" />
+      <node id="6943274761601906210" at="18,95,19,27" concept="2" />
+      <node id="7763783051566137454" at="24,0,25,0" concept="9" trace="mapName$zZlc" />
+      <node id="7763783051566137454" at="25,0,26,0" concept="9" trace="indexes$zZNe" />
+      <node id="6943274761601906210" at="17,89,20,5" concept="3" />
+      <node id="7763783051566137454" at="14,0,22,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="6943274761601906210" at="18,95,19,27" />
+      <scope id="6943274761601906210" at="17,89,20,5">
+        <var name="item" id="6943274761601906210" />
+      </scope>
+      <scope id="7763783051566137454" at="15,54,20,5">
         <var name="tgs" id="7763783051566137454" />
       </scope>
-      <scope id="7763783051566137454" at="13,0,21,0">
+      <scope id="7763783051566137454" at="14,0,22,0">
         <var name="ctx" id="7763783051566137454" />
       </scope>
-      <unit id="7763783051566137454" at="22,0,26,0" name="Solidity.textGen.mapping_element_TextGen$LINKS" />
-      <unit id="7763783051566137454" at="12,0,27,0" name="Solidity.textGen.mapping_element_TextGen" />
+      <unit id="7763783051566137454" at="23,0,27,0" name="Solidity.textGen.MappingElement_TextGen$LINKS" />
+      <unit id="7763783051566137454" at="13,0,28,0" name="Solidity.textGen.MappingElement_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="7763783051566137454" at="70,48,71,44" concept="7" />
+      <scope id="7763783051566137454" at="70,48,71,44" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566137566">
@@ -1122,8 +1177,8 @@
       <unit id="7763783051566137566" at="17,0,65,0" name="Solidity.textGen.PayableFunctionDefinition_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566137566" at="78,59,79,55" concept="7" />
-      <scope id="7763783051566137566" at="78,59,79,55" />
+      <node id="7763783051566137566" at="82,59,83,55" concept="7" />
+      <scope id="7763783051566137566" at="82,59,83,55" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566137790">
@@ -1150,14 +1205,14 @@
       <unit id="7763783051566137790" at="14,0,30,0" name="Solidity.textGen.StatementBlock_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566137790" at="90,48,91,44" concept="7" />
-      <scope id="7763783051566137790" at="90,48,91,44" />
+      <node id="7763783051566137790" at="94,48,95,44" concept="7" />
+      <scope id="7763783051566137790" at="94,48,95,44" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/7763783051566137836">
     <file name="TextGenAspectDescriptor.java">
-      <node id="7763783051566137836" at="108,50,109,46" concept="7" />
-      <scope id="7763783051566137836" at="108,50,109,46" />
+      <node id="7763783051566137836" at="110,50,111,46" concept="7" />
+      <scope id="7763783051566137836" at="110,50,111,46" />
     </file>
     <file name="structMemberList_TextGen.java">
       <node id="7763783051566137836" at="17,54,18,55" concept="6" />
@@ -1205,8 +1260,8 @@
       <unit id="8629705098718307962" at="12,0,27,0" name="Solidity.textGen.ParenthesisExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="8629705098718307962" at="76,55,77,51" concept="7" />
-      <scope id="8629705098718307962" at="76,55,77,51" />
+      <node id="8629705098718307962" at="80,55,81,51" concept="7" />
+      <scope id="8629705098718307962" at="80,55,81,51" />
     </file>
   </root>
   <root nodeRef="r:4505db75-6bf3-4221-98f2-a1e22e92939a(Solidity.textGen)/9022932184165255838">

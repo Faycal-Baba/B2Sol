@@ -33,6 +33,12 @@
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
+  <dependency className="B.textGen.BFunctionCall_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
   <dependency className="B.textGen.BIdentifier_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
@@ -225,6 +231,7 @@
     <classNode dependClassName="B.textGen.BBalanceOf_TextGen" />
     <classNode dependClassName="B.textGen.BBinaryExpression_TextGen" />
     <classNode dependClassName="B.textGen.BFalseExpression_TextGen" />
+    <classNode dependClassName="B.textGen.BFunctionCall_TextGen" />
     <classNode dependClassName="B.textGen.BIdentifier_TextGen" />
     <classNode dependClassName="B.textGen.BIntegerLiteral_TextGen" />
     <classNode dependClassName="B.textGen.BNotExpression_TextGen" />
@@ -247,7 +254,6 @@
     <classNode dependClassName="B.textGen.TransferOperation_TextGen" />
     <classNode dependClassName="B.textGen.TypingPredicate_TextGen" />
     <classNode dependClassName="B.textGen.WhileInstruction_TextGen" />
-    <classNode dependClassName="B.textGen.functionElement_TextGen" />
     <classNode dependClassName="B.textGen.pred_TextGen" />
     <classNode dependClassName="B.textGen.succ_TextGen" />
     <classNode dependClassName="B.textGen.userDefinedSet_TextGen" />
@@ -291,15 +297,6 @@
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
-  </dependency>
-  <dependency className="B.textGen.functionElement_TextGen">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
-    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
   <dependency className="B.textGen.pred_TextGen">

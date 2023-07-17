@@ -20,6 +20,7 @@ INITIALISATION
     seller_i := seller_; buyer_i := buyer_ ; state_i := INIT ; arbiter_i := init_msg_sender ; price_i := amount_
 
 OPERATIONS
+
     payement(msg_sender, msg_value) = 
     BEGIN
         buyer_i := msg_sender;

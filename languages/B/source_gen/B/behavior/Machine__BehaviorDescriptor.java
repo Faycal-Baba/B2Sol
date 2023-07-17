@@ -36,8 +36,10 @@ public final class Machine__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> addPropertiesPredicate_id5vMBZAy8oyU = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addPropertiesPredicate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy8oyU").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> setinit_id5vMBZAy8txW = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setinit").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy8txW").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> addOperation_id5vMBZAy8wr2 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addOperation").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy8wr2").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> addVariable_id4UlU1vbQI0_ = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addVariable").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4UlU1vbQI0_").build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<Void> addVariable_id4UlU1vbSm6Y = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addVariable").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4UlU1vbSm6Y").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(addVariables_id7B8mKgzi0Bk, setName_id7B8mKgzk40V, addEnumeratedSet_id5vMBZAy7ZS7, addConstants_id5vMBZAy8623, addConstantValuation_id5vMBZAy88ub, addInvariantPredicate_id5vMBZAy8h$w, addPropertiesPredicate_id5vMBZAy8oyU, setinit_id5vMBZAy8txW, addOperation_id5vMBZAy8wr2);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(addVariables_id7B8mKgzi0Bk, setName_id7B8mKgzk40V, addEnumeratedSet_id5vMBZAy7ZS7, addConstants_id5vMBZAy8623, addConstantValuation_id5vMBZAy88ub, addInvariantPredicate_id5vMBZAy8h$w, addPropertiesPredicate_id5vMBZAy8oyU, setinit_id5vMBZAy8txW, addOperation_id5vMBZAy8wr2, addVariable_id4UlU1vbQI0_, addVariable_id4UlU1vbSm6Y);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -81,6 +83,14 @@ public final class Machine__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static void addOperation_id5vMBZAy8wr2(@NotNull SNode __thisNode__, SNode op) {
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.operations$pJKb)).addElement(op);
   }
+  /*package*/ static void addVariable_id4UlU1vbQI0_(@NotNull SNode __thisNode__, String id) {
+    SNode bid = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier"));
+    BIdentifier__BehaviorDescriptor.setName_id7B8mKgzi8Kz.invoke(bid, id);
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.variables$r0Mw)).addElement(bid);
+  }
+  /*package*/ static void addVariable_id4UlU1vbSm6Y(@NotNull SNode __thisNode__, SNode id) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.variables$r0Mw)).addElement(id);
+  }
 
   /*package*/ Machine__BehaviorDescriptor() {
   }
@@ -123,6 +133,12 @@ public final class Machine__BehaviorDescriptor extends BaseBHDescriptor {
         return null;
       case 8:
         addOperation_id5vMBZAy8wr2(node, (SNode) parameters[0]);
+        return null;
+      case 9:
+        addVariable_id4UlU1vbQI0_(node, (String) parameters[0]);
+        return null;
+      case 10:
+        addVariable_id4UlU1vbSm6Y(node, (SNode) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);

@@ -10,7 +10,7 @@ SEES
 VARIABLES
     account_map
 INVARIANT
-    account_map : ADDRESS --> NAT
+    account_map : ADDRESS --> (ADDRESS --> NAT)
 
 
 INITIALISATION

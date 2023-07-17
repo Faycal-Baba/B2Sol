@@ -31,6 +31,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new BBinaryExpression_TextGen();
       case LanguageConceptSwitch.BFalseExpression:
         return new BFalseExpression_TextGen();
+      case LanguageConceptSwitch.BFunctionCall:
+        return new BFunctionCall_TextGen();
       case LanguageConceptSwitch.BIdentifier:
         return new BIdentifier_TextGen();
       case LanguageConceptSwitch.BIntegerLiteral:
@@ -75,8 +77,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new TypingPredicate_TextGen();
       case LanguageConceptSwitch.WhileInstruction:
         return new WhileInstruction_TextGen();
-      case LanguageConceptSwitch.functionElement:
-        return new functionElement_TextGen();
       case LanguageConceptSwitch.pred:
         return new pred_TextGen();
       case LanguageConceptSwitch.succ:

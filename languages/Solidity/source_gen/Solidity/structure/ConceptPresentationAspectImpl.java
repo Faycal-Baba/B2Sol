@@ -37,6 +37,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Identifier;
   private ConceptPresentation props_IfStatement;
   private ConceptPresentation props_ImmuableStateVariableDeclaration;
+  private ConceptPresentation props_Index;
   private ConceptPresentation props_InequalExpression;
   private ConceptPresentation props_Integer;
   private ConceptPresentation props_IntegerLiteral;
@@ -44,6 +45,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_LessThanOrEqualExpression;
   private ConceptPresentation props_LineComment;
   private ConceptPresentation props_Mapping;
+  private ConceptPresentation props_MappingElement;
   private ConceptPresentation props_MinusExpression;
   private ConceptPresentation props_Minusminus;
   private ConceptPresentation props_MultExpression;
@@ -75,9 +77,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_UserType;
   private ConceptPresentation props_Value;
   private ConceptPresentation props_WhileStatement;
-  private ConceptPresentation props_mapping_element;
   private ConceptPresentation props_structMemberList;
   private ConceptPresentation props_thisExpression;
+  private ConceptPresentation props_varDec;
 
   @Override
   @Nullable
@@ -143,7 +145,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.Bool:
         if (props_Bool == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("boolean");
+          cpb.rawPresentation("bool");
           props_Bool = cpb.create();
         }
         return props_Bool;
@@ -278,6 +280,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ImmuableStateVariableDeclaration = cpb.create();
         }
         return props_ImmuableStateVariableDeclaration;
+      case LanguageConceptSwitch.Index:
+        if (props_Index == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("[");
+          props_Index = cpb.create();
+        }
+        return props_Index;
       case LanguageConceptSwitch.InequalExpression:
         if (props_InequalExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -327,6 +336,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Mapping = cpb.create();
         }
         return props_Mapping;
+      case LanguageConceptSwitch.MappingElement:
+        if (props_MappingElement == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("MappingElement");
+          props_MappingElement = cpb.create();
+        }
+        return props_MappingElement;
       case LanguageConceptSwitch.MinusExpression:
         if (props_MinusExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -541,13 +557,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_WhileStatement = cpb.create();
         }
         return props_WhileStatement;
-      case LanguageConceptSwitch.mapping_element:
-        if (props_mapping_element == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("mapping_element");
-          props_mapping_element = cpb.create();
-        }
-        return props_mapping_element;
       case LanguageConceptSwitch.structMemberList:
         if (props_structMemberList == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -562,6 +571,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_thisExpression = cpb.create();
         }
         return props_thisExpression;
+      case LanguageConceptSwitch.varDec:
+        if (props_varDec == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("varDex");
+          props_varDec = cpb.create();
+        }
+        return props_varDec;
     }
     return null;
   }

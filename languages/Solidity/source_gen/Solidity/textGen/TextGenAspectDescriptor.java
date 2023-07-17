@@ -59,12 +59,16 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new IfStatement_TextGen();
       case LanguageConceptSwitch.ImmuableStateVariableDeclaration:
         return new ImmuableStateVariableDeclaration_TextGen();
+      case LanguageConceptSwitch.Index:
+        return new Index_TextGen();
       case LanguageConceptSwitch.IntegerLiteral:
         return new IntegerLiteral_TextGen();
       case LanguageConceptSwitch.LineComment:
         return new LineComment_TextGen();
       case LanguageConceptSwitch.Mapping:
         return new Mapping_TextGen();
+      case LanguageConceptSwitch.MappingElement:
+        return new MappingElement_TextGen();
       case LanguageConceptSwitch.Minusminus:
         return new Minusminus_TextGen();
       case LanguageConceptSwitch.NotExpression:
@@ -103,10 +107,10 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new UserType_TextGen();
       case LanguageConceptSwitch.WhileStatement:
         return new WhileStatement_TextGen();
-      case LanguageConceptSwitch.mapping_element:
-        return new mapping_element_TextGen();
       case LanguageConceptSwitch.structMemberList:
         return new structMemberList_TextGen();
+      case LanguageConceptSwitch.varDec:
+        return new varDec_TextGen();
     }
     return null;
   }

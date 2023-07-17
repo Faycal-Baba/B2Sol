@@ -15,18 +15,21 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class Function__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c784996L, "B.structure.Function");
 
   public static final SMethod<Void> setAntecedant_id5vMBZAy8BDl = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setAntecedant").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy8BDl").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> setImage_id5vMBZAy8Cbn = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setImage").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy8Cbn").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SNode> getLastValueType_id61rtTJfm4Jo = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getLastValueType").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("61rtTJfm4Jo").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(setAntecedant_id5vMBZAy8BDl, setImage_id5vMBZAy8Cbn);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(setAntecedant_id5vMBZAy8BDl, setImage_id5vMBZAy8Cbn, getLastValueType_id61rtTJfm4Jo);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -36,6 +39,13 @@ public final class Function__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static void setImage_id5vMBZAy8Cbn(@NotNull SNode __thisNode__, SNode set) {
     SLinkOperations.setTarget(__thisNode__, LINKS.valueType$Ljst, set);
+  }
+  /*package*/ static SNode getLastValueType_id61rtTJfm4Jo(@NotNull SNode __thisNode__) {
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.valueType$Ljst), CONCEPTS.Function$ja)) {
+      SNode node = ((SNode) SLinkOperations.getTarget(__thisNode__, LINKS.valueType$Ljst));
+      return Function__BehaviorDescriptor.getLastValueType_id61rtTJfm4Jo.invoke(node);
+    }
+    return SLinkOperations.getTarget(__thisNode__, LINKS.valueType$Ljst);
   }
 
   /*package*/ Function__BehaviorDescriptor() {
@@ -59,6 +69,8 @@ public final class Function__BehaviorDescriptor extends BaseBHDescriptor {
       case 1:
         setImage_id5vMBZAy8Cbn(node, (SNode) parameters[0]);
         return null;
+      case 2:
+        return (T) ((SNode) getLastValueType_id61rtTJfm4Jo(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -91,5 +103,9 @@ public final class Function__BehaviorDescriptor extends BaseBHDescriptor {
   private static final class LINKS {
     /*package*/ static final SContainmentLink keyType$LiYr = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c784996L, 0x7d382cf97c784997L, "keyType");
     /*package*/ static final SContainmentLink valueType$Ljst = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c784996L, 0x7d382cf97c784999L, "valueType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Function$ja = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c784996L, "B.structure.Function");
   }
 }

@@ -42,6 +42,18 @@ public class Util {
           return true;
         }
       }
+      if (st instanceof SNode) {
+        SNode node = ((SNode) st);
+        for (SNode st_ : ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.instrs$CWJX))) {
+          if (SNodeOperations.isInstanceOf(st_, CONCEPTS.TransferOperation$Fn)) {
+            SNode nodeBis = ((SNode) st_);
+            if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(nodeBis, LINKS.to$g5So), CONCEPTS.THIS$mL)) {
+              return true;
+            }
+          }
+        }
+      }
+
     }
     return false;
   }
@@ -106,11 +118,13 @@ public class Util {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink to$g5So = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce476396f5L, 0x3d1067ce476396feL, "to");
+    /*package*/ static final SContainmentLink instrs$CWJX = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7923cf0b1219a72L, 0x7923cf0b1219a75L, "instrs");
     /*package*/ static final SContainmentLink body$4v9z = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L, 0x6d3985c698ada6a2L, "body");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept THIS$mL = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5b77dc1122c9701L, "B.structure.THIS");
+    /*package*/ static final SConcept TransferOperation$Fn = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce476396f5L, "B.structure.TransferOperation");
   }
 
   private static final class PROPS {
