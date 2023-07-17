@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Proof_Obligations author="pmi2Pos" version="1.0" xmlns="https://www.atelierb.eu/Formats/pog">
+<Proof_Obligation>
+<Tag>Operation_testMapping</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>Operation_payement</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>Operation_refund</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>Operation_completed</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessPrecondition_testMapping</Tag>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinedness_testMapping</Tag>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessPrecondition_payement</Tag>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessPrecondition_refund</Tag>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessPrecondition_completed</Tag>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation precondition is well defined</Tag>
+<Proof_State methodList="pr" passList="Force(0),?" proofState="Proved(0)"/>
+</Simple_Goal>
+</Proof_Obligation>
+</Proof_Obligations>

@@ -1,0 +1,48 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(7) & _f(12) & WellDefinedness_ForceFeeding.2,(_f(20) => _f(18));
+_f(1) & _f(2) & _f(3) & _f(7) & _f(12) & WellDefinedness_ForceFeeding.1,(_f(20) => _f(23));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_ForceFeeding.2,(_f(7) & _f(16) => _f(18));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_ForceFeeding.1,(_f(7) & _f(16) => _f(23));
+_f(1) & _f(2) & _f(3) & _f(21) & WellDefinedness_getBalanceOf.2,(_f(20) => _f(18));
+_f(1) & _f(2) & _f(3) & _f(21) & WellDefinedness_getBalanceOf.1,(_f(20) => _f(22));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & _f(9) & WellDefinedness_transfer.3,(_f(20) => _f(17));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & _f(9) & WellDefinedness_transfer.2,(_f(20) => _f(18));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & _f(9) & WellDefinedness_transfer.1,(_f(20) => _f(19));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transfer.4,(_f(4) & _f(5) & _f(6) & _f(7) & _f(8) & _f(16) => _f(18));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transfer.3,(_f(4) & _f(5) & _f(6) & _f(7) & _f(8) & _f(16) => _f(19));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transfer.2,(_f(4) & _f(5) & _f(6) & _f(7) & _f(16) => _f(18));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transfer.1,(_f(4) & _f(5) & _f(6) & _f(7) & _f(16) => _f(17));
+_f(1) & _f(2) & _f(3) & _f(14) & Operation_transfer_.1,(_f(10) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(7) & _f(12) & Operation_ForceFeeding.1,(_f(10) => _f(13));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & _f(9) & Operation_transfer.1,(_f(10) => _f(11))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((1..6)*{ADDRESS}): FIN(NATURAL*{ADDRESS})& not(((1..6)*{ADDRESS}) = {}) & BYTES: FIN(INTEGER) & not(BYTES = {}) & ((USERS) = ((((1..6)*{ADDRESS}) - ({(2|->ADDRESS)})))) & ((init_msg_sender) : (USERS)) & ((init_msg_value) : (NAT)) & ((init_block_timestamp) : (NAT));
+balanceOf : ((1..6)*{ADDRESS}) +-> NAT & dom(balanceOf) = ((1..6)*{ADDRESS}) & ((balanceOf) : (((((1..6)*{ADDRESS})) --> (NAT))));
+((from) : (((1..6)*{ADDRESS})));
+((to) : (((1..6)*{ADDRESS})));
+not(((to) = (from)));
+((amount) : (NAT));
+((((balanceOf )(to) + amount)) : (NAT));
+((((balanceOf )(from) - amount)) : (NAT));
+"Invariant is preserved";
+((((balanceOf) <+ (({((from) |-> (((balanceOf )(from) - amount)))}\/{((to) |-> (((balanceOf )(to) + amount)))})))) : (((((1..6)*{ADDRESS})) --> (NAT))));
+((((balanceOf )((2|->ADDRESS)) + amount)) : (NAT));
+((((balanceOf) <+ (({(((2|->ADDRESS)) |-> (((balanceOf )((2|->ADDRESS)) + amount)))})))) : (((((1..6)*{ADDRESS})) --> (NAT))));
+((balanceUpdates) : (((((1..6)*{ADDRESS})) +-> (NAT))));
+((((balanceOf) <+ (balanceUpdates))) : (((((1..6)*{ADDRESS})) --> (NAT))));
+"Operation precondition is well defined";
+((to) : (dom(balanceOf)));
+((balanceOf) : (((dom(balanceOf)) +-> (ran(balanceOf)))));
+((from) : (dom(balanceOf)));
+"Operation is well defined";
+((adr) : (((1..6)*{ADDRESS})));
+((adr) : (dom(balanceOf)));
+(((2|->ADDRESS)) : (dom(balanceOf)))
+END
+&
+THEORY EnumerateX IS
+ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3,addr_4}
+END

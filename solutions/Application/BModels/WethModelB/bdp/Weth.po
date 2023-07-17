@@ -1,0 +1,84 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(26) & _f(19) & _f(27) & _f(28) & WellDefinedness_transferTo.3,(_f(36) => _f(38));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(26) & _f(19) & _f(27) & _f(28) & WellDefinedness_transferTo.2,(_f(36) => _f(35));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(26) & _f(19) & _f(27) & _f(28) & WellDefinedness_transferTo.1,(_f(36) => _f(34));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.10,(_f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(26) & _f(19) & _f(30) => _f(35));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.9,(_f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(26) & _f(19) & _f(30) => _f(38));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.8,(_f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(26) & _f(30) => _f(35));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.7,(_f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(26) & _f(30) => _f(34));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.6,(_f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(30) => _f(32));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.5,(_f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(30) => _f(37));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.4,(_f(4) & _f(23) & _f(16) & _f(24) & _f(30) => _f(32));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.3,(_f(4) & _f(23) & _f(16) & _f(24) & _f(30) => _f(31));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.2,(_f(4) & _f(23) & _f(16) & _f(30) => _f(35));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_transferTo.1,(_f(4) & _f(23) & _f(16) & _f(30) => _f(34));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(16) & _f(17) & _f(18) & _f(19) & WellDefinedness_retrieve.2,(_f(36) => _f(35));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(16) & _f(17) & _f(18) & _f(19) & WellDefinedness_retrieve.1,(_f(36) => _f(34));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_retrieve.6,(_f(4) & _f(16) & _f(17) & _f(18) & _f(30) => _f(35));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_retrieve.5,(_f(4) & _f(16) & _f(17) & _f(18) & _f(30) => _f(34));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_retrieve.4,(_f(4) & _f(16) & _f(17) & _f(30) => _f(32));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_retrieve.3,(_f(4) & _f(16) & _f(17) & _f(30) => _f(33));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_retrieve.2,(_f(4) & _f(16) & _f(30) => _f(32));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_retrieve.1,(_f(4) & _f(16) & _f(30) => _f(31));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & WellDefinedness_deposit.2,(_f(36) => _f(35));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & WellDefinedness_deposit.1,(_f(36) => _f(34));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_deposit.6,(_f(4) & _f(5) & _f(6) & _f(7) & _f(30) => _f(35));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_deposit.5,(_f(4) & _f(5) & _f(6) & _f(7) & _f(30) => _f(34));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_deposit.4,(_f(4) & _f(5) & _f(6) & _f(30) => _f(32));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_deposit.3,(_f(4) & _f(5) & _f(6) & _f(30) => _f(33));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_deposit.2,(_f(4) & _f(5) & _f(30) => _f(32));
+_f(1) & _f(2) & _f(3) & WellDefinednessPrecondition_deposit.1,(_f(4) & _f(5) & _f(30) => _f(31));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(23) & _f(16) & _f(24) & _f(25) & _f(26) & _f(19) & _f(27) & _f(28) & Operation_transferTo.1,(_f(14) => _f(29));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(16) & _f(17) & _f(18) & _f(19) & Operation_retrieve.3,(_f(10) & _f(9) & _f(20) & _f(21) & _f(14) => _f(22));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(16) & _f(17) & _f(18) & _f(19) & Operation_retrieve.2,(_f(14) => _f(21));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(16) & _f(17) & _f(18) & _f(19) & Operation_retrieve.1,(_f(14) => _f(20));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & Operation_deposit.4,(_f(9) & _f(10) & _f(11) & _f(12) & _f(13) & _f(14) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & Operation_deposit.3,(_f(14) => _f(13));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & Operation_deposit.2,(_f(14) => _f(12));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(6) & _f(7) & _f(8) & Operation_deposit.1,(_f(14) => _f(11))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((1..6)*{ADDRESS}): FIN(NATURAL*{ADDRESS})& not(((1..6)*{ADDRESS}) = {}) & BYTES: FIN(INTEGER) & not(BYTES = {}) & ((USERS) = ((((1..6)*{ADDRESS}) - ({(2|->ADDRESS)})))) & ((init_msg_sender) : (USERS)) & ((init_msg_value) : (NAT)) & ((init_block_timestamp) : (NAT));
+balanceOf : ((1..6)*{ADDRESS}) +-> NAT & dom(balanceOf) = ((1..6)*{ADDRESS}) & ((balanceOf) : (((((1..6)*{ADDRESS})) --> (NAT)))) & accountOf : ((1..6)*{ADDRESS}) +-> NAT & dom(accountOf) = ((1..6)*{ADDRESS}) & ((accountOf) : (((((1..6)*{ADDRESS})) --> (NAT))));
+((msg_sender) : (USERS));
+((msg_value) : ((NAT-{0})));
+((((balanceOf )(msg_sender) - msg_value)) : (NAT));
+(((msg_value + (balanceOf )((2|->ADDRESS)))) : (NAT));
+((((accountOf )(msg_sender) + msg_value)) : (NAT));
+((msg_sender) : (((1..6)*{ADDRESS})));
+(((2|->ADDRESS)) : (((1..6)*{ADDRESS})));
+not((((2|->ADDRESS)) = (msg_sender)));
+((msg_value) : (NAT));
+((((balanceOf )((2|->ADDRESS)) + msg_value)) : (NAT));
+"Precondition predicate";
+((({((msg_sender) |-> (((accountOf )(msg_sender) + msg_value)))})) : (((((1..6)*{ADDRESS})) +-> (NAT))));
+((amount) : ((NAT-{0})));
+((((balanceOf )(msg_sender) + amount)) : (NAT));
+((((balanceOf )((2|->ADDRESS)) - amount)) : (NAT));
+((((accountOf )(msg_sender) - amount)) : (NAT));
+not(((msg_sender) = ((2|->ADDRESS))));
+((amount) : (NAT));
+((({((msg_sender) |-> (((accountOf )(msg_sender) - amount)))})) : (((((1..6)*{ADDRESS})) +-> (NAT))));
+((dist) : (USERS));
+(amount +1 <= (accountOf )(msg_sender));
+((((balanceOf )(msg_sender) - amount)) : (NAT));
+((((balanceOf )(dist) + amount)) : (NAT));
+((((accountOf )(dist) + amount)) : (NAT));
+not(((msg_sender) = (dist)));
+((({((msg_sender) |-> (((accountOf )(msg_sender) - amount)))}\/{((dist) |-> (((accountOf )(dist) + amount)))})) : (((((1..6)*{ADDRESS})) +-> (NAT))));
+"Operation precondition is well defined";
+((msg_sender) : (dom(balanceOf)));
+((balanceOf) : (((dom(balanceOf)) +-> (ran(balanceOf)))));
+(((2|->ADDRESS)) : (dom(balanceOf)));
+((msg_sender) : (dom(accountOf)));
+((accountOf) : (((dom(accountOf)) +-> (ran(accountOf)))));
+"Operation is well defined";
+((dist) : (dom(balanceOf)));
+((dist) : (dom(accountOf)))
+END
+&
+THEORY EnumerateX IS
+ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3,addr_4}
+END

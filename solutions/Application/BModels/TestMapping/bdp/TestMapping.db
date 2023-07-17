@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="C:\Users\ASUS\Documents\Phd\B-workspace\TestMapping\bdp\expand_src" old_decomp_dir="C:\Users\ASUS\Documents\Phd\B-workspace\TestMapping\bdp\src">
+        <!-- Definition directory list -->
+        <!-- Proof mechanisms -->
+        <!-- Component file list -->
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/TestMapping" name="Main" suffix="mch" user="ASUS">
+            <component name="Main" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/TestMapping" name="Main_i" suffix="imp" user="ASUS">
+            <component name="Main_i" type="implementation" />
+        </component_file>
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/TestMapping" name="Platform" suffix="mch" user="ASUS">
+            <component name="Platform" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/TestMapping" name="Solidity_Types" suffix="mch" user="ASUS">
+            <component name="Solidity_Types" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/TestMapping" name="soldOf" suffix="mch" user="ASUS">
+            <component name="soldOf" type="specification" />
+        </component_file>
+    </project>
+</db_xml>

@@ -1,0 +1,59 @@
+﻿/* Auction_i
+ * Author: ASUS
+ * Creation date: 7/15/2023
+ */
+
+IMPLEMENTATION Auction_i
+REFINES Auction
+IMPORTS BidsMap , Platform
+SEES
+    Solidity_Types
+
+CONCRETE_VARIABLES
+    seller_i , endAt_i , started_i , ended_i , highestBid_i , startingBid_i , highestBidder_i
+
+INVARIANT
+   seller_i : USERS & endAt_i : NAT &  started_i : BOOL & ended_i : BOOL & highestBid_i : NAT &  startingBid_i  : NAT &  highestBidder_i : USERS &
+    seller_i = seller & endAt_i = endAt &  started_i = started & ended_i = ended & highestBid_i = highestBid & startingBid_i = startingBid & highestBidder_i = highestBidder
+
+INITIALISATION
+    seller_i := init_msg_sender ; endAt_i := endAt_ ; ended_i := FALSE ; started_i := TRUE ; highestBid_i := 0 ;
+    startingBid_i := startingBid_ ; highestBidder_i := addr_0
+
+
+OPERATIONS
+    bid ( msg_sender , msg_value ) =
+    BEGIN
+        transfer ( msg_sender , THIS , msg_value ) ;
+        IF highestBidder_i = addr_0 THEN
+            IF msg_value > startingBid_i THEN
+                highestBidder_i := msg_sender ;
+                highestBid_i := msg_value
+            ELSE set_bids ( { msg_sender |-> msg_value } )
+            END
+        ELSE IF msg_value > highestBid_i THEN
+                set_bids ( { highestBidder_i |-> highestBid_i } ) ;
+                highestBidder_i := msg_sender ; highestBid_i := msg_value
+             ELSE
+                set_bids ( { msg_sender |-> msg_value } )
+             END
+        END
+    END ;
+
+    endAuction ( msg_sender , block_timestamp ) =
+    BEGIN
+        ended_i := TRUE ;
+        IF highestBid_i > 0 THEN
+            transfer ( THIS , seller_i , highestBid_i )
+        END
+    END ;
+
+    retrieveBid ( msg_sender ) =
+    BEGIN
+        VAR amount IN
+            amount <-- get_bids ( msg_sender ) ;
+            set_bids ( { msg_sender |-> 0 } ) ;
+            transfer ( THIS , msg_sender , amount )
+        END
+    END
+ END

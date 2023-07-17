@@ -7,7 +7,7 @@
           <value>
             <Library>
               <option name="name" value="MPS-Extention" />
-              <option name="path" value="${platform_lib}/de.itemis.mps.extensions" />
+              <option name="path" value="$PROJECT_DIR$/solutions/Application/libs/de.itemis.mps.extensions" />
             </Library>
           </value>
         </entry>

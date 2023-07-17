@@ -1,0 +1,60 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_transferTo.2,(_f(6) & _f(30) & _f(21) & _f(31) & _f(32) & _f(33) & _f(24) & _f(34) & _f(35) & _f(11) & _f(36) & _f(37) & _f(18) => _f(38));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_transferTo.1,(_f(6) & _f(30) & _f(21) & _f(31) & _f(32) & _f(33) & _f(24) & _f(34) & _f(35) & _f(11) & _f(36) & _f(17) => _f(37));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_retrieve.5,(_f(6) & _f(21) & _f(22) & _f(23) & _f(24) & _f(11) & _f(13) & _f(25) & _f(26) & _f(27) & _f(18) => _f(29));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_retrieve.4,(_f(6) & _f(21) & _f(22) & _f(23) & _f(24) & _f(11) & _f(13) & _f(25) & _f(26) & _f(27) & _f(18) => _f(28));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_retrieve.3,(_f(6) & _f(21) & _f(22) & _f(23) & _f(24) & _f(11) & _f(13) & _f(25) & _f(26) & _f(17) => _f(27));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_retrieve.2,(_f(6) & _f(21) & _f(22) & _f(23) & _f(24) & _f(11) & _f(17) => _f(26));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_retrieve.1,(_f(6) & _f(21) & _f(22) & _f(23) & _f(24) & _f(11) & _f(17) => _f(25));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_deposit.6,(_f(6) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & _f(18) => _f(20));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_deposit.5,(_f(6) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & _f(18) => _f(19));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_deposit.4,(_f(6) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & _f(12) & _f(17) => _f(16));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_deposit.3,(_f(6) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & _f(12) & _f(17) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_deposit.2,(_f(6) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & _f(12) & _f(17) => _f(14));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_deposit.1,(_f(6) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & _f(17) => _f(12))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((1..6)*{ADDRESS}): FIN(NATURAL*{ADDRESS})& not(((1..6)*{ADDRESS}) = {}) & BYTES: FIN(INTEGER) & not(BYTES = {}) & ((USERS) = ((((1..6)*{ADDRESS}) - ({(2|->ADDRESS)})))) & ((init_msg_sender) : (USERS)) & ((init_msg_value) : (NAT)) & ((init_block_timestamp) : (NAT));
+balanceOf$1 : ((1..6)*{ADDRESS}) +-> NAT & dom(balanceOf$1) = ((1..6)*{ADDRESS}) & ((balanceOf$1) : (((((1..6)*{ADDRESS})) --> (NAT)))) & accountOf$1 : ((1..6)*{ADDRESS}) +-> NAT & dom(accountOf$1) = ((1..6)*{ADDRESS}) & ((accountOf$1) : (((((1..6)*{ADDRESS})) --> (NAT))));
+balanceOf : ((1..6)*{ADDRESS}) +-> NAT & dom(balanceOf) = ((1..6)*{ADDRESS}) & ((balanceOf) : (((((1..6)*{ADDRESS})) --> (NAT)))) & accountOf : ((1..6)*{ADDRESS}) +-> NAT & dom(accountOf) = ((1..6)*{ADDRESS}) & ((accountOf) : (((((1..6)*{ADDRESS})) --> (NAT))));
+((balanceOf) = (balanceOf$1)) & ((accountOf) = (accountOf$1));
+((msg_sender) : (USERS));
+((msg_value) : ((NAT-{0})));
+((((balanceOf$1 )(msg_sender) - msg_value)) : (NAT));
+(((msg_value + (balanceOf$1 )((2|->ADDRESS)))) : (NAT));
+((((accountOf$1 )(msg_sender) + msg_value)) : (NAT));
+((msg_sender) : (((1..6)*{ADDRESS})));
+((({((msg_sender) |-> (((accountOf$1 )(msg_sender) + msg_value)))})) : (((((1..6)*{ADDRESS})) +-> (NAT))));
+(((2|->ADDRESS)) : (((1..6)*{ADDRESS})));
+not((((2|->ADDRESS)) = (msg_sender)));
+((msg_value) : (NAT));
+((((balanceOf$1 )((2|->ADDRESS)) + msg_value)) : (NAT));
+"Precondition predicate";
+"Refinement is correct";
+((((((balanceOf$1) <+ (({((msg_sender) |-> (((balanceOf$1 )(msg_sender) - msg_value)))}\/{(((2|->ADDRESS)) |-> (((balanceOf$1 )((2|->ADDRESS)) + msg_value)))})))) <+ (({((msg_sender) |-> (((((balanceOf$1) <+ (({((msg_sender) |-> (((balanceOf$1 )(msg_sender) - msg_value)))}\/{(((2|->ADDRESS)) |-> (((balanceOf$1 )((2|->ADDRESS)) + msg_value)))}))) )(msg_sender) - msg_value)))}\/{(((2|->ADDRESS)) |-> (((((balanceOf$1) <+ (({((msg_sender) |-> (((balanceOf$1 )(msg_sender) - msg_value)))}\/{(((2|->ADDRESS)) |-> (((balanceOf$1 )((2|->ADDRESS)) + msg_value)))}))) )((2|->ADDRESS)) + msg_value)))})))) = (balanceOf$1));
+((((((accountOf$1) <+ (({((msg_sender) |-> (((accountOf$1 )(msg_sender) + msg_value)))})))) <+ (({((msg_sender) |-> (((((accountOf$1) <+ (({((msg_sender) |-> (((accountOf$1 )(msg_sender) + msg_value)))}))) )(msg_sender) + msg_value)))})))) = (accountOf$1));
+((amount) : ((NAT-{0})));
+((((balanceOf$1 )(msg_sender) + amount)) : (NAT));
+((((balanceOf$1 )((2|->ADDRESS)) - amount)) : (NAT));
+((((accountOf$1 )(msg_sender) - amount)) : (NAT));
+not(((msg_sender) = ((2|->ADDRESS))));
+((amount) : (NAT));
+((({((msg_sender) |-> (((accountOf$1 )(msg_sender) - amount)))})) : (((((1..6)*{ADDRESS})) +-> (NAT))));
+((((((balanceOf$1) <+ (({(((2|->ADDRESS)) |-> (((balanceOf$1 )((2|->ADDRESS)) - amount)))}\/{((msg_sender) |-> (((balanceOf$1 )(msg_sender) + amount)))})))) <+ (({(((2|->ADDRESS)) |-> (((((balanceOf$1) <+ (({(((2|->ADDRESS)) |-> (((balanceOf$1 )((2|->ADDRESS)) - amount)))}\/{((msg_sender) |-> (((balanceOf$1 )(msg_sender) + amount)))}))) )((2|->ADDRESS)) - amount)))}\/{((msg_sender) |-> (((((balanceOf$1) <+ (({(((2|->ADDRESS)) |-> (((balanceOf$1 )((2|->ADDRESS)) - amount)))}\/{((msg_sender) |-> (((balanceOf$1 )(msg_sender) + amount)))}))) )(msg_sender) + amount)))})))) = (balanceOf$1));
+((((((accountOf$1) <+ (({((msg_sender) |-> (((accountOf$1 )(msg_sender) - amount)))})))) <+ (({((msg_sender) |-> (((((accountOf$1) <+ (({((msg_sender) |-> (((accountOf$1 )(msg_sender) - amount)))}))) )(msg_sender) - amount)))})))) = (accountOf$1));
+((dist) : (USERS));
+(amount +1 <= (accountOf$1 )(msg_sender));
+((((balanceOf$1 )(msg_sender) - amount)) : (NAT));
+((((balanceOf$1 )(dist) + amount)) : (NAT));
+((((accountOf$1 )(dist) + amount)) : (NAT));
+not(((msg_sender) = (dist)));
+((dist) : (((1..6)*{ADDRESS})));
+((({((msg_sender) |-> (((accountOf$1 )(msg_sender) - amount)))}\/{((dist) |-> (((accountOf$1 )(dist) + amount)))})) : (((((1..6)*{ADDRESS})) +-> (NAT))));
+((((((accountOf$1) <+ (({((msg_sender) |-> (((accountOf$1 )(msg_sender) - amount)))}\/{((dist) |-> (((accountOf$1 )(dist) + amount)))})))) <+ (({((msg_sender) |-> (((((accountOf$1) <+ (({((msg_sender) |-> (((accountOf$1 )(msg_sender) - amount)))}\/{((dist) |-> (((accountOf$1 )(dist) + amount)))}))) )(msg_sender) - amount)))}\/{((dist) |-> (((((accountOf$1) <+ (({((msg_sender) |-> (((accountOf$1 )(msg_sender) - amount)))}\/{((dist) |-> (((accountOf$1 )(dist) + amount)))}))) )(dist) + amount)))})))) = (accountOf$1))
+END
+&
+THEORY EnumerateX IS
+ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3,addr_4}
+END

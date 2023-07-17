@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="C:\Users\ASUS\Documents\Phd\B-workspace\AuctionSmartContractBModel\bdp\expand_src" old_decomp_dir="C:\Users\ASUS\Documents\Phd\B-workspace\AuctionSmartContractBModel\bdp\src">
+        <!-- Definition directory list -->
+        <!-- Proof mechanisms -->
+        <!-- Component file list -->
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/AuctionSmartContractBModel" name="Auction" suffix="mch" user="ASUS">
+            <component name="Auction" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/AuctionSmartContractBModel" name="Auction_i" suffix="imp" user="ASUS">
+            <component name="Auction_i" type="implementation" />
+        </component_file>
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/AuctionSmartContractBModel" name="BidsMap" suffix="mch" user="ASUS">
+            <component name="BidsMap" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/AuctionSmartContractBModel" name="Platform" suffix="mch" user="ASUS">
+            <component name="Platform" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/ASUS/Documents/Phd/B-workspace/AuctionSmartContractBModel" name="Solidity_Types" suffix="mch" user="ASUS">
+            <component name="Solidity_Types" type="specification" />
+        </component_file>
+    </project>
+</db_xml>

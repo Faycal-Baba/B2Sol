@@ -1,0 +1,41 @@
+﻿/* Weth_i
+ * Author: ASUS
+ * Creation date: 7/12/2023
+ */
+
+IMPLEMENTATION Weth_i
+REFINES Weth
+SEES
+    Solidity_Types
+IMPORTS Platform , account
+OPERATIONS
+    deposit ( msg_sender , msg_value ) =
+    BEGIN
+    VAR val IN
+        val <-- get_accountOf ( msg_sender ) ;
+        set_accountOf ( { msg_sender |-> val + msg_value } ) ;
+        transfer ( msg_sender , THIS , msg_value )
+    END
+    END
+    ;
+
+    retrieve ( msg_sender , amount ) =
+    BEGIN
+    VAR val IN
+        val <-- get_accountOf ( msg_sender ) ;
+        transfer ( THIS , msg_sender , amount ) ;
+        set_accountOf ( { msg_sender |-> val - amount } )
+    END
+    END
+    ;
+
+    transferTo ( msg_sender , dist , amount ) =
+    BEGIN
+        VAR val1 , val2 IN
+            val1 <-- get_accountOf ( msg_sender ) ;
+            val2 <-- get_accountOf ( dist ) ;
+           set_accountOf ( { msg_sender |-> val1 - amount , dist |-> val2 + amount } )
+        END
+    END
+
+ END

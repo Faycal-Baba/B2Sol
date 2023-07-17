@@ -1,0 +1,12 @@
+digraph {
+Main_i [ label=" Main\nMain_i " shape= box ]
+Platform [ label=" Platform " shape= box ]
+Solidity_Types [ label=" Solidity_Types " shape= box ]
+soldOf [ label=" soldOf " shape= box ]
+
+"Main_i" -> "Solidity_Types" [style= dotted ]
+"Main_i" -> "Platform" []
+"Main_i" -> "soldOf" []
+"Platform" -> "Solidity_Types" [style= dotted ]
+"soldOf" -> "Solidity_Types" [style= dotted ]
+}

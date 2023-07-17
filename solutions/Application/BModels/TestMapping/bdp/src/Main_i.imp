@@ -1,0 +1,56 @@
+﻿/* Main_i
+ * Author: ASUS
+ * Creation date: 7/10/2023
+ */
+
+IMPLEMENTATION Main_i
+REFINES Main
+IMPORTS
+    Platform , soldOf
+SEES
+    Solidity_Types
+
+CONCRETE_VARIABLES
+    seller_i , buyer_i , arbiter_i , price_i , state_i
+INVARIANT
+    seller_i : USERS & arbiter_i : USERS & buyer_i : USERS & state_i : process_state & price_i : NAT
+    & // gluing inv
+    seller_i = seller & arbiter_i = arbiter & buyer_i = buyer & state_i = state & price_i = price
+INITIALISATION
+    seller_i := seller_ ; buyer_i := buyer_ ; state_i := INIT ; arbiter_i := init_msg_sender ; price_i := amount_
+
+OPERATIONS
+
+    testMapping ( msg_value , msg_sender ) =
+    BEGIN
+        VAR xx IN
+            xx <-- get__soldOf_ ( msg_sender ) ;
+            set__soldOf_ ( { msg_sender |-> ( xx + msg_value ) } )
+        END
+    END
+    ;
+
+
+    payement ( msg_sender , msg_value ) =
+    BEGIN
+        buyer_i := msg_sender ;
+        state_i := DEPOSITED ;
+        transfer ( buyer_i , THIS , price_i )
+    END
+    ;
+
+
+    refund ( msg_sender ) =
+    BEGIN
+        state_i := REFUNDED ;
+        transfer ( THIS , buyer_i , price_i )
+    END
+    ;
+
+    completed ( msg_sender ) =
+      BEGIN
+        state_i := COMPLETED ;
+        transfer ( THIS , seller_i , price_i )
+    END
+
+ END
