@@ -9,5 +9,7 @@ allowance [ label=" allowance " shape= box ]
 "Weth_i" -> "Solidity_Types" [style= dotted ]
 "Weth_i" -> "Platform" []
 "Weth_i" -> "account" []
+"Weth_i" -> "allowance" []
 "account" -> "Solidity_Types" [style= dotted ]
+"allowance" -> "Solidity_Types" [style= dotted ]
 }

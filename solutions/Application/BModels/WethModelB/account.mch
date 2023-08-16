@@ -22,12 +22,19 @@ OPERATIONS
         ret := accountOf(key)
     END
     ;
-    set_accountOf(updates) = 
+    set_accountOf_abstract(updates) = 
     PRE
         updates : ADDRESS +-> NAT
         
     THEN
         accountOf := accountOf <+ updates
+    END
+    ;
+    set_accountOf(key, value) = 
+    PRE
+        key : ADDRESS & value : NAT 
+    THEN
+        accountOf(key) := value
     END
 
 END

@@ -95,37 +95,43 @@ THEORY ListConstraintsX IS
 END
 &
 THEORY ListOperationsX IS
-  Internal_List_Operations(Machine(account))==(get_accountOf,set_accountOf);
-  List_Operations(Machine(account))==(get_accountOf,set_accountOf)
+  Internal_List_Operations(Machine(account))==(get_accountOf,set_accountOf_abstract,set_accountOf);
+  List_Operations(Machine(account))==(get_accountOf,set_accountOf_abstract,set_accountOf)
 END
 &
 THEORY ListInputX IS
   List_Input(Machine(account),get_accountOf)==(key);
-  List_Input(Machine(account),set_accountOf)==(updates)
+  List_Input(Machine(account),set_accountOf_abstract)==(updates);
+  List_Input(Machine(account),set_accountOf)==(key,value)
 END
 &
 THEORY ListOutputX IS
   List_Output(Machine(account),get_accountOf)==(ret);
+  List_Output(Machine(account),set_accountOf_abstract)==(?);
   List_Output(Machine(account),set_accountOf)==(?)
 END
 &
 THEORY ListHeaderX IS
   List_Header(Machine(account),get_accountOf)==(ret <-- get_accountOf(key));
-  List_Header(Machine(account),set_accountOf)==(set_accountOf(updates))
+  List_Header(Machine(account),set_accountOf_abstract)==(set_accountOf_abstract(updates));
+  List_Header(Machine(account),set_accountOf)==(set_accountOf(key,value))
 END
 &
 THEORY ListOperationGuardX END
 &
 THEORY ListPreconditionX IS
   List_Precondition(Machine(account),get_accountOf)==(key: ADDRESS);
-  List_Precondition(Machine(account),set_accountOf)==(updates: ADDRESS +-> NAT)
+  List_Precondition(Machine(account),set_accountOf_abstract)==(updates: ADDRESS +-> NAT);
+  List_Precondition(Machine(account),set_accountOf)==(key: ADDRESS & value: NAT)
 END
 &
 THEORY ListSubstitutionX IS
-  Expanded_List_Substitution(Machine(account),set_accountOf)==(updates: ADDRESS +-> NAT | accountOf:=accountOf<+updates);
+  Expanded_List_Substitution(Machine(account),set_accountOf)==(key: ADDRESS & value: NAT | accountOf:=accountOf<+{key|->value});
+  Expanded_List_Substitution(Machine(account),set_accountOf_abstract)==(updates: ADDRESS +-> NAT | accountOf:=accountOf<+updates);
   Expanded_List_Substitution(Machine(account),get_accountOf)==(key: ADDRESS | ret:=accountOf(key));
   List_Substitution(Machine(account),get_accountOf)==(ret:=accountOf(key));
-  List_Substitution(Machine(account),set_accountOf)==(accountOf:=accountOf<+updates)
+  List_Substitution(Machine(account),set_accountOf_abstract)==(accountOf:=accountOf<+updates);
+  List_Substitution(Machine(account),set_accountOf)==(accountOf(key):=value)
 END
 &
 THEORY ListConstantsX IS
@@ -175,11 +181,12 @@ END
 &
 THEORY ListANYVarX IS
   List_ANY_Var(Machine(account),get_accountOf)==(?);
+  List_ANY_Var(Machine(account),set_accountOf_abstract)==(?);
   List_ANY_Var(Machine(account),set_accountOf)==(?)
 END
 &
 THEORY ListOfIdsX IS
-  List_Of_Ids(Machine(account)) == (? | ? | accountOf | ? | get_accountOf,set_accountOf | ? | seen(Machine(Solidity_Types)) | ? | account);
+  List_Of_Ids(Machine(account)) == (? | ? | accountOf | ? | get_accountOf,set_accountOf_abstract,set_accountOf | ? | seen(Machine(Solidity_Types)) | ? | account);
   List_Of_HiddenCst_Ids(Machine(account)) == (? | ?);
   List_Of_VisibleCst_Ids(Machine(account)) == (?);
   List_Of_VisibleVar_Ids(Machine(account)) == (? | ?);
@@ -196,7 +203,7 @@ THEORY VariablesEnvX IS
 END
 &
 THEORY OperationsEnvX IS
-  Operations(Machine(account)) == (Type(set_accountOf) == Cst(No_type,SetOf(etype(ADDRESS,?,?)*btype(INTEGER,?,?)));Type(get_accountOf) == Cst(btype(INTEGER,?,?),etype(ADDRESS,?,?)));
+  Operations(Machine(account)) == (Type(set_accountOf) == Cst(No_type,etype(ADDRESS,?,?)*btype(INTEGER,?,?));Type(set_accountOf_abstract) == Cst(No_type,SetOf(etype(ADDRESS,?,?)*btype(INTEGER,?,?)));Type(get_accountOf) == Cst(btype(INTEGER,?,?),etype(ADDRESS,?,?)));
   Observers(Machine(account)) == (Type(get_accountOf) == Cst(btype(INTEGER,?,?),etype(ADDRESS,?,?)))
 END
 &

@@ -18,8 +18,8 @@ THEORY ListSeesX IS
 END
 &
 THEORY ListIncludesX IS
-  List_Includes(Implementation(Weth_i))==(Platform,account);
-  Inherited_List_Includes(Implementation(Weth_i))==(account,Platform,allowance)
+  List_Includes(Implementation(Weth_i))==(Platform,account,allowance);
+  Inherited_List_Includes(Implementation(Weth_i))==(allowance,account,Platform)
 END
 &
 THEORY ListPromotesX IS
@@ -33,10 +33,10 @@ END
 THEORY ListVariablesX IS
   External_Context_List_Variables(Implementation(Weth_i))==(?);
   Context_List_Variables(Implementation(Weth_i))==(?);
-  Abstract_List_Variables(Implementation(Weth_i))==(balanceOf,accountOf);
+  Abstract_List_Variables(Implementation(Weth_i))==(balanceOf,accountOf,allowanceOf);
   Local_List_Variables(Implementation(Weth_i))==(?);
-  List_Variables(Implementation(Weth_i))==(balanceOf,accountOf);
-  External_List_Variables(Implementation(Weth_i))==(balanceOf,accountOf)
+  List_Variables(Implementation(Weth_i))==(balanceOf,accountOf,allowanceOf);
+  External_List_Variables(Implementation(Weth_i))==(balanceOf,accountOf,allowanceOf)
 END
 &
 THEORY ListVisibleVariablesX IS
@@ -50,8 +50,8 @@ END
 &
 THEORY ListInvariantX IS
   Gluing_Seen_List_Invariant(Implementation(Weth_i))==(btrue);
-  Abstract_List_Invariant(Implementation(Weth_i))==(balanceOf: ADDRESS --> NAT & accountOf: ADDRESS --> NAT);
-  Expanded_List_Invariant(Implementation(Weth_i))==(balanceOf: ADDRESS --> NAT & accountOf: ADDRESS --> NAT);
+  Abstract_List_Invariant(Implementation(Weth_i))==(balanceOf(THIS)>=SIGMA(ct).(ct: dom(accountOf) | accountOf(ct)) & balanceOf: ADDRESS --> NAT & accountOf: ADDRESS --> NAT & allowanceOf: USERS --> (USERS --> NAT));
+  Expanded_List_Invariant(Implementation(Weth_i))==(balanceOf: ADDRESS --> NAT & accountOf: ADDRESS --> NAT & allowanceOf: USERS --> (USERS --> NAT));
   Context_List_Invariant(Implementation(Weth_i))==(btrue);
   List_Invariant(Implementation(Weth_i))==(btrue)
 END
@@ -72,7 +72,7 @@ THEORY ListExclusivityX IS
 END
 &
 THEORY ListInitialisationX IS
-  Expanded_List_Initialisation(Implementation(Weth_i))==(@(balanceOf$0).(balanceOf$0: ADDRESS --> NAT ==> balanceOf:=balanceOf$0);accountOf:=ADDRESS*{0});
+  Expanded_List_Initialisation(Implementation(Weth_i))==(@(balanceOf$0).(balanceOf$0: ADDRESS --> NAT ==> balanceOf:=balanceOf$0);accountOf:=ADDRESS*{0};@(allowanceOf$0).(allowanceOf$0: USERS --> (USERS --> NAT) ==> allowanceOf:=allowanceOf$0));
   Context_List_Initialisation(Implementation(Weth_i))==(skip);
   List_Initialisation(Implementation(Weth_i))==(skip)
 END
@@ -84,55 +84,71 @@ END
 THEORY ListInstanciatedParametersX IS
   List_Instanciated_Parameters(Implementation(Weth_i),Machine(Platform))==(?);
   List_Instanciated_Parameters(Implementation(Weth_i),Machine(account))==(?);
+  List_Instanciated_Parameters(Implementation(Weth_i),Machine(allowance))==(?);
   List_Instanciated_Parameters(Implementation(Weth_i),Machine(Solidity_Types))==(?)
 END
 &
 THEORY ListConstraintsX IS
-  List_Constraints(Implementation(Weth_i),Machine(account))==(btrue);
+  List_Constraints(Implementation(Weth_i),Machine(allowance))==(btrue);
   List_Constraints(Implementation(Weth_i))==(btrue);
   List_Context_Constraints(Implementation(Weth_i))==(btrue);
+  List_Constraints(Implementation(Weth_i),Machine(account))==(btrue);
   List_Constraints(Implementation(Weth_i),Machine(Platform))==(btrue)
 END
 &
 THEORY ListOperationsX IS
-  Internal_List_Operations(Implementation(Weth_i))==(deposit,retrieve,transferTo);
-  List_Operations(Implementation(Weth_i))==(deposit,retrieve,transferTo)
+  Internal_List_Operations(Implementation(Weth_i))==(deposit,withdraw,transferTo,approve,transferFrom);
+  List_Operations(Implementation(Weth_i))==(deposit,withdraw,transferTo,approve,transferFrom)
 END
 &
 THEORY ListInputX IS
   List_Input(Implementation(Weth_i),deposit)==(msg_sender,msg_value);
-  List_Input(Implementation(Weth_i),retrieve)==(msg_sender,amount);
-  List_Input(Implementation(Weth_i),transferTo)==(msg_sender,dist,amount)
+  List_Input(Implementation(Weth_i),withdraw)==(msg_sender,amount);
+  List_Input(Implementation(Weth_i),transferTo)==(msg_sender,dst,amount);
+  List_Input(Implementation(Weth_i),approve)==(msg_sender,dst,amount);
+  List_Input(Implementation(Weth_i),transferFrom)==(msg_sender,sender,recipient,amount)
 END
 &
 THEORY ListOutputX IS
   List_Output(Implementation(Weth_i),deposit)==(?);
-  List_Output(Implementation(Weth_i),retrieve)==(?);
-  List_Output(Implementation(Weth_i),transferTo)==(?)
+  List_Output(Implementation(Weth_i),withdraw)==(?);
+  List_Output(Implementation(Weth_i),transferTo)==(?);
+  List_Output(Implementation(Weth_i),approve)==(?);
+  List_Output(Implementation(Weth_i),transferFrom)==(?)
 END
 &
 THEORY ListHeaderX IS
   List_Header(Implementation(Weth_i),deposit)==(deposit(msg_sender,msg_value));
-  List_Header(Implementation(Weth_i),retrieve)==(retrieve(msg_sender,amount));
-  List_Header(Implementation(Weth_i),transferTo)==(transferTo(msg_sender,dist,amount))
+  List_Header(Implementation(Weth_i),withdraw)==(withdraw(msg_sender,amount));
+  List_Header(Implementation(Weth_i),transferTo)==(transferTo(msg_sender,dst,amount));
+  List_Header(Implementation(Weth_i),approve)==(approve(msg_sender,dst,amount));
+  List_Header(Implementation(Weth_i),transferFrom)==(transferFrom(msg_sender,sender,recipient,amount))
 END
 &
 THEORY ListPreconditionX IS
   Own_Precondition(Implementation(Weth_i),deposit)==(btrue);
-  List_Precondition(Implementation(Weth_i),deposit)==(msg_sender: USERS & msg_value: NAT1 & balanceOf(msg_sender)-msg_value: NAT & msg_value+balanceOf(THIS): NAT & accountOf(msg_sender)+msg_value: NAT);
-  Own_Precondition(Implementation(Weth_i),retrieve)==(btrue);
-  List_Precondition(Implementation(Weth_i),retrieve)==(msg_sender: USERS & amount: NAT1 & balanceOf(msg_sender)+amount: NAT & balanceOf(THIS)-amount: NAT & accountOf(msg_sender)-amount: NAT);
+  List_Precondition(Implementation(Weth_i),deposit)==(msg_sender: USERS & msg_value: NAT1 & balanceOf(msg_sender)-msg_value: NAT & accountOf(msg_sender)+msg_value: NAT & balanceOf(THIS)+msg_value: NAT);
+  Own_Precondition(Implementation(Weth_i),withdraw)==(btrue);
+  List_Precondition(Implementation(Weth_i),withdraw)==(msg_sender: USERS & amount: NAT1 & balanceOf(msg_sender)+amount: NAT & balanceOf(THIS)-amount: NAT & accountOf(msg_sender)-amount: NAT);
   Own_Precondition(Implementation(Weth_i),transferTo)==(btrue);
-  List_Precondition(Implementation(Weth_i),transferTo)==(msg_sender: USERS & dist: USERS & amount: NAT1 & accountOf(msg_sender)>amount & balanceOf(msg_sender)-amount: NAT & balanceOf(dist)+amount: NAT & accountOf(msg_sender)-amount: NAT & accountOf(dist)+amount: NAT & msg_sender/=dist)
+  List_Precondition(Implementation(Weth_i),transferTo)==(msg_sender: USERS & dst: USERS & amount: NAT1 & accountOf(msg_sender)>amount & balanceOf(msg_sender)-amount: NAT & balanceOf(dst)+amount: NAT & accountOf(msg_sender)-amount: NAT & accountOf(dst)+amount: NAT & msg_sender/=dst);
+  Own_Precondition(Implementation(Weth_i),approve)==(btrue);
+  List_Precondition(Implementation(Weth_i),approve)==(msg_sender: USERS & dst: USERS & amount: NAT1 & dst/=msg_sender);
+  Own_Precondition(Implementation(Weth_i),transferFrom)==(btrue);
+  List_Precondition(Implementation(Weth_i),transferFrom)==(msg_sender: USERS & sender: USERS & recipient: USERS & amount: NAT1 & sender/=recipient & allowanceOf(sender)(msg_sender)>=amount & accountOf(recipient)+amount: NAT & accountOf(sender)-amount: NAT & allowanceOf(sender)(msg_sender)-amount: NAT)
 END
 &
 THEORY ListSubstitutionX IS
-  Expanded_List_Substitution(Implementation(Weth_i),transferTo)==(msg_sender: USERS & dist: USERS & amount: NAT1 & accountOf(msg_sender)>amount & balanceOf(msg_sender)-amount: NAT & balanceOf(dist)+amount: NAT & accountOf(msg_sender)-amount: NAT & accountOf(dist)+amount: NAT & msg_sender/=dist | @(val1,val2).((msg_sender: ADDRESS | val1:=accountOf(msg_sender));(dist: ADDRESS | val2:=accountOf(dist));(val1-amount: INT & val1: INT & amount: INT & val2+amount: INT & val2: INT & {msg_sender|->val1-amount,dist|->val2+amount}: ADDRESS +-> NAT | accountOf:=accountOf<+{msg_sender|->val1-amount,dist|->val2+amount})));
-  Expanded_List_Substitution(Implementation(Weth_i),retrieve)==(msg_sender: USERS & amount: NAT1 & balanceOf(msg_sender)+amount: NAT & balanceOf(THIS)-amount: NAT & accountOf(msg_sender)-amount: NAT | @val.((msg_sender: ADDRESS | val:=accountOf(msg_sender));(THIS: ADDRESS & msg_sender: ADDRESS & msg_sender/=THIS & amount: NAT & balanceOf(msg_sender)+amount: NAT & balanceOf(THIS)-amount: NAT | balanceOf:=balanceOf<+{THIS|->balanceOf(THIS)-amount,msg_sender|->balanceOf(msg_sender)+amount});(val-amount: INT & val: INT & amount: INT & {msg_sender|->val-amount}: ADDRESS +-> NAT | accountOf:=accountOf<+{msg_sender|->val-amount})));
-  Expanded_List_Substitution(Implementation(Weth_i),deposit)==(msg_sender: USERS & msg_value: NAT1 & balanceOf(msg_sender)-msg_value: NAT & msg_value+balanceOf(THIS): NAT & accountOf(msg_sender)+msg_value: NAT | @val.((msg_sender: ADDRESS | val:=accountOf(msg_sender));(val+msg_value: INT & val: INT & msg_value: INT & {msg_sender|->val+msg_value}: ADDRESS +-> NAT | accountOf:=accountOf<+{msg_sender|->val+msg_value});(msg_sender: ADDRESS & THIS: ADDRESS & THIS/=msg_sender & msg_value: NAT & balanceOf(THIS)+msg_value: NAT & balanceOf(msg_sender)-msg_value: NAT | balanceOf:=balanceOf<+{msg_sender|->balanceOf(msg_sender)-msg_value,THIS|->balanceOf(THIS)+msg_value})));
-  List_Substitution(Implementation(Weth_i),deposit)==(VAR val IN val <-- get_accountOf(msg_sender);set_accountOf({msg_sender|->val+msg_value});transfer(msg_sender,THIS,msg_value) END);
-  List_Substitution(Implementation(Weth_i),retrieve)==(VAR val IN val <-- get_accountOf(msg_sender);transfer(THIS,msg_sender,amount);set_accountOf({msg_sender|->val-amount}) END);
-  List_Substitution(Implementation(Weth_i),transferTo)==(VAR val1,val2 IN val1 <-- get_accountOf(msg_sender);val2 <-- get_accountOf(dist);set_accountOf({msg_sender|->val1-amount,dist|->val2+amount}) END)
+  Expanded_List_Substitution(Implementation(Weth_i),transferFrom)==(msg_sender: USERS & sender: USERS & recipient: USERS & amount: NAT1 & sender/=recipient & allowanceOf(sender)(msg_sender)>=amount & accountOf(recipient)+amount: NAT & accountOf(sender)-amount: NAT & allowanceOf(sender)(msg_sender)-amount: NAT | @(val1,val2,val3).((sender: ADDRESS | val1:=accountOf(sender));(recipient: ADDRESS | val2:=accountOf(recipient));(sender: USERS & msg_sender: USERS | val3:=allowanceOf(sender)(msg_sender));(val1-amount: INT & val1: INT & amount: INT & sender: ADDRESS & val1-amount: NAT | accountOf:=accountOf<+{sender|->val1-amount});(val2+amount: INT & val2: INT & amount: INT & recipient: ADDRESS & val2+amount: NAT | accountOf:=accountOf<+{recipient|->val2+amount});(val3-amount: INT & val3: INT & amount: INT & sender: USERS & msg_sender: USERS & val3-amount: NAT | allowanceOf:=allowanceOf<+{sender|->(allowanceOf(sender)<+{msg_sender|->val3-amount})})));
+  Expanded_List_Substitution(Implementation(Weth_i),approve)==(msg_sender: USERS & dst: USERS & amount: NAT1 & dst/=msg_sender & msg_sender: USERS & dst: USERS & amount: NAT | allowanceOf:=allowanceOf<+{msg_sender|->(allowanceOf(msg_sender)<+{dst|->amount})});
+  Expanded_List_Substitution(Implementation(Weth_i),transferTo)==(msg_sender: USERS & dst: USERS & amount: NAT1 & accountOf(msg_sender)>amount & balanceOf(msg_sender)-amount: NAT & balanceOf(dst)+amount: NAT & accountOf(msg_sender)-amount: NAT & accountOf(dst)+amount: NAT & msg_sender/=dst | @(val1,val2).((msg_sender: ADDRESS | val1:=accountOf(msg_sender));(dst: ADDRESS | val2:=accountOf(dst));(val1-amount: INT & val1: INT & amount: INT & msg_sender: ADDRESS & val1-amount: NAT | accountOf:=accountOf<+{msg_sender|->val1-amount});(val2+amount: INT & val2: INT & amount: INT & dst: ADDRESS & val2+amount: NAT | accountOf:=accountOf<+{dst|->val2+amount})));
+  Expanded_List_Substitution(Implementation(Weth_i),withdraw)==(msg_sender: USERS & amount: NAT1 & balanceOf(msg_sender)+amount: NAT & balanceOf(THIS)-amount: NAT & accountOf(msg_sender)-amount: NAT | @val.((msg_sender: ADDRESS | val:=accountOf(msg_sender));(THIS: ADDRESS & msg_sender: ADDRESS & msg_sender/=THIS & amount: NAT & balanceOf(msg_sender)+amount: NAT & balanceOf(THIS)-amount: NAT | balanceOf:=balanceOf<+{THIS|->balanceOf(THIS)-amount,msg_sender|->balanceOf(msg_sender)+amount});(val-amount: INT & val: INT & amount: INT & msg_sender: ADDRESS & val-amount: NAT | accountOf:=accountOf<+{msg_sender|->val-amount})));
+  Expanded_List_Substitution(Implementation(Weth_i),deposit)==(msg_sender: USERS & msg_value: NAT1 & balanceOf(msg_sender)-msg_value: NAT & accountOf(msg_sender)+msg_value: NAT & balanceOf(THIS)+msg_value: NAT | @val.((msg_sender: ADDRESS | val:=accountOf(msg_sender));(val+msg_value: INT & val: INT & msg_value: INT & msg_sender: ADDRESS & val+msg_value: NAT | accountOf:=accountOf<+{msg_sender|->val+msg_value});(msg_sender: ADDRESS & THIS: ADDRESS & THIS/=msg_sender & msg_value: NAT & balanceOf(THIS)+msg_value: NAT & balanceOf(msg_sender)-msg_value: NAT | balanceOf:=balanceOf<+{msg_sender|->balanceOf(msg_sender)-msg_value,THIS|->balanceOf(THIS)+msg_value})));
+  List_Substitution(Implementation(Weth_i),deposit)==(VAR val IN val <-- get_accountOf(msg_sender);set_accountOf(msg_sender,val+msg_value);transfer(msg_sender,THIS,msg_value) END);
+  List_Substitution(Implementation(Weth_i),withdraw)==(VAR val IN val <-- get_accountOf(msg_sender);transfer(THIS,msg_sender,amount);set_accountOf(msg_sender,val-amount) END);
+  List_Substitution(Implementation(Weth_i),transferTo)==(VAR val1,val2 IN val1 <-- get_accountOf(msg_sender);val2 <-- get_accountOf(dst);set_accountOf(msg_sender,val1-amount);set_accountOf(dst,val2+amount) END);
+  List_Substitution(Implementation(Weth_i),approve)==(set_allowanceOf(msg_sender,dst,amount));
+  List_Substitution(Implementation(Weth_i),transferFrom)==(VAR val1,val2,val3 IN val1 <-- get_accountOf(sender);val2 <-- get_accountOf(recipient);val3 <-- get_allowanceOf(sender,msg_sender);set_accountOf(sender,val1-amount);set_accountOf(recipient,val2+amount);set_allowanceOf(sender,msg_sender,val3-amount) END)
 END
 &
 THEORY ListConstantsX IS
@@ -187,12 +203,13 @@ THEORY ListSeenInfoX IS
 END
 &
 THEORY ListIncludedOperationsX IS
-  List_Included_Operations(Implementation(Weth_i),Machine(account))==(get_accountOf,set_accountOf);
+  List_Included_Operations(Implementation(Weth_i),Machine(allowance))==(set_allowanceOf_abstract,get_allowanceOf,set_allowanceOf);
+  List_Included_Operations(Implementation(Weth_i),Machine(account))==(get_accountOf,set_accountOf_abstract,set_accountOf);
   List_Included_Operations(Implementation(Weth_i),Machine(Platform))==(transfer,getBalanceOf,ForceFeeding,transfer_)
 END
 &
 THEORY InheritedEnvX IS
-  Operations(Implementation(Weth_i))==(Type(transferTo) == Cst(No_type,etype(ADDRESS,?,?)*etype(ADDRESS,?,?)*btype(INTEGER,?,?));Type(retrieve) == Cst(No_type,etype(ADDRESS,?,?)*btype(INTEGER,?,?));Type(deposit) == Cst(No_type,etype(ADDRESS,?,?)*btype(INTEGER,?,?)))
+  Operations(Implementation(Weth_i))==(Type(transferFrom) == Cst(No_type,etype(ADDRESS,?,?)*etype(ADDRESS,?,?)*etype(ADDRESS,?,?)*btype(INTEGER,?,?));Type(approve) == Cst(No_type,etype(ADDRESS,?,?)*etype(ADDRESS,?,?)*btype(INTEGER,?,?));Type(transferTo) == Cst(No_type,etype(ADDRESS,?,?)*etype(ADDRESS,?,?)*btype(INTEGER,?,?));Type(withdraw) == Cst(No_type,etype(ADDRESS,?,?)*btype(INTEGER,?,?));Type(deposit) == Cst(No_type,etype(ADDRESS,?,?)*btype(INTEGER,?,?)))
 END
 &
 THEORY ListVisibleStaticX IS
@@ -203,21 +220,26 @@ THEORY ListVisibleStaticX IS
 END
 &
 THEORY ListOfIdsX IS
-  List_Of_Ids(Implementation(Weth_i)) == (? | ? | ? | accountOf,balanceOf | deposit,retrieve,transferTo | ? | seen(Machine(Solidity_Types)),imported(Machine(Platform)),imported(Machine(account)) | ? | Weth_i);
+  List_Of_Ids(Implementation(Weth_i)) == (? | ? | ? | allowanceOf,accountOf,balanceOf | deposit,withdraw,transferTo,approve,transferFrom | ? | seen(Machine(Solidity_Types)),imported(Machine(Platform)),imported(Machine(account)),imported(Machine(allowance)) | ? | Weth_i);
   List_Of_HiddenCst_Ids(Implementation(Weth_i)) == (? | ?);
   List_Of_VisibleCst_Ids(Implementation(Weth_i)) == (?);
   List_Of_VisibleVar_Ids(Implementation(Weth_i)) == (? | ?);
   List_Of_Ids_SeenBNU(Implementation(Weth_i)) == (seen(Machine(Solidity_Types)): (init_msg_sender,init_msg_value,USERS,init_block_timestamp,ADDRESS,BYTES,addr_0,THIS,addr_1,addr_2,addr_3,addr_4 | ? | ? | ? | ? | ? | ? | ? | ?));
-  List_Of_Ids(Machine(account)) == (? | ? | accountOf | ? | get_accountOf,set_accountOf | ? | seen(Machine(Solidity_Types)) | ? | account);
-  List_Of_HiddenCst_Ids(Machine(account)) == (? | ?);
-  List_Of_VisibleCst_Ids(Machine(account)) == (?);
-  List_Of_VisibleVar_Ids(Machine(account)) == (? | ?);
-  List_Of_Ids_SeenBNU(Machine(account)) == (?: ?);
+  List_Of_Ids(Machine(allowance)) == (? | ? | allowanceOf | ? | set_allowanceOf_abstract,get_allowanceOf,set_allowanceOf | ? | seen(Machine(Solidity_Types)) | ? | allowance);
+  List_Of_HiddenCst_Ids(Machine(allowance)) == (? | ?);
+  List_Of_VisibleCst_Ids(Machine(allowance)) == (?);
+  List_Of_VisibleVar_Ids(Machine(allowance)) == (? | ?);
+  List_Of_Ids_SeenBNU(Machine(allowance)) == (?: ?);
   List_Of_Ids(Machine(Solidity_Types)) == (init_msg_sender,init_msg_value,USERS,init_block_timestamp,ADDRESS,BYTES,addr_0,THIS,addr_1,addr_2,addr_3,addr_4 | ? | ? | ? | ? | ? | ? | ? | Solidity_Types);
   List_Of_HiddenCst_Ids(Machine(Solidity_Types)) == (? | ?);
   List_Of_VisibleCst_Ids(Machine(Solidity_Types)) == (init_msg_sender,init_msg_value,USERS,init_block_timestamp);
   List_Of_VisibleVar_Ids(Machine(Solidity_Types)) == (? | ?);
   List_Of_Ids_SeenBNU(Machine(Solidity_Types)) == (?: ?);
+  List_Of_Ids(Machine(account)) == (? | ? | accountOf | ? | get_accountOf,set_accountOf_abstract,set_accountOf | ? | seen(Machine(Solidity_Types)) | ? | account);
+  List_Of_HiddenCst_Ids(Machine(account)) == (? | ?);
+  List_Of_VisibleCst_Ids(Machine(account)) == (?);
+  List_Of_VisibleVar_Ids(Machine(account)) == (? | ?);
+  List_Of_Ids_SeenBNU(Machine(account)) == (?: ?);
   List_Of_Ids(Machine(Platform)) == (? | ? | balanceOf | ? | transfer,getBalanceOf,ForceFeeding,transfer_ | ? | seen(Machine(Solidity_Types)) | ? | Platform);
   List_Of_HiddenCst_Ids(Machine(Platform)) == (? | ?);
   List_Of_VisibleCst_Ids(Machine(Platform)) == (?);
@@ -227,8 +249,9 @@ END
 &
 THEORY VariablesLocEnvX IS
   Variables_Loc(Implementation(Weth_i),deposit, 1) == (Type(val) == Lvl(btype(INTEGER,?,?)));
-  Variables_Loc(Implementation(Weth_i),retrieve, 1) == (Type(val) == Lvl(btype(INTEGER,?,?)));
-  Variables_Loc(Implementation(Weth_i),transferTo, 1) == (Type(val1) == Lvl(btype(INTEGER,?,?));Type(val2) == Lvl(btype(INTEGER,?,?)))
+  Variables_Loc(Implementation(Weth_i),withdraw, 1) == (Type(val) == Lvl(btype(INTEGER,?,?)));
+  Variables_Loc(Implementation(Weth_i),transferTo, 1) == (Type(val1) == Lvl(btype(INTEGER,?,?));Type(val2) == Lvl(btype(INTEGER,?,?)));
+  Variables_Loc(Implementation(Weth_i),transferFrom, 1) == (Type(val1) == Lvl(btype(INTEGER,?,?));Type(val2) == Lvl(btype(INTEGER,?,?));Type(val3) == Lvl(btype(INTEGER,?,?)))
 END
 &
 THEORY TCIntRdX IS
@@ -267,7 +290,9 @@ THEORY ImportedVariablesListX IS
   ImportedVariablesList(Implementation(Weth_i),Machine(Platform))==(balanceOf);
   ImportedVisVariablesList(Implementation(Weth_i),Machine(Platform))==(?);
   ImportedVariablesList(Implementation(Weth_i),Machine(account))==(accountOf);
-  ImportedVisVariablesList(Implementation(Weth_i),Machine(account))==(?)
+  ImportedVisVariablesList(Implementation(Weth_i),Machine(account))==(?);
+  ImportedVariablesList(Implementation(Weth_i),Machine(allowance))==(allowanceOf);
+  ImportedVisVariablesList(Implementation(Weth_i),Machine(allowance))==(?)
 END
 &
 THEORY ListLocalOpInvariantX END

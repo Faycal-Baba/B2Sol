@@ -3,19 +3,25 @@
 <Abstraction>Weth</Abstraction>
 <Imports>
 <Attr>
-<Pos l='10' c='1' s='7'/>
+<Pos l='9' c='1' s='7'/>
 </Attr>
 <Referenced_Machine>
 <Attr>
-<Pos l='10' c='9' s='8'/>
+<Pos l='9' c='9' s='8'/>
 </Attr>
 <Name>Platform</Name>
 </Referenced_Machine>
 <Referenced_Machine>
 <Attr>
-<Pos l='10' c='19' s='7'/>
+<Pos l='9' c='19' s='7'/>
 </Attr>
 <Name>account</Name>
+</Referenced_Machine>
+<Referenced_Machine>
+<Attr>
+<Pos l='9' c='28' s='9'/>
+</Attr>
+<Name>allowance</Name>
 </Referenced_Machine>
 </Imports>
 <Sees>
@@ -24,7 +30,7 @@
 </Attr>
 <Referenced_Machine>
 <Attr>
-<Pos l='9' c='5' s='14'/>
+<Pos l='8' c='6' s='14'/>
 </Attr>
 <Name>Solidity_Types</Name>
 </Referenced_Machine>
@@ -35,29 +41,29 @@
 <Operations>
 <Operation name='deposit'>
 <Attr>
-<Pos l='12' c='5' s='7' endLine='19'/>
+<Pos l='11' c='5' s='7' endLine='18'/>
 </Attr>
 <Input_Parameters>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='12' c='13' s='10'/>
+<Pos l='11' c='13' s='10'/>
 </Attr>
 </Id>
 <Id value='msg_value' typref='1'>
 <Attr>
-<Pos l='12' c='25' s='9'/>
+<Pos l='11' c='25' s='9'/>
 </Attr>
 </Id>
 </Input_Parameters>
 <Body>
 <VAR_IN>
 <Attr>
-<Pos l='14' c='5' s='3'/>
+<Pos l='13' c='5' s='3'/>
 </Attr>
 <Variables>
 <Id value='val' typref='1'>
 <Attr>
-<Pos l='14' c='9' s='3'/>
+<Pos l='13' c='9' s='3'/>
 </Attr>
 </Id>
 </Variables>
@@ -65,99 +71,89 @@
 <Nary_Sub op=';'>
 <Operation_Call>
 <Attr>
-<Pos l='15' c='13' s='3'/>
+<Pos l='14' c='13' s='3'/>
 </Attr>
 <Name>
 <Id value='get_accountOf'>
 <Attr>
-<Pos l='15' c='17' s='13'/>
+<Pos l='14' c='17' s='13'/>
 </Attr>
 </Id>
 </Name>
 <Input_Parameters>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='15' c='31' s='10'/>
+<Pos l='14' c='31' s='10'/>
 </Attr>
 </Id>
 </Input_Parameters>
 <Output_Parameters>
 <Id value='val' typref='1'>
 <Attr>
-<Pos l='15' c='9' s='3'/>
+<Pos l='14' c='9' s='3'/>
 </Attr>
 </Id>
 </Output_Parameters>
 </Operation_Call>
 <Operation_Call>
 <Attr>
-<Pos l='16' c='22' s='0'/>
+<Pos l='15' c='22' s='0'/>
 </Attr>
 <Name>
 <Id value='set_accountOf'>
 <Attr>
-<Pos l='16' c='9' s='13'/>
+<Pos l='15' c='9' s='13'/>
 </Attr>
 </Id>
 </Name>
 <Input_Parameters>
-<Nary_Exp op='{' typref='5'>
-<Attr>
-<Pos l='16' c='23' s='1'/>
-</Attr>
-<Binary_Exp op='|-&gt;' typref='6'>
-<Attr>
-<Pos l='16' c='35' s='3'/>
-</Attr>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='16' c='24' s='10'/>
+<Pos l='15' c='23' s='10'/>
 </Attr>
 </Id>
 <Binary_Exp op='+i' typref='1'>
 <Attr>
-<Pos l='16' c='43' s='1'/>
+<Pos l='15' c='39' s='1'/>
 </Attr>
 <Id value='val' typref='1'>
 <Attr>
-<Pos l='16' c='39' s='3'/>
+<Pos l='15' c='35' s='3'/>
 </Attr>
 </Id>
 <Id value='msg_value' typref='1'>
 <Attr>
-<Pos l='16' c='45' s='9'/>
+<Pos l='15' c='41' s='9'/>
 </Attr>
 </Id>
 </Binary_Exp>
-</Binary_Exp>
-</Nary_Exp>
 </Input_Parameters>
 </Operation_Call>
 <Operation_Call>
 <Attr>
-<Pos l='17' c='17' s='0'/>
+<Pos l='16' c='17' s='0'/>
 </Attr>
 <Name>
 <Id value='transfer'>
 <Attr>
-<Pos l='17' c='9' s='8'/>
+<Pos l='16' c='9' s='8'/>
 </Attr>
 </Id>
 </Name>
 <Input_Parameters>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='17' c='18' s='10'/>
+<Pos l='16' c='18' s='10'/>
 </Attr>
 </Id>
 <Id value='THIS' typref='4'>
 <Attr>
-<Pos l='17' c='30' s='4'/>
+<Pos l='16' c='30' s='4'/>
 </Attr>
 </Id>
 <Id value='msg_value' typref='1'>
 <Attr>
-<Pos l='17' c='36' s='9'/>
+<Pos l='16' c='36' s='9'/>
 </Attr>
 </Id>
 </Input_Parameters>
@@ -167,31 +163,31 @@
 </VAR_IN>
 </Body>
 </Operation>
-<Operation name='retrieve'>
+<Operation name='withdraw'>
 <Attr>
-<Pos l='22' c='5' s='8' endLine='29'/>
+<Pos l='20' c='5' s='8' endLine='27'/>
 </Attr>
 <Input_Parameters>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='22' c='14' s='10'/>
+<Pos l='20' c='14' s='10'/>
 </Attr>
 </Id>
 <Id value='amount' typref='1'>
 <Attr>
-<Pos l='22' c='26' s='6'/>
+<Pos l='20' c='26' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
 <Body>
 <VAR_IN>
 <Attr>
-<Pos l='24' c='5' s='3'/>
+<Pos l='22' c='5' s='3'/>
 </Attr>
 <Variables>
 <Id value='val' typref='1'>
 <Attr>
-<Pos l='24' c='9' s='3'/>
+<Pos l='22' c='9' s='3'/>
 </Attr>
 </Id>
 </Variables>
@@ -199,101 +195,91 @@
 <Nary_Sub op=';'>
 <Operation_Call>
 <Attr>
-<Pos l='25' c='13' s='3'/>
+<Pos l='23' c='13' s='3'/>
 </Attr>
 <Name>
 <Id value='get_accountOf'>
 <Attr>
-<Pos l='25' c='17' s='13'/>
+<Pos l='23' c='17' s='13'/>
 </Attr>
 </Id>
 </Name>
 <Input_Parameters>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='25' c='31' s='10'/>
+<Pos l='23' c='31' s='10'/>
 </Attr>
 </Id>
 </Input_Parameters>
 <Output_Parameters>
 <Id value='val' typref='1'>
 <Attr>
-<Pos l='25' c='9' s='3'/>
+<Pos l='23' c='9' s='3'/>
 </Attr>
 </Id>
 </Output_Parameters>
 </Operation_Call>
 <Operation_Call>
 <Attr>
-<Pos l='26' c='17' s='0'/>
+<Pos l='24' c='17' s='0'/>
 </Attr>
 <Name>
 <Id value='transfer'>
 <Attr>
-<Pos l='26' c='9' s='8'/>
+<Pos l='24' c='9' s='8'/>
 </Attr>
 </Id>
 </Name>
 <Input_Parameters>
 <Id value='THIS' typref='4'>
 <Attr>
-<Pos l='26' c='18' s='4'/>
+<Pos l='24' c='18' s='4'/>
 </Attr>
 </Id>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='26' c='25' s='10'/>
+<Pos l='24' c='25' s='10'/>
 </Attr>
 </Id>
 <Id value='amount' typref='1'>
 <Attr>
-<Pos l='26' c='37' s='6'/>
+<Pos l='24' c='37' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
 </Operation_Call>
 <Operation_Call>
 <Attr>
-<Pos l='27' c='22' s='0'/>
+<Pos l='25' c='22' s='0'/>
 </Attr>
 <Name>
 <Id value='set_accountOf'>
 <Attr>
-<Pos l='27' c='9' s='13'/>
+<Pos l='25' c='9' s='13'/>
 </Attr>
 </Id>
 </Name>
 <Input_Parameters>
-<Nary_Exp op='{' typref='5'>
-<Attr>
-<Pos l='27' c='23' s='1'/>
-</Attr>
-<Binary_Exp op='|-&gt;' typref='6'>
-<Attr>
-<Pos l='27' c='35' s='3'/>
-</Attr>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='27' c='24' s='10'/>
+<Pos l='25' c='23' s='10'/>
 </Attr>
 </Id>
 <Binary_Exp op='-i' typref='1'>
 <Attr>
-<Pos l='27' c='43' s='1'/>
+<Pos l='25' c='39' s='1'/>
 </Attr>
 <Id value='val' typref='1'>
 <Attr>
-<Pos l='27' c='39' s='3'/>
+<Pos l='25' c='35' s='3'/>
 </Attr>
 </Id>
 <Id value='amount' typref='1'>
 <Attr>
-<Pos l='27' c='46' s='6'/>
+<Pos l='25' c='42' s='6'/>
 </Attr>
 </Id>
 </Binary_Exp>
-</Binary_Exp>
-</Nary_Exp>
 </Input_Parameters>
 </Operation_Call>
 </Nary_Sub>
@@ -303,39 +289,39 @@
 </Operation>
 <Operation name='transferTo'>
 <Attr>
-<Pos l='32' c='5' s='10' endLine='39'/>
+<Pos l='29' c='5' s='10' endLine='37'/>
 </Attr>
 <Input_Parameters>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='32' c='16' s='10'/>
+<Pos l='29' c='16' s='10'/>
 </Attr>
 </Id>
-<Id value='dist' typref='4'>
+<Id value='dst' typref='4'>
 <Attr>
-<Pos l='32' c='28' s='4'/>
+<Pos l='29' c='28' s='3'/>
 </Attr>
 </Id>
 <Id value='amount' typref='1'>
 <Attr>
-<Pos l='32' c='34' s='6'/>
+<Pos l='29' c='33' s='6'/>
 </Attr>
 </Id>
 </Input_Parameters>
 <Body>
 <VAR_IN>
 <Attr>
-<Pos l='34' c='9' s='3'/>
+<Pos l='31' c='9' s='3'/>
 </Attr>
 <Variables>
 <Id value='val1' typref='1'>
 <Attr>
-<Pos l='34' c='13' s='4'/>
+<Pos l='31' c='13' s='4'/>
 </Attr>
 </Id>
 <Id value='val2' typref='1'>
 <Attr>
-<Pos l='34' c='19' s='4'/>
+<Pos l='31' c='19' s='4'/>
 </Attr>
 </Id>
 </Variables>
@@ -343,123 +329,420 @@
 <Nary_Sub op=';'>
 <Operation_Call>
 <Attr>
-<Pos l='35' c='18' s='3'/>
+<Pos l='32' c='18' s='3'/>
 </Attr>
 <Name>
 <Id value='get_accountOf'>
 <Attr>
-<Pos l='35' c='22' s='13'/>
+<Pos l='32' c='22' s='13'/>
 </Attr>
 </Id>
 </Name>
 <Input_Parameters>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='35' c='36' s='10'/>
+<Pos l='32' c='36' s='10'/>
 </Attr>
 </Id>
 </Input_Parameters>
 <Output_Parameters>
 <Id value='val1' typref='1'>
 <Attr>
-<Pos l='35' c='13' s='4'/>
+<Pos l='32' c='13' s='4'/>
 </Attr>
 </Id>
 </Output_Parameters>
 </Operation_Call>
 <Operation_Call>
 <Attr>
-<Pos l='36' c='18' s='3'/>
+<Pos l='33' c='18' s='3'/>
 </Attr>
 <Name>
 <Id value='get_accountOf'>
 <Attr>
-<Pos l='36' c='22' s='13'/>
+<Pos l='33' c='22' s='13'/>
 </Attr>
 </Id>
 </Name>
 <Input_Parameters>
-<Id value='dist' typref='4'>
+<Id value='dst' typref='4'>
 <Attr>
-<Pos l='36' c='36' s='4'/>
+<Pos l='33' c='36' s='3'/>
 </Attr>
 </Id>
 </Input_Parameters>
 <Output_Parameters>
 <Id value='val2' typref='1'>
 <Attr>
-<Pos l='36' c='13' s='4'/>
+<Pos l='33' c='13' s='4'/>
 </Attr>
 </Id>
 </Output_Parameters>
 </Operation_Call>
 <Operation_Call>
 <Attr>
-<Pos l='37' c='25' s='0'/>
+<Pos l='34' c='25' s='0'/>
 </Attr>
 <Name>
 <Id value='set_accountOf'>
 <Attr>
-<Pos l='37' c='12' s='13'/>
+<Pos l='34' c='12' s='13'/>
 </Attr>
 </Id>
 </Name>
 <Input_Parameters>
-<Nary_Exp op='{' typref='5'>
-<Attr>
-<Pos l='37' c='26' s='1'/>
-</Attr>
-<Binary_Exp op='|-&gt;' typref='6'>
-<Attr>
-<Pos l='37' c='38' s='3'/>
-</Attr>
 <Id value='msg_sender' typref='4'>
 <Attr>
-<Pos l='37' c='27' s='10'/>
+<Pos l='34' c='26' s='10'/>
 </Attr>
 </Id>
 <Binary_Exp op='-i' typref='1'>
 <Attr>
-<Pos l='37' c='47' s='1'/>
+<Pos l='34' c='44' s='1'/>
 </Attr>
 <Id value='val1' typref='1'>
 <Attr>
-<Pos l='37' c='42' s='4'/>
+<Pos l='34' c='39' s='4'/>
 </Attr>
 </Id>
 <Id value='amount' typref='1'>
 <Attr>
-<Pos l='37' c='49' s='6'/>
+<Pos l='34' c='46' s='6'/>
 </Attr>
 </Id>
 </Binary_Exp>
-</Binary_Exp>
-<Binary_Exp op='|-&gt;' typref='6'>
+</Input_Parameters>
+</Operation_Call>
+<Operation_Call>
 <Attr>
-<Pos l='37' c='62' s='3'/>
+<Pos l='35' c='25' s='0'/>
 </Attr>
-<Id value='dist' typref='4'>
+<Name>
+<Id value='set_accountOf'>
 <Attr>
-<Pos l='37' c='57' s='4'/>
+<Pos l='35' c='12' s='13'/>
+</Attr>
+</Id>
+</Name>
+<Input_Parameters>
+<Id value='dst' typref='4'>
+<Attr>
+<Pos l='35' c='26' s='3'/>
 </Attr>
 </Id>
 <Binary_Exp op='+i' typref='1'>
 <Attr>
-<Pos l='37' c='71' s='1'/>
+<Pos l='35' c='36' s='1'/>
 </Attr>
 <Id value='val2' typref='1'>
 <Attr>
-<Pos l='37' c='66' s='4'/>
+<Pos l='35' c='31' s='4'/>
 </Attr>
 </Id>
 <Id value='amount' typref='1'>
 <Attr>
-<Pos l='37' c='73' s='6'/>
+<Pos l='35' c='38' s='6'/>
 </Attr>
 </Id>
 </Binary_Exp>
+</Input_Parameters>
+</Operation_Call>
+</Nary_Sub>
+</Body>
+</VAR_IN>
+</Body>
+</Operation>
+<Operation name='approve'>
+<Attr>
+<Pos l='40' c='5' s='7' endLine='43'/>
+</Attr>
+<Input_Parameters>
+<Id value='msg_sender' typref='4'>
+<Attr>
+<Pos l='40' c='13' s='10'/>
+</Attr>
+</Id>
+<Id value='dst' typref='4'>
+<Attr>
+<Pos l='40' c='25' s='3'/>
+</Attr>
+</Id>
+<Id value='amount' typref='1'>
+<Attr>
+<Pos l='40' c='30' s='6'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Body>
+<Operation_Call>
+<Attr>
+<Pos l='42' c='24' s='0'/>
+</Attr>
+<Name>
+<Id value='set_allowanceOf'>
+<Attr>
+<Pos l='42' c='9' s='15'/>
+</Attr>
+</Id>
+</Name>
+<Input_Parameters>
+<Id value='msg_sender' typref='4'>
+<Attr>
+<Pos l='42' c='25' s='10'/>
+</Attr>
+</Id>
+<Id value='dst' typref='4'>
+<Attr>
+<Pos l='42' c='37' s='3'/>
+</Attr>
+</Id>
+<Id value='amount' typref='1'>
+<Attr>
+<Pos l='42' c='42' s='6'/>
+</Attr>
+</Id>
+</Input_Parameters>
+</Operation_Call>
+</Body>
+</Operation>
+<Operation name='transferFrom'>
+<Attr>
+<Pos l='45' c='5' s='12' endLine='55'/>
+</Attr>
+<Input_Parameters>
+<Id value='msg_sender' typref='4'>
+<Attr>
+<Pos l='45' c='18' s='10'/>
+</Attr>
+</Id>
+<Id value='sender' typref='4'>
+<Attr>
+<Pos l='45' c='30' s='6'/>
+</Attr>
+</Id>
+<Id value='recipient' typref='4'>
+<Attr>
+<Pos l='45' c='38' s='9'/>
+</Attr>
+</Id>
+<Id value='amount' typref='1'>
+<Attr>
+<Pos l='45' c='49' s='6'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Body>
+<VAR_IN>
+<Attr>
+<Pos l='47' c='9' s='3'/>
+</Attr>
+<Variables>
+<Id value='val1' typref='1'>
+<Attr>
+<Pos l='47' c='13' s='4'/>
+</Attr>
+</Id>
+<Id value='val2' typref='1'>
+<Attr>
+<Pos l='47' c='19' s='4'/>
+</Attr>
+</Id>
+<Id value='val3' typref='1'>
+<Attr>
+<Pos l='47' c='25' s='4'/>
+</Attr>
+</Id>
+</Variables>
+<Body>
+<Nary_Sub op=';'>
+<Operation_Call>
+<Attr>
+<Pos l='48' c='18' s='3'/>
+</Attr>
+<Name>
+<Id value='get_accountOf'>
+<Attr>
+<Pos l='48' c='22' s='13'/>
+</Attr>
+</Id>
+</Name>
+<Input_Parameters>
+<Id value='sender' typref='4'>
+<Attr>
+<Pos l='48' c='36' s='6'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Output_Parameters>
+<Id value='val1' typref='1'>
+<Attr>
+<Pos l='48' c='13' s='4'/>
+</Attr>
+</Id>
+</Output_Parameters>
+</Operation_Call>
+<Operation_Call>
+<Attr>
+<Pos l='49' c='18' s='3'/>
+</Attr>
+<Name>
+<Id value='get_accountOf'>
+<Attr>
+<Pos l='49' c='22' s='13'/>
+</Attr>
+</Id>
+</Name>
+<Input_Parameters>
+<Id value='recipient' typref='4'>
+<Attr>
+<Pos l='49' c='36' s='9'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Output_Parameters>
+<Id value='val2' typref='1'>
+<Attr>
+<Pos l='49' c='13' s='4'/>
+</Attr>
+</Id>
+</Output_Parameters>
+</Operation_Call>
+<Operation_Call>
+<Attr>
+<Pos l='50' c='18' s='3'/>
+</Attr>
+<Name>
+<Id value='get_allowanceOf'>
+<Attr>
+<Pos l='50' c='22' s='15'/>
+</Attr>
+</Id>
+</Name>
+<Input_Parameters>
+<Id value='sender' typref='4'>
+<Attr>
+<Pos l='50' c='38' s='6'/>
+</Attr>
+</Id>
+<Id value='msg_sender' typref='4'>
+<Attr>
+<Pos l='50' c='46' s='10'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Output_Parameters>
+<Id value='val3' typref='1'>
+<Attr>
+<Pos l='50' c='13' s='4'/>
+</Attr>
+</Id>
+</Output_Parameters>
+</Operation_Call>
+<Operation_Call>
+<Attr>
+<Pos l='51' c='26' s='0'/>
+</Attr>
+<Name>
+<Id value='set_accountOf'>
+<Attr>
+<Pos l='51' c='13' s='13'/>
+</Attr>
+</Id>
+</Name>
+<Input_Parameters>
+<Id value='sender' typref='4'>
+<Attr>
+<Pos l='51' c='27' s='6'/>
+</Attr>
+</Id>
+<Binary_Exp op='-i' typref='1'>
+<Attr>
+<Pos l='51' c='40' s='1'/>
+</Attr>
+<Id value='val1' typref='1'>
+<Attr>
+<Pos l='51' c='35' s='4'/>
+</Attr>
+</Id>
+<Id value='amount' typref='1'>
+<Attr>
+<Pos l='51' c='42' s='6'/>
+</Attr>
+</Id>
 </Binary_Exp>
-</Nary_Exp>
+</Input_Parameters>
+</Operation_Call>
+<Operation_Call>
+<Attr>
+<Pos l='52' c='26' s='0'/>
+</Attr>
+<Name>
+<Id value='set_accountOf'>
+<Attr>
+<Pos l='52' c='13' s='13'/>
+</Attr>
+</Id>
+</Name>
+<Input_Parameters>
+<Id value='recipient' typref='4'>
+<Attr>
+<Pos l='52' c='27' s='9'/>
+</Attr>
+</Id>
+<Binary_Exp op='+i' typref='1'>
+<Attr>
+<Pos l='52' c='43' s='1'/>
+</Attr>
+<Id value='val2' typref='1'>
+<Attr>
+<Pos l='52' c='38' s='4'/>
+</Attr>
+</Id>
+<Id value='amount' typref='1'>
+<Attr>
+<Pos l='52' c='45' s='6'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Input_Parameters>
+</Operation_Call>
+<Operation_Call>
+<Attr>
+<Pos l='53' c='28' s='0'/>
+</Attr>
+<Name>
+<Id value='set_allowanceOf'>
+<Attr>
+<Pos l='53' c='13' s='15'/>
+</Attr>
+</Id>
+</Name>
+<Input_Parameters>
+<Id value='sender' typref='4'>
+<Attr>
+<Pos l='53' c='29' s='6'/>
+</Attr>
+</Id>
+<Id value='msg_sender' typref='4'>
+<Attr>
+<Pos l='53' c='37' s='10'/>
+</Attr>
+</Id>
+<Binary_Exp op='-i' typref='1'>
+<Attr>
+<Pos l='53' c='54' s='1'/>
+</Attr>
+<Id value='val3' typref='1'>
+<Attr>
+<Pos l='53' c='49' s='4'/>
+</Attr>
+</Id>
+<Id value='amount' typref='1'>
+<Attr>
+<Pos l='53' c='56' s='6'/>
+</Attr>
+</Id>
+</Binary_Exp>
 </Input_Parameters>
 </Operation_Call>
 </Nary_Sub>
@@ -489,20 +772,6 @@
 </Type>
 <Type id='4'>
 <Id value='ADDRESS'/>
-</Type>
-<Type id='5'>
-<Unary_Exp op='POW'>
-<Binary_Exp op='*'>
-<Id value='ADDRESS'/>
-<Id value='INTEGER'/>
-</Binary_Exp>
-</Unary_Exp>
-</Type>
-<Type id='6'>
-<Binary_Exp op='*'>
-<Id value='ADDRESS'/>
-<Id value='INTEGER'/>
-</Binary_Exp>
 </Type>
 </TypeInfos>
 

@@ -15,7 +15,6 @@
     <classNode dependClassName="B.behavior.Function__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.IfInstruction__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.Initialisation__BehaviorDescriptor" />
-    <classNode dependClassName="B.behavior.InstructionList__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.Machine__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.MappignGet__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.Operation__BehaviorDescriptor" />

@@ -5,7 +5,7 @@ contract _dummy
     uint private nn;
     mapping (address => uint) private usersBalance;
     struct struct_definition {
-      boolean check;
+      bool check;
       uint amount;
       address user
     }

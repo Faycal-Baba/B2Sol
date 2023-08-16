@@ -40,18 +40,17 @@ import B.behavior.succ__BehaviorDescriptor;
 import B.behavior.pred__BehaviorDescriptor;
 import B.behavior.BBalanceOf__BehaviorDescriptor;
 import B.behavior.BFunctionCall__BehaviorDescriptor;
-import jetbrains.mps.baseLanguage.logging.runtime.model.LoggingRuntime;
-import org.apache.log4j.Level;
 import B.behavior.BIdentifier__BehaviorDescriptor;
 import B.behavior.BecomesSubstitution__BehaviorDescriptor;
 import B.behavior.TransferOperation__BehaviorDescriptor;
 import B.behavior.IfInstruction__BehaviorDescriptor;
 import B.behavior.ElseIf__BehaviorDescriptor;
 import B.behavior.WhileInstruction__BehaviorDescriptor;
-import B.behavior.InstructionList__BehaviorDescriptor;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import B.behavior.VarIn__BehaviorDescriptor;
 import B.behavior.MappignGet__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.logging.runtime.model.LoggingRuntime;
+import org.apache.log4j.Level;
 import antlrGenerated.BFunctionTypeGrammarParser;
 import B.behavior.StructSet__BehaviorDescriptor;
 import B.behavior.userDefinedSet__BehaviorDescriptor;
@@ -400,6 +399,17 @@ public class Importer {
   }
 
 
+  public static SNode evaluateFieldPrec(BPreconditionGrammarParser.FieldContext field) {
+    SNode funcCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BFunctionCall"));
+    BFunctionCall__BehaviorDescriptor.setFunction_id5vMBZAy6ZI_.invoke(funcCall, field.Identifier().getText());
+    List<BPreconditionGrammarParser.ExpressionContext> expressionList = field.expression();
+    for (BPreconditionGrammarParser.ExpressionContext expr_ : ListSequence.fromList(expressionList)) {
+      SNode expression = evaluateExpressionBis(expr_);
+      BFunctionCall__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(funcCall, expression);
+    }
+    return funcCall;
+  }
+
   public List<SNode> initParam(Map<String, String> listOfParams) {
     if (listOfParams != null && !(listOfParams.isEmpty())) {
       List<SNode> initParams = ListSequence.fromList(new ArrayList<SNode>());
@@ -417,13 +427,6 @@ public class Importer {
 
 
   public static SNode evaluateExpression(BImplGrammarParser.ExpressionContext expr) {
-
-    LoggingRuntime.logMsgView(Level.INFO, "evaluateExpression", Importer.class, null, null);
-    if (expr.getText().equals("addr_o")) {
-      LoggingRuntime.logMsgView(Level.INFO, "addr_o found", Importer.class, null, null);
-    } else {
-      LoggingRuntime.logMsgView(Level.INFO, "expression := " + expr.getText(), Importer.class, null, null);
-    }
 
     int numChildCount = expr.getChildCount();
     if (numChildCount == 1) {
@@ -727,27 +730,19 @@ public class Importer {
       return instruction;
     }
     if (input.mappingUpdate() != null) {
-      SNode instrList = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4315e5479d1b2c67L, "B.structure.InstructionList"));
-      BImplGrammarParser.MappingUpdateContext mappingUpdate = input.mappingUpdate();
-      String name = mappingUpdate.Identifier().getText().substring(4);
-      List<BImplGrammarParser.UpdateContext> updates = mappingUpdate.updateList().update();
-
-      for (BImplGrammarParser.UpdateContext up_ : ListSequence.fromList(updates)) {
-        SNode becomeSub = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L, "B.structure.BecomesSubstitution"));
-        SNode functionCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BFunctionCall"));
-        BFunctionCall__BehaviorDescriptor.setFunction_id5vMBZAy6ZI_.invoke(functionCall, name);
-        List<BImplGrammarParser.ExpressionContext> antecedants = up_.antecedant;
-        for (BImplGrammarParser.ExpressionContext ant : ListSequence.fromList(antecedants)) {
-          SNode evaluateExpression = evaluateExpression(ant);
-          BFunctionCall__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(functionCall, evaluateExpression);
-        }
-        SNode value = evaluateExpression(up_.value);
-        BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(becomeSub, functionCall);
-        BecomesSubstitution__BehaviorDescriptor.setExpr_id5vMBZAy74R1.invoke(becomeSub, value);
-        InstructionList__BehaviorDescriptor.addInstruction_id4clTkut6MMa.invoke(instrList, becomeSub);
+      SNode bcs = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L, "B.structure.BecomesSubstitution"));
+      String name = input.mappingUpdate().name.getText().substring(4);
+      List<BImplGrammarParser.ExpressionContext> keys = input.mappingUpdate().keys;
+      SNode functionCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BFunctionCall"));
+      BFunctionCall__BehaviorDescriptor.setFunction_id5vMBZAy6ZI_.invoke(functionCall, name);
+      for (BImplGrammarParser.ExpressionContext ant : ListSequence.fromList(keys)) {
+        SNode evaluateExpression = evaluateExpression(ant);
+        BFunctionCall__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(functionCall, evaluateExpression);
       }
-
-      return instrList;
+      SNode value = evaluateExpression(input.mappingUpdate().value);
+      BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(bcs, functionCall);
+      BecomesSubstitution__BehaviorDescriptor.setExpr_id5vMBZAy74R1.invoke(bcs, value);
+      return bcs;
     }
     if (input.varIn() != null) {
       List<BImplGrammarParser.CallMappingResultContext> callMappingResult = input.varIn().callMappingResult();
@@ -1077,6 +1072,25 @@ public class Importer {
     Function__BehaviorDescriptor.setImage_id5vMBZAy8Cbn.invoke(funcType, ret);
 
     return funcType;
+  }
+
+
+  public static SNode wdpropertiesEvaluator(BPreconditionGrammarParser.WelldefinednessContext wd) {
+
+    SNode pred = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4eL, "B.structure.Predicate"));
+    List<BPreconditionGrammarParser.MemberContext> member = wd.member();
+    SNode expr_ = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L, "B.structure.BExpression"));
+    if (member.get(0).Identifier() != null) {
+      String text = member.get(0).Identifier().getText();
+      expr_ = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier"));
+    } else if (member.get(0).field() != null) {
+      BPreconditionGrammarParser.FieldContext field = member.get(0).field();
+
+    }
+
+
+
+    return pred;
   }
 
   public static SNode readFunctionType(String file) throws Exception {

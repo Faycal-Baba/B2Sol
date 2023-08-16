@@ -1,7 +1,8 @@
 THEORY ProofList IS
-_f(1) & _f(2) & _f(5) & _f(8) & WellDefinedness_get_accountOf.2,(_f(9) => _f(11));
-_f(1) & _f(2) & _f(5) & _f(8) & WellDefinedness_get_accountOf.1,(_f(9) => _f(10));
-_f(1) & _f(2) & _f(5) & _f(6) & Operation_set_accountOf.1,(_f(3) => _f(7));
+_f(1) & _f(2) & _f(5) & _f(8) & WellDefinedness_get_accountOf.2,(_f(11) => _f(13));
+_f(1) & _f(2) & _f(5) & _f(8) & WellDefinedness_get_accountOf.1,(_f(11) => _f(12));
+_f(1) & _f(2) & _f(5) & _f(8) & _f(9) & Operation_set_accountOf.1,(_f(3) => _f(10));
+_f(1) & _f(2) & _f(5) & _f(6) & Operation_set_accountOf_abstract.1,(_f(3) => _f(7));
 _f(1) & _f(2) & Initialisation.1,(_f(3) => _f(4))
 END
 &
@@ -14,6 +15,8 @@ accountOf : ((1..6)*{ADDRESS}) +-> NAT & dom(accountOf) = ((1..6)*{ADDRESS}) & (
 ((updates) : (((((1..6)*{ADDRESS})) +-> (NAT))));
 ((((accountOf) <+ (updates))) : (((((1..6)*{ADDRESS})) --> (NAT))));
 ((key) : (((1..6)*{ADDRESS})));
+((value) : (NAT));
+((((accountOf) <+ (({((key) |-> (value))})))) : (((((1..6)*{ADDRESS})) --> (NAT))));
 "Operation is well defined";
 ((key) : (dom(accountOf)));
 ((accountOf) : (((dom(accountOf)) +-> (ran(accountOf)))))
