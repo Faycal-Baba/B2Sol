@@ -16,7 +16,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/5351203823916750322:jetbrains.mps.baseLanguage.structure.TryUniversalStatement" />
   <root>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="18,0,300,0" name="Solidity.editor.EditorAspectDescriptorImpl" />
+      <unit at="18,0,308,0" name="Solidity.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="GrammarActionsDescriptor.java">
       <unit at="439,51,443,5" name="Solidity.editor.GrammarActionsDescriptor$10" />
@@ -124,6 +124,11 @@
       <unit at="57,0,60,0" name="Solidity.editor.GrammarCellsSubstituteMenu_ArrayElement$CONCEPTS" />
       <unit at="46,0,56,0" name="Solidity.editor.GrammarCellsSubstituteMenu_ArrayElement$GrammarCellsSubstituteMenuPart_2s6n5r_a" />
       <unit at="21,0,61,0" name="Solidity.editor.GrammarCellsSubstituteMenu_ArrayElement" />
+    </file>
+    <file name="GrammarCellsSubstituteMenu_ArrayType.java">
+      <unit at="57,0,60,0" name="Solidity.editor.GrammarCellsSubstituteMenu_ArrayType$CONCEPTS" />
+      <unit at="46,0,56,0" name="Solidity.editor.GrammarCellsSubstituteMenu_ArrayType$GrammarCellsSubstituteMenuPart_laqx7_a" />
+      <unit at="21,0,61,0" name="Solidity.editor.GrammarCellsSubstituteMenu_ArrayType" />
     </file>
     <file name="GrammarCellsSubstituteMenu_AssignementStatement.java">
       <unit at="57,0,60,0" name="Solidity.editor.GrammarCellsSubstituteMenu_AssignementStatement$CONCEPTS" />
@@ -305,6 +310,11 @@
       <unit at="46,0,56,0" name="Solidity.editor.GrammarCellsSubstituteMenu_Minusminus$GrammarCellsSubstituteMenuPart_85qnf2_a" />
       <unit at="21,0,61,0" name="Solidity.editor.GrammarCellsSubstituteMenu_Minusminus" />
     </file>
+    <file name="GrammarCellsSubstituteMenu_ModuloExpression.java">
+      <unit at="57,0,60,0" name="Solidity.editor.GrammarCellsSubstituteMenu_ModuloExpression$CONCEPTS" />
+      <unit at="46,0,56,0" name="Solidity.editor.GrammarCellsSubstituteMenu_ModuloExpression$GrammarCellsSubstituteMenuPart_b3r90l_a" />
+      <unit at="21,0,61,0" name="Solidity.editor.GrammarCellsSubstituteMenu_ModuloExpression" />
+    </file>
     <file name="GrammarCellsSubstituteMenu_MultExpression.java">
       <unit at="57,0,60,0" name="Solidity.editor.GrammarCellsSubstituteMenu_MultExpression$CONCEPTS" />
       <unit at="46,0,56,0" name="Solidity.editor.GrammarCellsSubstituteMenu_MultExpression$GrammarCellsSubstituteMenuPart_pxyy2q_a" />
@@ -359,6 +369,11 @@
       <unit at="57,0,60,0" name="Solidity.editor.GrammarCellsSubstituteMenu_Plusplus$CONCEPTS" />
       <unit at="46,0,56,0" name="Solidity.editor.GrammarCellsSubstituteMenu_Plusplus$GrammarCellsSubstituteMenuPart_2aswiw_a" />
       <unit at="21,0,61,0" name="Solidity.editor.GrammarCellsSubstituteMenu_Plusplus" />
+    </file>
+    <file name="GrammarCellsSubstituteMenu_PowerExpression.java">
+      <unit at="57,0,60,0" name="Solidity.editor.GrammarCellsSubstituteMenu_PowerExpression$CONCEPTS" />
+      <unit at="46,0,56,0" name="Solidity.editor.GrammarCellsSubstituteMenu_PowerExpression$GrammarCellsSubstituteMenuPart_4df2pc_a" />
+      <unit at="21,0,61,0" name="Solidity.editor.GrammarCellsSubstituteMenu_PowerExpression" />
     </file>
     <file name="GrammarCellsSubstituteMenu_RequireStatement.java">
       <unit at="57,0,60,0" name="Solidity.editor.GrammarCellsSubstituteMenu_RequireStatement$CONCEPTS" />
@@ -1949,6 +1964,138 @@
       <unit id="5474412545813557803" at="130,0,133,0" name="Solidity.editor.ParenthesisExpression_EditorBuilder_a$LINKS" />
       <unit id="5474412545813557803" at="69,0,120,0" name="Solidity.editor.ParenthesisExpression_EditorBuilder_a$exprSingleRoleHandler_83li2n_b0" />
       <unit id="5474412545813557803" at="27,0,134,0" name="Solidity.editor.ParenthesisExpression_EditorBuilder_a" />
+    </file>
+  </root>
+  <root nodeRef="r:84cb55f7-6a1a-4b71-98f9-9e1ea864bf1c(Solidity.editor)/5623440621350621436">
+    <file name="ArrayType_Editor.java">
+      <node id="5623440621350621436" at="11,79,12,75" concept="8" />
+      <node id="5623440621350621436" at="11,0,14,0" concept="6" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="5623440621350621436" at="11,79,12,75" />
+      <scope id="5623440621350621436" at="11,0,14,0">
+        <var name="editorContext" id="5623440621350621436" />
+        <var name="node" id="5623440621350621436" />
+      </scope>
+      <unit id="5623440621350621436" at="10,0,15,0" name="Solidity.editor.ArrayType_Editor" />
+    </file>
+    <file name="ArrayType_EditorBuilder_a.java">
+      <node id="5623440621350621436" at="27,89,28,19" concept="12" />
+      <node id="5623440621350621436" at="28,19,29,18" concept="2" />
+      <node id="5623440621350621436" at="34,26,35,18" concept="8" />
+      <node id="5623440621350621436" at="38,39,39,32" concept="8" />
+      <node id="5623440621350621436" at="42,43,43,122" concept="7" />
+      <node id="5623440621350621436" at="43,122,44,48" concept="2" />
+      <node id="5623440621350621436" at="44,48,45,28" concept="2" />
+      <node id="5623440621350621436" at="45,28,46,31" concept="2" />
+      <node id="5623440621350621448" at="46,31,47,48" concept="2" />
+      <node id="5623440621350621454" at="47,48,48,49" concept="2" />
+      <node id="5623440621350621472" at="48,49,49,49" concept="2" />
+      <node id="5623440621350621436" at="49,49,50,22" concept="8" />
+      <node id="5623440621350621436" at="52,40,53,119" concept="7" />
+      <node id="5623440621350621436" at="53,119,54,33" concept="8" />
+      <node id="5623440621350621436" at="60,118,61,38" concept="12" />
+      <node id="5623440621350621436" at="61,38,62,25" concept="2" />
+      <node id="5623440621350621436" at="67,28,68,20" concept="8" />
+      <node id="5623440621350621436" at="71,55,72,76" concept="7" />
+      <node id="5623440621350621436" at="72,76,73,113" concept="2" />
+      <node id="5623440621350621436" at="73,113,74,116" concept="2" />
+      <node id="5623440621350621436" at="74,116,75,48" concept="2" />
+      <node id="5623440621350621436" at="75,48,76,24" concept="8" />
+      <node id="5623440621350621436" at="82,118,83,137" concept="2" />
+      <node id="5623440621350621436" at="85,42,86,45" concept="2" />
+      <node id="5623440621350621436" at="90,44,91,41" concept="2" />
+      <node id="5623440621350621436" at="91,41,92,104" concept="2" />
+      <node id="5623440621350621436" at="93,11,94,56" concept="7" />
+      <node id="5623440621350621436" at="94,56,95,43" concept="2" />
+      <node id="5623440621350621436" at="95,43,96,48" concept="2" />
+      <node id="5623440621350621436" at="96,48,97,35" concept="2" />
+      <node id="5623440621350621436" at="97,35,98,26" concept="8" />
+      <node id="5623440621350621436" at="99,17,100,42" concept="2" />
+      <node id="5623440621350621436" at="103,40,104,25" concept="8" />
+      <node id="5623440621350621454" at="107,41,108,94" concept="7" />
+      <node id="5623440621350621454" at="108,94,109,47" concept="2" />
+      <node id="5623440621350621454" at="109,47,110,34" concept="2" />
+      <node id="5623440621350621454" at="110,34,111,22" concept="8" />
+      <node id="5623440621350621472" at="113,41,114,94" concept="7" />
+      <node id="5623440621350621472" at="114,94,115,47" concept="2" />
+      <node id="5623440621350621472" at="115,47,116,34" concept="2" />
+      <node id="5623440621350621472" at="116,34,117,22" concept="8" />
+      <node id="5623440621350621436" at="121,0,122,0" concept="11" trace="type$nrMn" />
+      <node id="5623440621350621436" at="24,0,26,0" concept="3" trace="myNode" />
+      <node id="5623440621350621436" at="57,0,59,0" concept="3" trace="myNode" />
+      <node id="5623440621350621436" at="38,0,41,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5623440621350621436" at="81,87,84,7" concept="5" />
+      <node id="5623440621350621436" at="84,7,87,7" concept="5" />
+      <node id="5623440621350621436" at="103,0,106,0" concept="6" trace="getNoTargetText#()Ljava/lang/String;" />
+      <node id="5623440621350621436" at="27,0,31,0" concept="1" trace="ArrayType_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="5623440621350621436" at="52,0,56,0" concept="6" trace="createRefNode_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5623440621350621436" at="60,0,64,0" concept="1" trace="typeSingleRoleHandler_5rfjfg_a0#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SContainmentLink;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
+      <node id="5623440621350621436" at="32,0,37,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5623440621350621436" at="65,0,70,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5623440621350621454" at="107,0,113,0" concept="6" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5623440621350621472" at="113,0,119,0" concept="6" trace="createConstant_1#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5623440621350621436" at="71,0,78,0" concept="6" trace="createChildCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5623440621350621436" at="81,0,89,0" concept="6" trace="installCellInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/cells/EditorCell;Z)V" />
+      <node id="5623440621350621436" at="92,104,101,7" concept="13" />
+      <node id="5623440621350621436" at="42,0,52,0" concept="6" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5623440621350621436" at="89,0,103,0" concept="6" trace="createEmptyCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="5623440621350621436" at="34,26,35,18" />
+      <scope id="5623440621350621436" at="38,39,39,32" />
+      <scope id="5623440621350621436" at="67,28,68,20" />
+      <scope id="5623440621350621436" at="82,118,83,137" />
+      <scope id="5623440621350621436" at="85,42,86,45" />
+      <scope id="5623440621350621436" at="99,17,100,42" />
+      <scope id="5623440621350621436" at="103,40,104,25" />
+      <scope id="5623440621350621436" at="27,89,29,18" />
+      <scope id="5623440621350621436" at="52,40,54,33">
+        <var name="provider" id="5623440621350621436" />
+      </scope>
+      <scope id="5623440621350621436" at="60,118,62,25" />
+      <scope id="5623440621350621436" at="38,0,41,0" />
+      <scope id="5623440621350621436" at="103,0,106,0" />
+      <scope id="5623440621350621436" at="27,0,31,0">
+        <var name="context" id="5623440621350621436" />
+        <var name="node" id="5623440621350621436" />
+      </scope>
+      <scope id="5623440621350621436" at="52,0,56,0" />
+      <scope id="5623440621350621436" at="60,0,64,0">
+        <var name="containmentLink" id="5623440621350621436" />
+        <var name="context" id="5623440621350621436" />
+        <var name="ownerNode" id="5623440621350621436" />
+      </scope>
+      <scope id="5623440621350621454" at="107,41,111,22">
+        <var name="editorCell" id="5623440621350621454" />
+      </scope>
+      <scope id="5623440621350621472" at="113,41,117,22">
+        <var name="editorCell" id="5623440621350621472" />
+      </scope>
+      <scope id="5623440621350621436" at="32,0,37,0" />
+      <scope id="5623440621350621436" at="65,0,70,0" />
+      <scope id="5623440621350621436" at="71,55,76,24">
+        <var name="editorCell" id="5623440621350621436" />
+      </scope>
+      <scope id="5623440621350621436" at="93,11,98,26">
+        <var name="editorCell" id="5623440621350621436" />
+      </scope>
+      <scope id="5623440621350621436" at="81,87,87,7" />
+      <scope id="5623440621350621454" at="107,0,113,0" />
+      <scope id="5623440621350621472" at="113,0,119,0" />
+      <scope id="5623440621350621436" at="71,0,78,0">
+        <var name="child" id="5623440621350621436" />
+      </scope>
+      <scope id="5623440621350621436" at="42,43,50,22">
+        <var name="editorCell" id="5623440621350621436" />
+      </scope>
+      <scope id="5623440621350621436" at="81,0,89,0">
+        <var name="child" id="5623440621350621436" />
+        <var name="editorCell" id="5623440621350621436" />
+        <var name="isEmpty" id="5623440621350621436" />
+      </scope>
+      <scope id="5623440621350621436" at="42,0,52,0" />
+      <scope id="5623440621350621436" at="90,44,101,7" />
+      <scope id="5623440621350621436" at="89,0,103,0" />
+      <unit id="5623440621350621436" at="120,0,123,0" name="Solidity.editor.ArrayType_EditorBuilder_a$LINKS" />
+      <unit id="5623440621350621436" at="56,0,107,0" name="Solidity.editor.ArrayType_EditorBuilder_a$typeSingleRoleHandler_5rfjfg_a0" />
+      <unit id="5623440621350621436" at="23,0,124,0" name="Solidity.editor.ArrayType_EditorBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:84cb55f7-6a1a-4b71-98f9-9e1ea864bf1c(Solidity.editor)/5740194033788725782">

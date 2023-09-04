@@ -938,5 +938,33 @@
       <ref role="20lvS9" node="6OTxsqoINXB" resolve="Expression" />
     </node>
   </node>
+  <node concept="1TIwiD" id="4SaundF6L3J">
+    <property role="EcuMT" value="5623440621350621423" />
+    <property role="3GE5qa" value="types" />
+    <property role="TrG5h" value="ArrayType" />
+    <property role="34LRSv" value="[" />
+    <ref role="1TJDcQ" node="6OTxsqoJoyj" resolve="Type" />
+    <node concept="1TJgyj" id="4SaundF6L3K" role="1TKVEi">
+      <property role="IQ2ns" value="5623440621350621424" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="type" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="6OTxsqoJoyj" resolve="Type" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="5K$Fv9FDq9g">
+    <property role="EcuMT" value="6639623007350661712" />
+    <property role="3GE5qa" value="expressions" />
+    <property role="TrG5h" value="PowerExpression" />
+    <property role="34LRSv" value="**" />
+    <ref role="1TJDcQ" node="6OTxsqoIOa$" resolve="BinaryExpression" />
+  </node>
+  <node concept="1TIwiD" id="5K$Fv9FDqan">
+    <property role="EcuMT" value="6639623007350661783" />
+    <property role="3GE5qa" value="expressions" />
+    <property role="TrG5h" value="ModuloExpression" />
+    <property role="34LRSv" value="%" />
+    <ref role="1TJDcQ" node="6OTxsqoIOa$" resolve="BinaryExpression" />
+  </node>
 </model>
 

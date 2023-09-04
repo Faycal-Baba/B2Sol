@@ -12,6 +12,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Address;
   private ConceptPresentation props_AndExpression;
   private ConceptPresentation props_ArrayElement;
+  private ConceptPresentation props_ArrayType;
   private ConceptPresentation props_AssignementStatement;
   private ConceptPresentation props_BalanceOf;
   private ConceptPresentation props_BinaryExpression;
@@ -48,6 +49,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_MappingElement;
   private ConceptPresentation props_MinusExpression;
   private ConceptPresentation props_Minusminus;
+  private ConceptPresentation props_ModuloExpression;
   private ConceptPresentation props_MultExpression;
   private ConceptPresentation props_NegativeExpression;
   private ConceptPresentation props_NotExpression;
@@ -59,6 +61,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_PayableFunctionDefinition;
   private ConceptPresentation props_PlusExpression;
   private ConceptPresentation props_Plusplus;
+  private ConceptPresentation props_PowerExpression;
   private ConceptPresentation props_RequireStatement;
   private ConceptPresentation props_ReturnStatement;
   private ConceptPresentation props_Sender;
@@ -107,6 +110,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ArrayElement = cpb.create();
         }
         return props_ArrayElement;
+      case LanguageConceptSwitch.ArrayType:
+        if (props_ArrayType == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("[");
+          props_ArrayType = cpb.create();
+        }
+        return props_ArrayType;
       case LanguageConceptSwitch.AssignementStatement:
         if (props_AssignementStatement == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -357,6 +367,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Minusminus = cpb.create();
         }
         return props_Minusminus;
+      case LanguageConceptSwitch.ModuloExpression:
+        if (props_ModuloExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("%");
+          props_ModuloExpression = cpb.create();
+        }
+        return props_ModuloExpression;
       case LanguageConceptSwitch.MultExpression:
         if (props_MultExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -434,6 +451,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Plusplus = cpb.create();
         }
         return props_Plusplus;
+      case LanguageConceptSwitch.PowerExpression:
+        if (props_PowerExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("**");
+          props_PowerExpression = cpb.create();
+        }
+        return props_PowerExpression;
       case LanguageConceptSwitch.RequireStatement:
         if (props_RequireStatement == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

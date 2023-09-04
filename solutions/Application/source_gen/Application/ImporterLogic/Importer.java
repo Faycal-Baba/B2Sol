@@ -10,6 +10,11 @@ import java.util.HashMap;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
+import java.nio.file.Path;
+import jetbrains.mps.baseLanguage.logging.runtime.model.LoggingRuntime;
+import org.apache.log4j.Level;
+import java.nio.file.Files;
+import java.io.IOException;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import application.BImplListener;
@@ -28,10 +33,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import antlrGenerated.BImplGrammarParser;
 import java.util.Iterator;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import B.behavior.Initialisation__BehaviorDescriptor;
 import B.behavior.Operation__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import java.nio.file.Files;
 import B.behavior.BNegativeExpression__BehaviorDescriptor;
 import B.behavior.BNotExpression__BehaviorDescriptor;
 import B.behavior.BParenthesisExpression__BehaviorDescriptor;
@@ -39,7 +43,8 @@ import B.behavior.BBinaryExpression__BehaviorDescriptor;
 import B.behavior.succ__BehaviorDescriptor;
 import B.behavior.pred__BehaviorDescriptor;
 import B.behavior.BBalanceOf__BehaviorDescriptor;
-import B.behavior.BFunctionCall__BehaviorDescriptor;
+import B.behavior.BMappingAccessExpression__BehaviorDescriptor;
+import B.behavior.BRecordExpression__BehaviorDescriptor;
 import B.behavior.BIdentifier__BehaviorDescriptor;
 import B.behavior.BecomesSubstitution__BehaviorDescriptor;
 import B.behavior.TransferOperation__BehaviorDescriptor;
@@ -49,16 +54,18 @@ import B.behavior.WhileInstruction__BehaviorDescriptor;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import B.behavior.VarIn__BehaviorDescriptor;
 import B.behavior.MappignGet__BehaviorDescriptor;
-import jetbrains.mps.baseLanguage.logging.runtime.model.LoggingRuntime;
-import org.apache.log4j.Level;
+import B.behavior.BVarDec__BehaviorDescriptor;
+import B.behavior.BStructMemberAccess__BehaviorDescriptor;
+import B.behavior.InstructionList__BehaviorDescriptor;
 import antlrGenerated.BFunctionTypeGrammarParser;
+import B.behavior.BArrayType__BehaviorDescriptor;
 import B.behavior.StructSet__BehaviorDescriptor;
 import B.behavior.userDefinedSet__BehaviorDescriptor;
-import B.behavior.ArrayElement__BehaviorDescriptor;
 import B.behavior.enumMember__BehaviorDescriptor;
 import B.behavior.Function__BehaviorDescriptor;
 import application.BFunctionTypeListener;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Importer {
@@ -66,7 +73,31 @@ public class Importer {
 
   public static Map<String, SNode> saveMappingValueType = new HashMap<String, SNode>();
 
+  public static List<String> listOfArraysDeclared = ListSequence.fromList(new ArrayList<String>());
+
   private static List<SNode> enumList = ListSequence.fromList(new ArrayList<SNode>());
+
+  private static Map<String, List<String>> structureMembers = new HashMap<String, List<String>>();
+
+
+  public static void writeGeneratedSolFile(String file, Path path) {
+
+    LoggingRuntime.logMsgView(Level.INFO, "path = " + path.toString(), Importer.class, null, null);
+
+    LoggingRuntime.logMsgView(Level.INFO, "file = \n" + file, Importer.class, null, null);
+
+
+
+    try {
+      Files.write(path, file.getBytes());
+
+    } catch (IOException e) {
+      LoggingRuntime.logMsgView(Level.INFO, "FAILED" + e.getMessage(), Importer.class, null, null);
+    }
+
+  }
+
+
 
   public static SNode importData(String path) throws Exception {
 
@@ -75,10 +106,10 @@ public class Importer {
     BImplListener tree;
 
 
-
     try {
       tree = BParserInteface.readBImpl(bfile);
     } catch (Exception e) {
+      LoggingRuntime.logMsgView(Level.INFO, "ERROR: ................Parsing File Failed : IN Function importData............... ", Importer.class, null, null);
       System.out.println("ERROR: ................Parsing File Failed : IN Function importData............... ");
       return null;
     }
@@ -103,7 +134,6 @@ public class Importer {
       }
 
     }
-
     // precondition and input param 
     Map<String, List<SNode>> operationsPredicates = MapSequence.fromMap(new HashMap<String, List<SNode>>());
     Map<String, List<SNode>> operationsTypingParams = MapSequence.fromMap(new HashMap<String, List<SNode>>());
@@ -125,6 +155,7 @@ public class Importer {
               SNode evaluatePreCondition = evaluatePreCondition(cd);
               Predicate__BehaviorDescriptor.setPredicate_id5vMBZAy7WOP.invoke(pred, evaluatePreCondition);
               ListSequence.fromList(conds).addElement(pred);
+              // MAYBE HERE 
             }
             MapSequence.fromMap(operationsPredicates).put(op, conds);
           }
@@ -143,6 +174,7 @@ public class Importer {
       }
     }
 
+
     Machine__BehaviorDescriptor.setName_id7B8mKgzk40V.invoke(machine, refines);
 
     List<String> mappingVariables = tree.getMappingVariable();
@@ -160,7 +192,6 @@ public class Importer {
 
 
     }
-
     List<String> listOfVarialbes = ListSequence.fromList(new ArrayList<String>());
     if (tree.getConcreteVariables() != null && !(tree.getConcreteVariables().isEmpty())) {
       for (String vr : tree.getConcreteVariables()) {
@@ -184,11 +215,22 @@ public class Importer {
           String clean_i = clean_i(context.key());
           TypingPredicate__BehaviorDescriptor.setName_id5vMBZAy5RAC.invoke(tp, clean_i);
           TypingPredicate__BehaviorDescriptor.setSet_id5vMBZAy5UgC.invoke(tp, type);
+          if (SNodeOperations.isInstanceOf(type, CONCEPTS.BArrayType$5m)) {
+            ListSequence.fromList(listOfArraysDeclared).addElement(clean_i);
+          }
+
+          if (SNodeOperations.isInstanceOf(type, CONCEPTS.StructSet$we)) {
+            SNode ss = (SNode) type;
+            List<String> memberName = ListSequence.fromList(new ArrayList<String>());
+            for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(ss, LINKS.elements$ppwr))) {
+              ListSequence.fromList(memberName).addElement(SPropertyOperations.getString(SLinkOperations.getTarget(member, LINKS.name$3HGV), PROPS.name$MnvL));
+            }
+            structureMembers.put(clean_i, memberName);
+          }
           Machine__BehaviorDescriptor.addInvariantPredicate_id5vMBZAy8h$w.invoke(machine, tp);
         }
       }
     }
-
     Map<String, BImplGrammarParser.TypeContext> constantsTypingPredicates = tree.getConstantsTypingPredicates();
     Map<String, BImplGrammarParser.ExpressionContext> constantsValuations = tree.getConstantsValuation();
 
@@ -278,7 +320,7 @@ public class Importer {
 
 
 
-
+    LoggingRuntime.logMsgView(Level.INFO, "AFTER Machine", Importer.class, null, null);
 
     return machine;
 
@@ -385,13 +427,13 @@ public class Importer {
       }
     }
     if (expr.field() != null) {
-      SNode funcCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BFunctionCall"));
+      SNode funcCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BMappingAccessExpression"));
       BPreconditionGrammarParser.FieldContext field = expr.field();
-      BFunctionCall__BehaviorDescriptor.setFunction_id5vMBZAy6ZI_.invoke(funcCall, field.Identifier().getText());
+      BMappingAccessExpression__BehaviorDescriptor.setMappingName_id5vMBZAy6ZI_.invoke(funcCall, field.Identifier().getText());
       List<BPreconditionGrammarParser.ExpressionContext> expressionList = field.expression();
       for (BPreconditionGrammarParser.ExpressionContext expr_ : ListSequence.fromList(expressionList)) {
         SNode expression = evaluateExpressionBis(expr_);
-        BFunctionCall__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(funcCall, expression);
+        BMappingAccessExpression__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(funcCall, expression);
       }
       return funcCall;
     }
@@ -400,12 +442,12 @@ public class Importer {
 
 
   public static SNode evaluateFieldPrec(BPreconditionGrammarParser.FieldContext field) {
-    SNode funcCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BFunctionCall"));
-    BFunctionCall__BehaviorDescriptor.setFunction_id5vMBZAy6ZI_.invoke(funcCall, field.Identifier().getText());
+    SNode funcCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BMappingAccessExpression"));
+    BMappingAccessExpression__BehaviorDescriptor.setMappingName_id5vMBZAy6ZI_.invoke(funcCall, field.Identifier().getText());
     List<BPreconditionGrammarParser.ExpressionContext> expressionList = field.expression();
     for (BPreconditionGrammarParser.ExpressionContext expr_ : ListSequence.fromList(expressionList)) {
       SNode expression = evaluateExpressionBis(expr_);
-      BFunctionCall__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(funcCall, expression);
+      BMappingAccessExpression__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(funcCall, expression);
     }
     return funcCall;
   }
@@ -454,6 +496,14 @@ public class Importer {
       if (expr.getText().equals("addr_0")) {
         return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x775e747952e6de85L, "B.structure.NullAddress"));
       }
+    }
+    if (expr.record() != null) {
+      SNode record = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5c24adf26bb8813eL, "B.structure.BRecordExpression"));
+      for (BImplGrammarParser.ExpressionContext expr_ : ListSequence.fromList(expr.record().expressionList().expression())) {
+        SNode recExpr = evaluateExpression(expr_);
+        BRecordExpression__BehaviorDescriptor.addExpr_id5K$Fv9FI86f.invoke(record, recExpr);
+      }
+      return record;
     }
     if (numChildCount == 1 && expr.primaryExpression() != null) {
       SNode expression = evaluatePrimaryExpr(expr.primaryExpression());
@@ -515,6 +565,18 @@ public class Importer {
         return expression;
       }
     }
+    if (expr.field() != null) {
+      SNode funcCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BMappingAccessExpression"));
+      BImplGrammarParser.FieldContext field = expr.field();
+      BMappingAccessExpression__BehaviorDescriptor.setMappingName_id5vMBZAy6ZI_.invoke(funcCall, field.Identifier().getText());
+      List<BImplGrammarParser.ExpressionContext> expressionList = field.expression();
+      for (BImplGrammarParser.ExpressionContext expr_ : ListSequence.fromList(expressionList)) {
+        SNode expression = evaluateExpression(expr_);
+        BMappingAccessExpression__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(funcCall, expression);
+      }
+      return funcCall;
+    }
+
     return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a01bL, "B.structure.BSpaceChar"));
   }
 
@@ -618,7 +680,7 @@ public class Importer {
         BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(condition, leftExpression);
         BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(condition, rightExpression);
         return condition;
-      } else if (cond.getChild(1).getText().equals("OR")) {
+      } else if (cond.getChild(1).getText().equals("OR") || cond.getChild(1).getText().equals("or")) {
         SNode condition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756971L, "B.structure.BOrExpression"));
         BBinaryExpression__BehaviorDescriptor.setLeftExpr_id5vMBZAy6UCq.invoke(condition, leftExpression);
         BBinaryExpression__BehaviorDescriptor.setRightExpr_id5vMBZAy6VeV.invoke(condition, rightExpression);
@@ -653,20 +715,46 @@ public class Importer {
 
 
   public static SNode evaluateInstruction(BImplGrammarParser.StatementContext input) {
+
     if (!((input.assignment() == null))) {
       SNode substitution = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L, "B.structure.BecomesSubstitution"));
       SNode expr = evaluateExpression(input.assignment().expression());
+
       if (input.assignment().lhs().Identifier() != null) {
         SNode identifier = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier"));
         String text = input.assignment().lhs().Identifier().getText();
         text = clean_i(text);
+
+        //  ELSE ==  
         BIdentifier__BehaviorDescriptor.setName_id7B8mKgzi8Kz.invoke(identifier, text);
         BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(substitution, identifier);
       } else if (input.assignment().lhs().field() != null) {
-        SNode lhs = evaluateField(input.assignment().lhs().field());
+        LoggingRuntime.logMsgView(Level.INFO, "ASSIGN LHS IS FIELD = " + input.assignment().lhs().field().getText(), Importer.class, null, null);
+        SNode lhsExpression = evaluateField(input.assignment().lhs().field());
+        BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(substitution, lhsExpression);
+      }
+
+      if (SNodeOperations.isInstanceOf(expr, CONCEPTS.BRecordExpression$nT) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(substitution, LINKS.lhs$AG5Q), CONCEPTS.BIdentifier$nT)) {
+        SNode node = ((SNode) expr);
+        SNode bid = ((SNode) SLinkOperations.getTarget(substitution, LINKS.lhs$AG5Q));
+        SNode recordIntoListofInstruction = recordIntoListofInstruction(node, bid);
+        return recordIntoListofInstruction;
       }
 
       BecomesSubstitution__BehaviorDescriptor.setExpr_id5vMBZAy74R1.invoke(substitution, expr);
+
+      if (SNodeOperations.isInstanceOf(expr, CONCEPTS.BRecordExpression$nT)) {
+        SNode instList = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4315e5479d1b2c67L, "B.structure.InstructionList"));
+        SNode recordExpression = ((SNode) expr);
+
+        for (SNode expr_ : ListSequence.fromList(SLinkOperations.getChildren(recordExpression, LINKS.expressions$EllV))) {
+
+          if (structureMembers.containsKey(SLinkOperations.getTarget(substitution, LINKS.lhs$AG5Q))) {
+          }
+        }
+      }
+
+
       return substitution;
     }
     if (!((input.transferOperation() == null))) {
@@ -692,6 +780,7 @@ public class Importer {
       }
       if (ifInstr.condition().size() > 1) {
         for (int i = 1; i < ifInstr.condition().size(); i++) {
+
           SNode elseIf = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L, "B.structure.ElseIf"));
           SNode innerCondition;
           innerCondition = evaluateCondition(ifInstr.condition(i));
@@ -733,11 +822,11 @@ public class Importer {
       SNode bcs = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L, "B.structure.BecomesSubstitution"));
       String name = input.mappingUpdate().name.getText().substring(4);
       List<BImplGrammarParser.ExpressionContext> keys = input.mappingUpdate().keys;
-      SNode functionCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BFunctionCall"));
-      BFunctionCall__BehaviorDescriptor.setFunction_id5vMBZAy6ZI_.invoke(functionCall, name);
+      SNode functionCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BMappingAccessExpression"));
+      BMappingAccessExpression__BehaviorDescriptor.setMappingName_id5vMBZAy6ZI_.invoke(functionCall, name);
       for (BImplGrammarParser.ExpressionContext ant : ListSequence.fromList(keys)) {
         SNode evaluateExpression = evaluateExpression(ant);
-        BFunctionCall__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(functionCall, evaluateExpression);
+        BMappingAccessExpression__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(functionCall, evaluateExpression);
       }
       SNode value = evaluateExpression(input.mappingUpdate().value);
       BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(bcs, functionCall);
@@ -786,9 +875,79 @@ public class Importer {
       }
       return varIn;
     }
+    if (input.varInWhile() != null) {
+      SNode varIn = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7923cf0b1219a72L, "B.structure.VarIn"));
+
+      List<TerminalNode> identifier = input.varInWhile().identifierList().Identifier();
+      List<String> listOfIds = ListSequence.fromList(new ArrayList<String>());
+
+      for (TerminalNode id : ListSequence.fromList(identifier)) {
+        ListSequence.fromList(listOfIds).addElement(id.getText());
+        VarIn__BehaviorDescriptor.addId_iduiff2LbgAq.invoke(varIn, id.getText());
+      }
+
+
+      List<BImplGrammarParser.AssignmentContext> assignments = input.varInWhile().assignment();
+      List<BImplGrammarParser.StatementContext> statementList = input.varInWhile().statementList().statement();
+
+      for (BImplGrammarParser.AssignmentContext assign : ListSequence.fromList(assignments)) {
+        SNode becomeSubs = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L, "B.structure.BecomesSubstitution"));
+        SNode evexpr = evaluateExpression(assign.expression());
+        BecomesSubstitution__BehaviorDescriptor.setExpr_id5vMBZAy74R1.invoke(becomeSubs, evexpr);
+        if (assign.lhs().field() != null & !(assign.lhs().field().isEmpty())) {
+          SNode evField = evaluateField(assign.lhs().field());
+          BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(becomeSubs, evField);
+        } else if (assign.lhs().Identifier() != null) {
+          SNode id = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier"));
+          BIdentifier__BehaviorDescriptor.setName_id7B8mKgzi8Kz.invoke(id, assign.lhs().Identifier().getText());
+          if (ListSequence.fromList(listOfIds).contains(SPropertyOperations.getString(id, PROPS.name$MnvL))) {
+            ListSequence.fromList(listOfIds).removeElement(SPropertyOperations.getString(id, PROPS.name$MnvL));
+            SNode varDec = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0xc5014708ec95bc6L, "B.structure.BVarDec"));
+            BVarDec__BehaviorDescriptor.setSet_idLg572eMqmE.invoke(varDec, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781278L, "B.structure.BNatural")));
+            BVarDec__BehaviorDescriptor.setId_idLg572eMrie.invoke(varDec, id);
+            BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(becomeSubs, varDec);
+          } else {
+            BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(becomeSubs, id);
+          }
+        }
+        VarIn__BehaviorDescriptor.addInstr_iduiff2LaL4v.invoke(varIn, becomeSubs);
+      }
+
+
+
+      if (input.varInWhile().statementList().statement() != null && !(input.varInWhile().statementList().statement().isEmpty()) && statementList != null && !(statementList.isEmpty())) {
+        for (BImplGrammarParser.StatementContext st : ListSequence.fromList(statementList)) {
+          SNode instr = evaluateInstruction(st);
+          VarIn__BehaviorDescriptor.addInstr_iduiff2LaL4v.invoke(varIn, instr);
+        }
+      }
+      return varIn;
+    }
 
     return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d02L, "B.structure.Instruction"));
   }
+
+
+
+  public static SNode recordIntoListofInstruction(SNode record, SNode lhs) {
+    SNode instrs = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4315e5479d1b2c67L, "B.structure.InstructionList"));
+    if (structureMembers.containsKey(SPropertyOperations.getString(lhs, PROPS.name$MnvL))) {
+      List<String> members = structureMembers.get(SPropertyOperations.getString(lhs, PROPS.name$MnvL));
+      int i = 0;
+      SNode sub = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L, "B.structure.BecomesSubstitution"));
+      for (SNode expr : ListSequence.fromList(SLinkOperations.getChildren(record, LINKS.expressions$EllV))) {
+        BecomesSubstitution__BehaviorDescriptor.setExpr_id5vMBZAy74R1.invoke(sub, expr);
+        SNode newLhs = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5c24adf26bc18fa1L, "B.structure.BStructMemberAccess"));
+        BStructMemberAccess__BehaviorDescriptor.setStructName_id5K$Fv9FKoZp.invoke(newLhs, SPropertyOperations.getString(lhs, PROPS.name$MnvL));
+        BStructMemberAccess__BehaviorDescriptor.setMemberName_id5K$Fv9FKqGS.invoke(newLhs, ListSequence.fromList(members).getElement(i));
+        BecomesSubstitution__BehaviorDescriptor.setLhs_id5vMBZAy74U5.invoke(sub, newLhs);
+      }
+      InstructionList__BehaviorDescriptor.addInstruction_id4clTkut6MMa.invoke(instrs, sub);
+    }
+    return instrs;
+  }
+
+
 
   public static SNode evaluateBasicTypeString(String basicType) {
     if (basicType != null) {
@@ -899,6 +1058,12 @@ public class Importer {
             return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781279L, "B.structure.BBytes"));
         }
       }
+      if (type.arrayType() != null && !(type.arrayType().isEmpty())) {
+        SNode arrayType = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4e0a79736b1af681L, "B.structure.BArrayType"));
+        SNode arrayComponentType = evaluateBType(type.arrayType().type());
+        BArrayType__BehaviorDescriptor.setSet_id4SaundF6KnJ.invoke(arrayType, arrayComponentType);
+        return arrayType;
+      }
       if (type.userDefinedType() != null && !(type.userDefinedType().isEmpty())) {
 
         if (type.userDefinedType().structType() != null && !(type.userDefinedType().structType().isEmpty())) {
@@ -908,6 +1073,7 @@ public class Importer {
           for (int i = 0; i < max; i++) {
             String name = type.userDefinedType().structType().typingPredicate().get(i).Identifier().getText();
             SNode set = evaluateBType(type.userDefinedType().structType().typingPredicate().get(i).type());
+
             StructSet__BehaviorDescriptor.addElement_id5vMBZAy63e$.invoke(struct, name, set);
           }
           return struct;
@@ -930,7 +1096,7 @@ public class Importer {
 
   public static SNode evaluatePrimaryExprBis(BPreconditionGrammarParser.PrimaryExpressionContext ctx) {
     if (ctx.Boolean_lit() != null) {
-      if (ctx.Boolean_lit().getText() == "TRUE") {
+      if (ctx.Boolean_lit().getText().equals("TRUE")) {
         return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75696aL, "B.structure.BTrueExpression"));
       } else {
         return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75696bL, "B.structure.BFalseExpression"));
@@ -953,7 +1119,7 @@ public class Importer {
 
   public static SNode evaluatePrimaryExpr(BImplGrammarParser.PrimaryExpressionContext ctx) {
     if (ctx.Boolean_lit() != null) {
-      if (ctx.Boolean_lit().getText() == "TRUE") {
+      if (ctx.Boolean_lit().getText().equals("TRUE")) {
         return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75696aL, "B.structure.BTrueExpression"));
       } else {
         return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75696bL, "B.structure.BFalseExpression"));
@@ -1010,12 +1176,18 @@ public class Importer {
     return null;
   }
 
+
   public static SNode evaluateField(BImplGrammarParser.FieldContext field) {
-    SNode elem = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x22386bbff832ba6aL, "B.structure.ArrayElement"));
-    ArrayElement__BehaviorDescriptor.setIden_id5vMBZAy6Xir.invoke(elem, clean_i(field.Identifier().getText()));
-    SNode expr = evaluateExpression(field.expression(0));
-    ArrayElement__BehaviorDescriptor.setExpr_id5vMBZAy6Z3u.invoke(elem, expr);
-    return elem;
+    List<BImplGrammarParser.ExpressionContext> expressionList = field.expression();
+    String fieldName = clean_i(field.Identifier().getText());
+    SNode mapping = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L, "B.structure.BMappingAccessExpression"));
+    BMappingAccessExpression__BehaviorDescriptor.setMappingName_id5vMBZAy6ZI_.invoke(mapping, fieldName);
+    for (BImplGrammarParser.ExpressionContext expr_ : ListSequence.fromList(expressionList)) {
+      SNode expression = evaluateExpression(expr_);
+      BMappingAccessExpression__BehaviorDescriptor.addAnt_id5vMBZAy72BM.invoke(mapping, expression);
+    }
+    return mapping;
+
   }
 
 
@@ -1111,7 +1283,17 @@ public class Importer {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink name$3HGV = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78126dL, 0x7d382cf97c78126eL, "name");
+    /*package*/ static final SContainmentLink elements$ppwr = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce4782bb49L, 0x3d1067ce4782bb4aL, "elements");
+    /*package*/ static final SContainmentLink lhs$AG5Q = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L, 0x7d382cf97c7d3d0cL, "lhs");
+    /*package*/ static final SContainmentLink expressions$EllV = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5c24adf26bb8813eL, 0x5c24adf26bb8813fL, "expressions");
     /*package*/ static final SContainmentLink elements$zdCX = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c774b48L, 0x7d382cf97c774b4bL, "elements");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BArrayType$5m = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4e0a79736b1af681L, "B.structure.BArrayType");
+    /*package*/ static final SConcept StructSet$we = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce4782bb49L, "B.structure.StructSet");
+    /*package*/ static final SConcept BRecordExpression$nT = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5c24adf26bb8813eL, "B.structure.BRecordExpression");
+    /*package*/ static final SConcept BIdentifier$nT = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier");
   }
 
   private static final class PROPS {

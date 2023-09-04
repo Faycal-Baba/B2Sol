@@ -71,7 +71,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "ELSEIF");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "ELSIF");
     editorCell.setCellId("Constant_kjkpu3_a0a");
     Style style = new StyleImpl();
     new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);

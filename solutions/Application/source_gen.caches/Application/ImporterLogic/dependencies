@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
   <dependency className="Application.ImporterLogic.Importer">
-    <classNode dependClassName="B.behavior.ArrayElement__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BArrayType__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BBalanceOf__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BBinaryExpression__BehaviorDescriptor" />
-    <classNode dependClassName="B.behavior.BFunctionCall__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BIdentifier__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BMappingAccessExpression__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BNegativeExpression__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BNotExpression__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BParenthesisExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BRecordExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BStructMemberAccess__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BVarDec__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BecomesSubstitution__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.ElseIf__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.EnumeratedSet__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.Function__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.IfInstruction__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.Initialisation__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.InstructionList__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.Machine__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.MappignGet__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.Operation__BehaviorDescriptor" />
@@ -36,10 +40,12 @@
     <classNode dependClassName="application.BParserInteface" />
     <classNode dependClassName="application.BPreconditionListener" />
     <classNode dependClassName="application.Util" />
+    <classNode dependClassName="java.io.IOException" />
     <classNode dependClassName="java.lang.Exception" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.lang.System" />
     <classNode dependClassName="java.nio.file.Files" />
+    <classNode dependClassName="java.nio.file.Path" />
     <classNode dependClassName="java.nio.file.Paths" />
     <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.HashMap" />
@@ -59,6 +65,7 @@
     <classNode dependClassName="org.apache.log4j.Level" />
     <classNode dependClassName="org.apache.log4j.LogManager" />
     <classNode dependClassName="org.apache.log4j.Logger" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />

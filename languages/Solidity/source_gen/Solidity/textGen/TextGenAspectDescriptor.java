@@ -83,6 +83,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new PayableFunctionDefinition_TextGen();
       case LanguageConceptSwitch.Plusplus:
         return new Plusplus_TextGen();
+      case LanguageConceptSwitch.PowerExpression:
+        return new PowerExpression_TextGen();
       case LanguageConceptSwitch.RequireStatement:
         return new RequireStatement_TextGen();
       case LanguageConceptSwitch.ReturnStatement:

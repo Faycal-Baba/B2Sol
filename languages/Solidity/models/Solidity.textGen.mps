@@ -2195,5 +2195,12 @@
       </node>
     </node>
   </node>
+  <node concept="WtQ9Q" id="5K$Fv9FDqa3">
+    <property role="3GE5qa" value="expressions" />
+    <ref role="WuzLi" to="lab4:5K$Fv9FDq9g" resolve="PowerExpression" />
+    <node concept="11bSqf" id="5K$Fv9FDqa4" role="11c4hB">
+      <node concept="3clFbS" id="5K$Fv9FDqa5" role="2VODD2" />
+    </node>
+  </node>
 </model>
 

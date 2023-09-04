@@ -18,6 +18,7 @@ import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import Application.ImporterLogic.Importer;
+import java.nio.file.Path;
 
 public class ImportBModel_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -63,7 +64,7 @@ public class ImportBModel_Action extends BaseAction {
     final VirtualFile selectedFile = FileChooser.chooseFile(FileChooserDescriptorFactory.createSingleFileDescriptor("imp"), event.getData(CommonDataKeys.PROJECT), null);
 
     if (selectedFile == null) {
-      System.out.println("selected File == null for some reasons");
+      System.out.println("NO MODEL SELECTED");
       return;
     }
 
@@ -71,15 +72,22 @@ public class ImportBModel_Action extends BaseAction {
     event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository().getModelAccess().executeCommandInEDT(new Runnable() {
       public void run() {
         try {
-          SNode test = Importer.importData(selectedFile.getPath());
-
-          System.out.println("adding new model to model");
-          event.getData(MPSCommonDataKeys.MODEL).addRootNode(test);
+          // using the helper class 'Importer' to import and parse the text file A and generate an A model   
+          SNode machineModel = Importer.importData(selectedFile.getPath());
+          // adding the new A model to the sandbox   
+          event.getData(MPSCommonDataKeys.MODEL).addRootNode(machineModel);
+          // generate text using TextGeneratorEngine 
 
         } catch (Exception exception) {
-          System.out.println("exception");
+          System.out.println("exception" + exception.getMessage());
         }
       }
     });
+
+
+  }
+  /*package*/ Path getPath(VirtualFile pathToImpFile, final AnActionEvent event) {
+    Path toNioPath = pathToImpFile.toNioPath().getParent();
+    return toNioPath;
   }
 }

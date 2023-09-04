@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
-  <dependency className="B.textGen.ArrayElement_TextGen">
+  <dependency className="B.textGen.BArrayAccessExpression_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
   <dependency className="B.textGen.BBalanceOf_TextGen">
@@ -33,12 +34,6 @@
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
-  <dependency className="B.textGen.BFunctionCall_TextGen">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
-    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
-    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
-  </dependency>
   <dependency className="B.textGen.BIdentifier_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
@@ -49,6 +44,12 @@
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
   <dependency className="B.textGen.BIntegerLiteral_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
+  <dependency className="B.textGen.BMappingAccessExpression_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
@@ -89,6 +90,12 @@
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
+  <dependency className="B.textGen.BVarDec_TextGen">
+    <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
@@ -227,18 +234,19 @@
   </dependency>
   <dependency className="B.textGen.TextGenAspectDescriptor">
     <classNode dependClassName="B.structure.LanguageConceptSwitch" />
-    <classNode dependClassName="B.textGen.ArrayElement_TextGen" />
+    <classNode dependClassName="B.textGen.BArrayAccessExpression_TextGen" />
     <classNode dependClassName="B.textGen.BBalanceOf_TextGen" />
     <classNode dependClassName="B.textGen.BBinaryExpression_TextGen" />
     <classNode dependClassName="B.textGen.BFalseExpression_TextGen" />
-    <classNode dependClassName="B.textGen.BFunctionCall_TextGen" />
     <classNode dependClassName="B.textGen.BIdentifier_TextGen" />
     <classNode dependClassName="B.textGen.BIntegerLiteral_TextGen" />
+    <classNode dependClassName="B.textGen.BMappingAccessExpression_TextGen" />
     <classNode dependClassName="B.textGen.BNotExpression_TextGen" />
     <classNode dependClassName="B.textGen.BParenthesisExpression_TextGen" />
     <classNode dependClassName="B.textGen.BSpaceChar_TextGen" />
     <classNode dependClassName="B.textGen.BStringLiteral_TextGen" />
     <classNode dependClassName="B.textGen.BTrueExpression_TextGen" />
+    <classNode dependClassName="B.textGen.BVarDec_TextGen" />
     <classNode dependClassName="B.textGen.BecomesSubstitution_TextGen" />
     <classNode dependClassName="B.textGen.EnumeratedSet_TextGen" />
     <classNode dependClassName="B.textGen.Function_TextGen" />
@@ -253,6 +261,7 @@
     <classNode dependClassName="B.textGen.StructSet_TextGen" />
     <classNode dependClassName="B.textGen.TransferOperation_TextGen" />
     <classNode dependClassName="B.textGen.TypingPredicate_TextGen" />
+    <classNode dependClassName="B.textGen.VarIn_TextGen" />
     <classNode dependClassName="B.textGen.WhileInstruction_TextGen" />
     <classNode dependClassName="B.textGen.pred_TextGen" />
     <classNode dependClassName="B.textGen.succ_TextGen" />
@@ -285,6 +294,12 @@
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
+  <dependency className="B.textGen.VarIn_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
   <dependency className="B.textGen.WhileInstruction_TextGen">

@@ -1,0 +1,36 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(8) & _f(9) & _f(10) & WellDefinedness_set_allowanceOf.2,(_f(12) => _f(14));
+_f(1) & _f(2) & _f(3) & _f(8) & _f(9) & _f(10) & WellDefinedness_set_allowanceOf.1,(_f(12) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(8) & _f(9) & WellDefinedness_get_allowanceOf.4,(_f(12) => _f(17));
+_f(1) & _f(2) & _f(3) & _f(8) & _f(9) & WellDefinedness_get_allowanceOf.3,(_f(12) => _f(16));
+_f(1) & _f(2) & _f(3) & _f(8) & _f(9) & WellDefinedness_get_allowanceOf.2,(_f(12) => _f(14));
+_f(1) & _f(2) & _f(3) & _f(8) & _f(9) & WellDefinedness_get_allowanceOf.1,(_f(12) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & WellDefinedness_set_allowanceOf_abstract.2,(_f(12) => _f(14));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & WellDefinedness_set_allowanceOf_abstract.1,(_f(12) => _f(13));
+_f(1) & _f(2) & _f(3) & _f(8) & _f(9) & _f(10) & Operation_set_allowanceOf.1,(_f(6) => _f(11));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & Operation_set_allowanceOf_abstract.1,(_f(6) => _f(7))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((1..6)*{ADDRESS}): FIN(NATURAL*{ADDRESS})& not(((1..6)*{ADDRESS}) = {}) & BYTES: FIN(INTEGER) & not(BYTES = {}) & ((USERS) = ((((1..6)*{ADDRESS}) - ({(2|->ADDRESS)}\/{(1|->ADDRESS)})))) & ((init_msg_sender) : (USERS)) & ((init_msg_value) : (NAT)) & ((init_block_timestamp) : (NAT));
+allowanceOf : ((1..6)*{ADDRESS}) +-> ((((1..6)*{ADDRESS})) --> (NAT)) & dom(allowanceOf) = ((1..6)*{ADDRESS}) & ((allowanceOf) : (((((1..6)*{ADDRESS})) --> (((((1..6)*{ADDRESS})) --> (NAT))))));
+((key) : (((1..6)*{ADDRESS})));
+((updates) : (((((1..6)*{ADDRESS})) +-> (NAT))));
+"Invariant is preserved";
+((((allowanceOf) <+ (({((key) |-> ((((allowanceOf )(key)) <+ (updates))))})))) : (((((1..6)*{ADDRESS})) --> (((((1..6)*{ADDRESS})) --> (NAT))))));
+((key1) : (((1..6)*{ADDRESS})));
+((key2) : (((1..6)*{ADDRESS})));
+((value) : (NAT));
+((((allowanceOf) <+ (({((key1) |-> ((((allowanceOf )(key1)) <+ (({((key2) |-> (value))})))))})))) : (((((1..6)*{ADDRESS})) --> (((((1..6)*{ADDRESS})) --> (NAT))))));
+"Operation is well defined";
+((key) : (dom(allowanceOf)));
+((allowanceOf) : (((dom(allowanceOf)) +-> (ran(allowanceOf)))));
+((key1) : (dom(allowanceOf)));
+((key2) : (dom((allowanceOf )(key1))));
+(((allowanceOf )(key1)) : (((dom((allowanceOf )(key1))) +-> (ran((allowanceOf )(key1))))))
+END
+&
+THEORY EnumerateX IS
+ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3,addr_4}
+END

@@ -287,6 +287,12 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
+  <dependency className="Solidity.textGen.PowerExpression_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
   <dependency className="Solidity.textGen.RequireStatement_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
@@ -392,6 +398,7 @@
     <classNode dependClassName="Solidity.textGen.ParenthesisExpression_TextGen" />
     <classNode dependClassName="Solidity.textGen.PayableFunctionDefinition_TextGen" />
     <classNode dependClassName="Solidity.textGen.Plusplus_TextGen" />
+    <classNode dependClassName="Solidity.textGen.PowerExpression_TextGen" />
     <classNode dependClassName="Solidity.textGen.RequireStatement_TextGen" />
     <classNode dependClassName="Solidity.textGen.ReturnStatement_TextGen" />
     <classNode dependClassName="Solidity.textGen.SolidityGlobalVariables_TextGen" />

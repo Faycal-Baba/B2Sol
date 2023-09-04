@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Machine xmlns='https://www.atelierb.eu/Formats/bxml' version='1.0' name='account' type='abstraction' position='true' semantic='true' b0check='false'>
+<Sees>
+<Attr>
+<Pos l='4' c='1' s='4'/>
+</Attr>
+<Referenced_Machine>
+<Attr>
+<Pos l='5' c='5' s='14'/>
+</Attr>
+<Name>Solidity_Types</Name>
+</Referenced_Machine>
+</Sees>
+<Abstract_Variables>
+<Attr>
+<Pos l='6' c='1' s='18'/>
+</Attr>
+<Id value='accountOf' typref='4'>
+<Attr>
+<Pos l='7' c='5' s='9'/>
+</Attr>
+</Id>
+</Abstract_Variables>
+<Invariant>
+<Attr>
+<Pos l='8' c='1' s='9'/>
+</Attr>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='9' c='15' s='1'/>
+</Attr>
+<Id value='accountOf' typref='4'>
+<Attr>
+<Pos l='9' c='5' s='9'/>
+</Attr>
+</Id>
+<Binary_Exp op='--&gt;' typref='5'>
+<Attr>
+<Pos l='9' c='25' s='3'/>
+</Attr>
+<Id value='ADDRESS' typref='6'>
+<Attr>
+<Pos l='9' c='17' s='7'/>
+</Attr>
+</Id>
+<Id value='NAT' typref='2'>
+<Attr>
+<Pos l='9' c='29' s='3'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Exp_Comparison>
+</Invariant>
+<Initialisation>
+<Attr>
+<Pos l='10' c='1' s='14'/>
+</Attr>
+<Assignement_Sub>
+<Attr>
+<Pos l='11' c='15' s='2'/>
+</Attr>
+<Variables>
+<Id value='accountOf' typref='4'>
+<Attr>
+<Pos l='11' c='5' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='*s' typref='4'>
+<Attr>
+<Pos l='11' c='26' s='1'/>
+</Attr>
+<Id value='ADDRESS' typref='6'>
+<Attr>
+<Pos l='11' c='18' s='7'/>
+</Attr>
+</Id>
+<Nary_Exp op='{' typref='2'>
+<Attr>
+<Pos l='11' c='28' s='1'/>
+</Attr>
+<Integer_Literal value='0' typref='1'>
+<Attr>
+<Pos l='11' c='29' s='1'/>
+</Attr>
+</Integer_Literal>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Initialisation>
+<Operations>
+<Operation name='get_accountOf'>
+<Attr>
+<Pos l='15' c='5' s='3' endLine='20'/>
+</Attr>
+<Output_Parameters>
+<Id value='ret' typref='1'>
+<Attr>
+<Pos l='15' c='5' s='3'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Input_Parameters>
+<Id value='key' typref='7'>
+<Attr>
+<Pos l='15' c='27' s='3'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Precondition>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='17' c='13' s='1'/>
+</Attr>
+<Id value='key' typref='7'>
+<Attr>
+<Pos l='17' c='9' s='3'/>
+</Attr>
+</Id>
+<Id value='ADDRESS' typref='6'>
+<Attr>
+<Pos l='17' c='15' s='7'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Precondition>
+<Body>
+<Assignement_Sub>
+<Attr>
+<Pos l='19' c='13' s='2'/>
+</Attr>
+<Variables>
+<Id value='ret' typref='1'>
+<Attr>
+<Pos l='19' c='9' s='3'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='(' typref='1'>
+<Attr>
+<Pos l='19' c='25' s='0'/>
+</Attr>
+<Id value='accountOf' typref='4'>
+<Attr>
+<Pos l='19' c='16' s='9'/>
+</Attr>
+</Id>
+<Id value='key' typref='7'>
+<Attr>
+<Pos l='19' c='26' s='3'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+<Operation name='set_accountOf_abstract'>
+<Attr>
+<Pos l='22' c='5' s='22' endLine='28'/>
+</Attr>
+<Input_Parameters>
+<Id value='updates' typref='4'>
+<Attr>
+<Pos l='22' c='28' s='7'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Precondition>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='24' c='17' s='1'/>
+</Attr>
+<Id value='updates' typref='4'>
+<Attr>
+<Pos l='24' c='9' s='7'/>
+</Attr>
+</Id>
+<Binary_Exp op='+-&gt;' typref='5'>
+<Attr>
+<Pos l='24' c='27' s='3'/>
+</Attr>
+<Id value='ADDRESS' typref='6'>
+<Attr>
+<Pos l='24' c='19' s='7'/>
+</Attr>
+</Id>
+<Id value='NAT' typref='2'>
+<Attr>
+<Pos l='24' c='31' s='3'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Exp_Comparison>
+</Precondition>
+<Body>
+<Assignement_Sub>
+<Attr>
+<Pos l='27' c='19' s='2'/>
+</Attr>
+<Variables>
+<Id value='accountOf' typref='4'>
+<Attr>
+<Pos l='27' c='9' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;+' typref='4'>
+<Attr>
+<Pos l='27' c='32' s='2'/>
+</Attr>
+<Id value='accountOf' typref='4'>
+<Attr>
+<Pos l='27' c='22' s='9'/>
+</Attr>
+</Id>
+<Id value='updates' typref='4'>
+<Attr>
+<Pos l='27' c='35' s='7'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+<Operation name='set_accountOf'>
+<Attr>
+<Pos l='30' c='5' s='13' endLine='35'/>
+</Attr>
+<Input_Parameters>
+<Id value='key' typref='7'>
+<Attr>
+<Pos l='30' c='19' s='3'/>
+</Attr>
+</Id>
+<Id value='value' typref='1'>
+<Attr>
+<Pos l='30' c='24' s='5'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='32' c='13' s='1'/>
+</Attr>
+<Id value='key' typref='7'>
+<Attr>
+<Pos l='32' c='9' s='3'/>
+</Attr>
+</Id>
+<Id value='ADDRESS' typref='6'>
+<Attr>
+<Pos l='32' c='15' s='7'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='32' c='31' s='1'/>
+</Attr>
+<Id value='value' typref='1'>
+<Attr>
+<Pos l='32' c='25' s='5'/>
+</Attr>
+</Id>
+<Id value='NAT' typref='2'>
+<Attr>
+<Pos l='32' c='33' s='3'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Assignement_Sub>
+<Attr>
+<Pos l='34' c='24' s='2'/>
+</Attr>
+<Variables>
+<Binary_Exp op='(' typref='1'>
+<Attr>
+<Pos l='34' c='18' s='0'/>
+</Attr>
+<Id value='accountOf' typref='4'>
+<Attr>
+<Pos l='34' c='9' s='9'/>
+</Attr>
+</Id>
+<Id value='key' typref='7'>
+<Attr>
+<Pos l='34' c='19' s='3'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Variables>
+<Values>
+<Id value='value' typref='1'>
+<Attr>
+<Pos l='34' c='27' s='5'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+</Operations>
+<TypeInfos>
+<Type id='0'>
+<Id value='BOOL'/>
+</Type>
+<Type id='1'>
+<Id value='INTEGER'/>
+</Type>
+<Type id='2'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Type>
+<Type id='3'>
+<Unary_Exp op='POW'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id='4'>
+<Unary_Exp op='POW'>
+<Binary_Exp op='*'>
+<Id value='ADDRESS'/>
+<Id value='INTEGER'/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id='5'>
+<Unary_Exp op='POW'>
+<Unary_Exp op='POW'>
+<Binary_Exp op='*'>
+<Id value='ADDRESS'/>
+<Id value='INTEGER'/>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id='6'>
+<Unary_Exp op='POW'>
+<Id value='ADDRESS'/>
+</Unary_Exp>
+</Type>
+<Type id='7'>
+<Id value='ADDRESS'/>
+</Type>
+</TypeInfos>
+
+</Machine>

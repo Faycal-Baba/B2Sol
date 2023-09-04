@@ -23,20 +23,20 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
-      case LanguageConceptSwitch.ArrayElement:
-        return new ArrayElement_TextGen();
+      case LanguageConceptSwitch.BArrayAccessExpression:
+        return new BArrayAccessExpression_TextGen();
       case LanguageConceptSwitch.BBalanceOf:
         return new BBalanceOf_TextGen();
       case LanguageConceptSwitch.BBinaryExpression:
         return new BBinaryExpression_TextGen();
       case LanguageConceptSwitch.BFalseExpression:
         return new BFalseExpression_TextGen();
-      case LanguageConceptSwitch.BFunctionCall:
-        return new BFunctionCall_TextGen();
       case LanguageConceptSwitch.BIdentifier:
         return new BIdentifier_TextGen();
       case LanguageConceptSwitch.BIntegerLiteral:
         return new BIntegerLiteral_TextGen();
+      case LanguageConceptSwitch.BMappingAccessExpression:
+        return new BMappingAccessExpression_TextGen();
       case LanguageConceptSwitch.BNotExpression:
         return new BNotExpression_TextGen();
       case LanguageConceptSwitch.BParenthesisExpression:
@@ -47,6 +47,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new BStringLiteral_TextGen();
       case LanguageConceptSwitch.BTrueExpression:
         return new BTrueExpression_TextGen();
+      case LanguageConceptSwitch.BVarDec:
+        return new BVarDec_TextGen();
       case LanguageConceptSwitch.BecomesSubstitution:
         return new BecomesSubstitution_TextGen();
       case LanguageConceptSwitch.EnumeratedSet:
@@ -75,6 +77,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new TransferOperation_TextGen();
       case LanguageConceptSwitch.TypingPredicate:
         return new TypingPredicate_TextGen();
+      case LanguageConceptSwitch.VarIn:
+        return new VarIn_TextGen();
       case LanguageConceptSwitch.WhileInstruction:
         return new WhileInstruction_TextGen();
       case LanguageConceptSwitch.pred:

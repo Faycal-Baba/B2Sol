@@ -10,7 +10,6 @@ SEES
 
 ABSTRACT_VARIABLES
     balanceOf
-
 INVARIANT
     balanceOf : ADDRESS --> NAT    
 

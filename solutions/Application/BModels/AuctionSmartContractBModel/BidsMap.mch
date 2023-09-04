@@ -22,12 +22,19 @@ OPERATIONS
         ret := bids(key)
     END
     ;
-    set_bids(updates) = 
+    set_bids_abstract(updates) = 
     PRE
         updates : ADDRESS +-> NAT
         
     THEN
         bids := bids <+ updates
     END
-
+    ;
+    set_bids(key, value) = 
+    PRE
+        key : ADDRESS & value : NAT 
+        
+    THEN
+        bids(key):= value
+    END
 END

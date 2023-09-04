@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="B.sandbox" uuid="fc0a0f92-573a-4741-92ae-ed1f1053d19a" moduleVersion="0" compileInMPS="true">
+<solution name="B.sandbox" uuid="fc0a0f92-573a-4741-92ae-ed1f1053d19a" moduleVersion="0" compileInMPS="true" generatorOutputPath="C:/Users/ASUS/Documents/PhD/MPS_Projects/Projects/solutions/Application/generated Solidity files">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

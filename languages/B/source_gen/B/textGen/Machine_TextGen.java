@@ -21,7 +21,6 @@ public class Machine_TextGen extends TextGenDescriptorBase {
     tgs.append("MACHINE");
     tgs.append(" ");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
-    tgs.append("");
     tgs.newLine();
     tgs.indent();
     tgs.append("SETS");

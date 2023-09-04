@@ -10,9 +10,11 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_ArithmeticBinaryExpression;
-  private ConceptPresentation props_ArrayElement;
   private ConceptPresentation props_BAddress;
   private ConceptPresentation props_BAndExpression;
+  private ConceptPresentation props_BArrayAccessExpression;
+  private ConceptPresentation props_BArrayDimension;
+  private ConceptPresentation props_BArrayType;
   private ConceptPresentation props_BBalanceOf;
   private ConceptPresentation props_BBinaryExpression;
   private ConceptPresentation props_BBinaryLogicalExpression;
@@ -22,7 +24,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_BEqualExpression;
   private ConceptPresentation props_BExpression;
   private ConceptPresentation props_BFalseExpression;
-  private ConceptPresentation props_BFunctionCall;
   private ConceptPresentation props_BFunctionIndex;
   private ConceptPresentation props_BGreaterThanExpression;
   private ConceptPresentation props_BGreaterThanOrEqualExpression;
@@ -34,6 +35,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_BLessThanOrEqualExpression;
   private ConceptPresentation props_BLhsExpression;
   private ConceptPresentation props_BLogicalExpression;
+  private ConceptPresentation props_BMappingAccessExpression;
   private ConceptPresentation props_BMinusExpression;
   private ConceptPresentation props_BModuloExpression;
   private ConceptPresentation props_BMultExpression;
@@ -44,14 +46,15 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_BParenthesisExpression;
   private ConceptPresentation props_BPlusExpression;
   private ConceptPresentation props_BPowerExpression;
+  private ConceptPresentation props_BRecordExpression;
   private ConceptPresentation props_BSender;
   private ConceptPresentation props_BSpaceChar;
   private ConceptPresentation props_BString;
   private ConceptPresentation props_BStringLiteral;
+  private ConceptPresentation props_BStructMemberAccess;
   private ConceptPresentation props_BTrueExpression;
-  private ConceptPresentation props_BUpdate;
-  private ConceptPresentation props_BUpdateExpression;
   private ConceptPresentation props_BValue;
+  private ConceptPresentation props_BVarDec;
   private ConceptPresentation props_BecomesSubstitution;
   private ConceptPresentation props_ConstantValuation;
   private ConceptPresentation props_ElseIf;
@@ -67,7 +70,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_InstructionList;
   private ConceptPresentation props_Machine;
   private ConceptPresentation props_MappignGet;
-  private ConceptPresentation props_MappingUpdate;
   private ConceptPresentation props_NullAddress;
   private ConceptPresentation props_Operation;
   private ConceptPresentation props_Predicate;
@@ -101,13 +103,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ArithmeticBinaryExpression = cpb.create();
         }
         return props_ArithmeticBinaryExpression;
-      case LanguageConceptSwitch.ArrayElement:
-        if (props_ArrayElement == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("[");
-          props_ArrayElement = cpb.create();
-        }
-        return props_ArrayElement;
       case LanguageConceptSwitch.BAddress:
         if (props_BAddress == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -122,6 +117,27 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BAndExpression = cpb.create();
         }
         return props_BAndExpression;
+      case LanguageConceptSwitch.BArrayAccessExpression:
+        if (props_BArrayAccessExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("[");
+          props_BArrayAccessExpression = cpb.create();
+        }
+        return props_BArrayAccessExpression;
+      case LanguageConceptSwitch.BArrayDimension:
+        if (props_BArrayDimension == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("BArrayDimension");
+          props_BArrayDimension = cpb.create();
+        }
+        return props_BArrayDimension;
+      case LanguageConceptSwitch.BArrayType:
+        if (props_BArrayType == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("array");
+          props_BArrayType = cpb.create();
+        }
+        return props_BArrayType;
       case LanguageConceptSwitch.BBalanceOf:
         if (props_BBalanceOf == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -183,13 +199,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BFalseExpression = cpb.create();
         }
         return props_BFalseExpression;
-      case LanguageConceptSwitch.BFunctionCall:
-        if (props_BFunctionCall == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("fun");
-          props_BFunctionCall = cpb.create();
-        }
-        return props_BFunctionCall;
       case LanguageConceptSwitch.BFunctionIndex:
         if (props_BFunctionIndex == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -265,6 +274,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BLogicalExpression = cpb.create();
         }
         return props_BLogicalExpression;
+      case LanguageConceptSwitch.BMappingAccessExpression:
+        if (props_BMappingAccessExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("fun");
+          props_BMappingAccessExpression = cpb.create();
+        }
+        return props_BMappingAccessExpression;
       case LanguageConceptSwitch.BMinusExpression:
         if (props_BMinusExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -335,6 +351,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BPowerExpression = cpb.create();
         }
         return props_BPowerExpression;
+      case LanguageConceptSwitch.BRecordExpression:
+        if (props_BRecordExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("rec");
+          props_BRecordExpression = cpb.create();
+        }
+        return props_BRecordExpression;
       case LanguageConceptSwitch.BSender:
         if (props_BSender == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -363,6 +386,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BStringLiteral = cpb.create();
         }
         return props_BStringLiteral;
+      case LanguageConceptSwitch.BStructMemberAccess:
+        if (props_BStructMemberAccess == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("BStructMemberAccess");
+          props_BStructMemberAccess = cpb.create();
+        }
+        return props_BStructMemberAccess;
       case LanguageConceptSwitch.BTrueExpression:
         if (props_BTrueExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -370,20 +400,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BTrueExpression = cpb.create();
         }
         return props_BTrueExpression;
-      case LanguageConceptSwitch.BUpdate:
-        if (props_BUpdate == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("BUpdate");
-          props_BUpdate = cpb.create();
-        }
-        return props_BUpdate;
-      case LanguageConceptSwitch.BUpdateExpression:
-        if (props_BUpdateExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("BUpdateExpression");
-          props_BUpdateExpression = cpb.create();
-        }
-        return props_BUpdateExpression;
       case LanguageConceptSwitch.BValue:
         if (props_BValue == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -391,6 +407,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BValue = cpb.create();
         }
         return props_BValue;
+      case LanguageConceptSwitch.BVarDec:
+        if (props_BVarDec == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("BVarDec");
+          props_BVarDec = cpb.create();
+        }
+        return props_BVarDec;
       case LanguageConceptSwitch.BecomesSubstitution:
         if (props_BecomesSubstitution == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -495,13 +518,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_MappignGet = cpb.create();
         }
         return props_MappignGet;
-      case LanguageConceptSwitch.MappingUpdate:
-        if (props_MappingUpdate == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("MappingUpdate");
-          props_MappingUpdate = cpb.create();
-        }
-        return props_MappingUpdate;
       case LanguageConceptSwitch.NullAddress:
         if (props_NullAddress == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
