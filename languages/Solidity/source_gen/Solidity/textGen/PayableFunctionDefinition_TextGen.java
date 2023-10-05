@@ -38,6 +38,20 @@ public class PayableFunctionDefinition_TextGen extends TextGenDescriptorBase {
     tgs.append(" ");
     tgs.append("public");
     tgs.append(" ");
+    if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.outputParameters$2eRS) != null && !(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.outputParameters$2eRS), LINKS.parameters$ZePM)).isEmpty())) {
+      tgs.append("returns");
+      tgs.append("(");
+      for (SNode op : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.outputParameters$2eRS), LINKS.parameters$ZePM))) {
+        tgs.appendNode(op);
+        if ((SNodeOperations.getNextSibling(op) != null)) {
+          tgs.append(",");
+          tgs.append(" ");
+        }
+      }
+      tgs.append(" ");
+      tgs.append(")");
+      tgs.append(" ");
+    }
     tgs.append("{");
     tgs.newLine();
     tgs.increaseIndent();
@@ -59,6 +73,8 @@ public class PayableFunctionDefinition_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink inputParameters$2eCR = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6415fe5db89abbdaL, 0x6415fe5db89abbdbL, "inputParameters");
+    /*package*/ static final SContainmentLink outputParameters$2eRS = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6415fe5db89abbdaL, 0x6415fe5db89abbdcL, "outputParameters");
+    /*package*/ static final SContainmentLink parameters$ZePM = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be6346L, 0x6d3985c698be636eL, "parameters");
     /*package*/ static final SContainmentLink body$2f6T = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6415fe5db89abbdaL, 0x6415fe5db89abbddL, "body");
   }
 }

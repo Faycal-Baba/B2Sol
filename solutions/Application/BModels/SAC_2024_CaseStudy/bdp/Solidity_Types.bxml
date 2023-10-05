@@ -36,17 +36,12 @@
 <Pos l='5' c='46' s='6'/>
 </Attr>
 </Id>
-<Id value='addr_4' typref='5'>
-<Attr>
-<Pos l='5' c='54' s='6'/>
-</Attr>
-</Id>
 </Enumerated_Values>
 </Set>
 <Set>
 <Id value='BYTES' typref='6'>
 <Attr>
-<Pos l='5' c='63' s='5'/>
+<Pos l='5' c='55' s='5'/>
 </Attr>
 </Id>
 </Set>

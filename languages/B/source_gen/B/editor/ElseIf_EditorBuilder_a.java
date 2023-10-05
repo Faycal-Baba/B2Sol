@@ -150,20 +150,20 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new substitutionsListHandler_kjkpu3_a1a(myNode, getEditorContext());
+    AbstractCellListHandler handler = new instrListHandler_kjkpu3_a1a(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Vertical(), false);
-    editorCell.setCellId("refNodeList_substitutions");
+    editorCell.setCellId("refNodeList_instr");
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
     editorCell.getStyle().putAll(style);
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class substitutionsListHandler_kjkpu3_a1a extends RefNodeListHandler {
+  private static class instrListHandler_kjkpu3_a1a extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public substitutionsListHandler_kjkpu3_a1a(SNode ownerNode, EditorContext context) {
+    public instrListHandler_kjkpu3_a1a(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -173,7 +173,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.substitutions$QmAM;
+      return LINKS.instr$QmAM;
     }
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.Instruction$Rh;
@@ -186,7 +186,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(substitutionsListHandler_kjkpu3_a1a.this.getNode(), LINKS.substitutions$QmAM));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(instrListHandler_kjkpu3_a1a.this.getNode(), LINKS.instr$QmAM));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -229,7 +229,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$Qhdr = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L, 0x1ace29e015cd4416L, "condition");
-    /*package*/ static final SContainmentLink substitutions$QmAM = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L, 0x1ace29e015cd4418L, "substitutions");
+    /*package*/ static final SContainmentLink instr$QmAM = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L, 0x1ace29e015cd4418L, "instr");
   }
 
   private static final class CONCEPTS {

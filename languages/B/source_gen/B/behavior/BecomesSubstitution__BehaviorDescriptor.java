@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -25,8 +26,9 @@ public final class BecomesSubstitution__BehaviorDescriptor extends BaseBHDescrip
 
   public static final SMethod<Void> setExpr_id5vMBZAy74R1 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setExpr").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy74R1").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> setLhs_id5vMBZAy74U5 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setLhs").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy74U5").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> setLhs_id2mhMzvQw4UA = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setLhs").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2mhMzvQw4UA").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(setExpr_id5vMBZAy74R1, setLhs_id5vMBZAy74U5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(setExpr_id5vMBZAy74R1, setLhs_id5vMBZAy74U5, setLhs_id2mhMzvQw4UA);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -36,6 +38,11 @@ public final class BecomesSubstitution__BehaviorDescriptor extends BaseBHDescrip
   }
   /*package*/ static void setLhs_id5vMBZAy74U5(@NotNull SNode __thisNode__, SNode lhsExpr) {
     SLinkOperations.setTarget(__thisNode__, LINKS.lhs$AG5Q, lhsExpr);
+  }
+  /*package*/ static void setLhs_id2mhMzvQw4UA(@NotNull SNode __thisNode__, String text) {
+    SNode id = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier"));
+    BIdentifier__BehaviorDescriptor.setName_id7B8mKgzi8Kz.invoke(id, text);
+    SLinkOperations.setTarget(__thisNode__, LINKS.lhs$AG5Q, id);
   }
 
   /*package*/ BecomesSubstitution__BehaviorDescriptor() {
@@ -58,6 +65,9 @@ public final class BecomesSubstitution__BehaviorDescriptor extends BaseBHDescrip
         return null;
       case 1:
         setLhs_id5vMBZAy74U5(node, (SNode) parameters[0]);
+        return null;
+      case 2:
+        setLhs_id2mhMzvQw4UA(node, (String) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);

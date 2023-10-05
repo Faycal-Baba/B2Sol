@@ -9,8 +9,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Constructor_TextGen extends TextGenDescriptorBase {
   @Override
@@ -29,10 +31,12 @@ public class Constructor_TextGen extends TextGenDescriptorBase {
       }
     }
     tgs.append(")");
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.payable$DvKB) == true) {
+      tgs.append("payable");
+    }
     tgs.append("{");
     tgs.newLine();
     for (SNode st : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.body$msGf))) {
-
       tgs.indent();
       tgs.appendNode(st);
       tgs.newLine();
@@ -45,5 +49,9 @@ public class Constructor_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink inputParameters$m5VI = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be3db8L, 0x6d3985c698be63d8L, "inputParameters");
     /*package*/ static final SContainmentLink body$msGf = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be3db8L, 0x6d3985c698be63faL, "body");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty payable$DvKB = MetaAdapterFactory.getProperty(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be3db8L, 0x86a6df74eb20810L, "payable");
   }
 }

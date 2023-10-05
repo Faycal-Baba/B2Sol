@@ -141,7 +141,7 @@ THEORY ListConstantsX IS
 END
 &
 THEORY ListSetsX IS
-  Set_Definition(Machine(depositedOver100),ADDRESS)==({addr_0,THIS,addr_1,addr_2,addr_3,addr_4});
+  Set_Definition(Machine(depositedOver100),ADDRESS)==({addr_0,THIS,addr_1,addr_2,addr_3});
   Context_List_Enumerated(Machine(depositedOver100))==(ADDRESS);
   Context_List_Defered(Machine(depositedOver100))==(BYTES);
   Context_List_Sets(Machine(depositedOver100))==(ADDRESS,BYTES);
@@ -191,7 +191,7 @@ THEORY ListOfIdsX IS
   List_Of_VisibleCst_Ids(Machine(depositedOver100)) == (?);
   List_Of_VisibleVar_Ids(Machine(depositedOver100)) == (? | ?);
   List_Of_Ids_SeenBNU(Machine(depositedOver100)) == (?: ?);
-  List_Of_Ids(Machine(Solidity_Types)) == (init_msg_sender,init_msg_value,USERS,init_block_timestamp,ADDRESS,BYTES,addr_0,THIS,addr_1,addr_2,addr_3,addr_4 | ? | ? | ? | ? | ? | ? | ? | Solidity_Types);
+  List_Of_Ids(Machine(Solidity_Types)) == (init_msg_sender,init_msg_value,USERS,init_block_timestamp,ADDRESS,BYTES,addr_0,THIS,addr_1,addr_2,addr_3 | ? | ? | ? | ? | ? | ? | ? | Solidity_Types);
   List_Of_HiddenCst_Ids(Machine(Solidity_Types)) == (? | ?);
   List_Of_VisibleCst_Ids(Machine(Solidity_Types)) == (init_msg_sender,init_msg_value,USERS,init_block_timestamp);
   List_Of_VisibleVar_Ids(Machine(Solidity_Types)) == (? | ?);
@@ -199,7 +199,7 @@ THEORY ListOfIdsX IS
 END
 &
 THEORY VariablesEnvX IS
-  Variables(Machine(depositedOver100)) == (Type(depositedOver_100) == Mvl(SetOf(etype(ADDRESS,0,5)*btype(BOOL,0,1))))
+  Variables(Machine(depositedOver100)) == (Type(depositedOver_100) == Mvl(SetOf(etype(ADDRESS,0,4)*btype(BOOL,0,1))))
 END
 &
 THEORY OperationsEnvX IS

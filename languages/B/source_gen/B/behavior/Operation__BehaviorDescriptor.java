@@ -34,13 +34,14 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> addAllTypingPredicates_id7HMlmOJW2It = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addAllTypingPredicates").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7HMlmOJW2It").build(SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
   public static final SMethod<Void> setName_id5vMBZAy7FbG = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7FbG").build(SMethodBuilder.createJavaParameter(String.class, ""));
   public static final SMethod<Void> addTypingPredicate_id5vMBZAy7HPw = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addTypingPredicate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7HPw").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> addOutputParam_id2frd_pONN_4 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addOutputParam").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2frd_pONN_4").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(String.class, ""));
   public static final SMethod<Void> addInstruction_id5vMBZAy7M8e = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addInstruction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7M8e").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> addPrecondition_id5vMBZAy7QHu = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addPrecondition").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vMBZAy7QHu").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> setInputParam_id1Qhl$$IKL0o = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setInputParam").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1Qhl$$IKL0o").build(SMethodBuilder.createJavaParameter((Class<List<String>>) ((Class) Object.class), ""));
   public static final SMethod<Void> addInputParam_id5wdOlJ2mvKy = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addInputParam").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5wdOlJ2mvKy").build(SMethodBuilder.createJavaParameter(String.class, ""));
   public static final SMethod<Void> addAllPreconditions_id7HMlmOJWIST = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addAllPreconditions").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7HMlmOJWIST").build(SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(BalanceStrictEqualityCheck_id283pMPgAuW2, checkIfReentrant_idmRvs4iaW_k, addAllTypingPredicates_id7HMlmOJW2It, setName_id5vMBZAy7FbG, addTypingPredicate_id5vMBZAy7HPw, addInstruction_id5vMBZAy7M8e, addPrecondition_id5vMBZAy7QHu, setInputParam_id1Qhl$$IKL0o, addInputParam_id5wdOlJ2mvKy, addAllPreconditions_id7HMlmOJWIST);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(BalanceStrictEqualityCheck_id283pMPgAuW2, checkIfReentrant_idmRvs4iaW_k, addAllTypingPredicates_id7HMlmOJW2It, setName_id5vMBZAy7FbG, addTypingPredicate_id5vMBZAy7HPw, addOutputParam_id2frd_pONN_4, addInstruction_id5vMBZAy7M8e, addPrecondition_id5vMBZAy7QHu, setInputParam_id1Qhl$$IKL0o, addInputParam_id5wdOlJ2mvKy, addAllPreconditions_id7HMlmOJWIST);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -81,6 +82,12 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static void addTypingPredicate_id5vMBZAy7HPw(@NotNull SNode __thisNode__, SNode tp) {
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typingPredicates$4o75)).addElement(tp);
+  }
+  /*package*/ static void addOutputParam_id2frd_pONN_4(@NotNull SNode __thisNode__, SNode set, String name) {
+    SNode tpp = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698f14dd9L, "B.structure.TypingPredicateParameter"));
+    TypingPredicate__BehaviorDescriptor.setName_id5vMBZAy5RAC.invoke(tpp, name);
+    TypingPredicate__BehaviorDescriptor.setSet_id5vMBZAy5UgC.invoke(tpp, set);
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.outputParamType$EWfy)).addElement(tpp);
   }
   /*package*/ static void addInstruction_id5vMBZAy7M8e(@NotNull SNode __thisNode__, SNode instr) {
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.body$4v9z)).addElement(instr);
@@ -133,18 +140,21 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
         addTypingPredicate_id5vMBZAy7HPw(node, (SNode) parameters[0]);
         return null;
       case 5:
-        addInstruction_id5vMBZAy7M8e(node, (SNode) parameters[0]);
+        addOutputParam_id2frd_pONN_4(node, (SNode) parameters[0], (String) parameters[1]);
         return null;
       case 6:
-        addPrecondition_id5vMBZAy7QHu(node, (SNode) parameters[0]);
+        addInstruction_id5vMBZAy7M8e(node, (SNode) parameters[0]);
         return null;
       case 7:
-        setInputParam_id1Qhl$$IKL0o(node, (List<String>) parameters[0]);
+        addPrecondition_id5vMBZAy7QHu(node, (SNode) parameters[0]);
         return null;
       case 8:
-        addInputParam_id5wdOlJ2mvKy(node, (String) parameters[0]);
+        setInputParam_id1Qhl$$IKL0o(node, (List<String>) parameters[0]);
         return null;
       case 9:
+        addInputParam_id5wdOlJ2mvKy(node, (String) parameters[0]);
+        return null;
+      case 10:
         addAllPreconditions_id7HMlmOJWIST(node, (List<SNode>) parameters[0]);
         return null;
       default:
@@ -181,6 +191,7 @@ public final class Operation__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SContainmentLink body$4v9z = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L, 0x6d3985c698ada6a2L, "body");
     /*package*/ static final SContainmentLink from$fZyX = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce476396f5L, 0x3d1067ce476396f8L, "from");
     /*package*/ static final SContainmentLink typingPredicates$4o75 = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L, 0x6d3985c698ada699L, "typingPredicates");
+    /*package*/ static final SContainmentLink outputParamType$EWfy = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L, 0x21300da940bef9e9L, "outputParamType");
     /*package*/ static final SContainmentLink inputParameters$4i0F = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L, 0x6d3985c698ada694L, "inputParameters");
   }
 

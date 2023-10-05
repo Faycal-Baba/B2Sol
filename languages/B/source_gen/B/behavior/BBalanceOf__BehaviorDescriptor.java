@@ -31,7 +31,7 @@ public final class BBalanceOf__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static void setExpr_id5vMBZAy74$9(@NotNull SNode __thisNode__, SNode expr) {
-    SLinkOperations.setTarget(__thisNode__, LINKS.name$Bgnm, expr);
+    SLinkOperations.setTarget(__thisNode__, LINKS.expr$Bgnm, expr);
   }
 
   /*package*/ BBalanceOf__BehaviorDescriptor() {
@@ -82,6 +82,6 @@ public final class BBalanceOf__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink name$Bgnm = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6eb31L, 0x62dd0bd8e6ab9332L, "name");
+    /*package*/ static final SContainmentLink expr$Bgnm = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6eb31L, 0x62dd0bd8e6ab9332L, "expr");
   }
 }

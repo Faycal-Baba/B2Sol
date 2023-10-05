@@ -116,7 +116,7 @@ THEORY ListConstantsX IS
 END
 &
 THEORY ListSetsX IS
-  Set_Definition(Machine(Solidity_Types),ADDRESS)==({addr_0,THIS,addr_1,addr_2,addr_3,addr_4});
+  Set_Definition(Machine(Solidity_Types),ADDRESS)==({addr_0,THIS,addr_1,addr_2,addr_3});
   Context_List_Enumerated(Machine(Solidity_Types))==(?);
   Context_List_Defered(Machine(Solidity_Types))==(?);
   Context_List_Sets(Machine(Solidity_Types))==(?);
@@ -149,7 +149,7 @@ THEORY ListSeenInfoX END
 THEORY ListANYVarX END
 &
 THEORY ListOfIdsX IS
-  List_Of_Ids(Machine(Solidity_Types)) == (init_msg_sender,init_msg_value,USERS,init_block_timestamp,ADDRESS,BYTES,addr_0,THIS,addr_1,addr_2,addr_3,addr_4 | ? | ? | ? | ? | ? | ? | ? | Solidity_Types);
+  List_Of_Ids(Machine(Solidity_Types)) == (init_msg_sender,init_msg_value,USERS,init_block_timestamp,ADDRESS,BYTES,addr_0,THIS,addr_1,addr_2,addr_3 | ? | ? | ? | ? | ? | ? | ? | Solidity_Types);
   List_Of_HiddenCst_Ids(Machine(Solidity_Types)) == (? | ?);
   List_Of_VisibleCst_Ids(Machine(Solidity_Types)) == (init_msg_sender,init_msg_value,USERS,init_block_timestamp);
   List_Of_VisibleVar_Ids(Machine(Solidity_Types)) == (? | ?);
@@ -157,11 +157,11 @@ THEORY ListOfIdsX IS
 END
 &
 THEORY SetsEnvX IS
-  Sets(Machine(Solidity_Types)) == (Type(ADDRESS) == Cst(SetOf(etype(ADDRESS,0,5)));Type(BYTES) == Cst(SetOf(atype(BYTES,"[BYTES","]BYTES"))))
+  Sets(Machine(Solidity_Types)) == (Type(ADDRESS) == Cst(SetOf(etype(ADDRESS,0,4)));Type(BYTES) == Cst(SetOf(atype(BYTES,"[BYTES","]BYTES"))))
 END
 &
 THEORY ConstantsEnvX IS
-  Constants(Machine(Solidity_Types)) == (Type(addr_0) == Cst(etype(ADDRESS,0,5));Type(THIS) == Cst(etype(ADDRESS,0,5));Type(addr_1) == Cst(etype(ADDRESS,0,5));Type(addr_2) == Cst(etype(ADDRESS,0,5));Type(addr_3) == Cst(etype(ADDRESS,0,5));Type(addr_4) == Cst(etype(ADDRESS,0,5));Type(init_msg_sender) == Cst(etype(ADDRESS,?,?));Type(init_msg_value) == Cst(btype(INTEGER,?,?));Type(USERS) == Cst(SetOf(etype(ADDRESS,"[USERS","]USERS")));Type(init_block_timestamp) == Cst(btype(INTEGER,?,?)))
+  Constants(Machine(Solidity_Types)) == (Type(addr_0) == Cst(etype(ADDRESS,0,4));Type(THIS) == Cst(etype(ADDRESS,0,4));Type(addr_1) == Cst(etype(ADDRESS,0,4));Type(addr_2) == Cst(etype(ADDRESS,0,4));Type(addr_3) == Cst(etype(ADDRESS,0,4));Type(init_msg_sender) == Cst(etype(ADDRESS,?,?));Type(init_msg_value) == Cst(btype(INTEGER,?,?));Type(USERS) == Cst(SetOf(etype(ADDRESS,"[USERS","]USERS")));Type(init_block_timestamp) == Cst(btype(INTEGER,?,?)))
 END
 &
 THEORY TCIntRdX IS

@@ -16,10 +16,13 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myMappignGet__BehaviorDescriptor = new MappignGet__BehaviorDescriptor();
   private final BHDescriptor myBVarDec__BehaviorDescriptor = new BVarDec__BehaviorDescriptor();
   private final BHDescriptor myBArrayDimension__BehaviorDescriptor = new BArrayDimension__BehaviorDescriptor();
+  private final BHDescriptor myBBoolExpression__BehaviorDescriptor = new BBoolExpression__BehaviorDescriptor();
   private final BHDescriptor myBNegativeExpression__BehaviorDescriptor = new BNegativeExpression__BehaviorDescriptor();
   private final BHDescriptor myElseIf__BehaviorDescriptor = new ElseIf__BehaviorDescriptor();
   private final BHDescriptor myBArrayAccessExpression__BehaviorDescriptor = new BArrayAccessExpression__BehaviorDescriptor();
   private final BHDescriptor myBMappingAccessExpression__BehaviorDescriptor = new BMappingAccessExpression__BehaviorDescriptor();
+  private final BHDescriptor myBOperationCall__BehaviorDescriptor = new BOperationCall__BehaviorDescriptor();
+  private final BHDescriptor myBFunctionCall__BehaviorDescriptor = new BFunctionCall__BehaviorDescriptor();
   private final BHDescriptor mypred__BehaviorDescriptor = new pred__BehaviorDescriptor();
   private final BHDescriptor mysucc__BehaviorDescriptor = new succ__BehaviorDescriptor();
   private final BHDescriptor myTransferOperation__BehaviorDescriptor = new TransferOperation__BehaviorDescriptor();
@@ -32,10 +35,13 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myBStructMemberAccess__BehaviorDescriptor = new BStructMemberAccess__BehaviorDescriptor();
   private final BHDescriptor myBFunctionIndex__BehaviorDescriptor = new BFunctionIndex__BehaviorDescriptor();
   private final BHDescriptor myConstantValuation__BehaviorDescriptor = new ConstantValuation__BehaviorDescriptor();
+  private final BHDescriptor myBArrayPush__BehaviorDescriptor = new BArrayPush__BehaviorDescriptor();
   private final BHDescriptor myOperation__BehaviorDescriptor = new Operation__BehaviorDescriptor();
   private final BHDescriptor myBBalanceOf__BehaviorDescriptor = new BBalanceOf__BehaviorDescriptor();
   private final BHDescriptor myTypingPredicateParameter__BehaviorDescriptor = new TypingPredicateParameter__BehaviorDescriptor();
   private final BHDescriptor myInitialisation__BehaviorDescriptor = new Initialisation__BehaviorDescriptor();
+  private final BHDescriptor myBVarDeclaration__BehaviorDescriptor = new BVarDeclaration__BehaviorDescriptor();
+  private final BHDescriptor myBCardExpression__BehaviorDescriptor = new BCardExpression__BehaviorDescriptor();
   private final BHDescriptor myenumMember__BehaviorDescriptor = new enumMember__BehaviorDescriptor();
   private final BHDescriptor myBExpression__BehaviorDescriptor = new BExpression__BehaviorDescriptor();
   private final BHDescriptor myBBinaryExpression__BehaviorDescriptor = new BBinaryExpression__BehaviorDescriptor();
@@ -70,88 +76,100 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
       case 2:
         return myBArrayDimension__BehaviorDescriptor;
       case 3:
-        return myBArrayType__BehaviorDescriptor;
+        return myBArrayPush__BehaviorDescriptor;
       case 4:
-        return myBBalanceOf__BehaviorDescriptor;
+        return myBArrayType__BehaviorDescriptor;
       case 5:
-        return myBBinaryExpression__BehaviorDescriptor;
+        return myBBalanceOf__BehaviorDescriptor;
       case 6:
-        return myBExpression__BehaviorDescriptor;
+        return myBBinaryExpression__BehaviorDescriptor;
       case 7:
-        return myBFunctionIndex__BehaviorDescriptor;
+        return myBBoolExpression__BehaviorDescriptor;
       case 8:
-        return myBIdentifier__BehaviorDescriptor;
+        return myBCardExpression__BehaviorDescriptor;
       case 9:
-        return myBIntegerLiteral__BehaviorDescriptor;
+        return myBExpression__BehaviorDescriptor;
       case 10:
-        return myBMappingAccessExpression__BehaviorDescriptor;
+        return myBFunctionCall__BehaviorDescriptor;
       case 11:
-        return myBNatural__BehaviorDescriptor;
+        return myBFunctionIndex__BehaviorDescriptor;
       case 12:
-        return myBNegativeExpression__BehaviorDescriptor;
+        return myBIdentifier__BehaviorDescriptor;
       case 13:
-        return myBNotExpression__BehaviorDescriptor;
+        return myBIntegerLiteral__BehaviorDescriptor;
       case 14:
-        return myBParenthesisExpression__BehaviorDescriptor;
+        return myBMappingAccessExpression__BehaviorDescriptor;
       case 15:
-        return myBRecordExpression__BehaviorDescriptor;
+        return myBNatural__BehaviorDescriptor;
       case 16:
-        return myBStringLiteral__BehaviorDescriptor;
+        return myBNegativeExpression__BehaviorDescriptor;
       case 17:
-        return myBStructMemberAccess__BehaviorDescriptor;
+        return myBNotExpression__BehaviorDescriptor;
       case 18:
-        return myBVarDec__BehaviorDescriptor;
+        return myBOperationCall__BehaviorDescriptor;
       case 19:
-        return myBecomesSubstitution__BehaviorDescriptor;
+        return myBParenthesisExpression__BehaviorDescriptor;
       case 20:
-        return myConstantValuation__BehaviorDescriptor;
+        return myBRecordExpression__BehaviorDescriptor;
       case 21:
-        return myElseIf__BehaviorDescriptor;
+        return myBStringLiteral__BehaviorDescriptor;
       case 22:
-        return myEnumeratedSet__BehaviorDescriptor;
+        return myBStructMemberAccess__BehaviorDescriptor;
       case 23:
-        return myFunction__BehaviorDescriptor;
+        return myBVarDec__BehaviorDescriptor;
       case 24:
-        return myIfInstruction__BehaviorDescriptor;
+        return myBVarDeclaration__BehaviorDescriptor;
       case 25:
-        return myInitialisation__BehaviorDescriptor;
+        return myBecomesSubstitution__BehaviorDescriptor;
       case 26:
-        return myInstructionList__BehaviorDescriptor;
+        return myConstantValuation__BehaviorDescriptor;
       case 27:
-        return myMachine__BehaviorDescriptor;
+        return myElseIf__BehaviorDescriptor;
       case 28:
-        return myMappignGet__BehaviorDescriptor;
+        return myEnumeratedSet__BehaviorDescriptor;
       case 29:
-        return myOperation__BehaviorDescriptor;
+        return myFunction__BehaviorDescriptor;
       case 30:
-        return myPredicate__BehaviorDescriptor;
+        return myIfInstruction__BehaviorDescriptor;
       case 31:
-        return myReturnSubstitution__BehaviorDescriptor;
+        return myInitialisation__BehaviorDescriptor;
       case 32:
-        return mySet__BehaviorDescriptor;
+        return myInstructionList__BehaviorDescriptor;
       case 33:
-        return myStructSet__BehaviorDescriptor;
+        return myMachine__BehaviorDescriptor;
       case 34:
-        return myTransferOperation__BehaviorDescriptor;
+        return myMappignGet__BehaviorDescriptor;
       case 35:
-        return myTypingPredicate__BehaviorDescriptor;
+        return myOperation__BehaviorDescriptor;
       case 36:
-        return myTypingPredicateParameter__BehaviorDescriptor;
+        return myPredicate__BehaviorDescriptor;
       case 37:
-        return myVarIn__BehaviorDescriptor;
+        return myReturnSubstitution__BehaviorDescriptor;
       case 38:
-        return myWhileInstruction__BehaviorDescriptor;
+        return mySet__BehaviorDescriptor;
       case 39:
-        return myenumMember__BehaviorDescriptor;
+        return myStructSet__BehaviorDescriptor;
       case 40:
-        return mypred__BehaviorDescriptor;
+        return myTransferOperation__BehaviorDescriptor;
       case 41:
-        return mysucc__BehaviorDescriptor;
+        return myTypingPredicate__BehaviorDescriptor;
       case 42:
+        return myTypingPredicateParameter__BehaviorDescriptor;
+      case 43:
+        return myVarIn__BehaviorDescriptor;
+      case 44:
+        return myWhileInstruction__BehaviorDescriptor;
+      case 45:
+        return myenumMember__BehaviorDescriptor;
+      case 46:
+        return mypred__BehaviorDescriptor;
+      case 47:
+        return mysucc__BehaviorDescriptor;
+      case 48:
         return myuserDefinedSet__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127aL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x22386bbff832ba6aL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0xc5014708ed59565L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4e0a79736b1af681L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6eb31L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756964L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x605b779bcf2455b9L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a015L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781278L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1345c017d06d641dL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756976L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4bf90534ab2ea008L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5c24adf26bb8813eL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a018L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5c24adf26bc18fa1L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0xc5014708ec95bc6L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x62dd0bd8e6cc1b0bL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c774b48L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c784996L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c6993c5af9L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4315e5479d1b2c67L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a01cL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7923cf0b1219a78L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4eL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce4763978eL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781274L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce4782bb49L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce476396f5L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78126dL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698f14dd9L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7923cf0b1219a72L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c801d46L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d37e504154a2cdbL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x2ddbf14b541ae44fL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x2ddbf14b541b29e2L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127dL)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127aL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x22386bbff832ba6aL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0xc5014708ed59565L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x659c33bf0c446f47L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4e0a79736b1af681L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6eb31L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756964L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0xfe15e5679b63bd8L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7c3774600ea7cb96L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756961L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28fd0440bd1487b1L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x605b779bcf2455b9L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a015L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28d5251170d69ec4L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781278L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1345c017d06d641dL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756976L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x28fd0440bd130eaaL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4bf90534ab2ea008L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5c24adf26bb8813eL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a018L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5c24adf26bc18fa1L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0xc5014708ec95bc6L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6f7adc3593a02b96L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d05L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x62dd0bd8e6cc1b0bL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c774b48L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c784996L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c6993c5af9L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x4315e5479d1b2c67L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c75a01cL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7923cf0b1219a78L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4eL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce4763978eL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c781274L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce4782bb49L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce476396f5L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78126dL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698f14dd9L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7923cf0b1219a72L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c801d46L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d37e504154a2cdbL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x2ddbf14b541ae44fL), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x2ddbf14b541b29e2L), MetaIdFactory.conceptId(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c78127dL)).seal();
 }

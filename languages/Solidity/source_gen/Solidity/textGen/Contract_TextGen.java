@@ -17,7 +17,9 @@ public class Contract_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append("pragma solidity ^0.7;");
+    tgs.append("pragma solidity ^0.8;");
+    tgs.newLine();
+    tgs.append("// SPDX-License-Identifier: MIT");
     tgs.newLine();
     tgs.newLine();
     tgs.append("contract");

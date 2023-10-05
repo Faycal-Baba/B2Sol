@@ -13,6 +13,8 @@ import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import com.mbeddr.mpsutil.grammarcells.runtime.IFlagModelAccess;
+import com.mbeddr.mpsutil.grammarcells.runtime.DefaultFlagModelAccess;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.KeyWordStyleClass;
 import jetbrains.mps.lang.editor.editor.Styles_StyleSheet.LeftParenStyleClass;
@@ -28,11 +30,16 @@ import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandlerElementKeyMap;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightParenStyleClass;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import com.mbeddr.mpsutil.grammarcells.runtime.CellActionWithReadAccess;
+import com.mbeddr.mpsutil.grammarcells.runtime.GrammarCellsUtil;
+import jetbrains.mps.lang.structure.editor.structure_StyleSheet.KeywordStyleClass;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.LeftBraceStyleClass;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBraceStyleClass;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class Constructor_EditorBuilder_a extends AbstractEditorBuilder {
@@ -60,9 +67,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setBig(true);
     setCellContext(editorCell);
     editorCell.addEditorCell(createCollection_1());
-    editorCell.addEditorCell(createConstant_3());
-    editorCell.addEditorCell(createCollection_2());
     editorCell.addEditorCell(createConstant_4());
+    editorCell.addEditorCell(createCollection_2());
+    editorCell.addEditorCell(createConstant_5());
     return editorCell;
   }
   private EditorCell createCollection_1() {
@@ -75,7 +82,19 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.addEditorCell(createConstant_1());
     editorCell.addEditorCell(createRefNodeList_0());
     editorCell.addEditorCell(createConstant_2());
+    if (nodeCondition_ph8r7t_a4a0()) {
+      editorCell.addEditorCell(createCustomFactory_1());
+    }
     return editorCell;
+  }
+  private boolean nodeCondition_ph8r7t_a4a0() {
+    IFlagModelAccess access = new DefaultFlagModelAccess(PROPS.payable$DvKB);
+    if (!(access.read(myNode))) {
+      return false;
+    }
+
+
+    return true;
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "constructor");
@@ -191,7 +210,57 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setDefaultText("");
     return editorCell;
   }
+  private EditorCell createCustomFactory_0(final EditorContext editorContext, final SNode node) {
+
+    if (!(new Object() {
+      public boolean showWrapped() {
+        IFlagModelAccess access = new DefaultFlagModelAccess(PROPS.payable$DvKB);
+        if (!(access.read(myNode))) {
+          return false;
+        }
+
+
+        return true;
+      }
+    }.showWrapped())) {
+      return EditorCell_Collection.createVertical(editorContext, node);
+    }
+
+    final EditorCell cell = createConstant_3();
+    EditorCell editorCell = new _FunctionTypes._return_P0_E0<EditorCell>() {
+      public EditorCell invoke() {
+        cell.setAction(CellActionType.DELETE, new CellActionWithReadAccess() {
+          public void execute(EditorContext editorContext) {
+            IFlagModelAccess access = new DefaultFlagModelAccess(PROPS.payable$DvKB);
+            access.write(node, false);
+            GrammarCellsUtil.selectPrevNextOnSameLine(editorContext, true);
+          }
+        });
+        cell.setAction(CellActionType.BACKSPACE, new CellActionWithReadAccess() {
+          public void execute(EditorContext editorContext) {
+            IFlagModelAccess access = new DefaultFlagModelAccess(PROPS.payable$DvKB);
+            access.write(node, false);
+            GrammarCellsUtil.selectPrevNextOnSameLine(editorContext, false);
+          }
+        });
+        return cell;
+      }
+    }.invoke();
+    return editorCell;
+  }
+  private EditorCell createCustomFactory_1() {
+    return createCustomFactory_0(getEditorContext(), myNode);
+  }
   private EditorCell createConstant_3() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "payable");
+    editorCell.setCellId("flag_payable");
+    Style style = new StyleImpl();
+    new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    editorCell.getStyle().putAll(style);
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
+  private EditorCell createConstant_4() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "{");
     editorCell.setCellId("Constant_ph8r7t_b0");
     Style style = new StyleImpl();
@@ -290,7 +359,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
     }
   }
-  private EditorCell createConstant_4() {
+  private EditorCell createConstant_5() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "}");
     editorCell.setCellId("Constant_ph8r7t_d0");
     Style style = new StyleImpl();
@@ -298,6 +367,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty payable$DvKB = MetaAdapterFactory.getProperty(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be3db8L, 0x86a6df74eb20810L, "payable");
   }
 
   private static final class LINKS {

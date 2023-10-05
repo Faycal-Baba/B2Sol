@@ -25,6 +25,12 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
+      case LanguageConceptSwitch.AddressCast:
+        return new AddressCast_TextGen();
+      case LanguageConceptSwitch.ArrayPush:
+        return new ArrayPush_TextGen();
+      case LanguageConceptSwitch.ArrayType:
+        return new ArrayType_TextGen();
       case LanguageConceptSwitch.AssignementStatement:
         return new AssignementStatement_TextGen();
       case LanguageConceptSwitch.BalanceOf:
@@ -37,6 +43,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new Constructor_TextGen();
       case LanguageConceptSwitch.Contract:
         return new Contract_TextGen();
+      case LanguageConceptSwitch.DotExpression:
+        return new DotExpression_TextGen();
       case LanguageConceptSwitch.EmptyLine:
         return new EmptyLine_TextGen();
       case LanguageConceptSwitch.EmptySstatement:
@@ -65,10 +73,14 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new IntegerLiteral_TextGen();
       case LanguageConceptSwitch.LineComment:
         return new LineComment_TextGen();
+      case LanguageConceptSwitch.LocalVarDeclaration:
+        return new LocalVarDeclaration_TextGen();
       case LanguageConceptSwitch.Mapping:
         return new Mapping_TextGen();
       case LanguageConceptSwitch.MappingElement:
         return new MappingElement_TextGen();
+      case LanguageConceptSwitch.MaxUint:
+        return new MaxUint_TextGen();
       case LanguageConceptSwitch.Minusminus:
         return new Minusminus_TextGen();
       case LanguageConceptSwitch.NotExpression:
@@ -109,10 +121,12 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new UserType_TextGen();
       case LanguageConceptSwitch.WhileStatement:
         return new WhileStatement_TextGen();
+      case LanguageConceptSwitch.revert:
+        return new revert_TextGen();
       case LanguageConceptSwitch.structMemberList:
         return new structMemberList_TextGen();
-      case LanguageConceptSwitch.varDec:
-        return new varDec_TextGen();
+      case LanguageConceptSwitch.varDecExpression:
+        return new varDecExpression_TextGen();
     }
     return null;
   }

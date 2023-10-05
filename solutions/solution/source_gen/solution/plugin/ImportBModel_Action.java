@@ -18,6 +18,7 @@ import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import Application.ImporterLogic.Importer;
+import jetbrains.mps.text.TextGeneratorEngine;
 import java.nio.file.Path;
 
 public class ImportBModel_Action extends BaseAction {
@@ -77,6 +78,16 @@ public class ImportBModel_Action extends BaseAction {
           // adding the new A model to the sandbox   
           event.getData(MPSCommonDataKeys.MODEL).addRootNode(machineModel);
           // generate text using TextGeneratorEngine 
+          String generatedText = TextGeneratorEngine.generateText(machineModel);
+          // generatedText prints = "Failed to generate text for node" 
+
+          // recovers folder of the given A text file  
+          Path path = ImportBModel_Action.this.getPath(selectedFile, event);
+          // try to write the generatedtext in the same folder, but fails  
+          Importer.writeGeneratedSolFile(generatedText, path);
+
+
+
 
         } catch (Exception exception) {
           System.out.println("exception" + exception.getMessage());

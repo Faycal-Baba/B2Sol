@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="63x9f0gyhv7psq75fmoui4l2tkr63dr">
+<product version="3" modelHash="-7xh4uar9rd3ghxm63tcoosdfiwu0eyr">
   <files names="BArrayAccessExpression_TextGen.java:BBalanceOf_TextGen.java:BBinaryExpression_TextGen.java:BFalseExpression_TextGen.java:BIdentifier_TextGen.java:BIntegerLiteral_TextGen.java:BMappingAccessExpression_TextGen.java:BNotExpression_TextGen.java:BParenthesisExpression_TextGen.java:BSpaceChar_TextGen.java:BStringLiteral_TextGen.java:BTrueExpression_TextGen.java:BVarDec_TextGen.java:BecomesSubstitution_TextGen.java:EnumeratedSet_TextGen.java:Function_TextGen.java:IfInstruction_TextGen.java:Initialisation_TextGen.java:Machine_TextGen.java:Operation_TextGen.java:Predicate_TextGen.java:ReturnSubstitution_TextGen.java:Set_TextGen.java:SolidityGlobalVariables_TextGen.java:StructSet_TextGen.java:TextGenAspectDescriptor.java:TransferOperation_TextGen.java:TypingPredicate_TextGen.java:VarIn_TextGen.java:WhileInstruction_TextGen.java:pred_TextGen.java:succ_TextGen.java:userDefinedSet_TextGen.java" />
 </product>
 

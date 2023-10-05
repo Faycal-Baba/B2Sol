@@ -1,9 +1,0 @@
-digraph {
-Escrow_contract_i [ label=" Escrow_contract\nEscrow_contract_i " shape= box ]
-Platform [ label=" Platform " shape= box ]
-Solidity_Types [ label=" Solidity_Types " shape= box ]
-
-"Escrow_contract_i" -> "Solidity_Types" [style= dotted ]
-"Escrow_contract_i" -> "Platform" []
-"Platform" -> "Solidity_Types" [style= dotted ]
-}

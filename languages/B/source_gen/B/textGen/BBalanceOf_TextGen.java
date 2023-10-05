@@ -17,12 +17,12 @@ public class BBalanceOf_TextGen extends TextGenDescriptorBase {
     tgs.append(" ");
     tgs.append("(");
     tgs.append(" ");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.name$Bgnm));
+    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.expr$Bgnm));
     tgs.append(" ");
     tgs.append(")");
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink name$Bgnm = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6eb31L, 0x62dd0bd8e6ab9332L, "name");
+    /*package*/ static final SContainmentLink expr$Bgnm = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698b6eb31L, 0x62dd0bd8e6ab9332L, "expr");
   }
 }

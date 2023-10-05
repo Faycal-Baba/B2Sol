@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import java.util.Iterator;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import B.behavior.StructSet__BehaviorDescriptor;
@@ -44,16 +45,75 @@ public class Util {
       }
       if (st instanceof SNode) {
         SNode node = ((SNode) st);
-        for (SNode st_ : ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.instrs$CWJX))) {
-          if (SNodeOperations.isInstanceOf(st_, CONCEPTS.TransferOperation$Fn)) {
-            SNode nodeBis = ((SNode) st_);
-            if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(nodeBis, LINKS.to$g5So), CONCEPTS.THIS$mL)) {
-              return true;
+        boolean payable = isPayable(SLinkOperations.getChildren(node, LINKS.instrs$CWJX));
+        if (payable == true) {
+          return payable;
+        }
+      } else if (SNodeOperations.isInstanceOf(st, CONCEPTS.IfInstruction$dN)) {
+        SNode node = ((SNode) st);
+        boolean payable = isPayable(SLinkOperations.getChildren(node, LINKS.IfTrueBranch$4$iY));
+        if (payable == true) {
+          return true;
+        }
+        {
+          Iterator<SNode> elseIf__it = ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.elseIfs$8mi0)).iterator();
+          SNode elseIf__var;
+          while (elseIf__it.hasNext()) {
+            elseIf__var = elseIf__it.next();
+            payable = isPayable(SLinkOperations.getChildren(elseIf__var, LINKS.instr$QmAM));
+            if (payable = true) {
+              return payable;
             }
           }
         }
+        if (!(ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.ElseBranch$4DVm)).isEmpty())) {
+          payable = isPayable(SLinkOperations.getChildren(node, LINKS.ElseBranch$4DVm));
+          if (payable == true) {
+            return payable;
+          }
+        }
       }
+    }
+    return false;
+  }
 
+  public static boolean isPayable(List<SNode> instrs) {
+    for (SNode st_ : ListSequence.fromList(instrs)) {
+      if (SNodeOperations.isInstanceOf(st_, CONCEPTS.TransferOperation$Fn)) {
+        SNode nodeBis = ((SNode) st_);
+        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(nodeBis, LINKS.to$g5So), CONCEPTS.THIS$mL)) {
+          return true;
+        }
+      } else if (SNodeOperations.isInstanceOf(st_, CONCEPTS.VarIn$_L)) {
+        SNode node = ((SNode) st_);
+        boolean payable = isPayable(SLinkOperations.getChildren(node, LINKS.instrs$CWJX));
+        if (payable == true) {
+          return payable;
+        }
+      } else if (SNodeOperations.isInstanceOf(st_, CONCEPTS.IfInstruction$dN)) {
+        SNode node = ((SNode) st_);
+        boolean payable = isPayable(SLinkOperations.getChildren(node, LINKS.IfTrueBranch$4$iY));
+        if (payable == true) {
+          return true;
+        }
+        {
+          Iterator<SNode> elseIf__it = ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.elseIfs$8mi0)).iterator();
+          SNode elseIf__var;
+          while (elseIf__it.hasNext()) {
+            elseIf__var = elseIf__it.next();
+            payable = isPayable(SLinkOperations.getChildren(elseIf__var, LINKS.instr$QmAM));
+            if (payable = true) {
+              return payable;
+            }
+          }
+        }
+        if (!(ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.ElseBranch$4DVm)).isEmpty())) {
+          payable = isPayable(SLinkOperations.getChildren(node, LINKS.ElseBranch$4DVm));
+          if (payable == true) {
+            return payable;
+          }
+        }
+      }
     }
     return false;
   }
@@ -112,19 +172,24 @@ public class Util {
       default:
         return false;
     }
-
-
   }
+
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink to$g5So = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce476396f5L, 0x3d1067ce476396feL, "to");
     /*package*/ static final SContainmentLink instrs$CWJX = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7923cf0b1219a72L, 0x7923cf0b1219a75L, "instrs");
+    /*package*/ static final SContainmentLink IfTrueBranch$4$iY = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL, 0x7d382cf97c7d49ddL, "IfTrueBranch");
+    /*package*/ static final SContainmentLink elseIfs$8mi0 = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL, 0x1ace29e015cd441bL, "elseIfs");
+    /*package*/ static final SContainmentLink instr$QmAM = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L, 0x1ace29e015cd4418L, "instr");
+    /*package*/ static final SContainmentLink ElseBranch$4DVm = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL, 0x7d382cf97c7d49e0L, "ElseBranch");
     /*package*/ static final SContainmentLink body$4v9z = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x6d3985c698aa2036L, 0x6d3985c698ada6a2L, "body");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept THIS$mL = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x5b77dc1122c9701L, "B.structure.THIS");
+    /*package*/ static final SConcept IfInstruction$dN = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c7d3d4dL, "B.structure.IfInstruction");
     /*package*/ static final SConcept TransferOperation$Fn = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x3d1067ce476396f5L, "B.structure.TransferOperation");
+    /*package*/ static final SConcept VarIn$_L = MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7923cf0b1219a72L, "B.structure.VarIn");
   }
 
   private static final class PROPS {

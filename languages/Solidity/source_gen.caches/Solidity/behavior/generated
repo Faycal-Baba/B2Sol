@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-dqptvabx3f6bbu3p7pvns024ombvqsd">
-  <files names="BehaviorAspectDescriptor.java:FunctionDefinition__BehaviorDescriptor.java:MappingElement__BehaviorDescriptor.java:PayableFunctionDefinition__BehaviorDescriptor.java:StateVariableDeclaration__BehaviorDescriptor.java" />
+<product version="3" modelHash="-61p3t8jcgaw53vlea3osfxhzwgonlr2">
+  <files names="AddressCast__BehaviorDescriptor.java:BehaviorAspectDescriptor.java:FunctionDefinition__BehaviorDescriptor.java:MappingElement__BehaviorDescriptor.java:PayableFunctionDefinition__BehaviorDescriptor.java:StateVariableDeclaration__BehaviorDescriptor.java" />
 </product>
 

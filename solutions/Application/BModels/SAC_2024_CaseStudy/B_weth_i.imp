@@ -7,89 +7,168 @@ IMPLEMENTATION B_weth_i
 REFINES B_weth
 SEES Solidity_Types
 IMPORTS Platform, account, allowance, depositedOver100
-CONCRETE_VARIABLES
-    manager_i, index_i, donated_i //,depositors_i
+CONCRETE_CONSTANTS
+    threshold_i
+PROPERTIES
+    threshold_i : NAT & threshold_i = threshold  
+VALUES
+    threshold_i = 2
+CONCRETE_VARIABLES manager_i, depositors_i, index, donated_i
 INVARIANT
-    donated_i : BOOL & 
-    index_i : NAT & 
-    manager_i : USERS & manager_i = manager & 
-    depositors_i : 0..MAXINT --> ADDRESS &
-    //depositors = depositors_i
-INITIALISATION
-    manager_i := manager_;
-    index_i := 0;
-    donated_i := FALSE
-    //depositors_i := (0..MAXINT) * {addr_0} ;
-OPERATIONS
+    index : NAT  & 
+    donated_i : BOOL &
+    depositors_i : 0.. threshold --> ADDRESS & 
+    manager_i : USERS & manager_i = manager & donated_i = donated  &
     
+    dom(depositedOver_100 |> {TRUE}) = depositors &
+    index = card(depositors) &
+    ran((0..index-1) <| depositors_i) = depositors  &
+    (0..index-1) <| depositors_i : 0..index-1 >-> ADDRESS
+    
+
+INITIALISATION
+    index := 0; 
+    depositors_i := (0..99) * {addr_0} ;
+    manager_i := init_msg_sender;
+    donated_i := FALSE
+    
+LOCAL_OPERATIONS
+    
+    ret <-- check_account_overflow = 
+        ret := bool(!xx.(xx : ran((0..index-1) <| depositors_i) => accountOf(xx) + 1 : NAT))
+   
+    
+OPERATIONS
+
+    ret//* ret : BOOL
+     <-- check_account_overflow = 
+    BEGIN 
+        //* ii : NAT ;
+        //* value : BOOL ;    
+        VAR ii, value IN
+            ii := 0;
+            value := TRUE; 
+            WHILE ii < index & value = TRUE DO 
+                VAR depositorBalance IN 
+                    depositorBalance <-- get_accountOf(depositors_i(ii));
+                    value := bool(depositorBalance + 1 <= MAXINT);
+                    ii := ii+ 1
+                END
+            INVARIANT  ii <= index & ii >= 0 &  
+                value = bool(!xx.(xx : ran((0..ii-1) <| depositors_i) => accountOf(xx) + 1 : NAT))
+            VARIANT index - ii
+            END;
+            ret := value
+        END
+    END    
+    ;
+                    
+                
+
     deposit(msg_sender, msg_value) = 
     BEGIN
-    VAR val IN
-        val <-- get_accountOf(msg_sender);
-        set_accountOf(msg_sender, val + msg_value);  
-        transfer(msg_sender, THIS, msg_value); 
-        VAR balance, distinct IN
-            balance <-- get_accountOf(msg_sender);
-            distinct <-- get_depositedOver_100(msg_sender);
-            IF balance > 100 & distinct = FALSE & index_i < 100 THEN 
-                depositors_i(index_i) := msg_sender;
-                index_i := index_i + 1 ;
-                set_depositedOver_100(msg_sender, TRUE)
+        VAR senderBalance, senderAccount, thisBalance IN
+            senderAccount <-- get_accountOf(msg_sender);
+            senderBalance <-- get_balanceOf(msg_sender);
+            thisBalance <-- get_balanceOf(THIS);
+
+            IF thisBalance + msg_value <= MAXINT & senderBalance - msg_value >=0 & 
+            senderAccount + msg_value <= MAXINT 
+            THEN             
+                set_accountOf(msg_sender, senderAccount + msg_value);  
+                transfer(msg_sender, THIS, msg_value); 
+                VAR distinct IN
+                    distinct <-- get_depositedOver_100(msg_sender);
+                    IF senderAccount + msg_value >= threshold_i &  distinct = FALSE & index < threshold_i 
+                    THEN 
+                        depositors_i(index) := msg_sender;
+                        set_depositedOver_100(msg_sender, TRUE);
+                        index := index +1 
+                    END
+                END
             END
         END
     END
-    END
     ;
+
     withdraw(msg_sender, amount) = 
     BEGIN
-    VAR val IN
-        val <-- get_accountOf(msg_sender);
-        transfer(THIS , msg_sender, amount);
-        set_accountOf(msg_sender, val -  amount)       
-    END
+        VAR senderAccount, senderBalance IN
+            senderAccount <-- get_accountOf(msg_sender);
+            senderBalance <-- get_balanceOf(msg_sender);
+            IF senderAccount >= amount & senderBalance + amount <= MAXINT 
+            THEN
+                transfer(THIS , msg_sender, amount);
+                set_accountOf(msg_sender, senderAccount -  amount)       
+            END 
+        END
     END
     ;
 
     transferTo(msg_sender, dst, amount) = 
     BEGIN
-        VAR sender_balance, receiver_balance IN
-            sender_balance <-- get_accountOf(msg_sender);
-            receiver_balance <-- get_accountOf(dst);
-            set_accountOf(msg_sender,  sender_balance - amount);
-            set_accountOf(dst, receiver_balance + amount)
+        VAR senderBalance, receiverBalance IN
+            senderBalance <-- get_accountOf(msg_sender);
+            receiverBalance <-- get_accountOf(dst);
+            IF senderBalance >= amount & receiverBalance + amount <= MAXINT 
+            THEN
+                set_accountOf(msg_sender,  senderBalance - amount);
+                set_accountOf(dst, receiverBalance + amount)
+            END
         END    
     END
     ;
     
     approve(msg_sender, dst, amount)= 
     BEGIN
-        set_allowanceOf(msg_sender, dst, amount)        
+        IF msg_sender /= dst THEN 
+            set_allowanceOf(msg_sender, dst, amount)
+        END        
     END
     ;
     transferFrom(msg_sender, sender, recipient, amount) =
     BEGIN
-        VAR val1, val2, val3 IN
-            val1 <-- get_accountOf(sender);
-            val2 <-- get_accountOf(recipient);
-            val3 <-- get_allowanceOf(sender, msg_sender);
-            set_accountOf(sender, val1 - amount);
-            set_accountOf(recipient, val2 + amount);
-            set_allowanceOf(sender, msg_sender, val3 - amount)
+        VAR senderBalance, recipientBalance, allowance IN   
+            senderBalance <-- get_accountOf(sender);
+            recipientBalance <-- get_accountOf(recipient);
+            allowance <-- get_allowanceOf(sender, msg_sender);
+            IF sender /= recipient & allowance >= amount & senderBalance >= amount & 
+                recipientBalance + amount <= MAXINT 
+            THEN
+                set_accountOf(sender, senderBalance - amount);
+                set_accountOf(recipient, recipientBalance + amount);
+                set_allowanceOf(sender, msg_sender, allowance - amount)
+             END
         END
     END
     ;
     rewardTopDepositors(msg_sender, msg_value) =
     BEGIN
-        transfer(msg_sender, THIS, msg_value); 
-        donated_i := TRUE;
-        WHILE index >=0 DO
-            VAR value IN 
-                value <--  get_accountOf(depositors_i(ii));
-                set_accountOf(depositors_i(ii ), value + 1);
-                ii := ii + 1
-            END
-        INVARIANT depositors_i(ii) : dom(accountOf)             
-        VARIANT 100 - index
+        VAR thisBalance, managerBalance, safe IN
+            //* safe : BOOL;
+            safe <-- check_account_overflow;
+            thisBalance <-- get_balanceOf(THIS);
+            managerBalance <-- get_balanceOf(manager_i);
+            IF msg_value = threshold_i & index = threshold_i & donated_i = FALSE &  thisBalance + msg_value <= MAXINT & 
+                managerBalance - msg_value >= 0 & safe = TRUE
+            THEN
+                transfer(msg_sender, THIS, msg_value);
+                donated_i := TRUE; 
+                //* ii : NAT ;
+                VAR ii IN 
+                    ii := 0; 
+                    WHILE ii < index DO
+                        VAR depositorBalance IN 
+                            depositorBalance <-- get_accountOf(depositors_i(ii));
+                            set_accountOf(depositors_i (ii), depositorBalance + 1);
+                            ii := ii+ 1
+                        END
+                    INVARIANT ii=100 or ii: dom(depositors_i) &
+                            accountOf = accountOf$0<+(%xx. (xx : depositors_i[0..(ii-1)] | accountOf$0(xx) + 1))  
+                    VARIANT 100 - ii
+                    END
+                END
+            END                
         END
-    END             
- END
+    END
+END

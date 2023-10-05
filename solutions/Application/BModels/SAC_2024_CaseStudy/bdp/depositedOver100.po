@@ -8,20 +8,20 @@ END
 &
 THEORY Formulas IS
 ((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
-((1..6)*{ADDRESS}): FIN(NATURAL*{ADDRESS})& not(((1..6)*{ADDRESS}) = {}) & BYTES: FIN(INTEGER) & not(BYTES = {}) & ((USERS) = ((((1..6)*{ADDRESS}) - ({(2|->ADDRESS)}\/{(1|->ADDRESS)})))) & ((init_msg_sender) : (USERS)) & ((init_msg_value) : (NAT)) & ((init_block_timestamp) : (NAT));
+((1..5)*{ADDRESS}): FIN(NATURAL*{ADDRESS})& not(((1..5)*{ADDRESS}) = {}) & BYTES: FIN(INTEGER) & not(BYTES = {}) & ((USERS) = ((((1..5)*{ADDRESS}) - ({(2|->ADDRESS)}\/{(1|->ADDRESS)})))) & ((init_msg_sender) : (USERS)) & ((init_msg_value) : (NAT)) & ((init_block_timestamp) : (NAT));
 "Invariant is preserved";
-(((((1..6)*{ADDRESS}) * ({FALSE}))) : (((((1..6)*{ADDRESS})) --> (BOOL))));
-depositedOver_100 : ((1..6)*{ADDRESS}) +-> BOOL & dom(depositedOver_100) = ((1..6)*{ADDRESS}) & ((depositedOver_100) : (((((1..6)*{ADDRESS})) --> (BOOL))));
-((updates) : (((((1..6)*{ADDRESS})) +-> (BOOL))));
-((((depositedOver_100) <+ (updates))) : (((((1..6)*{ADDRESS})) --> (BOOL))));
-((key) : (((1..6)*{ADDRESS})));
+(((((1..5)*{ADDRESS}) * ({FALSE}))) : (((((1..5)*{ADDRESS})) --> (BOOL))));
+depositedOver_100 : ((1..5)*{ADDRESS}) +-> BOOL & dom(depositedOver_100) = ((1..5)*{ADDRESS}) & ((depositedOver_100) : (((((1..5)*{ADDRESS})) --> (BOOL))));
+((updates) : (((((1..5)*{ADDRESS})) +-> (BOOL))));
+((((depositedOver_100) <+ (updates))) : (((((1..5)*{ADDRESS})) --> (BOOL))));
+((key) : (((1..5)*{ADDRESS})));
 ((value) : (BOOL));
-((((depositedOver_100) <+ (({((key) |-> (value))})))) : (((((1..6)*{ADDRESS})) --> (BOOL))));
+((((depositedOver_100) <+ (({((key) |-> (value))})))) : (((((1..5)*{ADDRESS})) --> (BOOL))));
 "Operation is well defined";
 ((key) : (dom(depositedOver_100)));
 ((depositedOver_100) : (((dom(depositedOver_100)) +-> (ran(depositedOver_100)))))
 END
 &
 THEORY EnumerateX IS
-ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3,addr_4}
+ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3}
 END

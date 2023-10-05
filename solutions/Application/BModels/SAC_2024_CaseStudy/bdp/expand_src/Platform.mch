@@ -8,10 +8,6 @@ SEES
 ABSTRACT_VARIABLES
     balanceOf
 
-CONCRETE_CONSTANTS
-    manager_
-PROPERTIES
-    manager_ : USERS
 INVARIANT
     balanceOf : ADDRESS --> NAT
 
@@ -21,10 +17,10 @@ INITIALISATION
 
 OPERATIONS
 
-
-    addRandomAmount =
+    // Used in animating model in proB. 
+    addRandomAmountToBalance =
     BEGIN
-        ANY amount_ , xx WHERE xx : ADDRESS & amount_ : 1 .. 3 & balanceOf ( xx ) + amount_ : NAT THEN
+        ANY amount_ , xx WHERE xx : USERS & amount_ : 1 .. 3 & balanceOf ( xx ) + amount_ : NAT THEN
             balanceOf ( xx ) := balanceOf ( xx ) + amount_
         END
     END
@@ -52,7 +48,7 @@ OPERATIONS
     ;
 
 
-    ret <-- getBalanceOf ( adr ) =
+    ret <-- get_balanceOf ( adr ) =
     PRE
         adr : ADDRESS
     THEN
@@ -60,8 +56,8 @@ OPERATIONS
     END
     ;
 
-    // Permet de tester si notre modèle et vulnerable au forcefeeding (i.e la reception forcée d'ether)
-    // **Forcée dans le sens où le sm recoit l'ether sans exécution d'opération**
+    // Test if model is vulnerable to ForceFeeding
+
       ForceFeeding ( amount ) =
     PRE amount : NAT & balanceOf ( THIS ) + amount : NAT
     THEN

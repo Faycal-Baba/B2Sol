@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
   <dependency className="Application.ImporterLogic.Importer">
+    <classNode dependClassName="B.behavior.BArrayPush__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BArrayType__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BBalanceOf__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BBinaryExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BBoolExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BCardExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BFunctionCall__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BIdentifier__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BMappingAccessExpression__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BNegativeExpression__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BNotExpression__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BOperationCall__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BParenthesisExpression__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BRecordExpression__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BStructMemberAccess__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BVarDec__BehaviorDescriptor" />
+    <classNode dependClassName="B.behavior.BVarDeclaration__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.BecomesSubstitution__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.ElseIf__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.EnumeratedSet__BehaviorDescriptor" />
@@ -22,7 +28,6 @@
     <classNode dependClassName="B.behavior.Machine__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.MappignGet__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.Operation__BehaviorDescriptor" />
-    <classNode dependClassName="B.behavior.Predicate__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.StructSet__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.TransferOperation__BehaviorDescriptor" />
     <classNode dependClassName="B.behavior.TypingPredicate__BehaviorDescriptor" />

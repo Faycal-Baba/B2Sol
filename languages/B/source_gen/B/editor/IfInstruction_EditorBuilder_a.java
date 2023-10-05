@@ -60,7 +60,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.addEditorCell(createCollection_1());
     editorCell.addEditorCell(createCollection_2());
     if (nodeCondition_ouzwd_a2a()) {
-      editorCell.addEditorCell(createCollection_3());
+      editorCell.addEditorCell(createCollection_4());
     }
     editorCell.addEditorCell(createConstant_3());
     return editorCell;
@@ -153,23 +153,32 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createCollection_2() {
-    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
     editorCell.setCellId("Collection_ouzwd_b0");
+    editorCell.addEditorCell(createCollection_3());
+    return editorCell;
+  }
+  private EditorCell createCollection_3() {
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
+    editorCell.setCellId("Collection_ouzwd_a1a");
     editorCell.addEditorCell(createRefNodeList_0());
     return editorCell;
   }
   private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new IfTrueBranchListHandler_ouzwd_a1a(myNode, getEditorContext());
-    EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
+    AbstractCellListHandler handler = new IfTrueBranchListHandler_ouzwd_a0b0(myNode, getEditorContext());
+    EditorCell_Collection editorCell = handler.createCells(new CellLayout_Vertical(), false);
     editorCell.setCellId("refNodeList_IfTrueBranch");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
+    editorCell.getStyle().putAll(style);
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class IfTrueBranchListHandler_ouzwd_a1a extends RefNodeListHandler {
+  private static class IfTrueBranchListHandler_ouzwd_a0b0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public IfTrueBranchListHandler_ouzwd_a1a(SNode ownerNode, EditorContext context) {
+    public IfTrueBranchListHandler_ouzwd_a0b0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -192,7 +201,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(IfTrueBranchListHandler_ouzwd_a1a.this.getNode(), LINKS.IfTrueBranch$4$iY));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(IfTrueBranchListHandler_ouzwd_a0b0.this.getNode(), LINKS.IfTrueBranch$4$iY));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -232,11 +241,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
     }
   }
-  private EditorCell createCollection_3() {
+  private EditorCell createCollection_4() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
     editorCell.setCellId("Collection_ouzwd_c0");
     editorCell.addEditorCell(createConstant_2());
-    editorCell.addEditorCell(createCollection_4());
+    editorCell.addEditorCell(createCollection_5());
     return editorCell;
   }
   private EditorCell createConstant_2() {
@@ -248,27 +257,34 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setDefaultText("");
     return editorCell;
   }
-  private EditorCell createCollection_4() {
-    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
+  private EditorCell createCollection_5() {
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
     editorCell.setCellId("Collection_ouzwd_b2a");
+    editorCell.addEditorCell(createCollection_6());
+    return editorCell;
+  }
+  private EditorCell createCollection_6() {
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
+    editorCell.setCellId("Collection_ouzwd_a1c0");
     editorCell.addEditorCell(createRefNodeList_1());
     return editorCell;
   }
   private EditorCell createRefNodeList_1() {
-    AbstractCellListHandler handler = new ElseBranchListHandler_ouzwd_a1c0(myNode, getEditorContext());
-    EditorCell_Collection editorCell = handler.createCells(new CellLayout_Horizontal(), false);
+    AbstractCellListHandler handler = new ElseBranchListHandler_ouzwd_a0b2a(myNode, getEditorContext());
+    EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
     editorCell.setCellId("refNodeList_ElseBranch");
     Style style = new StyleImpl();
+    style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
     editorCell.getStyle().putAll(style);
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class ElseBranchListHandler_ouzwd_a1c0 extends RefNodeListHandler {
+  private static class ElseBranchListHandler_ouzwd_a0b2a extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public ElseBranchListHandler_ouzwd_a1c0(SNode ownerNode, EditorContext context) {
+    public ElseBranchListHandler_ouzwd_a0b2a(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -291,7 +307,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(ElseBranchListHandler_ouzwd_a1c0.this.getNode(), LINKS.ElseBranch$4DVm));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(ElseBranchListHandler_ouzwd_a0b2a.this.getNode(), LINKS.ElseBranch$4DVm));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();

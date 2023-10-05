@@ -36,7 +36,7 @@ public final class ElseIf__BehaviorDescriptor extends BaseBHDescriptor {
     SLinkOperations.setTarget(__thisNode__, LINKS.condition$Qhdr, condition);
   }
   /*package*/ static void addInstruction_id5vMBZAy763a(@NotNull SNode __thisNode__, SNode substitution) {
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.substitutions$QmAM)).addElement(substitution);
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.instr$QmAM)).addElement(substitution);
   }
 
   /*package*/ ElseIf__BehaviorDescriptor() {
@@ -91,6 +91,6 @@ public final class ElseIf__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$Qhdr = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L, 0x1ace29e015cd4416L, "condition");
-    /*package*/ static final SContainmentLink substitutions$QmAM = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L, 0x1ace29e015cd4418L, "substitutions");
+    /*package*/ static final SContainmentLink instr$QmAM = MetaAdapterFactory.getContainmentLink(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x1ace29e015cd4415L, 0x1ace29e015cd4418L, "instr");
   }
 }

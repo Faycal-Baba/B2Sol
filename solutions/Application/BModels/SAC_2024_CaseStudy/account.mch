@@ -33,5 +33,8 @@ OPERATIONS
     THEN
         accountOf(key) := value
     END
+    ;
+    
+    ret <-- get_account = ret := accountOf
 
 END

@@ -5,5 +5,5 @@ THEORY Formulas
 END
 &
 THEORY EnumerateX IS
-ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3,addr_4}
+ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3}
 END

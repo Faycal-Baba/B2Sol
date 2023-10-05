@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -25,8 +26,9 @@ public final class BVarDec__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<Void> setSet_idLg572eMqmE = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setSet").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("Lg572eMqmE").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> setId_idLg572eMrie = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setId").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("Lg572eMrie").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> setId_id7oExvB9u5M3 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setId").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7oExvB9u5M3").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(setSet_idLg572eMqmE, setId_idLg572eMrie);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(setSet_idLg572eMqmE, setId_idLg572eMrie, setId_id7oExvB9u5M3);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -36,6 +38,11 @@ public final class BVarDec__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static void setId_idLg572eMrie(@NotNull SNode __thisNode__, SNode lhs) {
     SLinkOperations.setTarget(__thisNode__, LINKS.id$JFaX, lhs);
+  }
+  /*package*/ static void setId_id7oExvB9u5M3(@NotNull SNode __thisNode__, String id_) {
+    SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c756979L, "B.structure.BIdentifier"));
+    BIdentifier__BehaviorDescriptor.setName_id7B8mKgzi8Kz.invoke(node, id_);
+    SLinkOperations.setTarget(__thisNode__, LINKS.id$JFaX, node);
   }
 
   /*package*/ BVarDec__BehaviorDescriptor() {
@@ -58,6 +65,9 @@ public final class BVarDec__BehaviorDescriptor extends BaseBHDescriptor {
         return null;
       case 1:
         setId_idLg572eMrie(node, (SNode) parameters[0]);
+        return null;
+      case 2:
+        setId_id7oExvB9u5M3(node, (String) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);

@@ -1,14 +1,14 @@
 THEORY BalanceX IS
-Platform,20,0,0,19,0,0,0;
+Platform,22,0,0,22,0,0,0;
 Operation_ForceFeeding,1,0,0,1,0,0,0;
-Operation_addRandomAmount,1,0,0,0,0,0,0;
+Operation_addRandomAmountToBalance,1,0,0,1,0,0,0;
 Operation_transfer,1,0,0,1,0,0,0;
 Operation_transfer_,1,0,0,1,0,0,0;
 Operation_transfer_abstract,1,0,0,1,0,0,0;
 WellDefinednessPrecondition_ForceFeeding,2,0,0,2,0,0,0;
 WellDefinednessPrecondition_transfer,4,0,0,4,0,0,0;
 WellDefinedness_ForceFeeding,2,0,0,2,0,0,0;
-WellDefinedness_addRandomAmount,2,0,0,2,0,0,0;
+WellDefinedness_addRandomAmountToBalance,4,0,0,4,0,0,0;
 WellDefinedness_getBalanceOf,2,0,0,2,0,0,0;
 WellDefinedness_transfer,3,0,0,3,0,0,0
 END
@@ -33,7 +33,9 @@ Proved(0);
 Proved(0);
 Proved(0);
 Proved(0);
-Unproved
+Proved(0);
+Proved(0);
+Proved(0)
 END
 &
 THEORY MethodList IS
@@ -56,7 +58,9 @@ pr;
 pr;
 pr;
 pr;
-?
+pr;
+pr;
+pr
 END
 &
 THEORY PassList IS
@@ -79,20 +83,22 @@ Force(0),?;
 Force(0),?;
 Force(0),?;
 Force(0),?;
-Force(0),(?; 0)
+Force(0),?;
+Force(0),?;
+Force(0),?
 END
 &
 THEORY Status IS
-Platform,20,0,19,0,0,0;
+Platform,22,0,22,0,0,0;
 Operation_ForceFeeding,1,0,1,0,0,0;
-Operation_addRandomAmount,1,0,0,0,0,0;
+Operation_addRandomAmountToBalance,1,0,1,0,0,0;
 Operation_transfer,1,0,1,0,0,0;
 Operation_transfer_,1,0,1,0,0,0;
 Operation_transfer_abstract,1,0,1,0,0,0;
 WellDefinednessPrecondition_ForceFeeding,2,0,2,0,0,0;
 WellDefinednessPrecondition_transfer,4,0,4,0,0,0;
 WellDefinedness_ForceFeeding,2,0,2,0,0,0;
-WellDefinedness_addRandomAmount,2,0,2,0,0,0;
+WellDefinedness_addRandomAmountToBalance,4,0,4,0,0,0;
 WellDefinedness_getBalanceOf,2,0,2,0,0,0;
 WellDefinedness_transfer,3,0,3,0,0,0
 END

@@ -36,6 +36,21 @@ public class FunctionDefinition_TextGen extends TextGenDescriptorBase {
     tgs.append(" ");
     tgs.append("public");
     tgs.append(" ");
+
+    if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.outputParameters$owVe) != null && !(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.outputParameters$owVe), LINKS.parameters$ZePM)).isEmpty())) {
+      tgs.append("returns");
+      tgs.append("(");
+      for (SNode op : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.outputParameters$owVe), LINKS.parameters$ZePM))) {
+        tgs.appendNode(op);
+        if ((SNodeOperations.getNextSibling(op) != null)) {
+          tgs.append(",");
+          tgs.append(" ");
+        }
+      }
+      tgs.append(" ");
+      tgs.append(")");
+      tgs.append(" ");
+    }
     tgs.append("{");
     tgs.newLine();
     tgs.increaseIndent();
@@ -57,6 +72,8 @@ public class FunctionDefinition_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink inputParameters$orxR = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bfce2aL, 0x6d3985c698bfce2bL, "inputParameters");
+    /*package*/ static final SContainmentLink outputParameters$owVe = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bfce2aL, 0x6d3985c698bfce2dL, "outputParameters");
+    /*package*/ static final SContainmentLink parameters$ZePM = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698be6346L, 0x6d3985c698be636eL, "parameters");
     /*package*/ static final SContainmentLink body$oxCh = MetaAdapterFactory.getContainmentLink(0xf72d32028a4541adL, 0xbb612369f7191040L, 0x6d3985c698bfce2aL, 0x6d3985c698bfce30L, "body");
   }
 }
