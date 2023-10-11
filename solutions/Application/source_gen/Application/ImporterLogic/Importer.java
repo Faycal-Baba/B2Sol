@@ -828,7 +828,7 @@ public class Importer {
     if (!((input.whileSubstitution() == null))) {
       SNode instruction = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x17157e91c2e440eaL, 0xaefc3d3bbdd08639L, 0x7d382cf97c801d46L, "B.structure.WhileInstruction"));
       BImplGrammarParser.WhileSubstitutionContext whileSubstitution = input.whileSubstitution();
-      SNode condition = evaluateCondition(whileSubstitution.condition(0));
+      SNode condition = evaluateCondition(whileSubstitution.condition());
       WhileInstruction__BehaviorDescriptor.setCondition_id5vMBZAy7pZP.invoke(instruction, condition);
       BImplGrammarParser.StatementListContext statementList = whileSubstitution.statementList();
       List<BImplGrammarParser.StatementContext> statements = statementList.statement();

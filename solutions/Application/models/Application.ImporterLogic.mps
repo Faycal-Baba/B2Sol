@@ -9143,11 +9143,8 @@
                     <node concept="37vLTw" id="3I8KTO$gia3" role="2Oq$k0">
                       <ref role="3cqZAo" node="3I8KTO$gfpr" resolve="whileSubstitution" />
                     </node>
-                    <node concept="liA8E" id="3I8KTO$gjue" role="2OqNvi">
-                      <ref role="37wK5l" to="lgf6:~BImplGrammarParser$WhileSubstitutionContext.condition(int)" resolve="condition" />
-                      <node concept="3cmrfG" id="3I8KTO$gjv_" role="37wK5m">
-                        <property role="3cmrfH" value="0" />
-                      </node>
+                    <node concept="liA8E" id="77YI_4rt3N6" role="2OqNvi">
+                      <ref role="37wK5l" to="lgf6:~BImplGrammarParser$WhileSubstitutionContext.condition()" resolve="condition" />
                     </node>
                   </node>
                 </node>

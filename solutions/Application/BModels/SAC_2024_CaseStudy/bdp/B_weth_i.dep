@@ -1,7 +1,0 @@
-file:e6855d5e50e182f4bafdc840c72ab349
-abst:B_weth
-sees:Solidity_Types
-impo:Platform
-impo:account
-impo:allowance
-impo:depositedOver100

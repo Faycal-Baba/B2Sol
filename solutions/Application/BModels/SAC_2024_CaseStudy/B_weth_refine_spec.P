@@ -1,5 +1,0 @@
-spec_not_all_transitions_added(0).
-spec_not_all_transitions_added(1).
-spec_max_reached_for_node(root).
-spec_completely_explored :-
-        fail.
